@@ -52,7 +52,7 @@ Energy flows are based on a "double entry" format (each flow has an opposite flo
 These equal and opposite flows are summarised in the following table: 
 
 Flow | From / To   
-    --- |--- 
+--- |---
 `harvest` |`store.in` `enjoy` `grid.in`
 `store.out` | `enjoy`
 `enjoy`  |  `harvest` `store.out` `grid.out`
