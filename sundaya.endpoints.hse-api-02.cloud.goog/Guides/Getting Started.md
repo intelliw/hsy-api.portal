@@ -12,7 +12,7 @@
 Browse the reference section of this site to see examples of what you can do with this API and how to use it. You can use the **Try this API** tool on the right side of an API method page to generate a sample request.
 
 # Introduction
-Sundaya's Energy Management API provides data for Energy accounting, and allows users and vendors to monitor and control Energy Assets and Energy Management Devices. 
+The Energy Management API provides data for Energy accounting and allows users and vendors to monitor and control their Energy Assets and Energy Management Devices. 
 
 Energy Type | Energy Assets | Energy Management Devices
 --- | --- | ---
@@ -34,7 +34,7 @@ Clients can use the API to manage **Energy Assets** through graphical views and 
 
 ## Devices API
 
-The `/devices` path is for vendor integrations to provide data for the `/energy` API, and for vendors to monitor and control their **Energy Management Devices**.
+The `/devices` path is for vendor integrations to log energy flows, and for vendors to monitor and control their **Energy Management Devices**.
 
 
 # Overview
