@@ -12,15 +12,7 @@
 Browse the reference section of this site to see examples of what you can do with this API and how to use it. You can use the **Try this API** tool on the right side of an API method page to generate a sample request.
 
 # Introduction
-The HSE Energy Management API is based on REST / Hypermedia and specified in [OpenAPI v2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md). 
-
-The API provides energy metrics for four **Flow** types:`harvest`, `store`, `enjoy`, `grid`. 
-
-The API response consolidates all four energy flow types based on a period (week, month etc.).
-
-- Clients can use the API to manage **Energy Assets** through graphical views and by scheduling energy use at preferred times.
-
-- Vendor device integrations can use the API to monitor and control their **Energy Management Devices**.
+Sundaya's Energy Management API provides data for Energy accounting, and allows users and vendors to monitor and control Energy Assets and Energy Management Devices. 
 
 Energy Type | Energy Assets | Energy Management Devices
 --- | --- | ---
@@ -29,7 +21,21 @@ Energy Type | Energy Assets | Energy Management Devices
 `enjoy` | Appliances | Multicore-Cable Current Sensors, Clamp-on Current Sensors
 `grid` | Mains Electricity | Smart Meters
 
-The API and documentation is available through the *Sundaya Developer Portal* at https://developer.sundaya.com. 
+The API is based on REST / Hypermedia and specified in [OpenAPI v2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md). 
+
+The API and documentation is available through the *Sundaya Developer Portal* at [https://developer.sundaya.com](https://developer.sundaya.com). 
+
+## Energy API
+The `/energy` path provides metrics for four **Energy Types** :`harvest`, `store`, `enjoy`, `grid`. 
+
+The response consolidates all four energy types for on a period (week, month etc.).
+
+Clients can use the API to manage **Energy Assets** through graphical views and by scheduling energy use at preferred times.
+
+## Devices API
+
+The `/devices` path is for vendor integrations to provide data for the `/energy` API, and for vendors to monitor and control their **Energy Management Devices**.
+
 
 # Overview
 
