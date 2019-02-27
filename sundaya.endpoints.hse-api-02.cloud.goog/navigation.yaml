@@ -36,5 +36,5 @@ folders:
     # The add_example_page script will add a page named 'Example Page' here.
     ordering:
     - Energy Management
-    - Guides
     - Getting Started
+    - Guides

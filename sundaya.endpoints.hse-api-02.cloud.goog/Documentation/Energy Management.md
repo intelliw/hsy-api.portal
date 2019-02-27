@@ -1,7 +1,7 @@
-# Energy Management API
+# Energy Management
 ---
 
-The Energy Management API provides data for Energy accounting and allows users and vendors to monitor and control their Energy Assets and Energy Management Devices. 
+The Energy Management API provides data for energy accounting and allows users and vendors to monitor and control their Energy Assets and Energy Management Devices. 
 
 Energy Type | Energy Assets | Energy Management Devices
 --- | --- | ---
