@@ -24,12 +24,12 @@
 # in the 'folders' map below.
 ordering:
 - Introduction
-- Energy Management
+- Energy Accounting
 - API Reference
 - Resources
 
 folders:
-  Energy Management:
+  Energy Accounting:
     # If you want to have sub-folders, you can add another 'folders' map within
     # this folder's configuration.
     # In this example, there is only a 'Getting Started' page and no sub-folders.
