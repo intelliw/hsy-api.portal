@@ -1,4 +1,4 @@
-# Guides
+# Standards & Conventions
 ---
 
 ## Versions
