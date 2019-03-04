@@ -24,17 +24,17 @@
 # in the 'folders' map below.
 ordering:
 - Introduction
-- Energy Management
+- Guides
 - API Reference
 - Resources
 
 folders:
-  Energy Management:
+  Guides:
     # If you want to have sub-folders, you can add another 'folders' map within
     # this folder's configuration.
     # In this example, there is only a 'Getting Started' page and no sub-folders.
     # The add_example_page script will add a page named 'Example Page' here.
     ordering:
-    - Overview
+    - Energy Management
     - Getting Started
     - Standards & Conventions
