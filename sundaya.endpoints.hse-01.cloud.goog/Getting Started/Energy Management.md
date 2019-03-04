@@ -14,23 +14,23 @@ The API is based on REST / Hypermedia and specified in [OpenAPI v2.0](https://gi
 
 The API and documentation is available through the *Sundaya Developer Portal* at [https://developer.sundaya.com](https://developer.sundaya.com). 
 
-## Energy API
+### Energy API
 The `/energy` path provides metrics for four **Energy Types** :`harvest`, `store`, `enjoy`, `grid`. 
 
 The response consolidates all four energy types for on a period (week, month etc.).
 
 Clients can use the API to manage **Energy Assets** through graphical views and by scheduling energy use at preferred times.
 
-## Devices API
+### Devices API
 
 The `/devices` path is for vendor integrations to log energy flows, and for vendors to monitor and control their **Energy Management Devices**.
 
 
-# Overview
+# Data Structure
 
-## Data element names
+### Element names
 
-The following provides names of all data elements used in the API, in the context of each flow. 
+The following labels are used in API paths and responses to refer to energy data subsets. 
 
 - `store.in` and `store.out` indicate *charge* and *discharge* flows for batteries.
 
@@ -40,7 +40,7 @@ The following provides names of all data elements used in the API, in the contex
 
 - `enjoy` indicates energy use and always implies `.in`. 
 
-## Double-entry format 
+### Double-entry format 
 
 Energy flows are based on a "double entry" format (each flow has an opposite flow). 
 

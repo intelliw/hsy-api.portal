@@ -1,4 +1,4 @@
-# Guides
+# Standards & Conventions
 ---
 
 ## Versions
@@ -29,9 +29,10 @@ The Timezone can be specified in UTC or local time as shown:
 
     e.g. http://api.sundaya.com/energy/hse/period/minute/20190209T0930Z == 09:30 UTC
 
-- __Local__ time in Jakarta with offset 
+- __Local__ time in Jakarta with +/- offset 
 
     http://api.sundaya.com/energy/hse/period/week/YYYYMMDDThhmmss±hhmm
+
     e.g. http://api.sundaya.com/energy/hse/period/minute/20190209T1630-0700 == 09:30 UTC
 ## Media types
 Request `Body` parameters and all response objects are sent and received in JSON. 

@@ -1,4 +1,4 @@
-# Guides
+# Standards & Conventions
 ---
 
 ## Versions
@@ -42,7 +42,7 @@ Clients should use `Accept` and `Content-Type` headers to preserve backward comp
 These media types are supported:
 
     application/json 
-    application/vnd.collection+json 
+    application/vnd.collection+json
 
 ## Headers
 This following example shows a sample HTTP request and response.
