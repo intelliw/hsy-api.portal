@@ -68,18 +68,18 @@ The following registered types are referenced in the `rel` attribute of the link
 
     In `collection.links` it identifies the collection (name = *week*)            
 
-    - e.g. href=<a>http:/api.sundaya.com/energy/hse/week/20190210</a>
+    - e.g. href=<a>[http:/api.sundaya.com/energy/hse/week/20190210](http:/api.sundaya.com/energy/hse/week/20190210)</a>
 
     In `collection.items.links` it identifies an item in the collection (name = *day*).
-    - e.g. `href=<a>http:/api.sundaya.com/energy/hse/day/20190204</a>`
+    - e.g. href=<a>[http:/api.sundaya.com/energy/hse/day/20190204](http:/api.sundaya.com/energy/hse/day/20190204)</a>
 
 - **collection** - in `collection.links` it targets the item series whiich make up the collection (name = *week.days*).
     
-    - e.g. `href=<a>http:/api.sundaya.com/energy/hse/interval/day/20190204/20190210</a>`
+    - e.g. href=<a>[http:/api.sundaya.com/energy/hse/day/20190204](http:/api.sundaya.com/energy/hse/day/20190204)</a>
 
 - **item** - in `collection.items.links` it targets subitems of the item in that context (name = *day.hours*).
 
-    - e.g. `href=<a>http:/api.sundaya.com/energy/hse/interval/hour/201902050600/201902050500</a>`
+    - e.g. href=<a>[http:/api.sundaya.com/energy/hse/hour/201902050600](http:/api.sundaya.com/energy/hse/hour/201902050600)</a>
 
 - **up** - Identifies the parent the collection or item represented by the link"s context (name = *week.month*).
     
