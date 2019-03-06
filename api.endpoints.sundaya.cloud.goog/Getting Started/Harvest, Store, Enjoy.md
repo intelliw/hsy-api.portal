@@ -34,11 +34,11 @@ The following labels are used in API paths and responses to refer to energy data
 
 - `store.in` and `store.out` indicate *charge* and *discharge* flows for batteries.
 
-- `grid.out` and `grid.in` indicate mains use, and feed-in flows to the public grid.
+- `grid.out` and `grid.in` indicate mains use, and feed-in flows into the public grid.
 
-- `harvest` indicates renewable generation and always implies `.out`. 
+- `harvest` indicates renewable generation. 
 
-- `enjoy` indicates energy use and always implies `.in`. 
+- `enjoy` indicates energy use by end users and appliances. 
 
 ### Double-entry format 
 
