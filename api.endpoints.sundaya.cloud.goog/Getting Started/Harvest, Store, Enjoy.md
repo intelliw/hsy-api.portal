@@ -36,7 +36,7 @@ The following labels are used in API paths and responses to refer to energy data
 
 - `grid.out` and `grid.in` indicate mains use, and feed-in flows into the public grid.
 
-- `harvest` indicates renewable generation. 
+- `harvest` refers to renewable energy generation. 
 
 - `enjoy` indicates energy use by end users and appliances. 
 
