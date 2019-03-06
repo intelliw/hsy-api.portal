@@ -2,7 +2,7 @@
 ---
 
 ## Versions
-The API endpoint host is [http://api.sundaya.com] (http://api.sundaya.com). 
+The API endpoint host is [http://api.sundaya.com](http://api.sundaya.com). 
 
 All requests to the API endpoint receive the latest version of the API.     
 
