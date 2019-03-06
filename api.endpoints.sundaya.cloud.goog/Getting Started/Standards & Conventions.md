@@ -2,7 +2,7 @@
 ---
 
 ## Versions
-The API endpoint host is [http://api.sundaya.com](http://api.sundaya.com). 
+The API endpoint host is [http://api.sundaya.com](http://api.endpoints.sundaya.cloud.goog). 
 
 All requests to the API endpoint receive the latest version of the API.     
 
@@ -15,7 +15,7 @@ Date and time parameters must be expressed in [ISO 8601](https://en.wikipedia.or
 
     http://api.sundaya.com/energy/{energyType}/{period}/{start}
 
-e.g. [http:/api.sundaya.com/energy/hse/week/20190210](http:/api.sundaya.com/energy/hse/week/20190210)
+e.g. [http:/api.sundaya.com/energy/hse/week/20190210](http:/api.endpoints.sundaya.cloud.goog/energy/hse/week/20190210)
 
 The compressed version of ISO 8601 is required, without semi colons and with `T` as the time designator, as shown in examples below.
 
@@ -27,13 +27,13 @@ The Timezone can be specified in UTC or local time as shown:
 
 - __UTC__, expressed with a trailing `Z` 
 
-    e.g. [http://api.sundaya.com/energy/hse/minute/20190209T0930Z](http://api.sundaya.com/energy/hse/minute/20190209T0930Z) == 09:30 UTC
+    e.g. [http://api.sundaya.com/energy/hse/minute/20190209T0930Z](http://api.endpoints.sundaya.cloud.goog/energy/hse/minute/20190209T0930Z) == 09:30 UTC
 
 - __Local__ time in Jakarta with +/- offset 
 
     http://api.sundaya.com/energy/hse/minute/YYYYMMDDThhmmss±hhmm
 
-    e.g. [http://api.sundaya.com/energy/hse/minute/20190209T1630-0700](http://api.sundaya.com/energy/hse/minute/20190209T1630-0700) == 09:30 UTC
+    e.g. [http://api.sundaya.com/energy/hse/minute/20190209T1630-0700](http://api.endpoints.sundaya.cloud.goog/energy/hse/minute/20190209T1630-0700) == 09:30 UTC
 ## Media types
 Request `Body` parameters and all response objects are sent and received in JSON. 
 
@@ -68,18 +68,18 @@ The following registered types are referenced in the `rel` attribute of the link
 
     In `collection.links` it identifies the collection (name = *week*)            
 
-    - e.g. href=<a>[http:/api.sundaya.com/energy/hse/week/20190210](http:/api.sundaya.com/energy/hse/week/20190210)</a>
+    - e.g. href=<a>[http:/api.sundaya.com/energy/hse/week/20190210](http:/api.endpoints.sundaya.cloud.goog/energy/hse/week/20190210)</a>
 
     In `collection.items.links` it identifies an item in the collection (name = *day*).
-    - e.g. href=<a>[http:/api.sundaya.com/energy/hse/day/20190204](http:/api.sundaya.com/energy/hse/day/20190204)</a>
+    - e.g. href=<a>[http:/api.sundaya.com/energy/hse/day/20190204](http:/api.endpoints.sundaya.cloud.goog/energy/hse/day/20190204)</a>
 
 - **collection** - in `collection.links` it targets the item series whiich make up the collection (name = *week.days*).
     
-    - e.g. href=<a>[http:/api.sundaya.com/energy/hse/day/20190204](http:/api.sundaya.com/energy/hse/day/20190204)</a>
+    - e.g. href=<a>[http:/api.sundaya.com/energy/hse/day/20190204](http:/api.endpoints.sundaya.cloud.goog/energy/hse/day/20190204)</a>
 
 - **item** - in `collection.items.links` it targets subitems of the item in that context (name = *day.hours*).
 
-    - e.g. href=<a>[http:/api.sundaya.com/energy/hse/hour/201902050600](http:/api.sundaya.com/energy/hse/hour/201902050600)</a>
+    - e.g. href=<a>[http:/api.sundaya.com/energy/hse/hour/201902050600](http:/api.endpoints.sundaya.cloud.goog/energy/hse/hour/201902050600)</a>
 
 - **up** - Identifies the parent the collection or item represented by the link"s context (name = *week.month*).
     
