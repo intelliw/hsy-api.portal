@@ -5,7 +5,7 @@ The Energy Management API provides data for energy accounting and allows users a
 
 Energy Type | Energy Assets | Energy Management Devices
 --- | --- | ---
-`harvest` | Renewables | PV Modules, Maximum Power Point Tracker (MPPT), PV Grid-interactive Inverter
+`harvest` | Renewables | Maximum Power Point Tracker (MPPT), PV Modules, Inverter
 `store` | Storage | Busbar Controler (BBC), Pack Management System (PMS)
 `enjoy` | Appliances | Multicore-Cable Current Sensors, Clamp-on Current Sensors
 `grid` | Mains Electricity | Smart Meters
