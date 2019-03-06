@@ -7,7 +7,7 @@ Energy Type | Energy Assets | Energy Management Devices
 --- | --- | ---
 `harvest` | Renewables | PV Module Strings, Maximum Power Point Tracker (MPPT)
 `store` | Storage | Busbar Controler (BBC), Pack Management System (PMS)
-`enjoy` | Appliances | Multicore-Cable Current Sensors, Clamp-on Current Sensors
+`enjoy` | Appliances | Multicore-Cable Current Sensors, Clamp-on (Switchboard) Current Sensors
 `grid` | Mains Electricity | Smart Meters, PV Grid-interactive Inverter
 
 The API is based on REST / Hypermedia and specified in [OpenAPI v2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md). 
