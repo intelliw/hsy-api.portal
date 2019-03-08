@@ -3,7 +3,7 @@
 
 The Energy Management API provides data for energy accounting and allows users and vendors to monitor and control their Energy Assets and Energy Management Devices. 
 
-Energy Type | Energy Assets | Energy Management Devices
+Type | Energy Assets | Energy Management Devices
 --- | --- | ---
 `harvest` | Renewables | PV Module Strings, Maximum Power Point Tracker (MPPT)
 `store` | Storage | Busbar Controler (BBC), Pack Management System (PMS)
