@@ -3,7 +3,7 @@
 ### hse GET response
 
 
-```
+```javascript
 {
     "collection": {
         "version": "0.2",
