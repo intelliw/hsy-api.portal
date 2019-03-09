@@ -2,6 +2,7 @@
 
 ### hse GET response
 
+[/energy/hse/week/20190204/1?site=9999](/energy/hse/week/20190204/1?site=9999)
 
 ```javascript
 {
@@ -228,11 +229,11 @@
 
 # Devices
 
-
 ### PMS-EPACK POST request
 
+[/devices/BBC-PMS-999/datasets/PMS-EPACK](/devices/BBC-PMS-999/datasets/PMS-EPACK)
 
-```
+```json
 {
     "items": [
         {
@@ -510,11 +511,11 @@
 }   
 ```
 
-
 ### MPPT-SNMP POST request
 
+[/devices/BBC-MPPT-999/datasets/MPPT-SNMP](/devices/BBC-MPPT-999/datasets/MPPT-SNMP)
 
-```
+```python
 {
     "items": [
         {
@@ -659,4 +660,14 @@
         }
     ]
   } 
-  ```
+```
+
+# Versions
+
+[/v](/v)
+
+```perl
+{
+  "versions": "v0.0.04"
+}
+```
