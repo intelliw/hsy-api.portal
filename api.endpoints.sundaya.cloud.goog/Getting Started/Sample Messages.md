@@ -2,6 +2,8 @@
 
 ### hse GET response
 
+
+```
 {
     "collection": {
         "version": "0.2",
@@ -222,8 +224,15 @@
     }
 }
 
+```
+
+# Devices
+
+
 ### PMS-EPACK POST request
 
+
+```
 {
     "items": [
         {
@@ -499,11 +508,13 @@
         {
     ]
 }   
+```
 
 
 ### MPPT-SNMP POST request
 
 
+```
 {
     "items": [
         {
@@ -648,3 +659,4 @@
         }
     ]
   } 
+  ```
