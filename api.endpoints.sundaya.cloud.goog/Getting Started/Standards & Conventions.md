@@ -13,7 +13,7 @@ Client applications may request a specific version through the `Accept` header.
 ## Date-time Format
 Date and time parameters must be expressed in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format and must conform to [RFC3359](https://tools.ietf.org/html/rfc3339) .
 
-    http://api.sundaya.com/energy/{energyType}/{period}/{start}
+    http://api.sundaya.com/energy/{type}/{period}/{epoch}
 
 e.g. [http:/api.sundaya.com/energy/hse/week/20190210](http:/api.endpoints.sundaya.cloud.goog/energy/hse/week/20190210)
 
@@ -37,12 +37,13 @@ The Timezone can be specified in UTC or local time as shown:
 ## Media types
 Request `Body` parameters and all response objects are sent and received in JSON. 
 
-Clients should use `Accept` and `Content-Type` headers to preserve backward compatibility (in case a new media type or hypermedia scheme is introduced and designated as default).
+Clients should specify and consume `Accept` and `Content-Type` request and response headers to help maintain backward compatibility in their applications. This ensures that an expected response is received, even as new media types or hypermedia schemes are introduced and designated as default.
 
-These media types are supported:
+These media types are currently supported:
 
     application/json 
     application/vnd.collection+json
+    text/html
 
 ## Headers
 This following example shows a sample HTTP request and response.

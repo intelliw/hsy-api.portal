@@ -38,3 +38,8 @@ folders:
     - Harvest, Store, Enjoy
     - Standards & Conventions
     - Security
+    - Sample Messages
+      - energy hse GET response
+      - devices MPPT-SNMP POST request
+      - devices PMS-EPACK POST request
+      

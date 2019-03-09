@@ -3,12 +3,12 @@
 
 The Energy Management API provides data for energy accounting and allows users and vendors to monitor and control their Energy Assets and Energy Management Devices. 
 
-Type | Energy Assets | Energy Management Devices
+Energy | Assets | Devices
 --- | --- | ---
-`harvest` | Renewables | PV Module Strings, Maximum Power Point Tracker (MPPT)
-`store` | Storage | Busbar Controler (BBC), Pack Management System (PMS)
+`harvest` | Renewables | PV Modules, Maximum Power Point Trackers (MPPT)
+`store` | Storage | Busbar Controlers (BBC), Pack Management Systems (PMS)
 `enjoy` | Appliances | Multicore-Cable Current Sensors, Switchboard Clamp Sensors
-`grid` | Mains Electricity | Smart Meters, PV Grid-interactive Inverter
+`grid` | Mains Electricity | Smart Meters, PV Grid-interactive Inverters
 
 The API is based on REST / Hypermedia and specified in [OpenAPI v2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md). 
 
