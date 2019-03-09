@@ -4,7 +4,7 @@
 
 [/energy/hse/week/20190204/1?site=9999](/energy/hse/week/20190204/1?site=9999)
 
-```javascript
+```json
 {
     "collection": {
         "version": "0.2",
@@ -515,7 +515,7 @@
 
 [/devices/BBC-MPPT-999/datasets/MPPT-SNMP](/devices/BBC-MPPT-999/datasets/MPPT-SNMP)
 
-```python
+```json
 {
     "items": [
         {
@@ -668,8 +668,8 @@
 
 [/v](/v)
 
-```perl
+```json
 {
-  "versions": "v0.0.04"
+  "versions": "v1.0 v1.1"
 }
 ```
