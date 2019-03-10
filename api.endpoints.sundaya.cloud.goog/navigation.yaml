@@ -41,5 +41,18 @@ folders:
     - Security
   Sample Messages:
     ordering:
-    - hse GET response
+    - GET
+    - POST
+  
+    folders:
+      GET:
+        ordering:
+        - Energy hse GET response
+        - Versions GET response
+      POST:
+        ordering:
+        - Devices PMS-EPACK POST request
+        - Devices MPPT-SNMP POST request
+
+      
   
