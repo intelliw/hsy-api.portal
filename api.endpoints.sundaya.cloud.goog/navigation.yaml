@@ -27,7 +27,7 @@ ordering:
 - Getting Started
 - API Reference
 - Resources
-- Sample Messages
+- Examples
 
 folders:
   Getting Started:
@@ -39,7 +39,7 @@ folders:
     - Harvest, Store, Enjoy
     - Standards & Conventions
     - Security
-  Sample Messages:
+  Examples:
     ordering:
     - GET
     - POST
