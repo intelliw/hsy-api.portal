@@ -47,12 +47,12 @@ folders:
     folders:
       GET:
         ordering:
-        - Energy hse GET response
+        - Energy (hse) GET response
         - Versions GET response
       POST:
         ordering:
-        - Devices PMS-EPACK POST request
-        - Devices MPPT-SNMP POST request
+        - Devices (PMS-EPACK) POST request
+        - Devices (MPPT-SNMP) POST request
 
       
   
