@@ -40,15 +40,6 @@ folders:
     - Standards & Conventions
     - Security
   Sample Messages:
-    folders:
-      Energy:
-        ordering:
-        - hse GET response
-      Devices:
-        ordering:
-        - PMS-EPACK POST request
-        - MPPT-SNMP POST request
-      Versions:
-        ordering:
-        - versions GET response
+    ordering:
+    - hse GET response
   
