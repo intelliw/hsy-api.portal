@@ -4,6 +4,21 @@
 
 [/devices/BBC-MPPT-999/datasets/MPPT-SNMP](/devices/BBC-MPPT-999/datasets/MPPT-SNMP)
 
+
+```
+*** REQUEST ***	
+GET /devices/BBC-PR1202-999/datasets/MPPT-SNMP HTTP/1.1	
+Host: api.endpoints.sundaya.cloud.goog
+Accept: application/vnd.collection+json
+    
+*** RESPONSE ***	
+201 OK HTTP/1.1	
+Location: http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999/datasets/MPPT-SNMP/20190209T150100.912-0700
+Content-Type: application/json
+Content-Length: 250	
+
+```
+
 ```json
 {
   "href": "http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999/datasets/MPPT-SNMP",

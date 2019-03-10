@@ -4,6 +4,20 @@
 
 [/devices/BBC-PMS-999/datasets/PMS-EPACK](/devices/BBC-PMS-999/datasets/PMS-EPACK)
 
+```
+*** REQUEST ***	
+GET /devices/BBC-PMS-999/datasets/PMS-EPACK HTTP/1.1	
+Host: api.endpoints.sundaya.cloud.goog
+Accept: application/vnd.collection+json
+    
+*** RESPONSE ***	
+201 OK HTTP/1.1	
+Location: http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999/datasets/MPPT-SNMP/20190209T150100.022-0700
+Content-Type: application/json
+Content-Length: 250	
+
+```
+
 ```json
 {
   "href": "http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PMS-999/datasets/PMS-EPACK",
