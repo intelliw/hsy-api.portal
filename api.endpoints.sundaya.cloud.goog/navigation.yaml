@@ -26,7 +26,6 @@ ordering:
 - Introduction
 - Getting Started
 - API Reference
-- Examples
 - Resources
 
 folders:
@@ -47,15 +46,6 @@ folders:
         - Requests
         - Responses
 
-  Examples:
-    ordering:
-    - GET
-    - POST
-  
-    folders:
-      GET:
-
-      POST:
 
       
   
