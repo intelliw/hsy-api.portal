@@ -39,6 +39,14 @@ folders:
     - Harvest, Store, Enjoy
     - Standards & Conventions
     - Security
+    
+    folders:
+      Standards & Conventions:
+        ordering:
+        - Overview
+        - Requests
+        - Responses
+
   Examples:
     ordering:
     - GET
@@ -47,7 +55,7 @@ folders:
     folders:
       GET:
         ordering:
-        - Energy (hse) response
+        - Energy (HSE) response
         - Versions response
       POST:
         ordering:
