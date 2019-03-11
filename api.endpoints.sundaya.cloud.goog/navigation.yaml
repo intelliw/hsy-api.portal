@@ -26,6 +26,7 @@ ordering:
 - Introduction
 - Getting Started
 - API Reference
+- Examples
 - Resources
 
 folders:
@@ -46,6 +47,20 @@ folders:
         - Requests
         - Responses
 
+  Examples:
+    ordering:
+    - GET
+    - POST
+  
+    folders:
+      GET:
+        ordering:
+        - Energy (hse) response
+        - Versions response
+      POST:
+        ordering:
+        - Devices (PMS-EPACK) request
+        - Devices (MPPT-SNMP) request
 
       
   
