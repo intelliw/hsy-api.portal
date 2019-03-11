@@ -37,7 +37,15 @@ folders:
     # The add_example_page script will add a page named 'Example Page' here.
     ordering:
     - Harvest, Store, Enjoy
+    - Standards & Conventions
     - Security
+    
+    folders:
+      Standards & Conventions:
+        ordering:
+        - Overview
+        - Requests
+        - Responses
 
   Examples:
     ordering:
@@ -46,13 +54,8 @@ folders:
   
     folders:
       GET:
-        ordering:
-        - Energy (HSE) response
-        - Versions response
+
       POST:
-        ordering:
-        - Devices (PMS-EPACK) request
-        - Devices (MPPT-SNMP) request
 
       
   
