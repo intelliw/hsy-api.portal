@@ -46,7 +46,6 @@ folders:
         - Overview
         - Requests
         - Responses
-
   Examples:
     ordering:
     - GET
