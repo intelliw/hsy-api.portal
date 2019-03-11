@@ -55,7 +55,7 @@ folders:
     folders:
       GET:
         ordering:
-        - Energy (hse) response
+        - Energy (HSE-) response
         - Versions response
       POST:
         ordering:
