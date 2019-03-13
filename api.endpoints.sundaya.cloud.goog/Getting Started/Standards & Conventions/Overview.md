@@ -1,11 +1,5 @@
 # Standards & Conventions
 ---
-[Versions](#versions)
-
-[Link-relation types](Overview#link-relation-types)
-[Link-relation types](#link-relation-types)
-
-[Headers](Overview#headers)
 
 ## Versions
 The API endpoint host is [http://api.endpoints.sundaya.cloud.goog](http://api.endpoints.sundaya.cloud.goog). 
@@ -33,7 +27,7 @@ The Timezone can be specified in UTC or local time as shown:
 
 - __UTC__, expressed with a trailing `Z` 
 
-    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/minute/20190209T0930Z](http://api.endpoints.sundaya.cloud.goog/energy/hse/minute/20190209T0930Z) == 09:30 UTC
+    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/minute/20190209T0930Z](http://api.endpoints.sundaya.cloud.goog/energy/hse/minute/20190209T0930Z "trailing Z signifies UTC") == 09:30 UTC
 
 - __Local__ time in Jakarta with +/- offset 
 
@@ -68,7 +62,6 @@ Content-Length: xxx
 ```
 
 ## Link-relation types
-[](#link-relation-types)
 Link-relations in Response objects are based on [RFC8288](https://tools.ietf.org/html/rfc8288#page-6). 
 
 The following registered types are referenced in the `rel` attribute of the links in an `application/vnd.collection+json` response. 
