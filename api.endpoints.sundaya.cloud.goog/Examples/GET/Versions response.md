@@ -5,7 +5,6 @@
 
 [/versions](http:/api.endpoints.sundaya.cloud.goog/versions)
 
-
 ```
 *** REQUEST ***	
 GET /v HTTP/1.1	

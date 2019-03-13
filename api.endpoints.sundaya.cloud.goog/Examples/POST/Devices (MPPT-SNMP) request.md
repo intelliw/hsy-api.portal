@@ -5,7 +5,6 @@
 
 [/devices/BBC-MPPT-999/datasets/MPPT-SNMP](http:/api.endpoints.sundaya.cloud.goog/devices/BBC-MPPT-999/datasets/MPPT-SNMP)
 
-
 ```
 *** REQUEST ***	
 GET /devices/BBC-PR1202-999/datasets/MPPT-SNMP HTTP/1.1	
@@ -20,7 +19,6 @@ Content-Length: 250
 
 ```
 
----
 
 ```json
 {
