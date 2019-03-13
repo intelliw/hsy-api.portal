@@ -1,10 +1,10 @@
 # Standards & Conventions
 ---
-[Versions](#versions)
+[Versions](Overview#versions)
 
-[Link-relation types](#link-relation-types)
+[Link-relation types](Overview#link-relation-types)
 
-[Headers](#headers)
+[Headers](Overview#headers)
 
 ## Versions
 The API endpoint host is [http://api.endpoints.sundaya.cloud.goog](http://api.endpoints.sundaya.cloud.goog). 
