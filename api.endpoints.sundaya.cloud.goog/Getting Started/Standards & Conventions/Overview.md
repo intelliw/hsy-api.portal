@@ -1,8 +1,9 @@
 # Standards & Conventions
 ---
-[Versions](Overview#versions)
+[Versions](#versions)
 
 [Link-relation types](Overview#link-relation-types)
+[Link-relation types](#link-relation-types)
 
 [Headers](Overview#headers)
 
@@ -67,6 +68,7 @@ Content-Length: xxx
 ```
 
 ## Link-relation types
+[](#link-relation-types)
 Link-relations in Response objects are based on [RFC8288](https://tools.ietf.org/html/rfc8288#page-6). 
 
 The following registered types are referenced in the `rel` attribute of the links in an `application/vnd.collection+json` response. 
