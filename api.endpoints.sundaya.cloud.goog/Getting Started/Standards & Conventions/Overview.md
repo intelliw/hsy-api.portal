@@ -1,5 +1,7 @@
 # Standards & Conventions
 ---
+[Versions](#Versions)
+[Timezones](#Timezones)
 
 ## Versions
 The API endpoint host is [http://api.endpoints.sundaya.cloud.goog](http://api.endpoints.sundaya.cloud.goog). 
