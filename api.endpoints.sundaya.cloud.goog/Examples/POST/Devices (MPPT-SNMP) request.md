@@ -1,7 +1,7 @@
 # Devices
 ---
 
-### BBC-MPPT POST request
+### POST request - BBC-MPPT
 
 [/devices/BBC-MPPT-999/datasets/MPPT-SNMP](http:/api.endpoints.sundaya.cloud.goog/devices/BBC-MPPT-999/datasets/MPPT-SNMP)
 
