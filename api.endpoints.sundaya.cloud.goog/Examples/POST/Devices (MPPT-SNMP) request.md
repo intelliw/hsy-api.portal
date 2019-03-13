@@ -1,7 +1,7 @@
 # Devices
 ---
 
-### /devices/BBC-MPPT POST request
+### BBC-MPPT POST request
 
 [/devices/BBC-MPPT-999/datasets/MPPT-SNMP](http:/api.endpoints.sundaya.cloud.goog/devices/BBC-MPPT-999/datasets/MPPT-SNMP)
 
@@ -19,6 +19,8 @@ Content-Type: application/json
 Content-Length: 250	
 
 ```
+
+---
 
 ```json
 {

@@ -1,11 +1,9 @@
 # Devices
 ---
 
-### /devices/BBC-PMS-999 POST request
+### BBC-PMS-999 POST request
 
 [/devices/BBC-PMS-999/datasets/PMS-EPACK](http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PMS-999/datasets/PMS-EPACK)
-
----
 
 ```
 *** REQUEST ***	
@@ -20,9 +18,7 @@ Content-Type: application/json
 Content-Length: 250	
 
 ```
-
 ---
-
 
 ```json
 {
