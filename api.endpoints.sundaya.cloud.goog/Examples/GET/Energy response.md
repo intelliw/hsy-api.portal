@@ -1,7 +1,7 @@
 # Energy
 ---
 
-### HSE GET response
+### GET response - HSE
 
 [/energy/hse/week/20190204/1?site=9999](http:/api.endpoints.sundaya.cloud.goog/energy?site=9999)
 
