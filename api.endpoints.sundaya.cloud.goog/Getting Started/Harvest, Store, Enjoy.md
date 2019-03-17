@@ -92,7 +92,7 @@ The following monthly `period` graph cotnains a representation for all data elem
 **Bottom tier**
 
 - _Red_ is always in the bottom tier as it represents energy consumption (`enjoy`).
-- _Black_ in the bottom tier shows a net excess resulting in feed-in flows into the grid (`grid.in`). 
+- _Black_ in the bottom tier shows a net excess (`harvest`, `store.in`, `enjoy`) resulting in feed-in to the grid (`grid.in`). 
 - _Blue_ in the bottom tier shows excess `harvest` and available battery capacity for *charge* (`store.in`).
 
 ---
