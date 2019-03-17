@@ -85,13 +85,13 @@ The following monthly `period` graph cotnains a representation for all data elem
 
 **Top tier**
 
-- _Green_ is always in the top tier as it represents renewable energy generation (`harvest`).
+- _Green_ is always shown in the top tier as it represents renewable energy generation (`harvest`).
 - _Black_ in the top tier shows energy usage from the grid (`grid.out`).
 - _Blue_ in the top tier shows energy *discharge* from batteries (`store.out`).
 
 **Bottom tier**
 
-- _Red_ is always in the bottom tier as it represents energy consumption (`enjoy`).
+- _Red_ is always shown in the bottom tier as it represents energy consumption (`enjoy`).
 - _Black_ in the bottom tier shows a net excess (`harvest`, `store.in`, `enjoy`) resulting in feed-in to the grid (`grid.in`). 
 - _Blue_ in the bottom tier shows excess `harvest` and available battery capacity for *charge* (`store.in`).
 
