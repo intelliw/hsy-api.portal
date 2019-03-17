@@ -54,4 +54,26 @@ Flow | From / To
     
 To query specific assets, clients can filter requests by `category`, `subcategory`, and `product-type` (in the request *Body*).
 
+### Data visualisation 
+
+The API’s response data can be visualised in an application as a stacked bar graph, based on the following colours for each of the four datasets returned inside the data element.
+
+![Colour codes & energy sources](../images/energy.colour-codes.png
+ 
+The bar graph is shown in a ‘double entry’ format (the up and down bars are the same size), as shown in the following sample. 
+
+The example shows the following behaviour:
+- in the 1st hour all `enjoy` energy came from the battery (`store.out`). 
+- in the 2nd hour half came from battery and the other half from grid (`grid.out`). 
+- in the 3rd hour all came from the grid.
+- in the 4th hour the sun starts delivering (`harvest`)
+- in the 10th hour harvest data is more than enjoy and the energy flows into store (`store.in`)
+
+The following graphs shows a month `period`. 
+
+It shows energy usage from the grid in the top tier (`grid.out`), which indicates a need for the user to get more battery capacity. In general, a graph with lot of black on top indicates that you need to do something about it. 
+
+- black in the bottom tier shows a net excess resulting in feed-in flows into the grid (`grid.in`). 
+- blue in the bottom tier shows battery *charge* (`store.in`).
+
 
