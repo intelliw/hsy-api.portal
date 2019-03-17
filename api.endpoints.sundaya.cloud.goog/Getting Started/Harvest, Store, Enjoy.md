@@ -64,7 +64,7 @@ The API’s response data can be visualised in an application as a stacked bar g
  
 ### Double-entry format
 
-The bar graph is shown in a ‘double entry’ format (the up and down bars are the same size), as shown in the following sample. 
+Graphs are typically shown in a ‘double entry’ format (the up and down bars are the same size), as shown in the following sample. 
 
 ![Stacked bar graph format](../images/graph.stacked-bar-example.png)
 
@@ -75,7 +75,7 @@ The example shows the following behaviour:
 - In the 4th hour the sun starts delivering (`harvest`)
 - In the 10th hour harvest data is more than enjoy and the energy flows into store (`store.in`)
 
-A graph with lot of _Black_ in the top tier indicates that you need to do something about it. In general it indicates a need for the user to get more battery capacity. 
+A graph with lot of _Black_ in the top tier indicates that you need to do something about it. In general it indicates a need for more battery capacity and/or `harvest` generation capacity. 
 
 ### Element names
 
