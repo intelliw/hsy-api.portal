@@ -31,7 +31,7 @@ The Timezone can be specified in UTC or local time as shown:
 
 - __Local__ time in Jakarta with +/- offset 
 
-    http://api.endpoints.sundaya.cloud.goog/energy/hse/period/week/YYYYMMDDThhmmss±hhmm
+    http://api.endpoints.sundaya.cloud.goog/energy/hse/period/week/YYYYMMDDThhMMss.SSS±hhMM
 
     e.g. http://api.endpoints.sundaya.cloud.goog/energy/hse/period/minute/20190209T1630-0700 == 09:30 UTC
 ## Media types
