@@ -17,7 +17,7 @@ Date and time parameters must be expressed in [ISO 8601](https://en.wikipedia.or
 
 e.g. http:/api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20190210
 
-The compressed version of ISO 8601 is required, without semi colons and with `T` as the time designator, as shown in examples below.
+The compressed version of ISO 8601 is required, without semi colons and with `T` as the time designator, as shown in the examples with timezones below.
 
 
 ### Timezones
