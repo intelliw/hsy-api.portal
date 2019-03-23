@@ -64,27 +64,26 @@ Content-Length: xxx
 ## Link-relation types
 Link-relations in Response objects are based on [RFC8288](https://tools.ietf.org/html/rfc8288#page-6). 
 
-The following registered types are referenced in the `rel` attribute of the links in an `application/vnd.collection+json` response. 
+The following registered types are returned in the `rel` attribute of links in `application/vnd.collection+json` responses. 
 - **self**	- Identifies the link"s context.
 
-    In `collection.links` it identifies the collection (name = *week*)            
+    In `collection.links` it points to the collection as a whole (`name` = *week*)            
 
     - e.g. href=<a>[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210)</a>
 
-    In `collection.items.links` it identifies an item in the collection (name = *day*).
+    In `collection.items.links` it points to a child item in the collection (`name`=*day*).
     - e.g. href=<a>[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204)</a>
 
-- **collection** - in `collection.links` it targets the item series whiich make up the collection (name = *week.days*).
+- **collection** - in `collection.links` it points to the child items which make up the collection (`name`=*week.day*).
     
     - e.g. href=<a>[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204)</a>
 
-- **item** - in `collection.items.links` it targets subitems of the item in that context (name = *day.hours*).
+- **item** - in `collection.items.links` it points to the subitems of the child item: i.e the grandchild items of the collection (`name`=*day.hour*).
 
     - e.g. href=<a>[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/hour/201902050600](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/hour/201902050600)</a>
 
-- **up** - Identifies the parent the collection or item represented by the link"s context (name = *week.month*).
+- **up** - Identifies the parent of the collection or item (`name`=*month* if the  link is in a 'week' collection object).
     
-- **next** - Identifies the next sibling of the collection or item series represented by the link"s context (name = *week.next*).
+- **next**, **prev** - Identifies the next or previous sibling of the item series (`name` = *week*). The `prompt` and `title` properties signify the next or previous item in the series (`prompt` = *Week 07 2019*).
 
-- **prev** - Identifies the previous siblings of the collection or item series represented by the link"s context (name = *week.previous*).
     
