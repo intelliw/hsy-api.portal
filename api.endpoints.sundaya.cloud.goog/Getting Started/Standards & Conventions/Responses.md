@@ -22,7 +22,7 @@ The following table shows a set of links provided with energy data for a *week* 
 ![Links in energy data](../../images/collection-links-table.png)
 
 
-## Link-relation types
+### Link-relation types
 Link-relations in Response objects are based on [RFC8288](https://tools.ietf.org/html/rfc8288#page-6). 
 
 The following registered types are returned in the `rel` attribute of links in `application/vnd.collection+json` responses. 
@@ -33,7 +33,7 @@ The following registered types are returned in the `rel` attribute of links in `
     e.g. href=[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210)
 
     In `collection.items.links` it points to a child item in the collection (`name`=*'day'*).
-    
+
     e.g. href=[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204)
 
 - **collection** - in `collection.links` it points to the child items which make up the collection (`name`=*'week.day'*).
