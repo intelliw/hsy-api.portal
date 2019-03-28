@@ -33,6 +33,7 @@ The following registered types are returned in the `rel` attribute of links in `
     e.g. href=[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210)
 
     In `collection.items.links` it points to a child item in the collection (`name`=*'day'*).
+    
     e.g. href=[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204)
 
 - **collection** - in `collection.links` it points to the child items which make up the collection (`name`=*'week.day'*).
