@@ -9,7 +9,7 @@ The `/energy` path returns a ‘cube’ of energy data starting at a specified e
 
 ### Path parameters
 
-The following path parameters are required in neergy data requests. If a paramters is invalid or omitted it will be defaulted as shown.   
+The following path parameters are required in energy data requests. If a parameter is invalid or omitted it will be defaulted as shown.   
 
 Parameter | Description | Default
 --- | --- | --- 
@@ -23,9 +23,9 @@ Parameter | Description | Default
 
 - The `duration` parameter specifies the third dimension. It returns multiples of the above period data arrays. For example if a request is made for a */week* period with a duration of 3, the response will contain 3 collections of weekly energy data as described above, starting at the requested epoch. 
 
-- `epoch` specifies  the starting date-time of the period. The epoch is alsio displayed in links next to the period. 
+- `epoch` specifies  the starting date-time of the period. The epoch is also displayed in links next to the period. 
 
-The following table describes each `period` and formats used for `epoch` in the returned data. The *compresed* format is used in hyperlinks (in the href attribute) and the *uncopmpressed* format is used in display atributes .
+The following table describes each `period` and formats used for `epoch` in the returned data. The *compressed* format is used in hyperlinks (in the href attribute) and the *uncompressed* format is used in display attributes .
 
 Period | Description | Compressed format | Uncompressed format
 --- | --- | --- | --- 
@@ -42,7 +42,7 @@ Period | Description | Compressed format | Uncompressed format
 `fiveyear` |   | YYYYMMDD | DD/MM/YY
 
 ### Query parameters
-In all requests the caller must also provide the folowing query parameters:
+In all requests the caller must also provide the following query parameters:
 
 Parameter | Description | Default
 --- | --- | --- 

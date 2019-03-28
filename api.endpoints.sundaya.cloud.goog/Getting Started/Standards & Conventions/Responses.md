@@ -17,16 +17,16 @@ Links have the following attributes:
 
 - **render** - 'image' or 'text' if the link should be retrieved and embedded; or 'link' to display as-is. If the property is missing the href link does not need to be presented.
 
-The followiogn table shows a set of links provided with energy data for a *week* period. 
+The following table shows a set of links provided with energy data for a *week* period. 
 
-![Links in emergy data](../../images/collection-links-table.png)
+![Links in energy data](../../images/collection-links-table.png)
 
 
 ## Link-relation types
 Link-relations in Response objects are based on [RFC8288](https://tools.ietf.org/html/rfc8288#page-6). 
 
 The following registered types are returned in the `rel` attribute of links in `application/vnd.collection+json` responses. 
-- **self**	- Identifies the link"s context.
+- **self**	- Identifies the link's context.
 
     In `collection.links` it points to the collection as a whole (`name`=*'week'*)            
 
