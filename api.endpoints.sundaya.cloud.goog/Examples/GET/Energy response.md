@@ -3,7 +3,7 @@
 
 ### GET response - HSE
 
-[/energy/hse/periods/week/20190204/1?site=9999](http:/api.endpoints.sundaya.cloud.goog/energy?site=9999)
+[/energy/hse/periods/week/20190204/1?site=999](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190204/1?site=999)
 
 ```
 *** REQUEST ***	
