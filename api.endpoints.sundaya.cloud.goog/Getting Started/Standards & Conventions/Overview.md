@@ -80,7 +80,6 @@ Code | Status | Definition
 `201` | Created | Resource created.
 `400` | Bad Request | The client specified an invalid argument. 
 `401` | Unauthorized | The client does not have sufficient permission. 
-
 `404` | Not Found | The resource was not found.
 `500` | Internal Server Error | The server encountered an unexpected condition.
 
