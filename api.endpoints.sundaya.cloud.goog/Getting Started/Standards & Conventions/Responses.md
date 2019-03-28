@@ -30,18 +30,18 @@ The following registered types are returned in the `rel` attribute of links in `
 
     In `collection.links` it points to the collection as a whole (`name`=*'week'*)            
 
-    e.g. href=<a>[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210)</a>
+    e.g. href=[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210)
 
     In `collection.items.links` it points to a child item in the collection (`name`=*'day'*).
-    e.g. href=<a>[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204)</a>
+    e.g. href=[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204)
 
 - **collection** - in `collection.links` it points to the child items which make up the collection (`name`=*'week.day'*).
     
-    e.g. href=<a>[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204)</a>
+    e.g. href=[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204)
 
 - **item** - in `collection.items.links` it points to the subitems of the child item: i.e the grandchild items of the collection (`name`=*'day.hour'*).
 
-    e.g. href=<a>[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/hour/201902050600](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/hour/201902050600)</a>
+    e.g. href=[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/hour/201902050600](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/hour/201902050600)
 
 - **up** - Identifies the parent of the collection or item (`name`=*'month'* if a link is in collection object for a *'week'*).
     
