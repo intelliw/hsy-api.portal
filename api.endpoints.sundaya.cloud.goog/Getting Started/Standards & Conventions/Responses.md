@@ -1,7 +1,7 @@
 # Responses
 ---
 
-### Link format
+## Link format
 
 Response data is returned in a JSON Collection and includes links for the user to navigate to adjacent datasets, for example to the next or previous *week*, or to the previous *month*.
 
@@ -22,7 +22,7 @@ The following table shows a set of links provided with energy data for a *week* 
 ![Links in energy data](../../images/collection-links-table.png)
 
 
-### Link-relation types
+## Link-relation types
 Link-relations in Response objects are based on [RFC8288](https://tools.ietf.org/html/rfc8288#page-6). 
 
 The following registered types are returned in the `rel` attribute of links in `application/vnd.collection+json` responses. 
@@ -49,7 +49,7 @@ The following registered types are returned in the `rel` attribute of links in `
 - **next**, **prev** - Identifies the next or previous sibling of the item series (`name` = *'week'*). The `prompt` and `title` properties signify the next or previous item in the series (`prompt` = *'Week 07 2019'*).
 
 
-### Graph format
+## Graph format
 
 The graph format including display labels and hyperlinks to navigate to related datasets is shown below. 
 
