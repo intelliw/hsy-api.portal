@@ -22,6 +22,7 @@ The following table shows a set of links provided with energy data for a *week* 
 ![Links in energy data](../../images/collection-links-table.png)
 
 
+
 ## Link-relation types
 Link-relations in Response objects are based on [RFC8288](https://tools.ietf.org/html/rfc8288#page-6). 
 
@@ -47,6 +48,7 @@ The following registered types are returned in the `rel` attribute of links in `
 - **up** - Identifies the parent of the collection or item (`name`=*'month'* if a link is in collection object for a *'week'*).
     
 - **next**, **prev** - Identifies the next or previous sibling of the item series (`name` = *'week'*). The `prompt` and `title` properties signify the next or previous item in the series (`prompt` = *'Week 07 2019'*).
+
 
 
 ## Graph format
