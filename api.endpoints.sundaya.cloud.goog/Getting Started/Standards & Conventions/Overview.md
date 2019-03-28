@@ -19,7 +19,6 @@ e.g. [http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210](h
 
 The compressed version of ISO 8601 is required, without semi colons and with `T` as the time designator, as shown in examples below.
 
-
 ## Timezones
 Timezones are not assumed and must be explicitly specified where API parameters allow for a timestamp to be provided. 
 
@@ -34,6 +33,7 @@ The Timezone can be specified in UTC or local time as shown:
     http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/minute/YYYYMMDDTHHmmss.SSS±HHmm
 
     e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/minute/20190209T1630-0700](http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/minute/20190209T1630-0700 "-0700 is JKT offset from  UTC") == 09:30 UTC
+
 ## Media types
 Request `Body` parameters and all response objects are sent and received in JSON. 
 
@@ -61,10 +61,21 @@ Content-Length: xxx
 { "collection" : {...}, ... }
 ```
 
+## Operations
+The API supports basic CRUD operations (create, read, update, and delete) using standard HTTP method requests, as summarized in the following table.
+
+Operation | Definition
+--- | --- 
+`GET` | Retrieve information about the resource.
+`POST` | Create, backup, or restore the resource.
+`PUT` | Update the resource.
+`DELETE` | Delete the resource. 
+
 ## Response codes
 The API supports a limited set of responses for each API path, based on the following.
 
 Code | Status | Definition
+--- | --- | ---
 `200` | OK | Data retrieved. 
 `201` | Created | Resource created.
 `400` | Bad Request | The client specified an invalid argument. 
@@ -73,5 +84,4 @@ Code | Status | Definition
 `404` | Not Found | The resource was not found.
 `500` | Internal Server Error | The server encountered an unexpected condition.
 
-
-    
+---

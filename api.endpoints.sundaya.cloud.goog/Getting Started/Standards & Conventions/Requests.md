@@ -19,7 +19,6 @@ Parameter | Description | Default
 `site` | Identifier of the customer site where energy assets have been installed. | *999*
 
 ### period, epoch, duration
-
 - The returned data contains data for the child and grandchild of the requested `period`. For example if a request is made for a */week* the response will contain total energy for each *day* and a breakdown of energy for each *hour*. 
 
 - The `duration` parameter specifies the third dimension. It returns multiples of the above period data arrays. For example if a request is made for a */week* period with a duration of 3, the response will contain 3 collections of weekly energy data as described above, starting at the requested epoch. 
@@ -43,7 +42,6 @@ Period | Description | Compressed format | Uncompressed format
 `fiveyear` |   | YYYYMMDD | DD/MM/YY
 
 ### Query parameters
-
 In all requests the caller must also provide the folowing query parameters:
 
 Parameter | Description | Default
@@ -52,13 +50,4 @@ Parameter | Description | Default
 `api_key` | The key configures basic authentication for each client application. | 
 
 
-# Operations
 ---
-
-The API supports basic CRUD operations (create, read, update, and delete) using standard HTTP method requests, as summarized in the following table.
-
-Operation | Definition
-`GET` | Retrieve information about the resource.
-`POST` | Create, backup, or restore the resource.
-`PUT` | Update the resource.
-`DELETE` | Delete the resource. 
