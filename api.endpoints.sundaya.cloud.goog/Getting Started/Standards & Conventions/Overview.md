@@ -61,29 +61,17 @@ Content-Length: xxx
 { "collection" : {...}, ... }
 ```
 
-## Link-relation types
-Link-relations in Response objects are based on [RFC8288](https://tools.ietf.org/html/rfc8288#page-6). 
+## Response codes
+The API supports a limited set of responses for each API path, based on the following.
 
-The following registered types are returned in the `rel` attribute of links in `application/vnd.collection+json` responses. 
-- **self**	- Identifies the link"s context.
+Code | Status | Definition
+`200` | OK | Data retrieved. 
+`201` | Created | Resource created.
+`400` | Bad Request | The client specified an invalid argument. 
+`401` | Unauthorized | The client does not have sufficient permission. 
 
-    In `collection.links` it points to the collection as a whole (`name`=*'week'*)            
+`404` | Not Found | The resource was not found.
+`500` | Internal Server Error | The server encountered an unexpected condition.
 
-    - e.g. href=<a>[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210)</a>
-
-    In `collection.items.links` it points to a child item in the collection (`name`=*'day'*).
-    - e.g. href=<a>[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204)</a>
-
-- **collection** - in `collection.links` it points to the child items which make up the collection (`name`=*'week.day'*).
-    
-    - e.g. href=<a>[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204)</a>
-
-- **item** - in `collection.items.links` it points to the subitems of the child item: i.e the grandchild items of the collection (`name`=*'day.hour'*).
-
-    - e.g. href=<a>[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/hour/201902050600](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/hour/201902050600)</a>
-
-- **up** - Identifies the parent of the collection or item (`name`=*'month'* if a link is in collection object for a *'week'*).
-    
-- **next**, **prev** - Identifies the next or previous sibling of the item series (`name` = *'week'*). The `prompt` and `title` properties signify the next or previous item in the series (`prompt` = *'Week 07 2019'*).
 
     

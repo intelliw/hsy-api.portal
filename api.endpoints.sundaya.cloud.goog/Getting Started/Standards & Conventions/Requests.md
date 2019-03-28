@@ -7,14 +7,16 @@ The `/energy` path returns a ‘cube’ of energy data starting at a specified e
 
     e.g. [http://http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20150204/1?site=999](http://http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20150204/1?site=999 "energy=hse, period=week, duration=1, site=999")
 
-## Parameters
+### Path parameters
 
-Parameter | Description
---- | --- 
-`energy` | The type of energy flow.
-`period` | The time window for which total energy is aggregated. The only exception is 'instant' which is for a single point in time (a millisecond), without aggregation.
-`duration` | The number of periods to return starting at epoch. This defaults to 1.
-`site` | Identifier of the customer site where energy assets have been installed.
+The following path parameters are required in neergy data requests. If a paramters is invalid or omitted it will be defaulted as shown.   
+
+Parameter | Description | Default
+--- | --- | --- 
+`energy` | The type of energy flow. | *week*
+`period` | The time window for which total energy is aggregated. The only exception is 'instant' which is for a single point in time (a millisecond), without aggregation. | The current UTC date-time.
+`duration` | The number of periods to return starting at epoch. This defaults to 1. | *1*
+`site` | Identifier of the customer site where energy assets have been installed. | *999*
 
 ### period, epoch, duration
 
@@ -40,3 +42,23 @@ Period | Description | Compressed format | Uncompressed format
 `year` |   | YYYYMMDD | DD/MM/YY
 `fiveyear` |   | YYYYMMDD | DD/MM/YY
 
+### Query parameters
+
+In all requests the caller must also provide the folowing query parameters:
+
+Parameter | Description | Default
+--- | --- | --- 
+`site` | Identifier of the customer site where energy assets have been installed. | *999*
+`api_key` | The key configures basic authentication for each client application. | 
+
+
+# Operations
+---
+
+The API supports basic CRUD operations (create, read, update, and delete) using standard HTTP method requests, as summarized in the following table.
+
+Operation | Definition
+`GET` | Retrieve information about the resource.
+`POST` | Create, backup, or restore the resource.
+`PUT` | Update the resource.
+`DELETE` | Delete the resource. 

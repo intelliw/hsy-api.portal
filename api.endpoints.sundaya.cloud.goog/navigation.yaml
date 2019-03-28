@@ -44,7 +44,7 @@ folders:
       Standards & Conventions:
         ordering:
         - Overview
-        - Energy Data Requests
+        - Requests
         - Responses
 
   Examples:
