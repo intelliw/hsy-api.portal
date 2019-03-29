@@ -56,7 +56,7 @@ In all requests the caller must also provide the following query parameters:
 Parameter | Description | Default
 --- | --- | --- 
 `site` | Identifier of the customer site where energy assets have been installed. | *999*
-`api_key` | The key configures basic authentication for each client application. | 
+`api_key` | Each client application has a key which is used to configure basic authentication and data provenance. | 
 
 ### Body parameters
 The the `product-filter` parameter allows the request to be filtered to restrict query data to certain products only. 
