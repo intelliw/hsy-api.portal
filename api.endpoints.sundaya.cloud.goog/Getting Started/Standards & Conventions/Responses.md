@@ -43,7 +43,7 @@ The following registered types are returned in the `rel` attribute of links in `
 
 - **item** - in `collection.items.links` it points to the subitems of the child item: i.e the grandchild items of the collection (`name`=*'day.hour'*).
 
-    e.g. href=[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/hour/201902050600](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/hour/201902050600)
+    e.g. href=[http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/hour/20190205T0600](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/hour/20190205T0600)
 
 - **up** - Identifies the parent of the collection or item (`name`=*'month'* if a link is in collection object for a *'week'*).
     
