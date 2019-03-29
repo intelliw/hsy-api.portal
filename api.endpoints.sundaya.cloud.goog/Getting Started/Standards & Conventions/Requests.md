@@ -30,7 +30,7 @@ The following table describes each `period` and formats used for `epoch` in the 
 
 - The *compressed* format is used in hyperlinks (in the `href` attribute) and the *uncompressed* format is intended for use in display labels.
 
-- An `instant` represents a single point in time (a millisecond) without data aggregation.
+- An `instant` represents a single point in time (a millisecond). As suchg there is no data aggregation for `instant`.
 
 - `second` and `minute` periods both include aggregates of any instants in which data was logged.
 
@@ -59,9 +59,9 @@ Parameter | Description | Default
 `api_key` | The key configures basic authentication for each client application. | 
 
 ### Body parameters
-The request can be filtered to restrict query data to the product types, categories and subcategories specified in the `product-filter` parameter. 
+The the `product-filter` parameter allows the request to be filtered to restrict query data to certain products only. 
 
-The returned data will contain records for *any* of the supplied product specifiers. 
+The returned data will contain records for *any* of the product types, categories and subcategories specified in the `product-filter` parameter. 
 
 
 ---
