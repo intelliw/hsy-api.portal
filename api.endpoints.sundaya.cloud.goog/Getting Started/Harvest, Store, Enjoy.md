@@ -6,7 +6,7 @@ The Energy Management API provides data for energy accounting and allows users a
 Energy | Assets | Devices
 --- | --- | ---
 `harvest` | Renewables | PV Modules, Maximum Power Point Trackers (MPPT)
-`store` | Storage | Busbar Controlers (BBC), Pack Management Systems (PMS)
+`store` | Storage | Busbar Controllers (BBC), Pack Management Systems (PMS)
 `enjoy` | Appliances | Multicore-Cable Current Sensors, Switchboard Clamp Sensors
 `grid` | Mains Electricity | Smart Meters, PV Grid-interactive Inverters
 
@@ -86,7 +86,7 @@ The following monthly `period` graph cotnains a representation for all data elem
 **Top tier**
 
 - _Green_ represents renewable energy generation (`harvest`) and is always shown in the top tier.
-- _Black_ in the top tier shows energy usage from the grid (`grid.out`).
+- _Black_ in the top tier shows energy drawn from the grid (`grid.out`).
 - _Blue_ in the top tier shows energy *discharge* from batteries (`store.out`).
 
 **Bottom tier**

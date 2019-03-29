@@ -25,21 +25,23 @@ Parameter | Description | Default
 
 - `epoch` specifies  the starting date-time of the period. The epoch is also displayed in links next to the period. 
 
-The following table describes each `period` and formats used for `epoch` in the returned data. The *compressed* format is used in hyperlinks (in the href attribute) and the *uncompressed* format is used in display attributes .
+The following table describes each `period` and formats used for `epoch` in the returned data. The *compressed* format is used in hyperlinks (in the href attribute) and the *uncompressed* format is used in display attributes.
+An `instant` represents a single point in time (a millisecond) without data aggregation.
+`second` and `minute` periods both include aggregates of any instants in which data was logged.
 
-Period | Description | Compressed format | Uncompressed format
---- | --- | --- | --- 
-`instant` |   | YYYYMMDDTHHmmss.SSS | DD/MM/YY HHmmss.SSS
-`second` |   | YYYYMMDDTHHmmss | DD/MM/YY HHmm:ss
-`minute` |   | YYYYMMDDTHHmm | DD/MM/YY HH:mm
-`hour` |   | YYYYMMDDTHHmm | DD/MM/YY HH:mm
-`timeofday` |   | YYYYMMDDTHHmm | DD/MM/YY HH:mm
-`day` |   | YYYYMMDD | DD/MM/YY
-`week` |   | YYYYMMDD | DD/MM/YY
-`month` |   | YYYYMMDD | DD/MM/YY
-`quarter` |   | YYYYMMDD | DD/MM/YY
-`year` |   | YYYYMMDD | DD/MM/YY
-`fiveyear` |   | YYYYMMDD | DD/MM/YY
+Period | Child | Duration | Compressed format | Uncompressed format
+--- | --- |--- | --- | --- 
+`instant` | - | - | YYYYMMDDTHHmmss.SSS | DD/MM/YY HHmmss.SSS
+`second` | `instant` | 1000 | YYYYMMDDTHHmmss | DD/MM/YY HHmm:ss
+`minute` | `second` | 60 | YYYYMMDDTHHmm | DD/MM/YY HH:mm
+`hour` | `minute` | 60 | YYYYMMDDTHHmm | DD/MM/YY HH:mm
+`timeofday` | `hour` | 6 | YYYYMMDDTHHmm | DD/MM/YY HH:mm
+`day` | `timeofday` | 4 | YYYYMMDD | DD/MM/YY
+`week` | `day` | 7 | YYYYMMDD | DD/MM/YY
+`month` | `day` | *varies*  | YYYYMMDD | DD/MM/YY
+`quarter` | `month` | 3 | YYYYMMDD | DD/MM/YY
+`year` | `quarter` | 4 | YYYYMMDD | DD/MM/YY
+`fiveyear` | `year` | 5 | YYYYMMDD | DD/MM/YY
 
 ### Query parameters
 In all requests the caller must also provide the following query parameters:
