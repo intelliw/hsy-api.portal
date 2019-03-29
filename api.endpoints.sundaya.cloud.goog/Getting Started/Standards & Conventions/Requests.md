@@ -27,7 +27,7 @@ Parameter | Description | Default
 
 The following table describes each `period` and formats used for `epoch` in the returned data. 
 
-- The *compressed* format is used in hyperlinks (in the href attribute) and the *uncompressed* format is used in display attributes.
+- The *compressed* format is used in hyperlinks (in the `href` attribute) and the *uncompressed* format is intended for use in display labels.
 
 - An `instant` represents a single point in time (a millisecond) without data aggregation.
 
