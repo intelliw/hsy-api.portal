@@ -5,7 +5,7 @@ The `/energy` path returns a ‘cube’ of energy data for a specified number of
 
 - /energy/{`energy`}/periods/{`period`}/{`epoch`}/{`duration`}?site={`site`}
 
-    e.g. [http://http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20150204/1?site=999](http://http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20150204/1?site=999 "energy=hse, period=week, duration=1, site=999")
+    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20150204/1?site=999](http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20150204/1?site=999 "energy=hse, period=week, duration=1, site=999")
 
 ### Path parameters
 
