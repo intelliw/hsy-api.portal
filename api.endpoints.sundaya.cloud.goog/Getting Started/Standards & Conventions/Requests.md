@@ -29,7 +29,7 @@ The following table describes each `period` and formats used for `epoch` in the 
 An `instant` represents a single point in time (a millisecond) without data aggregation.
 `second` and `minute` periods both include aggregates of any instants in which data was logged.
 
-Period | Child | Duration | Compressed format | Uncompressed format
+Period | Child | Duration | Format (*compressed*) | Format (*uncompressed*)
 --- | --- |--- | --- | --- 
 `instant` | - | - | YYYYMMDDTHHmmss.SSS | DD/MM/YY HHmmss.SSS
 `second` | `instant` | 1000 | YYYYMMDDTHHmmss | DD/MM/YY HHmm:ss
