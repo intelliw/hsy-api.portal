@@ -23,7 +23,7 @@ Parameter | Description | Default
 
 - The `duration` parameter specifies the third dimension. It returns multiples of the above period data arrays. For example if a request is made for a */week* period with a duration of 3, the response will contain 3 collections of weekly energy data as described above, starting at the requested epoch. 
 
-- `epoch` specifies  the starting date-time of the period. The epoch is also displayed in links next to the period. 
+- `epoch` specifies  the starting date-time of the period. The epoch is displayed in links in the the `href` attribute, after the `period`. 
 
 The following table describes each `period` and formats used for `epoch` in the returned data. 
 
