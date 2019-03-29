@@ -58,7 +58,9 @@ Parameter | Description | Default
 `api_key` | The key configures basic authentication for each client application. | 
 
 ### Body parameters
-The request can be filtered to restrict query data to the product types, categories and subcategories specified in the `product-filter` parameter. The returned data will contain records for *any* of the product types, categories and subcategories specifeid in the `product-filter` array.
+The request can be filtered to restrict query data to the product types, categories and subcategories specified in the `product-filter` parameter. 
+
+The returned data will contain records for *any* of the supplied product specifiers. 
 
 
 ---
