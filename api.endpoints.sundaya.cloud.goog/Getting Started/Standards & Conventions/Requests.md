@@ -14,11 +14,11 @@ The following path parameters are required in energy data requests. If a paramet
 Parameter | Description | Default
 --- | --- | --- 
 `energy` | The type of energy flow. | *week*
-`period` | The time window for which total energy is aggregated. The only exception is 'instant' which is for a single point in time (a millisecond), without aggregation. | The current UTC date-time.
+`period` | The time window for which total energy is aggregated. The only exception is 'instant' which is for a single point in time (a millisecond), without aggregation. | current UTC date-time
 `duration` | The number of periods to return starting at epoch. This defaults to 1. | *1*
 `site` | Identifier of the customer site where energy assets have been installed. | *999*
 
-### period, epoch, duration
+### 'period', 'epoch', 'duration'
 - The returned data contains data for the child and grandchild of the requested `period`. For example if a request is made for a */week* the response will contain total energy for each *day* and a breakdown of energy for each *hour*. 
 
 - The `duration` parameter specifies the third dimension. It returns multiples of the above period data arrays. For example if a request is made for a */week* period with a duration of 3, the response will contain 3 collections of weekly energy data as described above, starting at the requested epoch. 
@@ -56,6 +56,9 @@ Parameter | Description | Default
 --- | --- | --- 
 `site` | Identifier of the customer site where energy assets have been installed. | *999*
 `api_key` | The key configures basic authentication for each client application. | 
+
+### Body parameters
+The request can be filtered to restrict query data to the product types, categories and subcategories specified in the `product-filter` parameter. The returned data will contain records for *any* of the product types, categories and subcategories specifeid in the `product-filter` array.
 
 
 ---
