@@ -15,7 +15,7 @@ Parameter | Description | Default
 --- | --- | --- 
 `energy` | The type of energy flow. | *hse*
 `period` | The time window for which total energy is aggregated. The only exception is 'instant' which is for a single point in time (a millisecond), without aggregation. | *week*
-`epoch` | The number of periods to return starting at epoch. This defaults to 1. | current UTC date-time
+`epoch` | The epoch is a starting date and time. | current UTC date-time
 `duration` | The number of periods to return starting at epoch. This defaults to 1. | *1*
 `site` | Identifier of the customer site where energy assets have been installed. | *999*
 
