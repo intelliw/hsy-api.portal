@@ -25,11 +25,17 @@ Parameter | Description | Default
 
 - `epoch` specifies  the starting date-time of the period. The epoch is also displayed in links next to the period. 
 
-The following table describes each `period` and formats used for `epoch` in the returned data. The *compressed* format is used in hyperlinks (in the href attribute) and the *uncompressed* format is used in display attributes.
-An `instant` represents a single point in time (a millisecond) without data aggregation.
-`second` and `minute` periods both include aggregates of any instants in which data was logged.
+The following table describes each `period` and formats used for `epoch` in the returned data. 
 
-Period | Child period | Duration | Format (*compressed*) | (*uncompressed*)
+- The *compressed* format is used in hyperlinks (in the href attribute) and the *uncompressed* format is used in display attributes.
+
+- An `instant` represents a single point in time (a millisecond) without data aggregation.
+
+- `second` and `minute` periods both include aggregates of any instants in which data was logged.
+
+- `timeofday` refers to 6-hourly blocks of time for Morning, Afternoon, Evening, Night.
+
+Period | Child Period | Duration | Format (*compressed*) | (*uncompressed*)
 --- | --- |--- | --- | --- 
 `instant` | - | - | YYYYMMDDTHHmmss.SSS | DD/MM/YY HHmmss.SSS
 `second` | `instant` | 1000 | YYYYMMDDTHHmmss | DD/MM/YY HHmm:ss
