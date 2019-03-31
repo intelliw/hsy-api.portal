@@ -27,17 +27,23 @@ Content-Length: 3495
         "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190304/1?site=999",
         "links": [
           { "rel": "self", "name": "week", "prompt": "Week 10 2019", "title": "04/03/19 - 10/03/19",
-            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190304/1?site=999", "render": "link" },
+            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190304/1?site=999", "render": "link" 
+          },
           { "rel": "collection", "name": "week.day", "prompt": "Mon Mar 4th - Sun Mar 10th", "title": "04/03/19 - 10/03/19",
-            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190304/7?site=999" },
+            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190304/7?site=999" 
+          },
           { "rel": "collection", "name": "week.day.timeofday", "prompt": "Mar 4 Night - Mar 10 Evening", "title": "04/03/19 00:00 - 10/03/19 23:59",
-            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/timeofday/20190304T0000/28?site=999" },
+            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/timeofday/20190304T0000/28?site=999" 
+          },
           { "rel": "up", "name": "month", "prompt": "Mar 2019", "title": "01/03/19 - 31/03/19",
-            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/month/20190301/1?site=999", "render": "link" },
+            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/month/20190301/1?site=999", "render": "link" 
+          },
           { "rel": "next", "name": "week", "prompt": "Week 11 2019", "title": "11/03/19 - 17/03/19",
-            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190311/1?site=999", "render": "link" },
+            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190311/1?site=999", "render": "link" 
+          },
           { "rel": "prev", "name": "week", "prompt": "Week 09 2019", "title": "25/02/19 - 03/03/19",
-            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190225/1?site=999", "render": "link" }
+            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190225/1?site=999", "render": "link" 
+          }
        ],
        "items": [
          { "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190304/1?site=999",
