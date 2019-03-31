@@ -27,33 +27,25 @@ Content-Length: 3495
         "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190304/1?site=999",
         "links": [
           { "rel": "self", "name": "week", "prompt": "Week 10 2019", "title": "04/03/19 - 10/03/19",
-            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190304/1?site=999", "render": "link"
-          },
+            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190304/1?site=999", "render": "link" },
           { "rel": "collection", "name": "week.day", "prompt": "Mon Mar 4th - Sun Mar 10th", "title": "04/03/19 - 10/03/19",
-            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190304/7?site=999"
-          },
+            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190304/7?site=999" },
           { "rel": "collection", "name": "week.day.timeofday", "prompt": "Mar 4 Night - Mar 10 Evening", "title": "04/03/19 00:00 - 10/03/19 23:59",
-            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/timeofday/20190304T0000/28?site=999"
-          },
+            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/timeofday/20190304T0000/28?site=999" },
           { "rel": "up", "name": "month", "prompt": "Mar 2019", "title": "01/03/19 - 31/03/19",
-            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/month/20190301/1?site=999", "render": "link"
-          },
+            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/month/20190301/1?site=999", "render": "link" },
           { "rel": "next", "name": "week", "prompt": "Week 11 2019", "title": "11/03/19 - 17/03/19",
-            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190311/1?site=999", "render": "link"
-          },
+            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190311/1?site=999", "render": "link" },
           { "rel": "prev", "name": "week", "prompt": "Week 09 2019", "title": "25/02/19 - 03/03/19",
-            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190225/1?site=999", "render": "link"
-          }
+            "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190225/1?site=999", "render": "link" }
        ],
        "items": [
          { "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190304/1?site=999",
            "links": [
             { "rel": "self", "name": "day", "prompt": "Mon Mar 4th", "title": "04/03/19",
-              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190304/1?site=999", "render": "link"
-            },
+              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190304/1?site=999", "render": "link" },
             { "rel": "collection", "name": "day.timeofday", "prompt": "Mar 4 Night - Mar 4 Evening", "title": "04/03/19 00:00 - 04/03/19 23:59",
-              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/timeofday/20190304T0000/4?site=999"
-            }
+              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/timeofday/20190304T0000/4?site=999" }
           ],          
            "data": [
             { "name": "day", "value": "20190304/1",
@@ -81,11 +73,9 @@ Content-Length: 3495
          { "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190305/1?site=999",
            "links": [
             { "rel": "self", "name": "day", "prompt": "Tue Mar 5th", "title": "05/03/19",
-              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190305/1?site=999", "render": "link"
-            },
+              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190305/1?site=999", "render": "link" },
             { "rel": "collection", "name": "day.timeofday", "prompt": "Mar 5 Night - Mar 5 Evening", "title": "05/03/19 00:00 - 05/03/19 23:59",
-              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/timeofday/20190305T0000/4?site=999"
-            }
+              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/timeofday/20190305T0000/4?site=999" }
           ],          
            "data": [
             { "name": "day", "value": "20190305/1",
@@ -113,12 +103,9 @@ Content-Length: 3495
          { "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190306/1?site=999",
            "links": [
             { "rel": "self", "name": "day", "prompt": "Wed Mar 6th", "title": "06/03/19",
-              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190306/1?site=999", "render": "link"
-            },
-          
+              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190306/1?site=999", "render": "link" },          
             { "rel": "collection", "name": "day.timeofday", "prompt": "Mar 6 Night - Mar 6 Evening", "title": "06/03/19 00:00 - 06/03/19 23:59",
-              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/timeofday/20190306T0000/4?site=999"
-            }
+              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/timeofday/20190306T0000/4?site=999" }
           ],          
            "data": [
             { "name": "day", "value": "20190306/1",
@@ -146,12 +133,9 @@ Content-Length: 3495
          { "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190307/1?site=999",
            "links": [
             { "rel": "self", "name": "day", "prompt": "Thu Mar 7th", "title": "07/03/19",
-              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190307/1?site=999", "render": "link"
-            },
-          
+              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190307/1?site=999", "render": "link" },          
             { "rel": "collection", "name": "day.timeofday", "prompt": "Mar 7 Night - Mar 7 Evening", "title": "07/03/19 00:00 - 07/03/19 23:59",
-              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/timeofday/20190307T0000/4?site=999"
-            }
+              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/timeofday/20190307T0000/4?site=999" }
           ],          
            "data": [
             { "name": "day", "value": "20190307/1",
@@ -179,12 +163,9 @@ Content-Length: 3495
          { "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190308/1?site=999",
            "links": [
             { "rel": "self", "name": "day", "prompt": "Fri Mar 8th", "title": "08/03/19",
-              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190308/1?site=999", "render": "link"
-            },
-          
+              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190308/1?site=999", "render": "link" },
             { "rel": "collection", "name": "day.timeofday", "prompt": "Mar 8 Night - Mar 8 Evening", "title": "08/03/19 00:00 - 08/03/19 23:59",
-              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/timeofday/20190308T0000/4?site=999"
-            }
+              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/timeofday/20190308T0000/4?site=999" }
           ],          
            "data": [
             { "name": "day", "value": "20190308/1",
@@ -212,12 +193,9 @@ Content-Length: 3495
          { "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190309/1?site=999",
            "links": [
             { "rel": "self", "name": "day", "prompt": "Sat Mar 9th", "title": "09/03/19",
-              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190309/1?site=999", "render": "link"
-            },
-          
+              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190309/1?site=999", "render": "link" },
             { "rel": "collection", "name": "day.timeofday", "prompt": "Mar 9 Night - Mar 9 Evening", "title": "09/03/19 00:00 - 09/03/19 23:59",
-              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/timeofday/20190309T0000/4?site=999"
-            }
+              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/timeofday/20190309T0000/4?site=999" }
           ],          
            "data": [
             { "name": "day", "value": "20190309/1",
@@ -245,12 +223,9 @@ Content-Length: 3495
          { "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190310/1?site=999",
            "links": [
             { "rel": "self", "name": "day", "prompt": "Sun Mar 10th", "title": "10/03/19",
-              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190310/1?site=999", "render": "link"
-            },
-          
+              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190310/1?site=999", "render": "link" },
             { "rel": "collection", "name": "day.timeofday", "prompt": "Mar 10 Night - Mar 10 Evening", "title": "10/03/19 00:00 - 10/03/19 23:59",
-              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/timeofday/20190310T0000/4?site=999"
-            }
+              "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/timeofday/20190310T0000/4?site=999" }
           ],          
            "data": [
             { "name": "day", "value": "20190310/1",
