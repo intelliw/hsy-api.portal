@@ -17,7 +17,7 @@ The API and documentation is available through the *Sundaya Developer Portal* at
 ### Energy API
 The `/energy` path provides data for four **Energy Types** :`harvest`, `store`, `enjoy`, `grid`. 
 
-The API response consolidates data for all four energy types, for a requested period (week, month etc.).
+The API response consolidates data for all four energy types, in the requested period (week, month etc.).
 
 Clients can use the API to manage **Energy Assets** through graphical views and by scheduling energy use at preferred times (through the `/devices` path).
 
