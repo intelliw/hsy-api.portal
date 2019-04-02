@@ -41,9 +41,10 @@ Clients should specify and consume `Accept` and `Content-Type` request and respo
 
 These media types are currently supported:
 
-    application/json 
     application/vnd.collection+json
+    application/json 
     text/html
+    text/plain
 
 ## Headers
 This following example shows a sample HTTP request and response.
