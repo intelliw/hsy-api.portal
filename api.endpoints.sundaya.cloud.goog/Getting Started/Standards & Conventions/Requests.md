@@ -9,7 +9,7 @@ The `/energy` path returns a ‘cube’ of energy data for a specified number of
 
 ### Path parameters
 
-The following path parameters are required in energy data requests. If a parameter is invalid or omitted it will be defaulted as shown.   
+The following path parameters are required in energy data requests. If a parameter is omitted it will be defaulted as shown. If the paramter was provided it will be validated agains the controlled value lists (enums) specified in the API.     
 
 Parameter | Description | Default
 --- | --- | --- 
@@ -59,9 +59,15 @@ Parameter | Description | Default
 `api_key` | Each client application has a key which is used to configure basic authentication and data provenance. | 
 
 ### Body parameters
-The the `product-filter` parameter allows the request to be filtered to restrict query data to certain products only. 
+The `product-filter` body parameter optionally allows `/energy` data to be filtered for specific products. The parameter provides a hierarchical schema to specify one or product categories, subcategopries, and types.
 
-The returned data will contain records for *any* of the product types, categories and subcategories specified in the `product-filter` parameter. 
+The response will contain data for *any* of the product categories, subcategories, and product types specified in the parameter. 
+
+- If the `product-filter` parameter is not provided data will be returned for all products.
+
+- If multiple products are specified data will be returned for *any* of those products.
+
+- If a product category is specified without a subcategory or product type data will be returned for *all* subcategories and types in that category. The same applies if a category and subcategory is specified without a product type.
 
 
 ---
