@@ -37,7 +37,7 @@ The Timezone can be specified in UTC or local time as shown:
 ## Media types
 Request `Body` parameters and all response objects are sent and received in JSON. 
 
-Clients should specify and consume `Accept` and `Content-Type` request and response headers to help maintain backward compatibility in their applications. This ensures that an expected response is received, even as new media types or hypermedia schemes are introduced and designated as default.
+Clients should specify and consume `Accept` and `Content-Type` request and response headers in their applications. This ensures that an expected response is received, even as new media types or hypermedia schemes are introduced and designated as default in future.
 
 These media types are currently supported:
 
@@ -45,6 +45,13 @@ These media types are currently supported:
     application/json 
     text/html
     text/plain
+
+- If an `Accept` header is *not* specified the default `application/vnd.collection+json` media type will be returned. 
+
+- If multiple `Accept` headers are sent the response will select one from the list of media types shown above, in the order shown.
+
+- If the request `Accept` headers do not contain a type from the list above a `415`response (*Unsupported Media Type*) will be returned.
+
 
 ## Headers
 This following example shows a sample HTTP request and response.
@@ -59,8 +66,9 @@ Accept: application/vnd.collection+json
 Content-Type: application/vnd.collection+json	
 Content-Length: xxx	
     
-{ "collection" : {...}, ... }
+[{ "collection" : {...}, ... }]
 ```
+ 
 
 ## Operations
 The API supports basic CRUD operations (create, read, update, and delete) using standard HTTP method requests, as summarized in the following table.
@@ -82,6 +90,7 @@ Code | Status | Definition
 `400` | Bad Request | The client specified an invalid argument. 
 `401` | Unauthorized | The client does not have sufficient permission. 
 `404` | Not Found | The resource was not found.
+`415` | Unsupported Media Type | The requested Accept header type is not supported.
 `500` | Internal Server Error | The server encountered an unexpected condition.
 
 ---
