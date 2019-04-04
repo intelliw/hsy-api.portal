@@ -14,8 +14,7 @@ Accept: application/vnd.collection+json, application/vnd.sundaya.v1.0+yaml
 ```
 
 ```json
-Body:
-{
+Body: {
     "product-catalogue-items": [
         {
             "product-category": "Solutions",
