@@ -55,6 +55,7 @@ folders:
     folders:
       GET:
         ordering:
+        - Energy request
         - Energy response
         - Versions response
 
