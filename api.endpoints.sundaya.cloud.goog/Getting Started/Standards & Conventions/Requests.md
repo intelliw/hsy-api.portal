@@ -59,15 +59,15 @@ Parameter | Description | Default
 `api_key` | Each client application has a key which is used to configure basic authentication and data provenance. | 
 
 ### Body parameters
-The `product-filter` body parameter optionally allows `/energy` data to be filtered for specific products. The parameter provides a hierarchical schema to specify one or product categories, subcategopries, and types.
+The `product-catalogue-items` body parameter specifies an optional filter for `/energy` data to be restricted to certain products. 
 
 The response will contain data for *any* of the product categories, subcategories, and product types specified in the parameter. 
 
-- If the `product-filter` parameter is not provided data will be returned for all products.
+- If the `product-catalogue-items` parameter is not provided data will be returned for all products.
 
 - If multiple products are specified data will be returned for *any* of those products.
 
-- If a product category is specified without a subcategory or product type data will be returned for *all* subcategories and types in that category. The same applies if a category and subcategory is specified without a product type.
+- If a `product-category` is specified without a subcategory or product type data will be returned for *all* subcategories and types in that category. The same applies if a category and `product-subcategory` is specified without a `product-type`.
 
 
 ---
