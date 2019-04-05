@@ -1,7 +1,7 @@
 # Versions
 ---
 
-### GET response - Versions
+### GET /versions response
 
 [/versions](http:/api.endpoints.sundaya.cloud.goog/versions)
 
