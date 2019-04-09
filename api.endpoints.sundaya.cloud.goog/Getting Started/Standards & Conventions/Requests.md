@@ -121,7 +121,7 @@ The following path parameters are required in device requests. If a path paramet
 Parameter | Description | Substitute
 --- | --- | --- 
 `device` | The device identifier. | If missing the `device` in the *href* attribute of each data item in the body parameter is used instead. 
-`dataset` | A canonical set of data attributes which have been pre-configured for the device. | If missing the `dataset` in the *href* attribute of each data item in the body parameter is used instead.
+`dataset` | A canonical set of pre-configured data attributes. | If missing the `dataset` in the *href* attribute of each data item in the body parameter is used instead.
 
 ### Query parameters
 There are no query paramters for the `/devices` route.
