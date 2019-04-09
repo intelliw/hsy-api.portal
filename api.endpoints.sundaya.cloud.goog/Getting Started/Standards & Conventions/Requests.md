@@ -16,7 +16,7 @@ The following path parameters are required in energy data requests. If a paramet
 Parameter | Description | Default
 --- | --- | --- 
 `energy` | The type of energy flow. | *hse*
-`period` | The time window for which total energy is aggregated. The only exception is 'instant' which is for a single point in time (a millisecond), without aggregation. | *week*
+`period` | The time window for which total energy is aggregated. The only exception is 'instant' (which is for a single point in time, a millisecond) which is presented without aggregation. | *week*
 `epoch` | The starting date and time for the period. | current UTC date-time
 `duration` | The number of periods to return starting at epoch. This defaults to 1. | *1*
 `site` | The customer site where energy assets have been installed. | *999*
@@ -80,7 +80,7 @@ The fully qualified `/devices` path includes a `device-identfier` and a `device-
 
   [http:/api.endpoints.sundaya.cloud.goog/devices/{**device-identifier**}/datasets/{**device-dataset**}](http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999/datasets/MPPT-SNMP)
 
-- This route provides a dedicated endpoint for each **end device** to stream data. 
+- This route provides a dedicated endpoint for each end **device** to stream its data. 
 
 - Body payload data for devices or datasets which do not match those specified in the path (based on the *href* attribute of the data payload) will be ignored.
 
@@ -90,7 +90,7 @@ The `/devices` path can also be called without a device identifier and/or datase
 
   [http:/api.endpoints.sundaya.cloud.goog/devices/{device-identifier}](http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999)
 
-- These routes are for **gateways** to accumulate data from multuple devices and datasets, and post these periodically wihout any addressing logic needed at the time of delivery.
+- These routes are for **gateways** to accumulate data from multiple devices and datasets, and post these periodically wihout any addressing logic needed at the time of delivery.
 
 
 ### Body parameters
@@ -116,7 +116,7 @@ items": [
 
 ### /devices Path parameters
 
-The following path parameters are required in device requests. If a path parameter is omitted it will be substituted as described above.    
+The following path parameters are required in device requests. If a path parameter is omitted it will be substituted as described.    
 
 Parameter | Description | Substitute
 --- | --- | --- 
@@ -124,7 +124,7 @@ Parameter | Description | Substitute
 `dataset` | A canonical set of pre-configured data attributes. | If missing the `dataset` in the *href* attribute of each data item in the body parameter is used instead.
 
 ### Query parameters
-There are no query paramters for the `/devices` route.
+There are no query parameters for the `/devices` route.
 
 
 
