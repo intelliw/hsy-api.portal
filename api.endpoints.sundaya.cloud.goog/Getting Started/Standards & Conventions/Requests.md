@@ -104,10 +104,10 @@ The `device-dataset-data` body parameter contains one or more data items, each c
 If the root `\devices` path is called the payload must provide device and dataset details in the *href* attribute of each data item as shown in the following snippet.
 
 ```json
-    items": [
-        { "href": "http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999/datasets/MPPT-SNMP",
+items": [
+    { "href": "http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999/datasets/MPPT-SNMP",
         "data": [
-            { "name": "event.time", "value": "20190209T150006.022-0700",
+        { "name": "event.time", "value": "20190209T150006.022-0700",
             "data": [
 ```
 
