@@ -1,4 +1,4 @@
-# Energy Data Requests
+# Energy Data
 ---
 
 The `/energy` path returns a ‘cube’ of energy data for a specified number of periods starting at an epoch. The response includes links to navigate from the reqested period to adjacent periods (next week, month etc.). 
@@ -7,7 +7,7 @@ The `/energy` path returns a ‘cube’ of energy data for a specified number of
 
     e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20150204/1?site=999](http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20150204/1?site=999 "energy=hse, period=week, duration=1, site=999")
 
-### Path parameters
+### /energy Path parameters
 
 The following path parameters are required in energy data requests. If a parameter is omitted it will be defaulted as shown. If the paramter was provided it will be validated agains the controlled value lists (enums) specified in the API.     
 
@@ -68,6 +68,61 @@ The response will contain data for *any* of the product categories, subcategorie
 - If multiple products are specified data will be returned for *any* of those products.
 
 - If a `product-category` is specified without a subcategory or product type data will be returned for *all* subcategories and types in that category. The same applies if a category and `product-subcategory` is specified without a `product-type`.
+
+# Devices 
+---
+
+The `/devices` path is for vendors and systems integrators to log device data, and for field engineers to monitor and control device operation.
+
+The fully qualified `/devices` path includes a `device-identfier` and a `device-dataset` as shown in the following example. 
+
+e.g. [http:/api.endpoints.sundaya.cloud.goog/devices/{device-identifier}/datasets/{device-dataset}](http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999/datasets/MPPT-SNMP)
+
+- This route provides a dedicated endpoint for each device to stream data. 
+
+- Body payload data for devices or datasets which do not match those specified in the path (based on the *href* attribute in the data payload), will be ignored.
+
+The endpoint can also be called without a device identifier and/or dataset as shown in the following examples. 
+
+e.g. [http:/api.endpoints.sundaya.cloud.goog/devices](http:/api.endpoints.sundaya.cloud.goog/devices)
+     [http:/api.endpoints.sundaya.cloud.goog/devices/{device-identifier}](http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999)
+
+- These routes allow device gateways to accumulate data from multuple devices and datasets, and post these periodically to the endpoint root (`\devices`), wihout addressing logic needed at the time of delivery. 
+
+
+### Body parameters
+
+The `device-dataset-data` body parameter contains one or more data items, each consisting of:
+
+- a *href* identifier for the device and dataset.
+
+- an `event.time` for each dataset.
+
+- a canonical set of attributes for the dataset.
+
+If the root `\devices` path is called the payload must provide device and dataset details in the *href* attribute of each data item as shown in the following snippet.
+
+```json
+    items": [
+        { "href": "http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999/datasets/MPPT-SNMP",
+        "data": [
+            { "name": "event.time", "value": "20190209T150006.022-0700",
+            "data": [
+```
+
+### /devices Path parameters
+
+The following path parameters are required in device requests. If a path parameter is omitted it will be substituted as described above.    
+
+Parameter | Description | Substitute
+--- | --- | --- 
+`device` | The device identifier. | If missing the `device` in the *href* attribute of each data item in the body parameter is used instead. 
+`dataset` | A canonical set of data attributes which have been pre-configured for the device. | If missing the `dataset` in the *href* attribute of each data item in the body paramter is used instead.
+
+### Query parameters
+There are no query paramters for the `/devices` route.
+
+
 
 
 ---
