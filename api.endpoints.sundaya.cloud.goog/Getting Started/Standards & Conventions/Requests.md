@@ -58,7 +58,6 @@ In all requests the caller must also provide the following query parameters:
 Parameter | Description | Default
 --- | --- | --- 
 `site` | Identifier of the customer site where energy assets have been installed. | *999*
-`api_key` | Each client application has a key which is used to configure basic authentication and data provenance. | 
 
 ### Body parameters
 The `product-catalogue-items` body parameter specifies an optional filter for `/energy` data to be restricted to certain products. 
@@ -126,7 +125,13 @@ Parameter | Description | Substitute
 ### Query parameters
 There are no query parameters for the `/devices` route.
 
+# Authorisation
 
+### Query parameters
+In all requests the caller must also provide the following credentials:
 
+Parameter | Description | Default
+--- | --- | --- 
+`api_key` | Each client application has a key which is used to configure basic authentication and data provenance. | 
 
 ---
