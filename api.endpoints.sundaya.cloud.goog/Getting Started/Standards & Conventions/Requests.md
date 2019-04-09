@@ -78,7 +78,7 @@ The fully qualified `/devices` path includes a `device-identfier` and a `device-
 
   [http:/api.endpoints.sundaya.cloud.goog/devices/{**device-identifier**}/datasets/{**device-dataset**}](http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999/datasets/MPPT-SNMP)
 
-- This route provides a dedicated endpoint for each device to stream data. 
+- This route provides a dedicated endpoint for each **end device** to stream data. 
 
 - Body payload data for devices or datasets which do not match those specified in the path (based on the *href* attribute of the data payload) will be ignored.
 
@@ -88,7 +88,7 @@ The `/devices` path can also be called without a device identifier and/or datase
 
   [http:/api.endpoints.sundaya.cloud.goog/devices/{device-identifier}](http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999)
 
-- These routes allow device gateways to accumulate data from multuple devices and datasets, and post these periodically to the endpoint root (`\devices`), wihout addressing logic needed at the time of delivery. 
+- These routes are for **gateways** to accumulate data from multuple devices and datasets, and post these periodically wihout any addressing logic needed at the time of delivery.
 
 
 ### Body parameters
@@ -105,10 +105,11 @@ If the root `\devices` path is called the payload must provide device and datase
 
 ```json
 items": [
-    { "href": "http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999/datasets/MPPT-SNMP",
-        "data": [
-        { "name": "event.time", "value": "20190209T150006.022-0700",
-            "data": [
+{ "href": "http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999/datasets/MPPT-SNMP",
+  "data": [
+  { "name": "event.time", "value": "20190209T150006.022-0700",
+    "data": [
+      { "name": "pv1", "value": "99" },
 ```
 
 ### /devices Path parameters
