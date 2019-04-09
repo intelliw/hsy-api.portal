@@ -20,44 +20,37 @@ Content-Length: 3495
       "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190204/1?site=999",
       "version": "0.2",
       "links": [
-        {
-          "rel": "self", "name": "week", "prompt": "Week 06 2019", 
+        { "rel": "self", "name": "week", "prompt": "Week 06 2019", 
           "title": "04/02/19 - 10/02/19", 
           "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190204/1?site=999", 
           "render": "link"
         },
-        {
-          "rel": "collection", "name": "week.day", "prompt": "Mon Feb 4th - Sun Feb 10th", 
+        { "rel": "collection", "name": "week.day", "prompt": "Mon Feb 4th - Sun Feb 10th", 
           "title": "04/02/19 - 10/02/19", 
           "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204/7?site=999"
         },
-        {
-          "rel": "collection", "name": "week.day.timeofday", "prompt": "Feb 4 Night - Feb 10 Evening", 
+        { "rel": "collection", "name": "week.day.timeofday", "prompt": "Feb 4 Night - Feb 10 Evening", 
           "title": "04/02/19 00:00 - 10/02/19 23:59", 
           "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/timeofday/20190204T0000/28?site=999"
         },
-        {
-          "rel": "up", "name": "month", "prompt": "Feb 2019",
+        { "rel": "up", "name": "month", "prompt": "Feb 2019",
           "title": "01/02/19 - 28/02/19",
           "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/month/20190201/1?site=999",
           "render": "link"
         },
-        {
-          "rel": "next", "name": "week", "prompt": "Week 07 2019",
+        { "rel": "next", "name": "week", "prompt": "Week 07 2019",
           "title": "11/02/19 - 17/02/19",
           "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190211/1?site=999",
           "render": "link"
         },
-        {
-          "rel": "prev", "name": "week", "prompt": "Week 05 2019",
+        { "rel": "prev", "name": "week", "prompt": "Week 05 2019",
           "title": "28/01/19 - 03/02/19",
           "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190128/1?site=999",
           "render": "link"
         }
       ],
       "items": [
-        {
-          "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204/1?site=999",
+        { "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190204/1?site=999",
           "links": [
             {
               "rel": "self", "name": "day", "prompt": "Mon Feb 4th", "title": "04/02/19",
@@ -92,8 +85,7 @@ Content-Length: 3495
             }
           ]
         },
-        {
-          "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190205/1?site=999",
+        { "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190205/1?site=999",
           "links": [
             {
               "rel": "self", "name": "day", "prompt": "Tue Feb 5th", "title": "05/02/19",
@@ -128,8 +120,7 @@ Content-Length: 3495
             }
           ]
         },
-        {
-          "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190206/1?site=999",
+        { "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190206/1?site=999",
           "links": [
             {
               "rel": "self", "name": "day", "prompt": "Wed Feb 6th", "title": "06/02/19",
@@ -164,8 +155,7 @@ Content-Length: 3495
             }
           ]
         },
-        {
-          "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190207/1?site=999",
+        { "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190207/1?site=999",
           "links": [
             {
               "rel": "self", "name": "day", "prompt": "Thu Feb 7th", "title": "07/02/19",
@@ -200,8 +190,7 @@ Content-Length: 3495
             }
           ]
         },
-        {
-          "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190208/1?site=999",
+        { "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190208/1?site=999",
           "links": [
             {
               "rel": "self", "name": "day", "prompt": "Fri Feb 8th", "title": "08/02/19",
@@ -236,8 +225,7 @@ Content-Length: 3495
             }
           ]
         },
-        {
-          "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190209/1?site=999",
+        { "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190209/1?site=999",
           "links": [
             {
               "rel": "self", "name": "day", "prompt": "Sat Feb 9th", "title": "09/02/19",
@@ -272,8 +260,7 @@ Content-Length: 3495
             }
           ]
         },
-        {
-          "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190210/1?site=999",
+        { "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/day/20190210/1?site=999",
           "links": [
             {
               "rel": "self", "name": "day", "prompt": "Sun Feb 10th", "title": "10/02/19",
