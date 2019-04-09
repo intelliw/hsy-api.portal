@@ -76,17 +76,17 @@ The `/devices` path is for vendors and systems integrators to log device data, a
 
 The fully qualified `/devices` path includes a `device-identfier` and a `device-dataset` as shown in the following example. 
 
-e.g. [http:/api.endpoints.sundaya.cloud.goog/devices/{**device-identifier**}/datasets/{**device-dataset**}](http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999/datasets/MPPT-SNMP)
+  [http:/api.endpoints.sundaya.cloud.goog/devices/{**device-identifier**}/datasets/{**device-dataset**}](http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999/datasets/MPPT-SNMP)
 
 - This route provides a dedicated endpoint for each device to stream data. 
 
-- Body payload data for devices or datasets which do not match those specified in the path (based on the *href* attribute in the data payload), will be ignored.
+- Body payload data for devices or datasets which do not match those specified in the path (based on the *href* attribute of the data payload) will be ignored.
 
-The endpoint can also be called without a device identifier and/or dataset as shown in the following examples. 
+The `/devices` path can also be called without a device identifier and/or dataset as shown in the following examples. 
 
-e.g. [http:/api.endpoints.sundaya.cloud.goog/devices](http:/api.endpoints.sundaya.cloud.goog/devices)
+  [http:/api.endpoints.sundaya.cloud.goog/devices](http:/api.endpoints.sundaya.cloud.goog/devices)
 
-     [http:/api.endpoints.sundaya.cloud.goog/devices/{device-identifier}](http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999)
+  [http:/api.endpoints.sundaya.cloud.goog/devices/{device-identifier}](http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999)
 
 - These routes allow device gateways to accumulate data from multuple devices and datasets, and post these periodically to the endpoint root (`\devices`), wihout addressing logic needed at the time of delivery. 
 
@@ -97,7 +97,7 @@ The `device-dataset-data` body parameter contains one or more data items, each c
 
 - a *href* identifier for the device and dataset.
 
-- an `event.time` for each dataset.
+- an `event.time` for each dataset.   
 
 - a canonical set of attributes for the dataset.
 
@@ -118,7 +118,7 @@ The following path parameters are required in device requests. If a path paramet
 Parameter | Description | Substitute
 --- | --- | --- 
 `device` | The device identifier. | If missing the `device` in the *href* attribute of each data item in the body parameter is used instead. 
-`dataset` | A canonical set of data attributes which have been pre-configured for the device. | If missing the `dataset` in the *href* attribute of each data item in the body paramter is used instead.
+`dataset` | A canonical set of data attributes which have been pre-configured for the device. | If missing the `dataset` in the *href* attribute of each data item in the body parameter is used instead.
 
 ### Query parameters
 There are no query paramters for the `/devices` route.
