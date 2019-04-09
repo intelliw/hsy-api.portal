@@ -76,7 +76,7 @@ The `/devices` path is for vendors and systems integrators to log device data, a
 
 The fully qualified `/devices` path includes a `device-identfier` and a `device-dataset` as shown in the following example. 
 
-e.g. [http:/api.endpoints.sundaya.cloud.goog/devices/**{device-identifier}**/datasets/{device-dataset}](http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999/datasets/MPPT-SNMP)
+e.g. [http:/api.endpoints.sundaya.cloud.goog/devices/{**device-identifier**}/datasets/{**device-dataset**}](http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999/datasets/MPPT-SNMP)
 
 - This route provides a dedicated endpoint for each device to stream data. 
 
@@ -85,6 +85,7 @@ e.g. [http:/api.endpoints.sundaya.cloud.goog/devices/**{device-identifier}**/dat
 The endpoint can also be called without a device identifier and/or dataset as shown in the following examples. 
 
 e.g. [http:/api.endpoints.sundaya.cloud.goog/devices](http:/api.endpoints.sundaya.cloud.goog/devices)
+
      [http:/api.endpoints.sundaya.cloud.goog/devices/{device-identifier}](http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999)
 
 - These routes allow device gateways to accumulate data from multuple devices and datasets, and post these periodically to the endpoint root (`\devices`), wihout addressing logic needed at the time of delivery. 
