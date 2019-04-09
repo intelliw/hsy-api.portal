@@ -1,4 +1,4 @@
-# Energy Data
+# Energy data
 ---
 
 The `/energy` path returns a ‘cube’ of energy data for a specified number of periods starting at an epoch. The response includes links to navigate from the reqested period to adjacent periods (next week, month etc.). 
@@ -69,7 +69,7 @@ The response will contain data for *any* of the product categories, subcategorie
 
 - If a `product-category` is specified without a subcategory or product type data will be returned for *all* subcategories and types in that category. The same applies if a category and `product-subcategory` is specified without a `product-type`.
 
-# Devices 
+# Device data
 ---
 
 The `/devices` path is for vendors and systems integrators to log device data, and for field engineers to monitor and control device operation.
