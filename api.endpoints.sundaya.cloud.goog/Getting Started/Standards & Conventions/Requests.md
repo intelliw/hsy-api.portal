@@ -73,11 +73,11 @@ The response will contain data for *any* of the product categories, subcategorie
 # Device data
 ---
 
-The `/devices` path is for vendors and systems integrators to log device data, and for field engineers to monitor and control device operation.
+The `/devices` path is for vendors and systems integrators to log device data, and for field engineers to monitor and control devices in operation.
 
 The fully qualified `/devices` path includes a `device-identfier` and a `device-dataset` as shown in the following example. 
 
-  [http:/api.endpoints.sundaya.cloud.goog/devices/{**device-identifier**}/datasets/{**device-dataset**}](http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999/datasets/MPPT-SNMP)
+  [http:/api.endpoints.sundaya.cloud.goog/device/{**device-identifier**}/datasets/{**device-dataset**}](http:/api.endpoints.sundaya.cloud.goog/device/BBC-PR1202-999/datasets/MPPT-SNMP)
 
 - This route provides a dedicated endpoint for each end **device** to stream its data. 
 
@@ -87,7 +87,7 @@ The `/devices` path can also be called without a device identifier and/or datase
 
   [http:/api.endpoints.sundaya.cloud.goog/devices](http:/api.endpoints.sundaya.cloud.goog/devices)
 
-  [http:/api.endpoints.sundaya.cloud.goog/devices/{device-identifier}](http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999)
+  [http:/api.endpoints.sundaya.cloud.goog/device/{device-identifier}](http:/api.endpoints.sundaya.cloud.goog/device/BBC-PR1202-999)
 
 - These routes are for **gateways** to accumulate data from multiple devices and datasets, and post these periodically wihout any addressing logic needed at the time of delivery.
 
@@ -106,7 +106,7 @@ If the root `\devices` path is called the payload must provide device and datase
 
 ```json
 items": [
-{ "href": "http:/api.endpoints.sundaya.cloud.goog/devices/BBC-PR1202-999/datasets/MPPT-SNMP",
+{ "href": "http:/api.endpoints.sundaya.cloud.goog/device/BBC-PR1202-999/datasets/MPPT-SNMP",
   "data": [
   { "name": "event.time", "value": "20190209T150006.022-0700",
     "data": [
