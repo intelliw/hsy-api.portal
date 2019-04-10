@@ -73,25 +73,25 @@ The response will contain data for *any* of the product categories, subcategorie
 # Device data
 ---
 
-The `/devices` path is for vendors and systems integrators to post device data. 
+The `/devices/datasets` path is for vendors and systems integrators to upload new device data.
 
 [http:/api.endpoints.sundaya.cloud.goog/devices/datasets](http:/api.endpoints.sundaya.cloud.goog/devices/datasets)
 
-- This route allows device **gateways** to accumulate data from multiple devices and datasets, and post data periodically wihout addressing logic needed at the time of delivery.
+- This route allows device **gateways** to accumulate and preiodically send data from multiple devices and datasets, wihout addressing logic needed at the time of delivery.
 
-The fully qualified `/device/{device-id}/dataset{dataset}` path is for field engineers to monitor and control devices during operation.
+The fully qualified `/device/{device-id}/dataset{dataset}` path is typically intended for field engineers to monitor an individual device during operation.
  
  [http:/api.endpoints.sundaya.cloud.goog/device/{**device-id**}/dataset/{**dataset**}/periods/week/20150204/1](http:/api.endpoints.sundaya.cloud.goog/device/BBC-PR1202-999/dataset/MPPT-SNMP/periods/week/20150204/1)
 
-- The path provide a dedicated endpoint to retrive data for each **device**. 
+- The path provide a dedicated endpoint to retrive data for an individual **device** and dataset. 
 
 ### /devices Body parameter
 
 The `device-dataset-items` body parameter is required in device POST requests. The paramter contains one or more data items for posting new device data, each consisting of:
 
-- the `device` identifier.
+- a `device` identifier.
 
-- the `dataset` identifier 
+- a `dataset` identifier 
 
 - a `data` array in which each element contains a canonical set of attributes for the dataset.
 
