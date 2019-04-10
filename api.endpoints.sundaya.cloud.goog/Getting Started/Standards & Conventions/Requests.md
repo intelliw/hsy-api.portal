@@ -123,6 +123,4 @@ Parameter | Description
 ### /device Query parameters
 There are no query parameters for the `/device` route.
 
-# Authorisation
-
 ---
