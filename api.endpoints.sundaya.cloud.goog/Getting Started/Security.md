@@ -4,16 +4,23 @@
 The API requires a secret Key to authenticate your account. 
 
 ### Requesting an API key
+
 You can [request access](mailto:admin@api.sundaya.com) by signing up for an account. 
 
-You can also request an additional key if you need to rotate your key in future.
+You can also request an additional key if you need to replace your key in future.
 
 ### API key usage
-The API key must be provided with the request in a query parameter as shown:
 
-e.g. [http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210?site=999&api_key=AIzaSyASFQxf4PmOutVS1Dt99TPcZ4IQ8PDUMqY](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210?site=999&api_key=AIzaSyASFQxf4PmOutVS1Dt99TPcZ4IQ8PDUMqY)
+The API key must be provided in all requests as a query parameter, as shown:
 
-A `401' *Unauthorized* response is returned if an API key is not valid, or if the key is not authorised to access an API path.
+Parameter | Description 
+--- | --- 
+`api_key` | Each client application has a key which is used to configure basic authentication and data provenance. 
+
+e.g. [http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210?site=999&**api_key=AIzaSyASFQxf4PmOutVS1Dt99TPcZ4IQ8PDUMqY**](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210?site=999&api_key=AIzaSyASFQxf4PmOutVS1Dt99TPcZ4IQ8PDUMqY)
+
+`401' *Unauthorized*` is returned if an API key is not valid or does not have access to the API path.
+
 
 
 
