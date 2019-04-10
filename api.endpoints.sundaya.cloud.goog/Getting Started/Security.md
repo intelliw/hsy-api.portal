@@ -19,7 +19,7 @@ Parameter | Description
 
 e.g. [/energy/hse/periods/week/20190210?site=999&**api_key**=AIzaSyASFQxf4PmOutVS1Dt99TPcZ4IQ8PDUMqY](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210?site=999&api_key=AIzaSyASFQxf4PmOutVS1Dt99TPcZ4IQ8PDUMqY)
 
-`401 *Unauthorized*` is returned if the API key is not valid or does not have access to the requested path.
+`401 Unauthorized` is returned if the API key is not valid or does not have access to the requested path.
 
 
 

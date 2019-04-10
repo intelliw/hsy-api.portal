@@ -125,11 +125,4 @@ There are no query parameters for the `/device` route.
 
 # Authorisation
 
-### Query parameters
-In all requests the caller must also provide the following credentials:
-
-Parameter | Description | Default
---- | --- | --- 
-`api_key` | Each client application has a key which is used to configure basic authentication and data provenance. | 
-
 ---
