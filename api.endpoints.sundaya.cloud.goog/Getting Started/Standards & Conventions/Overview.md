@@ -15,7 +15,7 @@ Date and time parameters must be expressed in [ISO 8601](https://en.wikipedia.or
 
     http://api.endpoints.sundaya.cloud.goog/energy/{type}/{period}/{epoch}
 
-e.g. [http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210](http:/api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20190210)
+e.g. [http:/api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20190210](http:/api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20190210)
 
 The compressed version of ISO 8601 is required, without semi colons and with `T` as the time designator, as shown in examples below.
 
@@ -26,13 +26,13 @@ The Timezone can be specified in UTC or local time as shown:
 
 - __UTC__, expressed with a trailing `Z` 
 
-    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/minute/20190209T0930Z](http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/minute/20190209T0930Z "Z signifies time zone as UTC") == 09:30 UTC
+    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/minute/20190209T0930Z](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/minute/20190209T0930Z "Z signifies time zone as UTC") == 09:30 UTC
 
 - __Local__ time in Jakarta with +/- offset 
 
-    http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/minute/YYYYMMDDTHHmmss.SSS±HHmm
+    http://api.endpoints.sundaya.cloud.goog/energy/hse/period/minute/YYYYMMDDTHHmmss.SSS±HHmm
 
-    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/minute/20190209T1630-0700](http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/minute/20190209T1630-0700 "-0700 is JKT offset from  UTC") == 09:30 UTC
+    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/minute/20190209T1630-0700](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/minute/20190209T1630-0700 "-0700 is JKT offset from  UTC") == 09:30 UTC
 
 ## Media types
 Request `Body` parameters and all response objects are sent and received in JSON. 
@@ -57,7 +57,7 @@ These media types are currently supported:
 This following example shows a sample HTTP request and response.
 ```
 *** REQUEST ***	
-GET /energy/hse/periods/week/20190204/ HTTP/1.1	
+GET /energy/hse/period/week/20190204/ HTTP/1.1	
 Host: api.endpoints.sundaya.cloud.goog
 Accept: application/vnd.collection+json	
     

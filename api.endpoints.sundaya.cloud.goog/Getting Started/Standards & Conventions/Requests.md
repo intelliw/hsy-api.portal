@@ -5,9 +5,9 @@ The `/energy` path returns a ‘cube’ of energy data for a specified number of
 
 The response includes links to navigate from the reqested period to adjacent periods (next week, month etc.). 
 
-- /energy/{`energy`}/periods/{`period`}/{`epoch`}/{`duration`}?site={`site`}
+- /energy/{`energy`}/period/{`period`}/{`epoch`}/{`duration`}?site={`site`}
 
-    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20150204/1?site=999](http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/week/20150204/1?site=999 "energy=hse, period=week, duration=1, site=999")
+    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20150204/1?site=999](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20150204/1?site=999 "energy=hse, period=week, duration=1, site=999")
 
 ### /energy Path parameters
 
@@ -83,7 +83,7 @@ The `/devices/datasets` path is for vendors and systems integrators to upload ne
 
 The fully qualified `/device/{device-id}/dataset{dataset}` path is typically intended for field engineers to monitor an individual device during operation.
  
- [http:/api.endpoints.sundaya.cloud.goog/device/{**device-id**}/dataset/{**dataset**}/periods/week/20150204/1](http:/api.endpoints.sundaya.cloud.goog/device/BBC-PR1202-999/dataset/MPPT-SNMP/periods/week/20150204/1)
+ [http:/api.endpoints.sundaya.cloud.goog/device/{**device-id**}/dataset/{**dataset**}/period/week/20150204/1](http:/api.endpoints.sundaya.cloud.goog/device/BBC-PR1202-999/dataset/MPPT-SNMP/period/week/20150204/1)
 
 - The path provide a dedicated endpoint to retrive data for an individual **device** and dataset. 
 
@@ -122,5 +122,6 @@ Parameter | Description
 
 ### /device Query parameters
 There are no query parameters for the `/device` route.
+
 
 ---

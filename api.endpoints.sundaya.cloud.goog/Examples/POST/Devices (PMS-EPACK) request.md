@@ -13,7 +13,7 @@ Accept: application/json
     
 *** RESPONSE ***	
 201 OK HTTP/1.1	
-Location: http:/api.endpoints.sundaya.cloud.goog/device/BBC-PMS-999/dataset/PMS-EPACK/periods/minute/20190209T1500-0700/1
+Location: http:/api.endpoints.sundaya.cloud.goog/device/BBC-PMS-999/dataset/PMS-EPACK/period/minute/20190209T1500-0700/1
 Content-Type: application/json
 Content-Length: 250	
 
