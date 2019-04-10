@@ -13,7 +13,7 @@ Accept: application/json
     
 *** RESPONSE ***	
 201 OK HTTP/1.1	
-Location: http:/api.endpoints.sundaya.cloud.goog/device/BBC-PR1202-999/datasets/MPPT-SNMP/periods/minute/20190209T1500-0700/1
+Location: http:/api.endpoints.sundaya.cloud.goog/device/BBC-PR1202-999/dataset/MPPT-SNMP/periods/minute/20190209T1500-0700/1
 Content-Type: application/json
 Content-Length: 250	
 
