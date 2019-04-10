@@ -60,15 +60,17 @@ Parameter | Description | Default
 `site` | Identifier of the customer site where energy assets have been installed. | *999*
 
 ### Body parameters
-The `product-catalogue-items` body parameter specifies an optional filter for `/energy` data to be restricted to certain products. 
+The `product-catalogue-items` optional body parameter specifies a query filter for `/energy` data to be restricted to one or more products. 
 
-The response will contain data for *any* of the product categories, subcategories, and product types specified in the parameter. 
+The query response will contain data for *any* of the product categories, subcategories, and product types specified in the parameter. 
 
-- If the `product-catalogue-items` parameter is not provided data will be returned for all products.
+- If the `product-catalogue-items` parameter is missing data will be returned for all products.
 
 - If multiple products are specified data will be returned for *any* of those products.
 
-- If a `product-category` is specified without a subcategory or product type data will be returned for *all* subcategories and types in that category. The same applies if a category and `product-subcategory` is specified without a `product-type`.
+- If a `product-category` is specified without a subcategory or product type data will be returned for *all* subcategories and types in that category.
+
+- The same applies if a category and `product-subcategory` is specified without a `product-type`.
 
 # Device data
 ---
