@@ -65,9 +65,9 @@ api_key: X2zaSyASFGxf4PmOitVS1Dt911PcZ4IQ8PUUMqA
 *** RESPONSE ***	
 200 OK HTTP/1.1	
 Content-Type: application/vnd.collection+json	
-Content-Length: xxx	
+Content-Length: 10757	
     
-[{ "collection" : {...}, ... }]
+[{ "collection": {...}, ... }]
 ```
  
 
