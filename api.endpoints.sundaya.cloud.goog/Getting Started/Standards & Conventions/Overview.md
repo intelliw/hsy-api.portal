@@ -60,6 +60,7 @@ This following example shows a sample HTTP request and response.
 GET /energy/hse/period/week/20190204/ HTTP/1.1	
 Host: api.endpoints.sundaya.cloud.goog
 Accept: application/vnd.collection+json	
+api_key: X2zaSyASFGxf4PmOitVS1Dt911PcZ4IQ8PUUMqA
     
 *** RESPONSE ***	
 200 OK HTTP/1.1	
