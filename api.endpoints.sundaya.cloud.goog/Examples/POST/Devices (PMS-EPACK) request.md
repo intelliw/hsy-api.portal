@@ -48,7 +48,6 @@ Content-Length: 250
             { "name": "tempBottom", "value": "99" },
             { "name": "tempMid", "value": "99" },
             { "name": "tempTop", "value": "99" },
-            { "name": "cmosStatus", "value": "open" },
             { "name": "cmosStatus", "value": "open" }
           ]
         },
@@ -74,7 +73,6 @@ Content-Length: 250
             { "name": "tempBottom", "value": "99" },
             { "name": "tempMid", "value": "99" },
             { "name": "tempTop", "value": "99" },
-            { "name": "cmosStatus", "value": "open" },
             { "name": "cmosStatus", "value": "open" }
           ]
         },
@@ -100,7 +98,6 @@ Content-Length: 250
             { "name": "tempBottom", "value": "99" },
             { "name": "tempMid", "value": "99" },
             { "name": "tempTop", "value": "99" },
-            { "name": "cmosStatus", "value": "open" },
             { "name": "cmosStatus", "value": "open" }
           ]
         },
@@ -126,7 +123,6 @@ Content-Length: 250
             { "name": "tempBottom", "value": "99" },
             { "name": "tempMid", "value": "99" },
             { "name": "tempTop", "value": "99" },
-            { "name": "cmosStatus", "value": "open" },
             { "name": "cmosStatus", "value": "open" }
           ]
         },
@@ -152,7 +148,6 @@ Content-Length: 250
             { "name": "tempBottom", "value": "99" },
             { "name": "tempMid", "value": "99" },
             { "name": "tempTop", "value": "99" },
-            { "name": "cmosStatus", "value": "open" },
             { "name": "cmosStatus", "value": "open" }
           ]
         },
@@ -178,7 +173,6 @@ Content-Length: 250
             { "name": "tempBottom", "value": "99" },
             { "name": "tempMid", "value": "99" },
             { "name": "tempTop", "value": "99" },
-            { "name": "cmosStatus", "value": "open" },
             { "name": "cmosStatus", "value": "open" }
           ]
         },
@@ -204,7 +198,6 @@ Content-Length: 250
             { "name": "tempBottom", "value": "99" },
             { "name": "tempMid", "value": "99" },
             { "name": "tempTop", "value": "99" },
-            { "name": "cmosStatus", "value": "open" },
             { "name": "cmosStatus", "value": "open" }
           ]
         },
@@ -230,7 +223,6 @@ Content-Length: 250
             { "name": "tempBottom", "value": "99" },
             { "name": "tempMid", "value": "99" },
             { "name": "tempTop", "value": "99" },
-            { "name": "cmosStatus", "value": "open" },
             { "name": "cmosStatus", "value": "open" }
           ]
         },
@@ -256,7 +248,6 @@ Content-Length: 250
             { "name": "tempBottom", "value": "99" },
             { "name": "tempMid", "value": "99" },
             { "name": "tempTop", "value": "99" },
-            { "name": "cmosStatus", "value": "open" },
             { "name": "cmosStatus", "value": "open" }
           ]
         },
@@ -282,7 +273,6 @@ Content-Length: 250
             { "name": "tempBottom", "value": "99" },
             { "name": "tempMid", "value": "99" },
             { "name": "tempTop", "value": "99" },
-            { "name": "cmosStatus", "value": "open" },
             { "name": "cmosStatus", "value": "open" }
           ]
         }
