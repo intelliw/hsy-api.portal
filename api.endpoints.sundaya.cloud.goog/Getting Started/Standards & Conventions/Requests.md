@@ -32,7 +32,7 @@ The following table describes each `period` and formats used for `epoch` in the 
 
 - The *compressed* format is used in hyperlinks (in the `href` attribute) and the *uncompressed* format is intended for use in display labels.
 
-- An `instant` represents a single point in time (a millisecond). As suchg there is no data aggregation for `instant`.
+- An `instant` represents a single point in time (a millisecond). As such there is no data aggregation for `instant`.
 
 - `second` and `minute` periods both include aggregates of any instants in which data was logged.
 
