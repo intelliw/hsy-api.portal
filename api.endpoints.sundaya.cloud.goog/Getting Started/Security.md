@@ -41,6 +41,3 @@ The developer portal injects an `api_key` **query** parameter for the 'Try this 
 The query parameter is not inspected by the API host and is required only by the portal. 
 
 The portal does however also provide an `api_key` **header** parameter which should be populated and with the 'Try this API' interface for testing security. 
-
-
-
