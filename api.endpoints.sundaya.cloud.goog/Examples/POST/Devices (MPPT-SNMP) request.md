@@ -10,6 +10,7 @@
 POST /devices/datasets HTTP/1.1	
 Host: api.endpoints.sundaya.cloud.goog
 Accept: application/json
+Content-Type: application/json
     
 *** RESPONSE ***	
 201 OK HTTP/1.1	

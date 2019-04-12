@@ -11,6 +11,7 @@
 GET /energy/hse/period/week/20190204/1?site=999 HTTP/1.1	
 Host: api.endpoints.sundaya.cloud.goog
 Accept: application/vnd.collection+json, application/vnd.sundaya.v1.0+yaml
+Content-Type: application/json
 ```
 
 ```json
