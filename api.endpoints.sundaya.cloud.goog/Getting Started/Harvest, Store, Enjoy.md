@@ -52,7 +52,7 @@ Flow | From / To
 `store.out` | `enjoy`
 `enjoy`  |  `harvest` `store.out` `grid.out`
     
-To query specific assets, clients can filter requests by `category`, `subcategory`, and `product-type` (in the request *Body*).
+To query specific assets, clients can filter requests by `category`, `subcategory`, and `productType` (in the request *Body*).
 
 # Data Visualisation
 

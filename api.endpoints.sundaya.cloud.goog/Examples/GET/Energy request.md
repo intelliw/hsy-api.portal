@@ -15,14 +15,14 @@ Accept: application/vnd.collection+json, application/vnd.sundaya.v1.0+yaml
 
 ```json
 Body: {
-    "product-catalogue-items": [
+    "productCatalogItems": [
         {
-            "product-category": "Solutions",
-            "product-subcategory": "Solar Home Kits",
-            "product-type": "JouleBox"
+            "productCategory": "Solutions",
+            "productSubcategory": "Solar Home Kits",
+            "productType": "JouleBox"
         },
         {
-            "product-category": "Solutions & Components"
+            "productCategory": "Solutions & Components"
         }
     ]
 }

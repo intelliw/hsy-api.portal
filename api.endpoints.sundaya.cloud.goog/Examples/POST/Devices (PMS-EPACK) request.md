@@ -22,7 +22,7 @@ Content-Length: 250
 
 ```json
 {
-  "device-dataset-items": [
+  "deviceDatasetItems": [
     { "device": "BBC-PMS-999",
       "dataset": "PMS-EPACK",
       "data": [

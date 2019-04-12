@@ -22,7 +22,7 @@ Content-Length: 250
 
 ```json
 {
-  "device-dataset-items": [
+  "deviceDatasetItems": [
     { "device": "BBC-PR1202-999",
       "dataset": "MPPT-SNMP",
       "data": [

@@ -60,17 +60,17 @@ Parameter | Description | Default
 `site` | Identifier of the customer site where energy assets have been installed. | *999*
 
 ### Body parameters
-The `product-catalogue-items` optional body parameter specifies a query filter for `/energy` data to be restricted to one or more products. 
+The `productCatalogItems` optional body parameter specifies a query filter for `/energy` data to be restricted to one or more products. 
 
 The query response will contain data for *any* of the product categories, subcategories, and product types specified in the parameter. 
 
-- If the `product-catalogue-items` parameter is missing data will be returned for all products.
+- If the `productCatalogItems` parameter is missing data will be returned for all products.
 
 - If multiple products are specified data will be returned for *any* of those products.
 
-- If a `product-category` is specified without a subcategory or product type data will be returned for *all* subcategories and types in that category.
+- If a `productCategory` is specified without a subcategory or product type data will be returned for *all* subcategories and types in that category.
 
-- The same applies if a category and `product-subcategory` is specified without a `product-type`.
+- The same applies if a category and `productSubcategory` is specified without a `productType`.
 
 # Device data
 ---
@@ -89,7 +89,7 @@ The fully qualified `/device/{device-id}/dataset{dataset}` path is typically int
 
 ### /devices Body parameter
 
-The `device-dataset-items` body parameter is required in device POST requests. The paramter contains one or more data items for posting new device data, each consisting of:
+The `deviceDatasetItems` body parameter is required in device POST requests. The paramter contains one or more data items for posting new device data, each consisting of:
 
 - a `device` identifier.
 
@@ -100,7 +100,7 @@ The `device-dataset-items` body parameter is required in device POST requests. T
 These attribute are shown in the following snippet.
 
 ```json
-"device-dataset-items": [
+"deviceDatasetItems": [
   { "device": "BBC-PR1202-999",
     "dataset": "MPPT-SNMP",
     "data": [
