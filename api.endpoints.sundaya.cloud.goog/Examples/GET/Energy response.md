@@ -20,8 +20,7 @@ Content-Length: 3495
       "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20190204/1?site=999",
       "version": "0.2",
       "links": [
-        { "rel": "self", "name": "week", "prompt": "Week 06 2019", 
-          "title": "04/02/19 - 10/02/19", 
+        { "rel": "self", "name": "week", "prompt": "Week 06 2019", "title": "04/02/19 - 10/02/19", 
           "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20190204/1?site=999", 
           "render": "link"
         },
@@ -29,22 +28,19 @@ Content-Length: 3495
           "title": "04/02/19 - 10/02/19", "description": "Mon Tue Wed Thu Fri Sat Sun",
           "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/period/day/20190204/7?site=999"
         },
-        { "rel": "collection", "name": "week.day.timeofday", "prompt": "Feb 4 Night - Feb 10 Evening", 
-          "title": "04/02/19 00:00 - 10/02/19 23:59", 
+        { "rel": "collection", "name": "day.timeofday", "prompt": "Feb 4 Night - Feb 10 Evening", 
+          "title": "04/02/19 00:00 - 10/02/19 23:59", "description": "Morning Afternoon Evening Night",
           "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/period/timeofday/20190204T0000/28?site=999"
         },
-        { "rel": "up", "name": "month", "prompt": "Feb 2019",
-          "title": "01/02/19 - 28/02/19",
+        { "rel": "up", "name": "month", "prompt": "Feb 2019", "title": "01/02/19 - 28/02/19",
           "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/period/month/20190201/1?site=999",
           "render": "link"
         },
-        { "rel": "next", "name": "week", "prompt": "Week 07 2019",
-          "title": "11/02/19 - 17/02/19",
+        { "rel": "next", "name": "week", "prompt": "Week 07 2019", "title": "11/02/19 - 17/02/19",
           "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20190211/1?site=999",
           "render": "link"
         },
-        { "rel": "prev", "name": "week", "prompt": "Week 05 2019",
-          "title": "28/01/19 - 03/02/19",
+        { "rel": "prev", "name": "week", "prompt": "Week 05 2019", "title": "28/01/19 - 03/02/19",
           "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20190128/1?site=999",
           "render": "link"
         }
@@ -57,7 +53,7 @@ Content-Length: 3495
               "render": "link"
             },
             { "rel": "collection","name": "day.timeofday", "prompt": "Feb 4 Night - Feb 4 Evening",
-              "title": "04/02/19 00:00 - 04/02/19 23:59", "description": "Morning Afternoon Evening Night",
+              "title": "04/02/19 00:00 - 04/02/19 23:59", 
               "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/period/timeofday/20190204T0000/4?site=999"
             }
           ],
@@ -91,7 +87,7 @@ Content-Length: 3495
               "render": "link"
             },
             { "rel": "collection", "name": "day.timeofday", "prompt": "Feb 5 Night - Feb 5 Evening",
-              "title": "05/02/19 00:00 - 05/02/19 23:59", "description": "Morning Afternoon Evening Night",
+              "title": "05/02/19 00:00 - 05/02/19 23:59", 
               "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/period/timeofday/20190205T0000/4?site=999"
             }
           ],
@@ -125,7 +121,7 @@ Content-Length: 3495
               "render": "link"
             },
             { "rel": "collection", "name": "day.timeofday", "prompt": "Feb 6 Night - Feb 6 Evening",
-              "title": "06/02/19 00:00 - 06/02/19 23:59", "description": "Morning Afternoon Evening Night",
+              "title": "06/02/19 00:00 - 06/02/19 23:59", 
               "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/period/timeofday/20190206T0000/4?site=999"
             }
           ],
@@ -159,7 +155,7 @@ Content-Length: 3495
               "render": "link"
             },
             { "rel": "collection", "name": "day.timeofday", "prompt": "Feb 7 Night - Feb 7 Evening",
-              "title": "07/02/19 00:00 - 07/02/19 23:59", "description": "Morning Afternoon Evening Night",
+              "title": "07/02/19 00:00 - 07/02/19 23:59", 
               "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/period/timeofday/20190207T0000/4?site=999"
             }
           ],
@@ -193,7 +189,7 @@ Content-Length: 3495
               "render": "link"
             },
             { "rel": "collection", "name": "day.timeofday", "prompt": "Feb 8 Night - Feb 8 Evening",
-              "title": "08/02/19 00:00 - 08/02/19 23:59", "description": "Morning Afternoon Evening Night",
+              "title": "08/02/19 00:00 - 08/02/19 23:59", 
               "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/period/timeofday/20190208T0000/4?site=999"
             }
           ],
@@ -227,7 +223,7 @@ Content-Length: 3495
               "render": "link"
             },
             { "rel": "collection", "name": "day.timeofday", "prompt": "Feb 9 Night - Feb 9 Evening",
-              "title": "09/02/19 00:00 - 09/02/19 23:59", "description": "Morning Afternoon Evening Night",
+              "title": "09/02/19 00:00 - 09/02/19 23:59", 
               "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/period/timeofday/20190209T0000/4?site=999"
             }
           ],
@@ -261,7 +257,7 @@ Content-Length: 3495
               "render": "link"
             },
             { "rel": "collection", "name": "day.timeofday", "prompt": "Feb 10 Night - Feb 10 Evening",
-              "title": "10/02/19 00:00 - 10/02/19 23:59", "description": "Morning Afternoon Evening Night",
+              "title": "10/02/19 00:00 - 10/02/19 23:59", 
               "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/period/timeofday/20190210T0000/4?site=999"
             }
           ],
