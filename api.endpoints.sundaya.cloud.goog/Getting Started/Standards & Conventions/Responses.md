@@ -17,7 +17,7 @@ Links have the following attributes:
 
 - **description** - The period or energy descriptor for display by user agents (applications). e.g:
 
-    -   "`rel`": "self", "`name`": "week", "`description`": "hse"
+    -   "`rel`": "self", "`name`": "week", "`description`": "hse week 20190204 1"
 
     -    "`rel`": "collection", "`name`": "week.day" "`description`": "Mon Tue Wed Thu Fri Sat Sun"
 
