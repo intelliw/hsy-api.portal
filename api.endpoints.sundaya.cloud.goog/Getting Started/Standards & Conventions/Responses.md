@@ -15,7 +15,7 @@ Links have the following attributes:
 
 - **href** - The URI or URL of the resource.
 
-- **description** - The period or energy descriptor for use by user agents (applications). 
+- **description** - The period or energy descriptor for display by user agents (applications). 
     e.g. "`rel`": "self", "`name`": "week", "`description`": "hse"
          "`rel`": "collection", "`name`": "week.day" "`description`": "Mon Tue Wed Thu Fri Sat Sun"
          "`rel`": "collection", "`name`": "day.timeofday" "`description`": "Morning Afternoon Evening Night"
