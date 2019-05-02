@@ -17,7 +17,8 @@ Links have the following attributes:
 
 - **description** - The period or energy descriptor for display by user agents (applications). 'description' is an optional attribute and is not part of the JSON Collection specification.
 
-    e.g. "`rel`": "self", "`name`": "week", "`description`": "hse"
+    e.g.
+    -   "`rel`": "self", "`name`": "week", "`description`": "hse"
 
     -    "`rel`": "collection", "`name`": "week.day" "`description`": "Mon Tue Wed Thu Fri Sat Sun"
 
