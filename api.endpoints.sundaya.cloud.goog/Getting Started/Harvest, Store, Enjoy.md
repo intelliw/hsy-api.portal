@@ -79,7 +79,7 @@ A graph with lot of _Black_ in the top tier indicates that you need to do someth
 
 ### Element names
 
-The following monthly `period` graph cotnains a representation for all data elements returned by the API.
+The following monthly `period` graph contains a representation for all data elements returned by the API.
 
 ![Monthly usage example](../images/graph.monthly-usage.png)
 

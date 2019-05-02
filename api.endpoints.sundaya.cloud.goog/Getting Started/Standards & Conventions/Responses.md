@@ -15,6 +15,14 @@ Links have the following attributes:
 
 - **href** - The URI or URL of the resource.
 
+- **description** - The period or energy descriptor for use by user agents (applications). 
+    e.g. "`rel`": "self", "`name`": "week", "`description`": "hse"
+         "`rel`": "collection", "`name`": "week.day" "`description`": "Mon Tue Wed Thu Fri Sat Sun"
+         "`rel`": "collection", "`name`": "day.timeofday" "`description`": "Morning Afternoon Evening Night"
+         
+
+    This is an optional attribute which is not part of the JSON collection specification.
+
 - **render** - 'image' or 'text' if the link should be retrieved and embedded; or 'link' to display as-is. If the property is missing the href link does not need to be presented.
 
 The following table shows a set of links provided with energy data for a *week* period. 

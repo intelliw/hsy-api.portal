@@ -20,7 +20,8 @@ Content-Length: 3495
       "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20190204/1?site=999",
       "version": "0.2",
       "links": [
-        { "rel": "self", "name": "week", "prompt": "Week 06 2019", "title": "04/02/19 - 10/02/19", 
+        { "rel": "self", "name": "week", "prompt": "Week 06 2019", 
+          "title": "04/02/19 - 10/02/19", "description": "hse",
           "href": "http://api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20190204/1?site=999", 
           "render": "link"
         },
