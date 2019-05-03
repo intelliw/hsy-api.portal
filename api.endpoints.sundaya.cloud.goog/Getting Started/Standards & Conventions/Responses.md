@@ -23,11 +23,11 @@ Links have the following attributes:
 
     e.g:
 
-    -   "`rel`": "self", "`name`": "week", "`description`": "hse week 20190204 1 999"
+    -   "rel": "self", "name": "week", "description": "`hse week 20190204 1 999`"
 
-    -    "`rel`": "collection", "`name`": "week.day" "`description`": "Mon Tue Wed Thu Fri Sat Sun"
+    -    "rel": "collection", "name": "week.day" "description": "`Mon Tue Wed Thu Fri Sat Sun`"
 
-    -    "`rel`": "collection", "`name`": "day.timeofday" "`description`": "Morning Afternoon Evening Night"
+    -    "rel": "collection", "name": "day.timeofday" "description": "`Morning Afternoon Evening Night`"
 
     'description' is an optional attribute and is not part of the JSON Collection specification.
 
