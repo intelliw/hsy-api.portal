@@ -17,7 +17,9 @@ Links have the following attributes:
 
 - **description** - The period or energy descriptor for display by user agents (applications). 
 
-    For `rel`: "self" links the `description` consists of the resource parameters: `energy`, `period`, `epoch`, `duration`, and `site`. 
+    For "self" links the `description` consists of a list of the resource parameters:
+    
+        `energy`, `period`, `epoch`, `duration`, and `site` 
 
     e.g:
 
