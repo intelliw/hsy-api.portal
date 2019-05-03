@@ -19,7 +19,7 @@ Links have the following attributes:
 
     For "self" links the `description` consists of a list of the resource parameters:
     
-        `energy`, `period`, `epoch`, `duration`, and `site` 
+    `energy`, `period`, `epoch`, `duration`, `site` 
 
     e.g:
 
