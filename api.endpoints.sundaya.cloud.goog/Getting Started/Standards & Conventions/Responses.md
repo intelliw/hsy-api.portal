@@ -29,8 +29,6 @@ Links have the following attributes:
 
     -    "rel": "collection", "name": "day.timeofday" "description": "`Morning Afternoon Evening Night`"
 
-    'description' is an optional attribute and is not part of the JSON Collection specification.
-
 - **render** - 'image' or 'text' if the link should be retrieved and embedded; or 'link' to display as-is. If the property is missing the href link does not need to be presented.
 
 The following table shows a set of links provided with energy data for a *week* period. 
