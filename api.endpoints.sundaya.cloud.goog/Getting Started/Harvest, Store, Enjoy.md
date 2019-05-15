@@ -34,7 +34,7 @@ The following labels are used in API paths and responses to refer to energy data
 
 - `store.in` and `store.out` indicate *charge* and *discharge* flows for batteries.
 
-- `grid.out` and `grid.in` indicate mains use, and feed-in flows into the public grid.
+- `grid.in` and `grid.out` indicate mains use, and feed-in flows into the public grid.
 
 - `harvest` refers to renewable energy generation. 
 
@@ -93,6 +93,6 @@ The following monthly `period` graph contains a representation for all data elem
 
 - _Red_ represents energy consumption (`enjoy`) and is always shown in the bottom tier.
 - _Black_ in the bottom tier shows a net excess (`harvest`, `store.in`, `enjoy`) resulting in feed-in flows to the grid (`grid.in`). 
-- _Blue_ in the bottom tier shows excess `harvest` and available battery capacity for *charge* (`store.in`).
+- _Blue_ in the bottom tier shows battery *charge* (`store.in`) typically from excess `harvest` energy.
 
 ---
