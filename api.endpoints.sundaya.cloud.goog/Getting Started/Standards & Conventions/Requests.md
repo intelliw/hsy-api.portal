@@ -39,7 +39,7 @@ The following table describes each `period` and formats used for `epoch` in the 
 - `timeofday` refers to 6-hourly blocks of time for Morning, Afternoon, Evening, Night.
 
 Period | Child Period | Duration | Grandchild Period | Duration | Format (*compressed*) | (*uncompressed*)
---- | --- |--- | --- | --- | --- 
+--- | --- |--- | --- | --- | --- | --- 
 `instant` | - | - | - | - | YYYYMMDDTHHmmss.SSS | DD/MM/YY HHmmss.SSS
 `second` | `instant` | *varies* | - | - | YYYYMMDDTHHmmss | DD/MM/YY HHmm:ss
 `minute` | `second` | 60 | `instant` | *varies* | YYYYMMDDTHHmm | DD/MM/YY HH:mm
