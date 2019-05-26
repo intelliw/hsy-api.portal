@@ -38,19 +38,19 @@ The following table describes each `period` and formats used for `epoch` in the 
 
 - `timeofday` refers to 6-hourly blocks of time for Morning, Afternoon, Evening, Night.
 
-Period | Child Period | Duration | Grandchild | Format (*compressed*) | (*uncompressed*)
+Period | Child Period | Duration | Grandchild Period | Duration | Format (*compressed*) | (*uncompressed*)
 --- | --- |--- | --- | --- | --- 
-`instant` | - | - | - | YYYYMMDDTHHmmss.SSS | DD/MM/YY HHmmss.SSS
-`second` | `instant` | 1000 | - | YYYYMMDDTHHmmss | DD/MM/YY HHmm:ss
-`minute` | `second` | 60 | `instant` | YYYYMMDDTHHmm | DD/MM/YY HH:mm
-`hour` | `minute` | 60 | `second` | YYYYMMDDTHHmm | DD/MM/YY HH:mm
-`timeofday` | `hour` | 6 | `minute` | YYYYMMDDTHHmm | DD/MM/YY HH:mm
-`day` | `hour` | 4 | `minute` | YYYYMMDD | DD/MM/YY
-`week` | `day` | 7 | `timeofday` | YYYYMMDD | DD/MM/YY
-`month` | `day` | *varies* | `hour` | YYYYMMDD | DD/MM/YY
-`quarter` | `month` | 3 | `day` | YYYYMMDD | DD/MM/YY
-`year` | `quarter` | 4 | `month` | YYYYMMDD | DD/MM/YY
-`fiveyear` | `year` | 5 | `quarter` | YYYYMMDD | DD/MM/YY
+`instant` | - | - | - | - | YYYYMMDDTHHmmss.SSS | DD/MM/YY HHmmss.SSS
+`second` | `instant` | *varies* | - | - | YYYYMMDDTHHmmss | DD/MM/YY HHmm:ss
+`minute` | `second` | 60 | `instant` | *varies* | YYYYMMDDTHHmm | DD/MM/YY HH:mm
+`hour` | `minute` | 60 | `second` | 60 (360) | YYYYMMDDTHHmm | DD/MM/YY HH:mm
+`timeofday` | `hour` | 6 | `minute` | 60 (360) | YYYYMMDDTHHmm | DD/MM/YY HH:mm
+`day` | `hour` | 4 | `minute` | 60 (240) | YYYYMMDD | DD/MM/YY
+`week` | `day` | 7 | `timeofday` | 4 (28) | YYYYMMDD | DD/MM/YY
+`month` | `day` | *varies* | `hour` | *varies* | YYYYMMDD | DD/MM/YY
+`quarter` | `month` | 3 | `day` | *varies* | YYYYMMDD | DD/MM/YY
+`year` | `quarter` | 4 | `month` | *varies* | YYYYMMDD | DD/MM/YY
+`fiveyear` | `year` | 5 | `quarter` | 4 (20) | YYYYMMDD | DD/MM/YY
 
 ### Query parameters
 In all requests the caller must also provide the following query parameters:
