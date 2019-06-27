@@ -23,11 +23,11 @@ Content-Length: 250
 
 ```json
 {
-  "deviceDatasetItems": [
+  "deviceDatasets": [
     { "device": "BBC-PR1202-999",
-      "dataset": "MPPT-SNMP",
-      "data": [
-        { "name": "eventTime", "value": "20190209T150006.022-0700",
+      "topic": "MPPTSNMP",
+      "dataset": [
+        { "eventTime": "20190209T150006.022-0700",
           "data": [            
             { "name": "pv1", "value": "99" },
             { "name": "pv2", "value": "99" },
@@ -40,7 +40,7 @@ Content-Length: 250
             { "name": "btsCurrent", "value": "99" }
           ]
         },
-        { "name": "eventTime", "value": "20190209T150012.022-0700",
+        { "eventTime": "20190209T150012.022-0700",
           "data": [            
             { "name": "pv1", "value": "99" },
             { "name": "pv2", "value": "99" },
@@ -53,7 +53,7 @@ Content-Length: 250
             { "name": "btsCurrent", "value": "99" }
           ]
         },
-        { "name": "eventTime", "value": "20190209T150018.102-0700",
+        { "eventTime": "20190209T150018.102-0700",
           "data": [            
             { "name": "pv1", "value": "99" },
             { "name": "pv2", "value": "99" },
@@ -66,7 +66,7 @@ Content-Length: 250
             { "name": "btsCurrent", "value": "99" }
           ]
         },
-        { "name": "eventTime", "value": "20190209T150024.009-0700",
+        { "eventTime": "20190209T150024.009-0700",
           "data": [            
             { "name": "pv1", "value": "99" },
             { "name": "pv2", "value": "99" },
@@ -79,7 +79,7 @@ Content-Length: 250
             { "name": "btsCurrent", "value": "99" }
           ]
         },
-        { "name": "eventTime", "value": "20190209T150030.002-0700",
+        { "eventTime": "20190209T150030.002-0700",
           "data": [            
             { "name": "pv1", "value": "99" },
             { "name": "pv2", "value": "99" },
@@ -92,7 +92,7 @@ Content-Length: 250
             { "name": "btsCurrent", "value": "99" }
           ]
         },
-        { "name": "eventTime", "value": "20190209T150036.012-0700",
+        { "eventTime": "20190209T150036.012-0700",
           "data": [            
             { "name": "pv1", "value": "99" },
             { "name": "pv2", "value": "99" },
@@ -105,7 +105,7 @@ Content-Length: 250
             { "name": "btsCurrent", "value": "99" }
           ]
         },
-        { "name": "eventTime", "value": "20190209T150042.082-0700",
+        { "eventTime": "20190209T150042.082-0700",
           "data": [            
             { "name": "pv1", "value": "99" },
             { "name": "pv2", "value": "99" },
@@ -118,7 +118,7 @@ Content-Length: 250
             { "name": "btsCurrent", "value": "99" }
           ]
         },
-        { "name": "eventTime", "value": "20190209T150048.232-0700",
+        { "eventTime": "20190209T150048.232-0700",
           "data": [            
             { "name": "pv1", "value": "99" },
             { "name": "pv2", "value": "99" },
@@ -131,7 +131,7 @@ Content-Length: 250
             { "name": "btsCurrent", "value": "99" }
           ]
         },
-        { "name": "eventTime", "value": "20190209T150054.012-0700",
+        { "eventTime": "20190209T150054.012-0700",
           "data": [            
             { "name": "pv1", "value": "99" },
             { "name": "pv2", "value": "99" },
@@ -144,7 +144,7 @@ Content-Length: 250
             { "name": "btsCurrent", "value": "99" }
           ]
         },
-        { "name": "eventTime", "value": "20190209T150100.912-0700",
+        { "eventTime": "20190209T150100.912-0700",
           "data": [            
             { "name": "pv1", "value": "99" },
             { "name": "pv2", "value": "99" },

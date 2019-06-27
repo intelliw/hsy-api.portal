@@ -89,26 +89,26 @@ The fully qualified `/device/{device-id}/dataset{dataset}` path is typically int
 
 ### /devices Body parameter
 
-The `deviceDatasetItems` body parameter is required in device POST requests. The paramter contains one or more data items for posting new device data, each consisting of:
+The `deviceDatasets` body parameter is required in device POST requests. The paramter contains one or more data items for posting new device data, each consisting of:
 
 - a `device` identifier.
 
-- a `dataset` identifier 
+- a `topic` which identifies the dataset 
 
-- a `data` array in which each element contains a canonical set of attributes for the dataset.
+- a `dataset` array in which each element contains event data for the dataset.
 
 These attribute are shown in the following snippet.
 
 ```json
-"deviceDatasetItems": [
+"deviceDatasets": [
   { "device": "BBC-PR1202-999",
-    "dataset": "MPPT-SNMP",
-    "data": [
-      { "name": "eventTime", "value": "20190209T150006.022-0700",
+    "topic": "MPPTSNMP",
+    "dataset": [
+      { "eventTime": "20190209T150006.022-0700",
         "data": [            
           { "name": "pv1", "value": "99" },
           { "name": "pv2", "value": "99" },
-          { "name": "chg1Current", "value": "99" }
+          { "name": "chg1Current", "value": "99" },
 ```
 
 ### /device Path parameters

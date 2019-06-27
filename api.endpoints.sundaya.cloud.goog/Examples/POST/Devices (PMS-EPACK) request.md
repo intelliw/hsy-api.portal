@@ -23,11 +23,11 @@ Content-Length: 250
 
 ```json
 {
-  "deviceDatasetItems": [
+  "deviceDatasets": [
     { "device": "BBC-PMS-999",
-      "dataset": "PMS-EPACK",
-      "data": [
-        { "name": "eventTime", "value": "20190209T150006.032-0700" ,
+      "topic": "PMSEPACK",
+      "dataset": [
+        { "eventTime": "20190209T150006.032-0700" ,
           "data": [
             { "name": "vcell01", "value": "99" },
             { "name": "vcell02", "value": "99" },
@@ -52,7 +52,7 @@ Content-Length: 250
             { "name": "cmosStatus", "value": "open" }
           ]
         },
-        { "name": "eventTime", "value": "20190209T150012.012-0700",
+        { "eventTime": "20190209T150012.012-0700",
           "data": [
             { "name": "vcell01", "value": "99" },
             { "name": "vcell02", "value": "99" },
@@ -77,7 +77,7 @@ Content-Length: 250
             { "name": "cmosStatus", "value": "open" }
           ]
         },
-        { "name": "eventTime", "value": "20190209T150018.052-0700",
+        { "eventTime": "20190209T150018.052-0700",
           "data": [
             { "name": "vcell01", "value": "99" },
             { "name": "vcell02", "value": "99" },
@@ -102,7 +102,7 @@ Content-Length: 250
             { "name": "cmosStatus", "value": "open" }
           ]
         },
-        { "name": "eventTime", "value": "20190209T150024.322-0700",
+        { "eventTime": "20190209T150024.322-0700",
           "data": [
             { "name": "vcell01", "value": "99" },
             { "name": "vcell02", "value": "99" },
@@ -127,7 +127,7 @@ Content-Length: 250
             { "name": "cmosStatus", "value": "open" }
           ]
         },
-        { "name": "eventTime", "value": "20190209T150030.222-0700",
+        { "eventTime": "20190209T150030.222-0700",
           "data": [
             { "name": "vcell01", "value": "99" },
             { "name": "vcell02", "value": "99" },
@@ -152,7 +152,7 @@ Content-Length: 250
             { "name": "cmosStatus", "value": "open" }
           ]
         },
-        { "name": "eventTime", "value": "20190209T150036.022-0700",
+        { "eventTime": "20190209T150036.022-0700",
           "data": [
             { "name": "vcell01", "value": "99" },
             { "name": "vcell02", "value": "99" },
@@ -177,7 +177,7 @@ Content-Length: 250
             { "name": "cmosStatus", "value": "open" }
           ]
         },
-        { "name": "eventTime", "value": "20190209T150042.382-0700",
+        { "eventTime": "20190209T150042.382-0700",
           "data": [
             { "name": "vcell01", "value": "99" },
             { "name": "vcell02", "value": "99" },
@@ -202,7 +202,7 @@ Content-Length: 250
             { "name": "cmosStatus", "value": "open" }
           ]
         },
-        { "name": "eventTime", "value": "20190209T150048.022-0700",
+        { "eventTime": "20190209T150048.022-0700",
           "data": [
             { "name": "vcell01", "value": "99" },
             { "name": "vcell02", "value": "99" },
@@ -227,7 +227,7 @@ Content-Length: 250
             { "name": "cmosStatus", "value": "open" }
           ]
         },
-        { "name": "eventTime", "value": "20190209T150054.022-0700",
+        { "eventTime": "20190209T150054.022-0700",
           "data": [
             { "name": "vcell01", "value": "99" },
             { "name": "vcell02", "value": "99" },
@@ -252,7 +252,7 @@ Content-Length: 250
             { "name": "cmosStatus", "value": "open" }
           ]
         },
-        { "name": "eventTime", "value": "20190209T150100.022-0700",
+        { "eventTime": "20190209T150100.022-0700",
           "data": [
             { "name": "vcell01", "value": "99" },
             { "name": "vcell02", "value": "99" },
