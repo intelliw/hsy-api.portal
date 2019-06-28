@@ -25,8 +25,8 @@ Content-Length: 250
 {
   "deviceDatasets": [
     { "device": "BBC-PMS-999",
-      "topic": "PMSEPACK",
-      "dataset": [
+      "dataset": "PMS-EPACK",
+      "items": [
         { "eventTime": "20190209T150006.032-0700" ,
           "data": [
             { "name": "vcell01", "value": "99" },

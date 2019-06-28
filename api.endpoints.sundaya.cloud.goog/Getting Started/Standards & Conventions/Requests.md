@@ -93,17 +93,17 @@ The `deviceDatasets` body parameter is required in device POST requests. The par
 
 - a `device` identifier.
 
-- a `topic` which identifies the dataset 
+- a `dataset` which identifies the dataset (and is used to identify a topic for the message broker)
 
-- a `dataset` array in which each element contains event data for the dataset.
+- a `items` array in which each element contains event data for the dataset.
 
 These attribute are shown in the following snippet.
 
 ```json
 "deviceDatasets": [
   { "device": "BBC-PR1202-999",
-    "topic": "MPPTSNMP",
-    "dataset": [
+    "dataset": "MPPT-SNMP",
+    "items": [
       { "eventTime": "20190209T150006.022-0700",
         "data": [            
           { "name": "pv1", "value": "99" },
