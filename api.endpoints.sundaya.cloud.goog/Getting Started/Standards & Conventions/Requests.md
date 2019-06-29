@@ -95,7 +95,7 @@ The `deviceDatasets` body parameter is required in device POST requests. The par
 
 - a `dataset` which identifies the dataset (and is used to identify a topic for the message broker)
 
-- a `items` array in which each element contains event data for the dataset.
+- a `items` a time-series set of data records.
 
 These attribute are shown in the following snippet.
 
