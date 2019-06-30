@@ -39,7 +39,7 @@ Request `Body` parameters and all response objects are sent and received in JSON
 
 Clients should specify and consume `Accept` and `Content-Type` request and response headers in their applications. This ensures that an expected response is received, even as new media types or hypermedia schemes are introduced and designated as default in future.
 
-These media types are currently supported and may be requested with the `Accept` header :
+These media types are currently supported in requests with an `Accept` header:
 
     application/vnd.collection+json
     application/json 
