@@ -33,7 +33,7 @@ Links have the following attributes:
 
 The following table shows a set of links provided with energy data for a *week* period. 
 
-![Links in energy data](../../images/collection-links-table.png)
+![Links in energy data](../images/collection-links-table.png)
 
 
 
@@ -69,4 +69,4 @@ The following registered types are returned in the `rel` attribute of links in `
 
 The graph format including display labels and hyperlinks to navigate to related datasets is shown below. 
 
-![Data element mappings for graph rendering](../../images/graph.data-mappings.png)
+![Data element mappings for graph rendering](../images/graph.data-mappings.png)
