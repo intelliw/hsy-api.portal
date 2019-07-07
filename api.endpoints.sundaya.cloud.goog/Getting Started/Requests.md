@@ -83,7 +83,7 @@ The `/devices/datasets` path is for vendors and systems integrators to upload ne
 
 The fully qualified `/device/{device-id}/dataset{dataset}` path is typically intended for field engineers to monitor an individual device during operation.
  
- [http:/api.endpoints.sundaya.cloud.goog/device/{**device-id**}/dataset/{**dataset**}/period/week/20150204/1](http:/api.endpoints.sundaya.cloud.goog/device/BBC-PR1202-999/dataset/MPPT-SNMP/period/week/20150204/1)
+ [http:/api.endpoints.sundaya.cloud.goog/device/{**device-id**}/dataset/{**dataset**}/period/week/20150204/1](http:/api.endpoints.sundaya.cloud.goog/device/BBC-PR1202-999/dataset/BBC-MPPT/period/week/20150204/1)
 
 - The path provide a dedicated endpoint to retrive data for an individual **device** and dataset. 
 
@@ -102,7 +102,7 @@ These attribute are shown in the following snippet.
 ```json
 "deviceDatasets": [
   { "device": "BBC-PR1202-999",
-    "dataset": "MPPT-SNMP",
+    "dataset": "BBC-MPPT",
     "items": [
       { "eventTime": "20190209T150006.022-0700",
         "data": [            

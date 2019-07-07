@@ -36,16 +36,11 @@ folders:
     # In this example, there is only a 'Getting Started' page and no sub-folders.
     # The add_example_page script will add a page named 'Example Page' here.
     ordering:
-    - Harvest, Store, Enjoy
+    - Overview
     - Standards & Conventions
+    - Requests
+    - Responses
     - Security
-    
-    folders:
-      Standards & Conventions:
-        ordering:
-        - Overview
-        - Requests
-        - Responses
 
   Examples:
     ordering:
@@ -61,8 +56,8 @@ folders:
 
       POST:
         ordering:
-        - Devices (PMS-EPACK) request
-        - Devices (MPPT-SNMP) request
+        - Devices (BBC-PMS-EPACK) request
+        - Devices (BBC-MPPT) request
 
       
   

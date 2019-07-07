@@ -14,7 +14,7 @@ Content-Type: application/json
     
 *** RESPONSE ***	
 201 OK HTTP/1.1	
-Location: http:/api.endpoints.sundaya.cloud.goog/device/BBC-PR1202-999/dataset/MPPT-SNMP/period/minute/20190209T1500-0700/1
+Location: http:/api.endpoints.sundaya.cloud.goog/device/BBC-PR1202-999/dataset/BBC-MPPT/period/minute/20190209T1500-0700/1
 Content-Type: application/json
 Content-Length: 250	
 
@@ -25,7 +25,7 @@ Content-Length: 250
 {
   "deviceDatasets": [
     { "device": "BBC-PR1202-999",
-      "dataset": "MPPT-SNMP",
+      "dataset": "BBC-MPPT",
       "items": [
         { "eventTime": "20190209T150006.022-0700",
           "data": [            
