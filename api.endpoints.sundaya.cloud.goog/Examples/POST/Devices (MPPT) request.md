@@ -5,21 +5,21 @@
 
 [/devices/dataset/mppt](http:/api.endpoints.sundaya.cloud.goog/devices/dataset/mppt)
 
-The example shows data collected at a BTS site with 2 EPSolar MPPT Charge Controllers ('IT6415AD-01-001' and 'IT6415AD-01-002').
+The dataset example below shows data collected at a BTS site with 2 EPSolar MPPT Charge Controllers ('IT6415AD-01-001' and 'IT6415AD-01-002').
 
 It shows two data samples for each MPPT Controller taken 10 seconds apart (IT6415AD-01-001 at **15:00.06** and IT6415AD-01-002 at **15:00.07**).
 
 A site can have any number of MPPT controllers, and each controller can have any number of PV strings or Loads. 
 
-In this example:
+In this example each MPPT controller has :
 
-- Each MPPT controller has 2 PV strings, and 2 Loads. 
+- 2 PV strings as shown by the data arrays in `pv.volts` and `pv.amps`.
 
-- Load 1 is the VSAT system and Load 2 is the BTS.
+- 2 Loads as shown by `load.volts` / `load.amps`: Load 1 is the VSAT system and Load 2 is the BTS.  
 
 Presently upto 4 PV strings per controller are supported. In future each string will have its own dedicated controller.
 
-The size of each MPPT dataset is 367 bytes including whitespace, or 248 bytes if JSON.stringify is used to strip whitespace.
+The size of each MPPT dataset is 367 bytes including whitespace, or 248 bytes if whitespace is stripped (by using JSON.stringify)..
 
 
 ```
@@ -34,7 +34,7 @@ Content-Type: application/json
 Location: http:/api.endpoints.sundaya.cloud.goog/device/IT6415AD-01-001/dataset/mppt/period/minute/20190209T1500-0700/1
 Location: http:/api.endpoints.sundaya.cloud.goog/device/IT6415AD-01-002/dataset/mppt/period/minute/20190209T1500-0700/1
 Content-Type: application/json
-Content-Length: 250	
+Content-Length: 1171	
 
 ```
 

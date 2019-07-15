@@ -5,7 +5,7 @@
 
 [/device/dataset/epack](http:/api.endpoints.sundaya.cloud.goog/devices/dataset/epack)
 
-The example shows data collected for a site with 2 JouleStore Cabinets ('CAB-01-001' and 'CAB-01-002') and 4 packs in each cabinet. 
+The dataset example below shows data collected for a site with 2 JouleStore Cabinets ('CAB-01-001' and 'CAB-01-002') and 4 packs in each cabinet. 
 
 It shows two data samples for each cabinet taken 10 seconds apart (CAB-00-001 at **15:00.06** and, and CAB-00-002 at **15:00.07**).
 
@@ -15,7 +15,7 @@ Each object in the `data` array contains data for a single pack, identified by `
 
 - `cell.volts` contains an array of 14 voltage datapoints corresponding to each cell block in the pack.
 
-The size of a dataset for a single cabinet (4 packs) is 2030 bytes including whitespace, or 1420 bytes if whitespace is stripped (e.g. by using JSON.stringify).
+The size of a dataset for a single cabinet (4 packs) is 2030 bytes including whitespace, or 1420 bytes if whitespace is stripped (by using JSON.stringify).
 
 
 ```
@@ -30,7 +30,7 @@ Content-Type: application/json
 Location: http:/api.endpoints.sundaya.cloud.goog/device/CAB-01-001/dataset/epack/period/minute/20190209T1500-0700/1
 Location: http:/api.endpoints.sundaya.cloud.goog/device/CAB-01-002/dataset/epack/period/minute/20190209T1500-0700/1
 Content-Type: application/json
-Content-Length: 250	
+Content-Length: 8063	
 
 ```
 
