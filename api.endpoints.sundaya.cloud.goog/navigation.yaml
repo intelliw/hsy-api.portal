@@ -56,8 +56,8 @@ folders:
 
       POST:
         ordering:
-        - Devices (BBC-PMS-EPACK) request
-        - Devices (BBC-MPPT) request
+        - Devices (EPACK) request
+        - Devices (MPPT) request
 
       
   

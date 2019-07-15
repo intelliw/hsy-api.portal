@@ -59,7 +59,7 @@ Parameter | Description | Default
 --- | --- | --- 
 `site` | Identifier of the customer site where energy assets have been installed. | *999*
 
-### Body parameters
+### /energy Body parameters
 The `productCatalogItems` optional body parameter specifies a query filter for `/energy` data to be restricted to one or more products. 
 
 The query response will contain data for *any* of the product categories, subcategories, and product types specified in the parameter. 
@@ -75,13 +75,13 @@ The query response will contain data for *any* of the product categories, subcat
 # Device data
 ---
 
-The `/devices/datasets` path is for vendors and systems integrators to upload new device data.
+The `/devices/dataset/{dataset}` path is for vendors and systems integrators to upload device data.
 
-[http:/api.endpoints.sundaya.cloud.goog/devices/datasets](http:/api.endpoints.sundaya.cloud.goog/devices/datasets)
+[http:/api.endpoints.sundaya.cloud.goog/devices/{dataset}](http:/api.endpoints.sundaya.cloud.goog/devices/dataset/epack)
 
 - This route allows device **gateways** to accumulate and preiodically send data from multiple devices and datasets, wihout addressing logic needed at the time of delivery.
 
-The fully qualified `/device/{device-id}/dataset{dataset}` path is typically intended for field engineers to monitor an individual device during operation.
+The `/device/{device-id}/dataset/{dataset}` path allows field engineers to monitor an individual device during operation.
  
  [http:/api.endpoints.sundaya.cloud.goog/device/{**device-id**}/dataset/{**dataset**}/period/week/20150204/1](http:/api.endpoints.sundaya.cloud.goog/device/BBC-PR1202-999/dataset/BBC-MPPT/period/week/20150204/1)
 
@@ -118,7 +118,7 @@ The following path parameters are required in device GET requests. If a path par
 Parameter | Description 
 --- | --- | --- 
 `device` | The device identifier. 
-`dataset` | A dataset whiuch has been pre-configured for the requested device. 
+`dataset` | An array of data items in a schema which is specific to the requested device. 
 
 ### /device Query parameters
 There are no query parameters for the `/device` route.
