@@ -1,7 +1,7 @@
 # /energy GET Response
 ---
 
-## Link format
+## Link attributes
 
 Response data is returned in a JSON Collection and includes links for the user to navigate to adjacent datasets, for example to the next or previous *week*, or to the previous *month*.
 
@@ -38,9 +38,12 @@ The following table shows a set of links provided with energy data for a *week* 
 
 
 ## Link-relation types
-Link-relations in Response objects are based on [RFC8288](https://tools.ietf.org/html/rfc8288#page-6). 
 
-The following registered types are returned in the `rel` attribute of links in `application/vnd.collection+json` responses. 
+The `rel` attribute of links in `application/vnd.collection+json` responses contain the one of the following registered link-relation types. 
+
+The link-relation typese are based on [RFC8288](https://tools.ietf.org/html/rfc8288#page-6).
+
+
 - **self**	- Identifies the link's context.
 
     In `collection.links` it points to the collection as a whole (`name`=*'week'*)            
