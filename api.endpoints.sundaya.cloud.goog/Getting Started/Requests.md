@@ -74,10 +74,10 @@ The query response will contain data for *any* of the product categories, subcat
 
 - The same applies if a category and `productSubcategory` is specified without a `productType`.
 
-# Device data
+# /device Requests
 ---
 
-The `/devices/dataset/{dataset}` path is for vendors and systems integrators to upload device data.
+The `/devices/dataset/{dataset}` path is for vendors and systems integrators to POST device data.
 
 [http:/api.endpoints.sundaya.cloud.goog/devices/{dataset}](http:/api.endpoints.sundaya.cloud.goog/devices/dataset/epack)
 
