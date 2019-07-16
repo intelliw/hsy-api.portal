@@ -54,14 +54,14 @@ Period | Child Period | Duration | Grandchild Period | Duration | Format (*compr
 `year` | `quarter` | 4 | `month` | *varies* | YYYYMMDD | DD/MM/YY
 `fiveyear` | `year` | 5 | `quarter` | 4 (20) | YYYYMMDD | DD/MM/YY
 
-### /energy Query parameters
+### Query parameters
 In all requests the caller must also provide the following query parameters:
 
 Parameter | Description | Default
 --- | --- | --- 
 `site` | Identifier of the customer site where energy assets have been installed. | *999*
 
-### /energy Body parameters
+### Body parameters
 The `productCatalogItems` optional body parameter specifies a query filter for `/energy` data to be restricted to one or more products. 
 
 The query response will contain data for *any* of the product categories, subcategories, and product types specified in the parameter. 
@@ -74,14 +74,8 @@ The query response will contain data for *any* of the product categories, subcat
 
 - The same applies if a category and `productSubcategory` is specified without a `productType`.
 
-# /devices/dataset POST
+# /device/dataset GET
 ---
-
-The `/devices/dataset/{dataset}` path is for vendors and systems integrators to POST device data.
-
-[http:/api.endpoints.sundaya.cloud.goog/devices/{dataset}](http:/api.endpoints.sundaya.cloud.goog/devices/dataset/epack)
-
-- This route allows device **controllers** (e.g. Bus Bar Controller) and **gateways** (e.g. EHub Gateway) to accumulate and periodically send data from multiple devices in the field.
 
 The `/device/{device-id}/dataset/{dataset}` path allows field engineers to monitor an individual device during operation.
  
@@ -89,41 +83,47 @@ The `/device/{device-id}/dataset/{dataset}` path allows field engineers to monit
 
 - This path provide a dedicated endpoint to retrive data for an individual **device** and dataset. 
 
-### dataset Types ###
+### {dataset} paramter ###
 
-The following datasets are presently supported in the above paths.
+The following datasets are presently supported in all `/device` paths.
 
 dataset | Description
 --- | --- | --- 
-`epack` | Monitoring data from trhe pack management systems (PMS) including data for cabinets, contains monitored epacks, cells, and mosfets.
-`mppt` | Monitoring data for Maximum Power Point Tracking (MPPT) charge controllers, including data for connected PV strings, batteries, and DC loads.
+`epack` | Monitoring data from pack management systems (PMS) for cabinets, including data for monitored epacks, cells, and mosfets.
+`mppt` | Monitoring data from Maximum Power Point Tracking (MPPT) charge controllers, including data for connected PV strings, batteries, and DC loads.
 `inverter` | Monitoring data for Inverter charge controllers, including data for connected pv strings, batteries, and AC loads.
 
-### /devices/dataset Path parameters
+### Path parameters
 
 The following path parameters are required in device GET requests. If a path parameter is omitted it will be substituted as described.    
 
 Parameter | Description 
---- | --- | --- 
+--- | --- 
 `device` | The device identifier. 
 `dataset` | An array of data items in a schema which is specific to the requested device. 
 
-### /device Query parameters
-There are no query parameters for the `/device` route.
+### Query parameters
+There are no query parameters for the `/device/dataset` route.
 
-### /devices/dataset Body parameters
 
-The `devices/dataset/{dataset}` body parameter is required. It's structure depends on the `{dataset}` type which is one of the following:
+# /devices/dataset POST
+---
 
- element contains one or more data items for posting new device data, consisting of:
+The `/devices/dataset/{dataset}` path is for vendors and systems integrators to POST device data.
 
-- the device type and identifier (e.g. `cabinet`,`mppt`, or `inverter`). The identifier defines the dataset and is used to identify a topic for the message broker)
+[http:/api.endpoints.sundaya.cloud.goog/devices/{dataset}](http:/api.endpoints.sundaya.cloud.goog/devices/dataset/epack)
 
-- a `dataset` 
+- This route allows device **controllers** (e.g. Bus Bar Controller) and **gateways** (e.g. EHub Gateway) to accumulate and periodically send data from multiple monitored devices installed in a site.
 
-- `data` a time-series set of data records.
+### Body parameters
 
-These attribute are shown in the following snippet.
+The `devices/dataset/{dataset}` body parameter is required. 
+
+The data structure for each `{dataset}` type are described in the following snippets:
+
+Parameter | Description 
+--- | --- 
+`device` | 
 
 ```json
 {
