@@ -119,7 +119,7 @@ The dataset attributes are specified below.
 Attribute | Metric | Data Type | Constraint | Optionality | Description
 --- | --- | --- | --- | --- | --- 
 `cabinet` | (*id*) | string | string | mandatory | Id of the epack Cabinet. *(Note that each PMS controller (BBC) is able to handle 4 cabinets, with upto 12 packs in each cabinet, and 14 cells per pack)*.
-`time` | (*event time*) | datetime | RFC 3339 | mandatory | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
+`time` |  | datetime | RFC 3339 | mandatory | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
 `pack.id` | (*id*) | string |  | mandatory | The pack identifier. Ideally this should be a logical identifier (not the MCU hardware id) which is flashed onto the pack control board when it is first commissioned, or returned to service after repairs. 
 `pack.slot` |  | integer | 1-12 | mandatory | The cabinet slot (1-12) in which this pack is installed. 
 `pack.amps` | amps | float |  | mandatory | The current draw from this pack. *(Note: pack volts is calculated by the back-end data consumer by adding together `cell.volts` and is therefore not included in this dataset)*.  
