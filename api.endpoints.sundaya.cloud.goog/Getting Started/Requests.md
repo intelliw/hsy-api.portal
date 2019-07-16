@@ -74,37 +74,6 @@ The query response will contain data for *any* of the product categories, subcat
 
 - The same applies if a category and `productSubcategory` is specified without a `productType`.
 
-# /device/dataset GET
----
-
-The `/device/{device-id}/dataset/{dataset}` path allows field engineers to monitor an individual device during operation.
- 
- [http:/api.endpoints.sundaya.cloud.goog/device/{**device-id**}/dataset/{**dataset**}/period/week/20150204/1](http:/api.endpoints.sundaya.cloud.goog/device/BBC-PR1202-999/dataset/BBC-MPPT/period/week/20150204/1)
-
-- This path provide a dedicated endpoint to retrive data for an individual **device** and dataset. 
-
-### {dataset} paramter ###
-
-The following datasets are presently supported in all `/device` paths.
-
-dataset | Description
---- | --- | --- 
-`epack` | Monitoring data from pack management systems (PMS) for cabinets, including data for monitored epacks, cells, and mosfets.
-`mppt` | Monitoring data from Maximum Power Point Tracking (MPPT) charge controllers, including data for connected PV strings, batteries, and DC loads.
-`inverter` | Monitoring data for Inverter charge controllers, including data for connected pv strings, batteries, and AC loads.
-
-### Path parameters
-
-The following path parameters are required in device GET requests. If a path parameter is omitted it will be substituted as described.    
-
-Parameter | Description 
---- | --- 
-`device` | The device identifier. 
-`dataset` | An array of data items in a schema which is specific to the requested device. 
-
-### Query parameters
-There are no query parameters for the `/device/dataset` route.
-
 
 # /devices/dataset POST
 ---
@@ -113,17 +82,58 @@ The `/devices/dataset/{dataset}` path is for vendors and systems integrators to 
 
 [http:/api.endpoints.sundaya.cloud.goog/devices/{dataset}](http:/api.endpoints.sundaya.cloud.goog/devices/dataset/epack)
 
-- This route allows device **controllers** (e.g. Bus Bar Controller) and **gateways** (e.g. EHub Gateway) to accumulate and periodically send data from multiple monitored devices installed in a site.
+- This route allows device **controllers** (e.g. Bus Bar Controller) and **gateways** (e.g. EHub Gateway) to accumulate and periodically send data from multiple monitored devices installed at a site.
 
-### Body parameters
+### {dataset} parameter ###
 
-The `devices/dataset/{dataset}` body parameter is required. 
+The following types may be specified as the `{dataset}` parameter in all `/device` paths.
 
-The data structure for each `{dataset}` type are described in the following snippets:
+dataset | Description
+--- | --- | --- 
+`epack` | Monitoring data from pack management systems (PMS) for cabinets, including data for monitored epacks, cells, and mosfets.
+`mppt` | Monitoring data from Maximum Power Point Tracking (MPPT) charge controllers, including data for connected PV strings, batteries, and DC loads.
+`inverter` | Monitoring data for Inverter charge controllers, including data for connected pv strings, batteries, and AC loads.
 
-Parameter | Description 
---- | --- 
-`device` | 
+
+### epack dataset Body parameters
+
+The following snippet shows the data structure for the `epack` dataset type:
+
+```json
+{
+  "datasets": [
+    { "cabinet": "CAB-01-001", 
+      "data": [
+        { "time": "20190209T150006.032-0700",
+          "pack": { "id": "EPACK-01-001", "slot": "01", "amps": "0.0", "soc": "94.3", 
+            "temp": { "top": "35.0", "mid": "33.0", "bottom": "34.0" } },
+          "cell": { 
+            "volts": ["3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92"] },
+          "fet": { 
+            "temp": { "in": "35.0", "out": "33.0" }, "status": { "in": "0", "out": "1" } }
+        },
+```
+
+The dataset attributes are specified below. 
+
+Attribute | Metric | Data Type | Constraint | Optionality | Description
+--- | --- | --- | --- | --- | --- 
+`cabinet` |  | string | string | mandatory | Id of the epack Cabinet. *(Note that each PMS controller (BBC) is able to handle 4 cabinets, with upto 12 packs in each cabinet, and 14 cells per pack)*.
+`time` |  | datetime | RFC 3339 | mandatory | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
+`pack.id` |  | string |  | mandatory | The pack identifier. Ideally this should be a logical identifier (not the MCU hardware id) which is flashed onto the pack control board when it is first commissioned, or returned to service after repairs. 
+`pack.slot` |  | integer | 1-12 | mandatory | The cabinet slot (1-12) in which this pack is installed. 
+`pack.amps` | amps | float | --- | mandatory | The current draw from this pack. *(Note that pack voltage is calculated by the back-emnd data consumer by adding together `cell.volts` and is not included in this dataset)*.  
+`pack.soc` | % | float | 0-100 | required on change | The % state of charge of this pack.
+`pack.temp` | degC | float | --- | required on change | The temperature of the cell-pack at its top, middle, and bottom. 
+`cell.volts` | volts | float | --- | mandatory | Voltage readings for 14 cellblocks inside this pack.
+`fet.temp` | degC | float | --- | required on change | The temperature of the input (CMOS) and output (DMOS) MOSFETS.
+`fet.status` |  | boolean | 1/0 | required on change | The status of the input (CMOS) and output (DMOS) MOSFETS (*1=open/0=closed*).
+ 
+- Attributes marked as *required on change* **must** be sent if their value has changed since the last successful post (a POST is successful if acknowledged with a 201 response).
+
+### mppt dataset Body parameters
+
+The following snippet shows the data structure for the `mppt` dataset type:
 
 ```json
 {
@@ -137,5 +147,41 @@ Parameter | Description
         },
 ```
 
+### inverter dataset Body parameter
+
+The following snippet shows the data structure for the `mppt` dataset type:
+
+```json
+{
+  "datasets": [
+    { "inverter": "SPI-B2-01-001", 
+      "data": [
+        { "time": "20190209T150006.032-0700",
+          "pv": { "volts": ["48.000", "48.000"], "amps": ["6.0", "6.0"] },
+          "battery": { "volts" : "55.1" }, 
+          "load": { "volts": ["48.000", "48.000"], "amps": ["1.2", "1.2"] }
+        },
+```
+
+# /device/dataset GET
+---
+
+The `/device/{device-id}/dataset/{dataset}` path allows field engineers to monitor an individual device during operation.
+ 
+ [http:/api.endpoints.sundaya.cloud.goog/device/{**device-id**}/dataset/{**dataset**}/period/week/20150204/1](http:/api.endpoints.sundaya.cloud.goog/device/BBC-PR1202-999/dataset/BBC-MPPT/period/week/20150204/1)
+
+- This path provide a dedicated endpoint to retrive data for an individual **device** and dataset. 
+
+### Path parameters
+
+The following path parameters are required in device GET requests. If a path parameter is omitted it will be substituted as described.    
+
+Parameter | Description 
+--- | --- 
+`device` | The device identifier. 
+`dataset` | The dataset type (see **{dataset} parameter** above). 
+
+### Query parameters
+There are no query parameters for the `/device/dataset` route.
 
 ---
