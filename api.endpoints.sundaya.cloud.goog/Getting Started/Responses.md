@@ -1,4 +1,4 @@
-# Responses
+# /energy Responses
 ---
 
 ## Link format
@@ -64,9 +64,10 @@ The following registered types are returned in the `rel` attribute of links in `
 - **next**, **prev** - Identifies the next or previous sibling of the item series (`name` = *'week'*). The `prompt` and `title` properties signify the next or previous item in the series (`prompt` = *'Week 07 2019'*).
 
 
+## /energy Graph format
 
-## Graph format
+A formatted graph is returned if the client specifies *text/html* in the request `Accept` header.
 
-The graph format including display labels and hyperlinks to navigate to related datasets is shown below. 
+The graph including display labels and hyperlinks to related dataset elements, is shown below.
 
 ![Data element mappings for graph rendering](../images/graph.data-mappings.png)

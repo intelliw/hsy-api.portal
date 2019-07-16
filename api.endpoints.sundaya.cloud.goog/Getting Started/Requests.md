@@ -1,9 +1,11 @@
-# Energy data
+# /energy Requests
 ---
 
 The `/energy` path returns a ‘cube’ of energy data for a specified number of periods starting at an epoch. 
 
-The response includes links to navigate from the reqested period to adjacent periods (next week, month etc.). 
+It response contains aggregated data for the requested period, and for its child period. For example a request for a *week* period will produce a response with data aggregated for the *week* and for its child period: *day*.
+
+The response will also include links to navigate from the reqested period to adjacent periods (next week, month etc.). 
 
 - /energy/{`energy`}/period/{`period`}/{`epoch`}/{`duration`}?site={`site`}
 
@@ -87,28 +89,28 @@ The `/device/{device-id}/dataset/{dataset}` path allows field engineers to monit
 
 - The path provide a dedicated endpoint to retrive data for an individual **device** and dataset. 
 
-### /devices Body parameter
+### /devices/dataset Body parameter
 
-The `deviceDatasets` body parameter is required in device POST requests. The paramter contains one or more data items for posting new device data, each consisting of:
+The `datasets` body parameter is required in device POST requests. The element contains one or more data items for posting new device data, consisting of:
 
-- a `device` identifier.
+- an device type and identifier (e.g. `cabinet`,`mppt`, or `inverter`). The identifier defines the dataset and is used to identify a topic for the message broker)
 
-- a `dataset` which identifies the dataset (and is used to identify a topic for the message broker)
+- a `dataset` 
 
-- a `items` a time-series set of data records.
+- `data` a time-series set of data records.
 
 These attribute are shown in the following snippet.
 
 ```json
-"deviceDatasets": [
-  { "device": "BBC-PR1202-999",
-    "dataset": "BBC-MPPT",
-    "items": [
-      { "eventTime": "20190209T150006.022-0700",
-        "data": [            
-          { "name": "pv1", "value": "99" },
-          { "name": "pv2", "value": "99" },
-          { "name": "chg1Current", "value": "99" },
+{
+  "datasets": [
+    { "mppt": "IT6415AD-01-001", 
+      "data": [
+        { "time": "20190209T150006.032-0700",
+          "pv": { "volts": ["48.000", "48.000"], "amps": ["6.0", "6.0"] },
+          "battery": { "volts" : "55.1" }, 
+          "load": { "volts": ["48.000", "48.000"], "amps": ["1.2", "1.2"] }
+        },
 ```
 
 ### /device Path parameters

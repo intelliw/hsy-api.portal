@@ -48,7 +48,7 @@ These media types are currently supported in requests with an `Accept` header:
 
 - If an `Accept` header is *not* specified (or is wildcarded with '*/*') the default `application/vnd.collection+json` media type will be returned. 
 
-- If multiple `Accept` headers are sent the response will select one from the list of media types shown above, in the order shown.
+- If multiple `Accept` headers are sent the response will select the first matching media type in the list shown above, in the order shown.
 
 - If the request `Accept` headers do not contain a type from the list above a `415`response (*Unsupported Media Type*) will be returned.
 

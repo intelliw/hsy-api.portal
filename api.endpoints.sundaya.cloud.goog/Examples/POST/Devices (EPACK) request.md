@@ -1,7 +1,7 @@
 # Devices
 ---
 
-### POST /devices/dataset/epack request
+### POST /devices/dataset/epack request and response
 
 [/device/dataset/epack](http:/api.endpoints.sundaya.cloud.goog/devices/dataset/epack)
 

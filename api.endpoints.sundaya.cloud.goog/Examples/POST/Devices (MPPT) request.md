@@ -1,11 +1,11 @@
 # Devices
 ---
 
-### POST /devices/dataset/mppt request 
+### POST /devices/dataset/mppt request and response
 
 [/devices/dataset/mppt](http:/api.endpoints.sundaya.cloud.goog/devices/dataset/mppt)
 
-The dataset example below shows data collected at a BTS site with 2 EPSolar MPPT Charge Controllers ('IT6415AD-01-001' and 'IT6415AD-01-002').
+The example below shows datasets collected at a BTS site with 2 EPSolar MPPT Charge Controllers ('IT6415AD-01-001' and 'IT6415AD-01-002').
 
 It shows two data samples for each MPPT Controller taken 10 seconds apart (IT6415AD-01-001 at **15:00.06** and IT6415AD-01-002 at **15:00.07**).
 
@@ -42,7 +42,7 @@ Content-Length: 1171
 ```json
 {
   "datasets": [
-    { "controller": "IT6415AD-01-001", 
+    { "mppt": "IT6415AD-01-001", 
       "data": [
         { "time": "20190209T150006.032-0700",
           "pv": { "volts": ["48.000", "48.000"], "amps": ["6.0", "6.0"] },
@@ -56,7 +56,7 @@ Content-Length: 1171
         }
       ]
     },
-    { "controller": "IT6415AD-01-002", 
+    { "mppt": "IT6415AD-01-002", 
       "data": [
         { "time": "20190209T150007.032-0700",
           "pv": { "volts": ["48.000", "48.000"], "amps": ["6.0", "6.0"] },
