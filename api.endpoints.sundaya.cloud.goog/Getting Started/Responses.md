@@ -1,4 +1,4 @@
-# /energy Responses
+# /energy GET Response
 ---
 
 ## Link format

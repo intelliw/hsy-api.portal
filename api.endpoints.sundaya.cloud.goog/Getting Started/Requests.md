@@ -1,4 +1,4 @@
-# /energy Requests
+# /energy GET
 ---
 
 The `/energy` path returns a ‘cube’ of energy data for a specified number of periods starting at an epoch. 
@@ -11,7 +11,7 @@ The response will also include links to navigate from the reqested period to adj
 
     e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20150204/1?site=999](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20150204/1?site=999 "energy=hse, period=week, duration=1, site=999")
 
-### /energy Path parameters
+### Path parameters
 
 The following path parameters are required in energy data requests. If a parameter is omitted it will be defaulted as shown. If the paramter was provided it will be validated agains the controlled value lists (enums) specified in the API.     
 
@@ -20,7 +20,7 @@ Parameter | Description | Default
 `energy` | The type of energy flow. | *hse*
 `period` | The time window for which total energy is aggregated. The only exception is 'instant' (which is for a single point in time, a millisecond) which is presented without aggregation. | *week*
 `epoch` | The starting date and time for the period. | current UTC date-time
-`duration` | The number of periods to return starting at epoch. This defaults to 1. | *1*
+`duration` | The number of periods to return starting at epoch. | *1*
 `site` | The customer site where energy assets have been installed. | *999*
 
 ### period, epoch, duration
@@ -54,7 +54,7 @@ Period | Child Period | Duration | Grandchild Period | Duration | Format (*compr
 `year` | `quarter` | 4 | `month` | *varies* | YYYYMMDD | DD/MM/YY
 `fiveyear` | `year` | 5 | `quarter` | 4 (20) | YYYYMMDD | DD/MM/YY
 
-### Query parameters
+### /energy Query parameters
 In all requests the caller must also provide the following query parameters:
 
 Parameter | Description | Default
@@ -74,26 +74,50 @@ The query response will contain data for *any* of the product categories, subcat
 
 - The same applies if a category and `productSubcategory` is specified without a `productType`.
 
-# /device Requests
+# /devices/dataset POST
 ---
 
 The `/devices/dataset/{dataset}` path is for vendors and systems integrators to POST device data.
 
 [http:/api.endpoints.sundaya.cloud.goog/devices/{dataset}](http:/api.endpoints.sundaya.cloud.goog/devices/dataset/epack)
 
-- This route allows device **gateways** to accumulate and preiodically send data from multiple devices and datasets, wihout addressing logic needed at the time of delivery.
+- This route allows device **controllers** (e.g. Bus Bar Controller) and **gateways** (e.g. EHub Gateway) to accumulate and periodically send data from multiple devices in the field.
 
 The `/device/{device-id}/dataset/{dataset}` path allows field engineers to monitor an individual device during operation.
  
  [http:/api.endpoints.sundaya.cloud.goog/device/{**device-id**}/dataset/{**dataset**}/period/week/20150204/1](http:/api.endpoints.sundaya.cloud.goog/device/BBC-PR1202-999/dataset/BBC-MPPT/period/week/20150204/1)
 
-- The path provide a dedicated endpoint to retrive data for an individual **device** and dataset. 
+- This path provide a dedicated endpoint to retrive data for an individual **device** and dataset. 
 
-### /devices/dataset Body parameter
+### dataset Types ###
 
-The `datasets` body parameter is required in device POST requests. The element contains one or more data items for posting new device data, consisting of:
+The following datasets are presently supported in the above paths.
 
-- an device type and identifier (e.g. `cabinet`,`mppt`, or `inverter`). The identifier defines the dataset and is used to identify a topic for the message broker)
+dataset | Description
+--- | --- | --- 
+`epack` | Monitoring data from trhe pack management systems (PMS) including data for cabinets, contains monitored epacks, cells, and mosfets.
+`mppt` | Monitoring data for Maximum Power Point Tracking (MPPT) charge controllers, including data for connected PV strings, batteries, and DC loads.
+`inverter` | Monitoring data for Inverter charge controllers, including data for connected pv strings, batteries, and AC loads.
+
+### /devices/dataset Path parameters
+
+The following path parameters are required in device GET requests. If a path parameter is omitted it will be substituted as described.    
+
+Parameter | Description 
+--- | --- | --- 
+`device` | The device identifier. 
+`dataset` | An array of data items in a schema which is specific to the requested device. 
+
+### /device Query parameters
+There are no query parameters for the `/device` route.
+
+### /devices/dataset Body parameters
+
+The `devices/dataset/{dataset}` body parameter is required. It's structure depends on the `{dataset}` type which is one of the following:
+
+ element contains one or more data items for posting new device data, consisting of:
+
+- the device type and identifier (e.g. `cabinet`,`mppt`, or `inverter`). The identifier defines the dataset and is used to identify a topic for the message broker)
 
 - a `dataset` 
 
@@ -112,18 +136,6 @@ These attribute are shown in the following snippet.
           "load": { "volts": ["48.000", "48.000"], "amps": ["1.2", "1.2"] }
         },
 ```
-
-### /device Path parameters
-
-The following path parameters are required in device GET requests. If a path parameter is omitted it will be substituted as described.    
-
-Parameter | Description 
---- | --- | --- 
-`device` | The device identifier. 
-`dataset` | An array of data items in a schema which is specific to the requested device. 
-
-### /device Query parameters
-There are no query parameters for the `/device` route.
 
 
 ---
