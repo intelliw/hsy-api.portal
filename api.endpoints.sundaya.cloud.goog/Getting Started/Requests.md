@@ -95,7 +95,7 @@ dataset | Description
 `inverter` | Monitoring data for Inverter charge controllers, including data for connected pv strings, batteries, and AC loads.
 
 
-### epack dataset Body parameters
+### 'epack' dataset Body parameters
 
 The following snippet shows the data structure for the `epack` dataset type:
 
@@ -122,16 +122,16 @@ Attribute | Metric | Data Type | Constraint | Optionality | Description
 `time` |  | datetime | RFC 3339 | mandatory | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
 `pack.id` |  | string |  | mandatory | The pack identifier. Ideally this should be a logical identifier (not the MCU hardware id) which is flashed onto the pack control board when it is first commissioned, or returned to service after repairs. 
 `pack.slot` |  | integer | 1-12 | mandatory | The cabinet slot (1-12) in which this pack is installed. 
-`pack.amps` | amps | float | --- | mandatory | The current draw from this pack. *(Note that pack voltage is calculated by the back-emnd data consumer by adding together `cell.volts` and is not included in this dataset)*.  
+`pack.amps` | amps | float |  | mandatory | The current draw from this pack. *(Note: pack volts is calculated by the back-end data consumer by adding together `cell.volts` and is therefore not included in this dataset)*.  
 `pack.soc` | % | float | 0-100 | required on change | The % state of charge of this pack.
-`pack.temp` | degC | float | --- | required on change | The temperature of the cell-pack at its top, middle, and bottom. 
-`cell.volts` | volts | float | --- | mandatory | Voltage readings for 14 cellblocks inside this pack.
-`fet.temp` | degC | float | --- | required on change | The temperature of the input (CMOS) and output (DMOS) MOSFETS.
+`pack.temp` | degC | float |  | required on change | The temperature of the cell-pack at its top, middle, and bottom. 
+`cell.volts` | volts | float |  | mandatory | Voltage readings for 14 cellblocks inside this pack.
+`fet.temp` | degC | float |  | required on change | The temperature of the input (CMOS) and output (DMOS) MOSFETS.
 `fet.status` |  | boolean | 1/0 | required on change | The status of the input (CMOS) and output (DMOS) MOSFETS (*1=open/0=closed*).
  
-- Attributes marked as *required on change* **must** be sent if their value has changed since the last successful post (a POST is successful if acknowledged with a 201 response).
+- Attributes marked as '*required on change*' may be ommitted if the value has not changed since the last successful post (a POST is successful if acknowledged by the server with a 201 response).
 
-### mppt dataset Body parameters
+### 'mppt' dataset Body parameters
 
 The following snippet shows the data structure for the `mppt` dataset type:
 
@@ -147,7 +147,7 @@ The following snippet shows the data structure for the `mppt` dataset type:
         },
 ```
 
-### inverter dataset Body parameter
+### 'inverter' dataset Body parameter
 
 The following snippet shows the data structure for the `mppt` dataset type:
 
