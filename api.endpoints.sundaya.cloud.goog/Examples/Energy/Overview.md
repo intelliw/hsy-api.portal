@@ -61,7 +61,7 @@ Parameter | Description | Default
 --- | --- | --- 
 `site` | Identifier of the customer site where energy assets have been installed. | *999*
 
-### Body parameters
+### Body parameter
 The `productCatalogItems` optional body parameter specifies a query filter for `/energy` data to be restricted to one or more products. 
 
 The query response will contain data for *any* of the product categories, subcategories, and product types specified in the parameter. 

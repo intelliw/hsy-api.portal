@@ -18,7 +18,7 @@ dataset | Description
 `inverter` | Monitoring data for Inverter charge controllers, including data for connected pv strings, batteries, and AC loads.
 
 
-### 'epack' dataset Body parameter
+### 'epack' Body parameter
 
 The following snippet shows the structure of a `epack` dataset:
 
@@ -55,7 +55,7 @@ Attribute | Metric | Data | Optionality | Description
  
 - Attributes marked as '*required on change*' may be ommitted if the value has not changed since the last successful post (a POST is successful if acknowledged by the server with a 201 response). All other attributes must be provided. 
 
-### 'mppt' dataset Body parameter
+### 'mppt' Body parameter
 
 The following snippet shows the structure of a `mppt` dataset:
 
@@ -83,7 +83,7 @@ Attribute | Metric | Data | Optionality | Description
 `load.volts` | volts | float *(array)* | mandatory | An ordered set of Voltage readings for connected Loads. *(__Note__: in a BTS site Load 1 is the VSAT system and Load 2 is the BTS)*.
 `load.amps` | amps | float *(array)* | mandatory | An ordered set of Current readings for connected Loads, corresponding to values in `load.volts`.  
 
-### 'inverter' dataset Body parameter
+### 'inverter' Body parameter
 
 The following snippet shows the structure of an `inverter` dataset:
 
