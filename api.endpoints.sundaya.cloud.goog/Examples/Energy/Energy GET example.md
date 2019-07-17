@@ -1,6 +1,38 @@
 # Energy
 ---
 
+### GET /energy request
+
+[/energy/hse/period/week/20190304/1](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20190304/1?site=999)
+
+The example below retrieves energy data for a `week` period from devices at site # 999. 
+
+*__Note__: The optional body parameter filters the returned dataset by product type. If not specified, energy data will be returned for all devices.*
+
+```
+*** REQUEST ***	
+GET /energy/hse/period/week/20190204/1?site=999 HTTP/1.1	
+Host: api.endpoints.sundaya.cloud.goog
+Accept: application/vnd.collection+json, application/vnd.sundaya.v1.0+yaml
+Content-Type: application/json
+```
+
+```json
+Body: {
+    "productCatalogItems": [
+        {
+            "productCategory": "Solutions",
+            "productSubcategory": "Solar Home Kits",
+            "productType": "JouleBox"
+        },
+        {
+            "productCategory": "Solutions & Components"
+        }
+    ]
+}
+```
+
+
 ### GET /energy response
 
 [/energy/hse/period/week/20190204/1](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20190204/1?site=999)

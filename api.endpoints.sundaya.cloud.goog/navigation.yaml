@@ -54,14 +54,13 @@ folders:
       Energy:
         ordering:
         - Overview
-        - Energy GET request
-        - Energy GET response
+        - Energy GET example
 
       Devices:
         ordering:
         - Overview
-        - EPACK POST request
-        - MPPT POST request
+        - EPACK POST example
+        - MPPT POST example
 
       
   

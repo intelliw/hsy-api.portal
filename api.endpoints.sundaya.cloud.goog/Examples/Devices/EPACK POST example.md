@@ -7,7 +7,7 @@
 
 The dataset example below shows data collected for a site with 2 JouleStore Cabinets ('CAB-01-001' and 'CAB-01-002') and 4 packs in each cabinet. 
 
-*Note: a PMS controller (BBC) is able to handle 4 cabinets, with upto 12 packs in each cabinet, and 14 cells per pack*.
+*__Note__: a PMS controller (BBC) is able to handle 4 cabinets, with upto 12 packs in each cabinet, and 14 cells per pack*.
 
 The example shows two data samples for each cabinet taken 10 seconds apart (CAB-00-001 at **15:00.06** and, CAB-00-002 at **15:00.07**).
 
