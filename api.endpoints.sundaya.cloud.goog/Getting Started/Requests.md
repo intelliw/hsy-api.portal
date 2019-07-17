@@ -116,7 +116,7 @@ The following snippet shows the structure of a `epack` dataset:
 
 The dataset attributes are specified below. 
 
-Attribute | Metric | Data Type | Optionality | Description
+Attribute | Metric | Data | Optionality | Description
 --- | --- | --- | --- | --- 
 `cabinet.id` | - | string | mandatory | Id of the epack Cabinet. *(Note: each PMS controller (BBC) is able to handle 4 cabinets, with upto 12 packs in each cabinet, and 14 cells per pack)*.
 `time` | - | datetime | mandatory | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
@@ -150,7 +150,7 @@ The following snippet shows the structure of a `mppt` dataset:
 
 The dataset attributes are specified below. 
 
-Attribute | Metric | Data Type | Optionality | Description
+Attribute | Metric | Data | Optionality | Description
 --- | --- | --- | --- | --- 
 `mppt.id` |  | string | mandatory | Id of the MPPT charge controller. *(Note: a site can have any number of MPPT controllers, and each controller can have multiple PV strings and Loads)*.
 `time` |  | datetime | mandatory | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
@@ -178,7 +178,7 @@ The following snippet shows the structure of an `inverter` dataset:
 
 The dataset attributes are specified below. 
 
-Attribute | Metric | Data Type | Optionality | Description
+Attribute | Metric | Data | Optionality | Description
 --- | --- | --- | --- | ---
 `inverter.id` | - | string | mandatory | Id of the Inverter charge controller. *(Note: a site can have any number of Inverter controllers, and each controller can have multiple PV strings and Loads)*.
 `time` | - | datetime | mandatory | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
