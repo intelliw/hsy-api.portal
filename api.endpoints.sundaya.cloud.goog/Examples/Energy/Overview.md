@@ -110,7 +110,7 @@ Links have the following attributes:
 
 The following table shows a set of links provided with energy data for a *week* period. 
 
-![Links in energy data](../images/collection-links-table.png)
+![Links in energy data](../../images/collection-links-table.png)
 
 
 
@@ -150,6 +150,6 @@ If the client specifies *text/html* in the request `Accept` header a formatted g
 
 The graph includes display labels and hyperlinks to related dataset elements as shown.
 
-![Data element mappings for graph rendering](../images/graph.data-mappings.png)
+![Data element mappings for graph rendering](../../images/graph.data-mappings.png)
 
 ---
