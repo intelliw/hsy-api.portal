@@ -102,10 +102,10 @@ The following snippet shows the data structure for the `epack` dataset type:
 ```json
 {
   "datasets": [
-    { "cabinet": "CAB-01-001", 
+    { "cabinet": { "id": "CAB-01-001" }, 
       "data": [
         { "time": "20190209T150006.032-0700",
-          "pack": { "id": "EPACK-01-001", "slot": "01", "amps": "0.0", "soc": "94.3", 
+          "pack": { "id": "EPACK-01-001", "slot": "01", "volts": "55.1", "amps": "0.0", "soc": "94.3", 
             "temp": { "top": "35.0", "mid": "33.0", "bottom": "34.0" } },
           "cell": { 
             "volts": ["3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92"] },
@@ -118,18 +118,19 @@ The dataset attributes are specified below.
 
 Attribute | Metric | Data Type | Constraint | Optionality | Description
 --- | --- | --- | --- | --- | --- 
-`cabinet` | (*id*) | string | string | mandatory | Id of the epack Cabinet. *(Note that each PMS controller (BBC) is able to handle 4 cabinets, with upto 12 packs in each cabinet, and 14 cells per pack)*.
+`cabinet.id` |  | string | string | mandatory | Id of the epack Cabinet. *(Note that each PMS controller (BBC) is able to handle 4 cabinets, with upto 12 packs in each cabinet, and 14 cells per pack)*.
 `time` |  | datetime | RFC 3339 | mandatory | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
-`pack.id` | (*id*) | string |  | mandatory | The pack identifier. Ideally this should be a logical identifier (not the MCU hardware id) which is flashed onto the pack control board when it is first commissioned, or returned to service after repairs. 
+`pack.id` |  | string |  | mandatory | The pack identifier. Ideally this should be a logical identifier (not the MCU hardware id) which is flashed onto the pack control board when it is first commissioned, or returned to service after repairs. 
 `pack.slot` |  | integer | 1-12 | mandatory | The cabinet slot (1-12) in which this pack is installed. 
-`pack.amps` | amps | float |  | mandatory | The current draw from this pack. *(Note: pack volts is calculated by the back-end data consumer by adding together `cell.volts` and is therefore not included in this dataset)*.  
+`pack.volts` | volts | float |  | mandatory | The voltage of this pack. *(Note: `pack.volts` may not be the sum of `cell.volts` during cell balancing, if a cell is overcharged and bypassed)*.
+`pack.amps` | amps | float |  | mandatory | The current draw from this pack.  
 `pack.soc` | % | float | 0-100 | required on change | The % state of charge of this pack.
 `pack.temp` | degC | float |  | required on change | The temperature of the cell-pack at its top, middle, and bottom. 
 `cell.volts` | volts | float |  | mandatory | Voltage readings for 14 cellblocks inside this pack.
 `fet.temp` | degC | float |  | required on change | The temperature of the input (CMOS) and output (DMOS) MOSFETS.
 `fet.status` | (*open/closed*) | boolean | 1/0 | required on change | The status of the input (CMOS) and output (DMOS) MOSFETS (*1=open/0=closed*).
  
-- Attributes marked as '*required on change*' may be ommitted if the value has not changed since the last successful post (a POST is successful if acknowledged by the server with a 201 response).
+- Attributes marked as '*required on change*' may be ommitted if the value has not changed since the last successful post (a POST is successful if acknowledged by the server with a 201 response). All other attributes must be provided. 
 
 ### 'mppt' dataset Body parameters
 
@@ -138,7 +139,7 @@ The following snippet shows the data structure for the `mppt` dataset type:
 ```json
 {
   "datasets": [
-    { "mppt": "IT6415AD-01-001", 
+    { "mppt": { "id": "IT6415AD-01-001" }, 
       "data": [
         { "time": "20190209T150006.032-0700",
           "pv": { "volts": ["48.000", "48.000"], "amps": ["6.0", "6.0"] },
@@ -149,12 +150,12 @@ The following snippet shows the data structure for the `mppt` dataset type:
 
 ### 'inverter' dataset Body parameter
 
-The following snippet shows the data structure for the `mppt` dataset type:
+The following snippet shows the data structure for the `inverter` dataset type:
 
 ```json
 {
   "datasets": [
-    { "inverter": "SPI-B2-01-001", 
+    { "inverter": { "id": "SPI-B2-01-001" }, 
       "data": [
         { "time": "20190209T150006.032-0700",
           "pv": { "volts": ["48.000", "48.000"], "amps": ["6.0", "6.0"] },
