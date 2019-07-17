@@ -42,22 +42,26 @@ folders:
 
   Examples:
     ordering:
+    - Diagnostics
     - Energy
     - Devices
   
     folders:
+      Diagnostics:
+        ordering:
+        - Versions GET response
+
       Energy:
         ordering:
+        - Overview
         - Energy GET request
         - Energy GET response
-        - Versions response
-        - Requests
-        - Responses
 
       Devices:
         ordering:
-        - Devices (EPACK) request
-        - Devices (MPPT) request
+        - Overview
+        - EPACK POST request
+        - MPPT POST request
 
       
   
