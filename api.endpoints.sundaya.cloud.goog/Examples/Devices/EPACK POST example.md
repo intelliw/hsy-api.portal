@@ -1,7 +1,7 @@
 # Devices
 ---
 
-### POST /devices/dataset/epack request and response
+### POST /dataset/epack
 
 [/device/dataset/epack](http:/api.endpoints.sundaya.cloud.goog/devices/dataset/epack)
 
@@ -35,7 +35,6 @@ Content-Type: application/json
 Content-Length: 8063	
 
 ```
-
 
 ```json
 {

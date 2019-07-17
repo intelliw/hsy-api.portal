@@ -1,7 +1,7 @@
 # Devices
 ---
 
-### POST /devices/dataset/mppt request and response
+### POST /dataset/mppt
 
 [/devices/dataset/mppt](http:/api.endpoints.sundaya.cloud.goog/devices/dataset/mppt)
 
@@ -35,7 +35,6 @@ Content-Type: application/json
 Content-Length: 1171	
 
 ```
-
 
 ```json
 {

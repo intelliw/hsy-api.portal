@@ -7,7 +7,7 @@
 
 The example below retrieves energy data for a `week` period from devices at site # 999. 
 
-*__Note__: The optional body parameter filters the returned dataset by product type. If not specified, energy data will be returned for all devices.*
+*__Note__: The optional body parameter filters the returned dataset by product type. If a body is not provided, energy data will be returned for all devices.*
 
 ```
 *** REQUEST ***	
