@@ -13,9 +13,9 @@ The following types may be specified as the `{dataset}` parameter in all `/devic
 
 dataset | Description
 --- | --- | --- 
-`epack` | Monitoring data from pack management systems (PMS) for cabinets, including data for monitored epacks, cells, and mosfets.
-`mppt` | Monitoring data from Maximum Power Point Tracking (MPPT) charge controllers, including data for connected PV strings, batteries, and DC loads.
-`inverter` | Monitoring data for Inverter charge controllers, including data for connected pv strings, batteries, and AC loads.
+`epack` | Data from pack management systems (PMS) for cabinets, including monitored epacks, cells, and mosfets.
+`mppt` | Data from Maximum Power Point Tracking (MPPTcontrollers, including connected PV strings, batteries, and DC loads.
+`inverter` | Data from Inverter charge controllers, including connected pv strings, batteries, and 
 
 
 ### 'epack' Body parameter
