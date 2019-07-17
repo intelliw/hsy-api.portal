@@ -3,7 +3,7 @@
 
 The API requires a secret Key to authenticate your account. 
 
-Your client applicaiton authenticates to the API by providing a secret key in the request header.
+Your client application authenticates to the API by providing a secret key in the request header.
 
 ### Requesting an API key
 
@@ -17,7 +17,7 @@ The API key must be provided in all requests as a query parameter, as shown:
 
 Parameter | In | Description
 --- | --- | ---
-`api_key` | Request header | Each client application has its own unique key. The API uses the key for basic authentication and data provenance. 
+`api_key` | Request header | Each client application has its own unique key. The API uses the key for basic authorisation and traceability. 
 
 
 *** REQUEST ***	
