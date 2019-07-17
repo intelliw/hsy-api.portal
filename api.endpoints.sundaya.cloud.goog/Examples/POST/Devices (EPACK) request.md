@@ -7,7 +7,9 @@
 
 The dataset example below shows data collected for a site with 2 JouleStore Cabinets ('CAB-01-001' and 'CAB-01-002') and 4 packs in each cabinet. 
 
-It shows two data samples for each cabinet taken 10 seconds apart (CAB-00-001 at **15:00.06** and, and CAB-00-002 at **15:00.07**).
+*Note: a PMS controller (BBC) is able to handle 4 cabinets, with upto 12 packs in each cabinet, and 14 cells per pack*.
+
+The example shows two data samples for each cabinet taken 10 seconds apart (CAB-00-001 at **15:00.06** and, CAB-00-002 at **15:00.07**).
 
 Each object in the `data` array contains data for a single pack, identified by `pack.id`. 
 

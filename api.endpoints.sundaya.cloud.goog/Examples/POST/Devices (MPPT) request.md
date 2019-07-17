@@ -7,17 +7,15 @@
 
 The example below shows datasets collected at a BTS site with 2 EPSolar MPPT Charge Controllers ('IT6415AD-01-001' and 'IT6415AD-01-002').
 
-It shows two data samples for each MPPT Controller taken 10 seconds apart (IT6415AD-01-001 at **15:00.06** and IT6415AD-01-002 at **15:00.07**).
+*Note: A site can have any number of MPPT controllers, and each controller can have multiple PV strings and Loads. Presently upto 4 PV strings per controller are supported. In future each string will have its own dedicated controller*.
 
-A site can have any number of MPPT controllers, and each controller can have any number of PV strings or Loads. 
+The example shows two data samples for each MPPT Controller taken 10 seconds apart (IT6415AD-01-001 at **15:00.06** and IT6415AD-01-002 at **15:00.07**).
 
 In this example each MPPT controller has :
 
 - 2 PV strings as shown by the data arrays in `pv.volts` and `pv.amps`.
 
 - 2 Loads as shown by `load.volts` / `load.amps`: Load 1 is the VSAT system and Load 2 is the BTS.  
-
-Presently upto 4 PV strings per controller are supported. In future each string will have its own dedicated controller.
 
 The size of each MPPT dataset is 367 bytes including whitespace, or 248 bytes if whitespace is stripped (by using JSON.stringify)..
 
