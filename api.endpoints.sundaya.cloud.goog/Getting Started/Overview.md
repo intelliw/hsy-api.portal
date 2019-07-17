@@ -26,7 +26,7 @@ Clients can use the API to manage **Energy Assets** through graphical views and 
 The `/devices` path is for vendor integrations to log energy flows, and for vendors to monitor and control their **Energy Management Devices**.
 
 
-# Data Structure
+# Energy Data
 
 ### Element names
 
@@ -34,7 +34,7 @@ The following labels are used in API paths and responses to refer to energy data
 
 - `store.in` and `store.out` indicate *charge* and *discharge* flows for batteries.
 
-- `grid.in` and `grid.out` indicate mains use, and feed-in flows into the public grid.
+- `grid.in` and `grid.out` indicate mains use, and feed-in/out flows from the public grid.
 
 - `harvest` refers to renewable energy generation. 
 

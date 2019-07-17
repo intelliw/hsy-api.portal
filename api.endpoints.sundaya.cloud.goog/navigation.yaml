@@ -38,23 +38,23 @@ folders:
     ordering:
     - Overview
     - Standards & Conventions
-    - Requests
-    - Responses
     - Security
 
   Examples:
     ordering:
-    - GET
-    - POST
+    - Energy
+    - Devices
   
     folders:
-      GET:
+      Energy:
         ordering:
-        - Energy request
-        - Energy response
+        - Energy GET request
+        - Energy GET response
         - Versions response
+        - Requests
+        - Responses
 
-      POST:
+      Devices:
         ordering:
         - Devices (EPACK) request
         - Devices (MPPT) request
