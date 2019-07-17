@@ -120,9 +120,9 @@ Attribute | Metric | Data | Optionality | Description
 --- | --- | --- | --- | --- 
 `cabinet.id` | - | string | mandatory | Id of the epack Cabinet. *(__Note__: each PMS controller (BBC) is able to handle 4 cabinets, with upto 12 packs in each cabinet, and 14 cells per pack)*.
 `time` | - | datetime | mandatory | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
-`pack.id` | - | string | mandatory | The pack identifier. Ideally this should be a logical identifier (not the MCU hardware id) which gets flashed onto the pack control board when it is first commissioned, or returned to service after it is affixed to a different pack. 
+`pack.id` | - | string | mandatory | The pack identifier. *(__Note__: ideally this should be a logical identifier not the MCU hardware id) which gets flashed onto the pack control board when it is first commissioned, or returned to service after it is affixed to a different pack)*. 
 `pack.slot` | - | integer | mandatory | The cabinet slot (1-12) in which this pack is installed. 
-`pack.volts` | volts | float | mandatory | The voltage of this pack. *(Note: `pack.volts` may not be the sum of `cell.volts` during cell balancing, if a cell is overcharged and bypassed)*.
+`pack.volts` | volts | float | mandatory | The voltage of this pack. *(__Note__: `pack.volts` may not be the sum of `cell.volts` during cell balancing, if a cell is overcharged and bypassed)*.
 `pack.amps` | amps | float | mandatory | The current draw from this pack.  
 `pack.soc` | % | float | required on change | The % state-of-charge (0-100) of this pack.
 `pack.temp` | degC | float | required on change | The temperature of the cell-pack at its top, middle, and bottom. 
@@ -152,13 +152,13 @@ The dataset attributes are specified below.
 
 Attribute | Metric | Data | Optionality | Description
 --- | --- | --- | --- | --- 
-`mppt.id` |  | string | mandatory | Id of the MPPT charge controller. *(Note: a site can have any number of MPPT controllers, and each controller can have multiple PV strings and Loads)*.
+`mppt.id` |  | string | mandatory | Id of the MPPT charge controller. *(__Note__: a site can have any number of MPPT controllers, and each controller can have multiple PV strings and Loads)*.
 `time` |  | datetime | mandatory | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
-`pv.volts` | volts | float *(array)* | mandatory | An ordered set of Voltage readings for PV strings connected to this MPPT. *(Note: presently upto 4 PV strings per controller are supported. In future each string will have its own dedicated controller)*.
-`pv.amps` | amps | float *(array)* | mandatory | An ordered set of Current readings for PV strings, corresponding to the values in `pv.volts`.  
+`pv.volts` | volts | float *(array)* | mandatory | An ordered set of Voltage readings for PV strings connected to this MPPT. *(__Note__: presently upto 4 PV strings per controller are supported. In future each string will have its own dedicated controller)*.
+`pv.amps` | amps | float *(array)* | mandatory | An ordered set of Current readings for PV strings, corresponding to values in `pv.volts`.  
 `battery.volts` | volts | float | mandatory | The voltage of the connected Battery.
-`load.volts` | volts | float *(array)* | mandatory | An ordered set of Voltage readings for connected Loads. *(Note: in a BTS site Load 1 is the VSAT system and Load 2 is the BTS)*.
-`load.amps` | amps | float *(array)* | mandatory | An ordered set of Current readings for connected Loads, corresponding to the values in `load.volts`.  
+`load.volts` | volts | float *(array)* | mandatory | An ordered set of Voltage readings for connected Loads. *(__Note__: in a BTS site Load 1 is the VSAT system and Load 2 is the BTS)*.
+`load.amps` | amps | float *(array)* | mandatory | An ordered set of Current readings for connected Loads, corresponding to values in `load.volts`.  
 
 ### 'inverter' dataset Body parameter
 
@@ -180,13 +180,13 @@ The dataset attributes are specified below.
 
 Attribute | Metric | Data | Optionality | Description
 --- | --- | --- | --- | ---
-`inverter.id` | - | string | mandatory | Id of the Inverter charge controller. *(Note: a site can have any number of Inverter controllers, and each controller can have multiple PV strings and Loads)*.
+`inverter.id` | - | string | mandatory | Id of the Inverter charge controller. *(__Note__: a site can have any number of Inverter controllers, and each controller can have multiple PV strings and Loads)*.
 `time` | - | datetime | mandatory | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
-`pv.volts` | volts | float *(array)* | mandatory | An ordered set of Voltage readings for PV strings connected to this MPPT. *(Note: presently upto 4 PV strings per controller are supported. In future each string will have its own dedicated controller)*.
-`pv.amps` | amps | float *(array)* | mandatory | An ordered set of Current readings for PV strings, corresponding to voltages in `pv.volts`.  
+`pv.volts` | volts | float *(array)* | mandatory | An ordered set of Voltage readings for PV strings connected to this MPPT. *(__Note__: presently upto 4 PV strings per controller are supported. In future each string will have its own dedicated controller)*.
+`pv.amps` | amps | float *(array)* | mandatory | An ordered set of Current readings for PV strings, corresponding to values in `pv.volts`.  
 `battery.volts` | volts | float | mandatory | The voltage of the connected Battery.
 `load.volts` | volts | float *(array)* | mandatory | An ordered set of Voltage readings for connected Loads.
-`load.amps` | amps | float *(array)* | mandatory | An ordered set of Current readings for connected Loads, corresponding to voltages in `load.volts`.  
+`load.amps` | amps | float *(array)* | mandatory | An ordered set of Current readings for connected Loads, corresponding to values in `load.volts`.  
 
 # /device/dataset GET
 ---
