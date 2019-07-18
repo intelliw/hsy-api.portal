@@ -17,22 +17,24 @@ The API key must be provided in all requests as a query parameter, as shown:
 
 Parameter | In | Description
 --- | --- | ---
-`api_key` | Request header | Each client application has its own unique key. The API uses the key for basic authorisation and traceability. 
+`api_key` | Request header | Each client application has its own unique key. The API gateway pre-authorises requests using this key, and includes it in request logs. 
 
-
+```
 *** REQUEST ***	
 GET /energy/hse/period/week/20190204/ HTTP/1.1	
 Host: api.endpoints.sundaya.cloud.goog
 Accept: application/vnd.collection+json	
 api_key: X2zaSyASFGxf4PmOitVS1Dt911PcZ4IQ8PUUMqA
-
+```
 
 `401 Unauthorized` is returned if the API key is not valid or does not have access to the requested path.
 
+```
 *** RESPONSE ***	
 401 Unauthorized HTTP/1.1	
 Content-Type: application/json; charset=utf-8
 Content-Length: 286
+```
 
 ### Developer portal 
 
