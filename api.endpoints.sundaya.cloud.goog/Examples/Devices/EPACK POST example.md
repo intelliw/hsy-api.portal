@@ -1,7 +1,7 @@
 # Devices
 ---
 
-### POST /dataset/epack
+### POST /dataset/epack request
 
 [/device/dataset/epack](http:/api.endpoints.sundaya.cloud.goog/devices/dataset/epack)
 
@@ -27,13 +27,6 @@ Host: api.endpoints.sundaya.cloud.goog
 Accept: application/json
 Content-Type: application/json
     
-*** RESPONSE ***	
-201 OK HTTP/1.1	
-Location: http:/api.endpoints.sundaya.cloud.goog/device/CAB-01-001/dataset/epack/period/minute/20190209T1500-0700/1
-Location: http:/api.endpoints.sundaya.cloud.goog/device/CAB-01-002/dataset/epack/period/minute/20190209T1500-0700/1
-Content-Type: application/json
-Content-Length: 8063	
-
 ```
 
 ```json
@@ -186,4 +179,33 @@ Content-Length: 8063
   ]
 }
 
+```
+
+### POST /dataset/epack response
+
+```
+*** RESPONSE ***	
+201 OK HTTP/1.1	
+Location: http:/api.endpoints.sundaya.cloud.goog/device/CAB-01-001/dataset/epack/period/minute/20190209T1500-0700/1
+Location: http:/api.endpoints.sundaya.cloud.goog/device/CAB-01-002/dataset/epack/period/minute/20190209T1500-0700/1
+Content-Type: application/json
+Content-Length: 8063	
+
+```
+
+```json
+{
+  "status": "201",
+  "message": "Created",
+  "details": [
+    {
+      "message": "New data events created",
+      "target": "device:CAB-01-001 | dataset:epack | events:8"
+    },
+    {
+      "message": "New data events created",
+      "target": "device:CAB-01-002 | dataset:epack | events:8"
+    }
+  ]
+}
 ```
