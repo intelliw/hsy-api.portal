@@ -28,12 +28,12 @@ The following snippet shows the structure of a `epack` dataset:
     { "cabinet": { "id": "CAB-01-001" }, 
       "data": [
         { "time": "20190209T150006.032-0700",
-          "pack": { "id": "EPACK-01-001", "slot": "01", "volts": "55.1", "amps": "0.0", "soc": "94.3", 
-            "temp": { "top": "35.0", "mid": "33.0", "bottom": "34.0" } },
+          "pack": { "id": "EPACK-01-001", "dock": "01", "volts": "55.1", "amps": "-1.601", "temp": ["35.0", "33.0", "34.0"] },
           "cell": { 
-            "volts": ["3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92"] },
+            "volts": ["3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.91"],
+            "open": [1, 6] },
           "fet": { 
-            "temp": { "in": "35.0", "out": "33.0" }, "status": { "in": "0", "out": "1" } }
+            "temp": ["34.1", "32.2", "33.5"], "open": [1, 2] }
         },
 ```
 
@@ -66,7 +66,7 @@ The following snippet shows the structure of a `mppt` dataset:
       "data": [
         { "time": "20190209T150006.032-0700",
           "pv": { "volts": ["48.000", "48.000"], "amps": ["6.0", "6.0"] },
-          "battery": { "volts" : "55.1" }, 
+          "batt": { "volts" : "55.1", "amps": "-1.601" }, 
           "load": { "volts": ["48.000", "48.000"], "amps": ["1.2", "1.2"] }
         },
 ```
@@ -94,7 +94,7 @@ The following snippet shows the structure of an `inverter` dataset:
       "data": [
         { "time": "20190209T150006.032-0700",
           "pv": { "volts": ["48.000", "48.000"], "amps": ["6.0", "6.0"] },
-          "battery": { "volts" : "55.1" }, 
+          "batt": { "volts" : "55.1", "amps": "-1.601" }, 
           "load": { "volts": ["48.000", "48.000"], "amps": ["1.2", "1.2"] }
         },
 ```
