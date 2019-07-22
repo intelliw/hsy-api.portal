@@ -15,7 +15,7 @@ dataset | Description
 --- | --- | --- 
 `epack` | Data from pack management systems (PMS) for cabinets, including monitored epacks, cells, and mosfets.
 `mppt` | Data from Maximum Power Point Tracking (MPPTcontrollers, including connected PV strings, batteries, and DC loads.
-`inverter` | Data from Inverter charge controllers, including connected pv strings, batteries, and 
+`inverter` | Data from Inverter charge controllers, including connected pv strings, batteries, and AC loads.
 
 
 ### 'epack' Body parameter
