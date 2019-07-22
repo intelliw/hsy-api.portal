@@ -13,7 +13,7 @@ The example shows two data samples for each cabinet taken 10 seconds apart (CAB-
 
 Each object in the `data` array contains data for a single pack, identified by `pack.id`. 
 
-- `pack.slot` indicates the cabinet slot in which the pack is installed.
+- `pack.dock` indicates the cabinet dock in which the pack is installed.
 
 - `cell.volts` contains an array of 14 voltage datapoints corresponding to each cell block in the pack.
 
