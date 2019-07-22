@@ -73,15 +73,16 @@ The following snippet shows the structure of a `mppt` dataset:
 
 The dataset attributes are specified below. 
 
-Attribute | Metric | Data | Optionality | Description
+Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | --- 
-`mppt.id` |  | string | mandatory | Id of the MPPT charge controller. *(__Note__: a site can have any number of MPPT controllers, and each controller can have multiple PV strings and Loads)*.
-`time` |  | datetime | mandatory | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
-`pv.volts` | volts | float *(array)* | mandatory | An ordered set of Voltage readings for PV strings connected to this MPPT. *(__Note__: presently upto 4 PV strings per controller are supported. In future each string will have its own dedicated controller)*.
-`pv.amps` | amps | float *(array)* | mandatory | An ordered set of Current readings for PV strings, corresponding to values in `pv.volts`.  
-`battery.volts` | volts | float | mandatory | The voltage of the connected Battery.
-`load.volts` | volts | float *(array)* | mandatory | An ordered set of Voltage readings for connected Loads. *(__Note__: in a BTS site Load 1 is the VSAT system and Load 2 is the BTS)*.
-`load.amps` | amps | float *(array)* | mandatory | An ordered set of Current readings for connected Loads, corresponding to values in `load.volts`.  
+`mppt.id` | - | string | - | Id of the MPPT charge controller. *(__Note__: a site can have any number of MPPT controllers, and each controller can have multiple PV strings and Loads)*.
+`time` | - | datetime | RFC 3339 | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
+`pv.volts` | volts | float *(array)* | *array size 1-4* | An ordered set of Voltage readings for PV strings connected to this MPPT. Each value in the data array applies to a PV string number based on its position in the array. For example the 2nd value in the data array is the data for the 2nd PV string. The array size depends on the number of PV strings. Presently upto 4 PV strings per controller are supported. In future each string will have its own dedicated controller.
+`pv.amps` | amps | float *(array)* | *array size 1-4* | An ordered set of Current readings for PV strings (corresponding to voltage readings in `pv.volts`).  
+`batt.volts` | volts | float | - | The voltage of the connected Battery.
+`batt.amps` | amps | float [+/-] | - | The current for the connected Battery. The value is positive for charge current and negative when discharging.
+`load.volts` | volts | float *(array)* | *array size 1-2* | An ordered set of Voltage readings for connected Load. Each value in the data array applies to a Load number based on its position in the array. For example the 2nd value in the data array is the data for the 2nd Load. The array size depends on the number of loads. Each load and its positional number must be declared in this API documentation. In a BTS installation Load 1 is the VSAT system and Load 2 is the BTS.
+`load.amps` | amps | float *(array)* | *array size 1-2* | An ordered set of Current readings for connected Loads  (corresponding to values in `load.volts`).  
 
 ### 'inverter' Body parameter
 
@@ -103,13 +104,15 @@ The dataset attributes are specified below.
 
 Attribute | Metric | Data | Optionality | Description
 --- | --- | --- | --- | ---
-`inverter.id` | - | string | mandatory | Id of the Inverter charge controller. *(__Note__: a site can have any number of Inverter controllers, and each controller can have multiple PV strings and Loads)*.
-`time` | - | datetime | mandatory | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
-`pv.volts` | volts | float *(array)* | mandatory | An ordered set of Voltage readings for PV strings connected to this MPPT. *(__Note__: presently upto 4 PV strings per controller are supported. In future each string will have its own dedicated controller)*.
-`pv.amps` | amps | float *(array)* | mandatory | An ordered set of Current readings for PV strings, corresponding to values in `pv.volts`.  
-`battery.volts` | volts | float | mandatory | The voltage of the connected Battery.
-`load.volts` | volts | float *(array)* | mandatory | An ordered set of Voltage readings for connected Loads.
-`load.amps` | amps | float *(array)* | mandatory | An ordered set of Current readings for connected Loads, corresponding to values in `load.volts`.  
+`inverter.id` | - | string | - | Id of the Inverter charge controller. *(__Note__: a site can have any number of Inverter controllers, and each controller can have multiple PV strings and Loads)*.
+`time` | - | datetime | RFC 3339 | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
+`pv.volts` | volts | float *(array)* | *array size 1-4* | An ordered set of Voltage readings for PV strings connected to this Inverter. Each value in the data array applies to a PV string number based on its position in the array. For example the 2nd value in the data array is the data for the 2nd PV string. The array size depends on the number of PV strings. Presently upto 4 PV strings per controller are supported. In future each string will have its own dedicated controller.
+`pv.amps` | amps | float *(array)* | *array size 1-4* | An ordered set of Current readings for PV strings (corresponding to voltage readings in `pv.volts`).  
+`batt.volts` | volts | float | - | The voltage of the connected Battery.
+`batt.amps` | amps | float [+/-] | - | The current for the connected Battery. The value is positive for charge current and negative when discharging.
+`load.volts` | volts | float *(array)* | *array size 1-2* | An ordered set of Voltage readings for connected Load. Each value in the data array applies to a Load number based on its position in the array. For example the 2nd value in the data array is the data for the 2nd Load. The array size depends on the number of loads. Each load and its positional number must be declared in this API documentation.
+`load.amps` | amps | float *(array)* | *array size 1-2* | An ordered set of Current readings for connected Loads  (corresponding to values in `load.volts`).  
+
 
 # /device/dataset GET
 ---
