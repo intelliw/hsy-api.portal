@@ -57,7 +57,7 @@ folders:
         ordering:
         - Overview
         - epack POST example
-        - mppt POST example
+        - MPPT POST example
         - inverter POST example
 
 
