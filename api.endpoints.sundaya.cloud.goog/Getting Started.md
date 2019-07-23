@@ -1,7 +1,7 @@
-# Energy Management
+# Introduction
 ---
 
-The Energy Management API provides data for energy accounting and allows users and vendors to monitor and control their Energy Assets and Energy Management Devices. 
+The Energy Management API provides energy accounting data and event notifications, for users and vendors to monitor and control their Energy Assets and Energy Management Devices.
 
 Energy | Assets | Devices
 --- | --- | ---
@@ -26,7 +26,8 @@ Clients can use the API to manage **Energy Assets** through graphical views and 
 The `/devices` path is for vendor integrations to log energy flows, and for vendors to monitor and control their **Energy Management Devices**.
 
 
-# Energy Data
+# Energy API
+---
 
 ### Element names
 
@@ -54,7 +55,7 @@ Flow | From / To
     
 To query specific assets, clients can filter requests by `category`, `subcategory`, and `productType` (in the request *Body*).
 
-# Data Visualisation
+## Data Visualisation
 
 ### Colour codes
 
@@ -94,5 +95,10 @@ The following monthly `period` graph contains a representation for all data elem
 - _Red_ represents energy consumption (`enjoy`) and is always shown in the bottom tier.
 - _Black_ in the bottom tier shows a net excess (of `harvest` energy, compared to `store.in` and `enjoy` energy volumes), resulting in feed-in flows to the grid (`grid.in`). 
 - _Blue_ in the bottom tier shows battery *charge* (`store.in`) typically from excess `harvest` energy.
+
+# Devices API
+---
+
+The `/devices` path is for device controllers (e.g. Bus Bar Controller) and gateways (e.g. EHub Gateway) to accumulate and periodically send data from multiple monitored devices installed at a site.
 
 ---
