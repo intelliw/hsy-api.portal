@@ -60,7 +60,7 @@ To query specific assets, clients can filter requests by `category`, `subcategor
 
 The API’s response data can be visualised through an application as a stacked bar graph, based on these standard colours for each dataset in the response 'data' element.
 
-![Colour codes & energy sources](../images/energy.colour-codes.png)
+![Colour codes & energy sources](/images/energy.colour-codes.png)
  
 ### Double-entry format
 
