@@ -51,7 +51,7 @@ folders:
       Energy:
         ordering:
         - Overview
-        - energyx GET example
+        - energy GET example
 
       Devices:
         ordering:
