@@ -51,14 +51,14 @@ folders:
       Energy:
         ordering:
         - Overview
-        - energy GET example
+        - Energy GET example
 
       Devices:
         ordering:
         - Overview
-        - epack POST example
-        - mppt POST example
-        - inverter POST example
+        - EPACK POST example
+        - MPPT POST example
+        - INVERTER POST example
 
 
       
