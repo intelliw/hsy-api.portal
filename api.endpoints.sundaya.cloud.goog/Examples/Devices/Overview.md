@@ -41,7 +41,7 @@ The dataset attributes are specified below.
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | --- 
-`cabinet.id` | - | string | - | Id of the epack Cabinet. The is the foreign key for relationally joining this dataset to business transaction and master data in the cloud. The identifier will be stored in the BBC typically during pre-shipment configuration.
+`cabinet.id` | - | string | - | Id of the epack Cabinet. The id is the foreign key for relationally joining this dataset to business transaction and master data in the cloud. The identifier will be stored in the BBC typically during pre-shipment configuration.
 `time` | - | datetime | RFC 3339 | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
 `pack.id` | - | string | - | The pack identifier. The value is provided by the pack’s acquisition board. 
 `pack.dock` | - | integer | 1-12 | The cabinet dock (1-12) in which this pack is installed. 

@@ -25,21 +25,18 @@
 ordering:
 - Introduction
 - Getting Started
+- Standards & Conventions
+- Roadmap
 - API Reference
 - Examples
 - Resources
 
 folders:
-  Getting Started:
     # If you want to have sub-folders, you can add another 'folders' map within
     # this folder's configuration.
     # In this example, there is only a 'Getting Started' page and no sub-folders.
     # The add_example_page script will add a page named 'Example Page' here.
-    ordering:
-    - Overview
-    - Standards & Conventions
-    - Roadmap
-
+ 
   Examples:
     ordering:
     - Diagnostics
