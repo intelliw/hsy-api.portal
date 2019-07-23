@@ -1,4 +1,4 @@
-# Devices
+# epack POST example
 ---
 
 ### POST /dataset/epack request
@@ -182,9 +182,36 @@ Content-Type: application/json
 
 ### POST /dataset/epack response
 
+
+A 200 Response will be sent if the request is accepted and queued for asynchronous processing. 
+
 ```
 *** RESPONSE ***	
-201 OK HTTP/1.1	
+200 OK HTTP/1.1	
+Content-Type: application/json
+Content-Length: 1171	
+
+```
+
+```json
+{
+    "status": "200",
+    "message": "ok",
+    "details": [
+        {
+            "message": "Data queued for processing.",
+            "target": "dataset:epack"
+        }
+    ]
+}
+```
+
+If the request is processed synchronously a 201 Response will be returned as follows. 
+
+
+```
+*** RESPONSE ***	
+201 Created HTTP/1.1	
 Location: http:/api.endpoints.sundaya.cloud.goog/device/CAB-01-001/dataset/epack/period/minute/20190209T1500-0700/1
 Location: http:/api.endpoints.sundaya.cloud.goog/device/CAB-01-002/dataset/epack/period/minute/20190209T1500-0700/1
 Content-Type: application/json

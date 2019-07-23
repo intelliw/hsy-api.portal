@@ -86,7 +86,7 @@ The API supports a limited set of responses for each API path, based on the foll
 
 Code | Status | Definition
 --- | --- | ---
-`200` | OK | Data retrieved, or queued for later processing.  
+`200` | OK | Data retrieved, or queued for processing.
 `201` | Created | Resource created.
 `400` | Bad Request | The client specified an invalid argument. 
 `401` | Unauthorized | The client does not have sufficient permission. 

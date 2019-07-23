@@ -1,4 +1,4 @@
-# Devices
+# mppt POST example
 ---
 
 ### POST /dataset/mppt request
@@ -66,9 +66,34 @@ Content-Type: application/json
 
 ### POST /dataset/mppt response
 
+A 200 Response will be sent if the request is accepted and queued for asynchronous processing. 
+
 ```
 *** RESPONSE ***	
-201 OK HTTP/1.1	
+200 OK HTTP/1.1	
+Content-Type: application/json
+Content-Length: 1171	
+
+```
+
+```json
+{
+    "status": "200",
+    "message": "ok",
+    "details": [
+        {
+            "message": "Data queued for processing.",
+            "target": "dataset:mppt"
+        }
+    ]
+}
+```
+
+If the request is processed synchronously a 201 Response will be returned as follows. 
+
+```
+*** RESPONSE ***	
+201 Created HTTP/1.1	
 Location: http:/api.endpoints.sundaya.cloud.goog/device/IT6415AD-01-001/dataset/mppt/period/minute/20190209T1500-0700/1
 Location: http:/api.endpoints.sundaya.cloud.goog/device/IT6415AD-01-002/dataset/mppt/period/minute/20190209T1500-0700/1
 Content-Type: application/json
