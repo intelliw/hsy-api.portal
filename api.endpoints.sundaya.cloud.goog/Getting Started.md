@@ -66,7 +66,7 @@ The API’s response data can be visualised through an application as a stacked 
 
 Graphs are typically shown in a ‘double entry’ format (the up and down bars are the same size), as shown in the following sample. 
 
-![Stacked bar graph format](../images/graph.stacked-bar-example.png)
+![Stacked bar graph format](/images/graph.stacked-bar-example.png)
 
 The example shows the following behaviour:
 - In the 1st hour all `enjoy` energy came from the battery (`store.out`). 
@@ -81,7 +81,7 @@ A graph with lot of _Black_ in the top tier indicates that you need to do someth
 
 The following monthly `period` graph contains a representation for all data elements returned by the API.
 
-![Monthly usage example](../images/graph.monthly-usage.png)
+![Monthly usage example](/images/graph.monthly-usage.png)
 
 **Top tier**
 
