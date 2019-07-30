@@ -56,7 +56,7 @@ folders:
       Devices:
         ordering:
         - Overview
-        - epack POST example
+        - pms POST example
         - mppt POST example
         - inverter POST example
 

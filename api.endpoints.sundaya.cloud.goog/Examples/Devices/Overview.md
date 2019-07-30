@@ -3,7 +3,7 @@
 
 The `/devices/dataset/{dataset}` path is for vendors and systems integrators to POST device data.
 
-[http:/api.endpoints.sundaya.cloud.goog/devices/{dataset}](http:/api.endpoints.sundaya.cloud.goog/devices/dataset/epack)
+[http:/api.endpoints.sundaya.cloud.goog/devices/{dataset}](http:/api.endpoints.sundaya.cloud.goog/devices/dataset/pms)
 
 - This route allows device **controllers** (e.g. Bus Bar Controller) and **gateways** (e.g. EHub Gateway) to accumulate and periodically send data from multiple monitored devices installed at a site.
 
@@ -13,27 +13,25 @@ The following types may be specified as the `{dataset}` parameter in all `/devic
 
 dataset | Description
 --- | --- | --- 
-`epack` | Data from pack management systems (PMS) for cabinets, including monitored epacks, cells, and mosfets.
+`pms` | Data from pack management systems (PMS) for cabinets, including monitored epacks, cells, and mosfets.
 `mppt` | Data from Maximum Power Point Tracking (MPPTcontrollers, including connected PV strings, batteries, and DC loads.
 `inverter` | Data from Inverter charge controllers, including connected pv strings, batteries, and AC loads.
 
 
-### 'epack' Body parameter
+### 'pms' Body parameter
 
-The following snippet shows the structure of a `epack` dataset:
+The following snippet shows the structure of a `pms` dataset:
 
 ```json
 {
   "datasets": [
-    { "cabinet": { "id": "CAB-01-001" }, 
+    { "pms": { "id": "PMS-01-001" }, 
       "data": [
         { "time": "20190209T150006.032-0700",
-          "pack": { "id": "EPACK-01-001", "dock": "01", "volts": "55.1", "amps": "-1.601", "temp": ["35.0", "33.0", "34.0"] },
-          "cell": { 
-            "volts": ["3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.91"],
-            "open": [1, 6] },
-          "fet": { 
-            "temp": ["34.1", "32.2", "33.5"], "open": [1, 2] }
+          "pack": { "id": "0241", "dock": "01", "volts": "55.1", "amps": "-1.601", "temp": ["35.0", "33.0", "34.0"] },
+          "cell": { "open": [1, 6],
+            "volts": ["3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.91"] },
+          "fet": { "open": [1, 2], "temp": ["34.1", "32.2", "33.5"] }
         },
 ```
 
@@ -41,7 +39,7 @@ The dataset attributes are specified below.
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | --- 
-`cabinet.id` | - | string | - | Id of the epack Cabinet. The id is the foreign key for relationally joining this dataset to business transaction and master data in the cloud. The identifier will be stored in the BBC typically during pre-shipment configuration.
+`pms.id` | - | string | - | Id of the PMS system. The id is the foreign key for relationally joining this dataset to reference data held in the cloud. The identifier will be stored in the BBC typically during pre-shipment configuration.
 `time` | - | datetime | RFC 3339 | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
 `pack.id` | - | string | - | The pack identifier. The value is provided by the pack’s acquisition board. 
 `pack.dock` | - | integer | 1-12 | The cabinet dock (1-12) in which this pack is installed. 
@@ -81,7 +79,7 @@ Attribute | Metric | Data | Constraint | Description
 `pv.amps` | amps | float *(array)* | *array size 1-4* | An ordered set of Current readings for PV strings (corresponding to voltage readings in `pv.volts`).  
 `batt.volts` | volts | float | - | The voltage of the connected Battery.
 `batt.amps` | amps | float [+/-] | - | The current for the connected Battery. The value is positive for charge current and negative when discharging.
-`load.volts` | volts | float *(array)* | *array size 1-2* | An ordered set of Voltage readings for connected Load. Each value in the data array applies to a Load number based on its position in the array. For example the 2nd value in the data array is the data for the 2nd Load. The array size depends on the number of loads. Each load and its positional number must be declared in this API documentation. In a BTS installation Load 1 is the VSAT system and Load 2 is the BTS.
+`load.volts` | volts | float *(array)* | *array size 1-2* | An ordered set of Voltage readings for connected Load. Each value in the data array applies to a Load number based on its position in the array. For example the 2nd value in the data array is the data for the 2nd Load. The array size depends on the number of loads. Each load and its ordinal position must be declared in this API documentation. In a BTS installation Load 1 is the VSAT system and Load 2 is the BTS.
 `load.amps` | amps | float *(array)* | *array size 1-2* | An ordered set of Current readings for connected Loads  (corresponding to values in `load.volts`).  
 
 ### 'inverter' Body parameter
@@ -110,7 +108,7 @@ Attribute | Metric | Data | Optionality | Description
 `pv.amps` | amps | float *(array)* | *array size 1-4* | An ordered set of Current readings for PV strings (corresponding to voltage readings in `pv.volts`).  
 `batt.volts` | volts | float | - | The voltage of the connected Battery.
 `batt.amps` | amps | float [+/-] | - | The current for the connected Battery. The value is positive for charge current and negative when discharging.
-`load.volts` | volts | float *(array)* | *array size 1-2* | An ordered set of Voltage readings for connected Load. Each value in the data array applies to a Load number based on its position in the array. For example the 2nd value in the data array is the data for the 2nd Load. The array size depends on the number of loads. Each load and its positional number must be declared in this API documentation.
+`load.volts` | volts | float *(array)* | *array size 1-2* | An ordered set of Voltage readings for connected Loads. Each value in the data array applies to a Load number based on its position in the array. For example the 2nd value in the data array is the data for the 2nd Load. The array size depends on the number of loads. Each load and its ordinal position must be declared in this API documentation.
 `load.amps` | amps | float *(array)* | *array size 1-2* | An ordered set of Current readings for connected Loads  (corresponding to values in `load.volts`).  
 
 
