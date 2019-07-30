@@ -3,7 +3,7 @@
 
 ### GET /versions response
 
-[/versions](http:/api.endpoints.sundaya.cloud.goog/versions)
+[/api/versions](http:/api.endpoints.sundaya.cloud.goog/api/versions)
 
 ```
 *** REQUEST ***	

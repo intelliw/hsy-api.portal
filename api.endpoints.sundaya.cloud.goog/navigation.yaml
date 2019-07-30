@@ -46,7 +46,7 @@ folders:
     folders:
       Diagnostics:
         ordering:
-        - Versions GET response
+        - versions GET example
 
       Energy:
         ordering:
