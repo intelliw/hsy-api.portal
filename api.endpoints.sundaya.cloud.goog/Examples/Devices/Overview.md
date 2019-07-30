@@ -128,7 +128,7 @@ The following path parameters are required in device GET requests. If a path par
 Parameter | Description 
 --- | --- 
 `device` | The device identifier. 
-`dataset` | The dataset type (see section titled '_{dataset} parameter_' above). 
+`dataset` | The dataset type (see section titled _{dataset} parameter_ above). 
 
 ### Query parameters
 There are no query parameters for the `/device/dataset` route.
