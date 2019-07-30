@@ -39,9 +39,9 @@ The dataset attributes are specified below.
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | --- 
-`pms.id` | - | string | - | The `pms.id` is configured for each site during pre-shipment configuration. It is stored on each Ehub (or BBC); upto 4 EHubs (i.e. Cabinets) can have the same PMS id. The `pms.id` is the foreign key for relationally joining the pms dataset to reference data in the cloud. It allows Packs to be hot-swapped on site without any pack re-configuration being needed.
+`pms.id` | - | string | - | The `pms.id` is configured for each site during pre-shipment. It is stored on each Ehub (or BBC); upto 4 EHubs (i.e. Cabinets) can share the same `pms.id`. The id is the foreign key for relationally joining the pms dataset to reference data in the cloud. As packs self identify they cab be hot-swapped on site without any need for re-configuring pack metadata.
 `time` | - | datetime | RFC 3339 | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
-`pack.id` | - | string | - | The pack identifier. This is the Case id (laser engraved in human-readable form on outside of case). Initially (temporarily) the `pack.id` will be populated with the pack’s acquisition board id, and converted through a lookup to the Case id on the server. In future the Case id will be directly stored in the acquisition board during pre-shipment configuration and no further data transformation will be required for determining the Pack id during data collection. 
+`pack.id` | - | string | - | The pack identifier. This is the Case id which is laser engraved in human-readable form on the outside of the case. Initially (temporarily) the `pack.id` will be populated with the pack’s acquisition board hardware id, and converted to the Case id through a lookup on the server. In future the Case id will be directly stored in the acquisition board during pre-shipment configuration and no further data transformation will be required for determining the Pack id during data collection.
 `pack.dock` | - | integer | 1-12 | The cabinet dock (1-12) in which this pack is installed. 
 `pack.volts` | volts | float | - | The voltage of this pack.
 `pack.amps` | amps | float [+/-] | - | The current draw for this pack. The value is positive for charge current and negative when discharging. 
