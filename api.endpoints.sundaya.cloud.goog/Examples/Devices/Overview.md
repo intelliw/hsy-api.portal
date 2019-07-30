@@ -9,7 +9,7 @@ The `/devices/dataset/{dataset}` path is for vendors and systems integrators to 
 
 ### {dataset} parameter ###
 
-The following types may be specified as the `{dataset}` parameter in all `/device` paths.
+The following types may be specified as the `{dataset}` parameter in a `/device` path.
 
 dataset | Description
 --- | --- | --- 
@@ -39,19 +39,19 @@ The dataset attributes are specified below.
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | --- 
-`pms.id` | - | string | - | Id of the PMS system. The id is the foreign key for relationally joining this dataset to reference data held in the cloud. The identifier will be stored in the BBC typically during pre-shipment configuration.
+`pms.id` | - | string | - | The `pms.id` is configured for each site during pre-shipment configuration. It is stored on each Ehub (or BBC); upto 4 EHubs (i.e. Cabinets) can have the same PMS id. The `pms.id` is the foreign key for relationally joining the pms dataset to reference data in the cloud. It allows Packs to be hot-swapped on site without any pack re-configuration being needed.
 `time` | - | datetime | RFC 3339 | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
-`pack.id` | - | string | - | The pack identifier. The value is provided by the pack’s acquisition board. 
+`pack.id` | - | string | - | The pack identifier. This is the Case id (laser engraved in human-readable form on outside of case). Initially (temporarily) the `pack.id` will be populated with the pack’s acquisition board id, and converted through a lookup to the Case id on the server. In future the Case id will be directly stored in the acquisition board during pre-shipment configuration and no further data transformation will be required for determining the Pack id during data collection. 
 `pack.dock` | - | integer | 1-12 | The cabinet dock (1-12) in which this pack is installed. 
 `pack.volts` | volts | float | - | The voltage of this pack.
 `pack.amps` | amps | float [+/-] | - | The current draw for this pack. The value is positive for charge current and negative when discharging. 
 `pack.temp` | degC | float *(array)* | *array size == 3* | An ordered set of 3 temperature readings in degC, for the temperature of the cell-pack at its top, middle, and bottom. The array position of  each value is significant: the 1st value applies to the top of the pack, 2nd to the middle, and 3rd to the bottom. 
 `cell.volts` | volts | float *(array)* | *array size == 14* | An ordered set of 14 Voltage readings for 14 cellblocks in this pack. Each value in the data array applies to a cell number based on its position in the array. For example the 2nd value in the data array is the data for the 2nd cell in the pack.
-`cell.open` | *open/closed* | integer *(array)* | 1-14 *array size 0-14* | An unordered set of cell numbers which are ‘open’ due to cell balancing. Must contain numbers from 1-14 as there are only 14 cells in a pack. For example a data value of [1,6] signifies that cell 1 and 6 are open (bypassed) to allow the other cells in the pack charge and reach parity with these cells. Typically the array will be empty to indicate that there is no cell balancing in effect.
+`cell.open` | *open/closed* | integer *(array)* | 1-14 *(array size 0-14)* | An unordered set of ordinal numbers for cells  which are ‘open’ due to cell balancing. Must contain numbers from 1-14 as there are only 14 cells in a pack. For example a data value of [1,6] signifies that cell 1 and 6 are open (bypassed) to allow the other cells in the pack to charge and reach parity with this cell block. Typically the array will be empty to indicate that there is no cell balancing in effect.
 `fet.temp` | degC | float | *array size == 2* | An ordered set of temperature readings for the two MOSFETS in this pack. The first is the input (CMOS) and the 2nd is the output (DMOS) MOSFET.
-`fet.open` | *open/closed* | integer *(array)* | 1-2 *(array size == 2)* | An unordered set of FET numbers which are ‘open’ due to pack balancing. The data values must be a number from 1-2 as there are only 2 FETS in each pack. For example a data value of [1,2] signifies that FETS 1 and 2 are both open.
+`fet.open` | *open/closed* | integer *(array)* | 1-2 *(array size == 2)* | An unordered set of ordinal numbers for FETs which are ‘open’ due to pack balancing. The data values must be a number from 1-2 as there are only 2 FETS in each pack. For example a data value of [1,2] signifies that FETS 1 and 2 are both open.
  
-- Attributes marked as '*required on change*' may be ommitted if the value has not changed since the last successful post (a POST is successful if acknowledged by the server with a 201 response). All other attributes must be provided. 
+- Attributes marked as '*required on change*' may be ommitted if the value has not changed since the last successful post (a POST is successful if acknowledged by the server with a 200 level response). All other attributes are mandatory and must be present. 
 
 ### 'mppt' Body parameter
 
