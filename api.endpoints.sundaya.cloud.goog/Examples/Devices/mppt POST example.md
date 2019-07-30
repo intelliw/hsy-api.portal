@@ -17,7 +17,7 @@ In this example each MPPT controller has :
 
 - 2 DC Loads as shown by `load.volts` / `load.amps`: Load 1 is the VSAT system and Load 2 is the BTS.  
 
-The size of each MPPT dataset is 367 bytes including whitespace, or 248 bytes if whitespace is stripped (by using JSON.stringify).
+The size of each MPPT dataset is 367 bytes including whitespace, or 248 bytes if whitespace is stripped (using JSON.stringify).
 
 
 ```

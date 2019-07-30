@@ -17,7 +17,7 @@ In this example each Inverter controller has :
 
 - 2 AC Loads as shown by `load.volts` / `load.amps`.  
 
-The size of each Inverter dataset is 367 bytes including whitespace, or 248 bytes if whitespace is stripped (by using JSON.stringify).
+The size of each Inverter dataset is 367 bytes including whitespace, or 248 bytes if whitespace is stripped (using JSON.stringify).
 
 
 ```
