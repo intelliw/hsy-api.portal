@@ -13,9 +13,9 @@ The example shows two data samples for each PMS taken 10 seconds apart (PMS-00-0
 
 Each object in the `data` array contains data for a single pack, identified by `pack.id`.
 
-- `pack.dock` indicates the cabinet/ busbar dock in which the pack is installed.
+- `pack.dock` provides the dock number (1 - 48) into which this pack is installed.
 
-- `cell.volts` contains an array of 14 voltage datapoints corresponding to each cell block in the pack.
+- `cell.volts` contains an array of 14 voltage datapoints corresponding to each of the 14 cell blocks in a pack.
 
 The size of a dataset for a single cabinet (4 packs) is 2030 bytes including whitespace, or 1420 bytes if whitespace is stripped (using JSON.stringify).
 
