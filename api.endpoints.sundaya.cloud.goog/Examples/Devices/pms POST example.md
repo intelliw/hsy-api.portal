@@ -202,3 +202,21 @@ Content-Length: 8063
   ]
 }
 ```
+
+When the request is processed a 'processingTime' attribute is prepended to each data item in the POST request. 
+The data item is added to the message broker as shown in the followng example:
+
+
+*** MESSAGE ***
+Topic: pms
+Key: PMS-01-001
+Value:	
+```json
+{
+  "time": "20190209T150017.020-0700",
+  "pack": { "id": "0248", "dock": 4, "volts": "55.1", "amps": "-1.601", "temp": ["35.0", "33.0", "34.0"] },
+  "cell": { "open": [1, 6], "volts": ["3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92"] },
+  "fet": { "open": [1, 2], "temp": ["34.1", "32.2", "33.5"] },
+  "processingTime": "20190801T104721.656"
+}
+```
