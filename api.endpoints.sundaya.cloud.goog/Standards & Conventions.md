@@ -24,11 +24,11 @@ Timezones are not assumed and must be explicitly specified where API parameters 
 
 The Timezone can be specified in UTC or local time as shown:
 
-- __UTC__, expressed with a trailing `Z` 
+- __UTC__, expressed with a trailing `Z` (20190209T0930Z == 09:30 UTC)
+    
+    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/minute/20190209T0930Z](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/minute/20190209T0930Z "Z signifies time zone as UTC") 
 
-    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/minute/20190209T0930Z](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/minute/20190209T0930Z "Z signifies time zone as UTC") == 09:30 UTC
-
-- __Local__ time in Jakarta with +/- offset 
+- __Local__ time in Jakarta with +/- offset (20190209T1630-0700 == 09:30 UTC, -0700 is offset from UTC for Jakarta)
 
     http://api.endpoints.sundaya.cloud.goog/energy/hse/period/minute/YYYYMMDDTHHmmss.SSS±HHmm
 
