@@ -26,13 +26,13 @@ The Timezone can be specified in UTC or local time as shown:
 
 - __UTC__, expressed with a trailing `Z` 
 
-    *20190209T0930Z == 09:30 UTC*
+    *20190209T0930Z==09:30 UTC*
     
     e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T0930Z](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T0930Z "Z signifies time zone as UTC") 
 
 - __Local__ time in Jakarta with +/- offset
 
-    *20190209T1630-0700 == 09:30 UTC, -0700== UTC offset for Jakarta*
+    *20190209T1630-0700==09:30 UTC, -0700== UTC offset for Jakarta*
 
     http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/YYYYMMDDTHHmmss.SSS±HHmm
 
