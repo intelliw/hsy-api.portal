@@ -28,33 +28,36 @@ The Timezone can be specified in UTC or local time as shown:
 
     *20190209T0930Z == 09:30 UTC*
     
-    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/minute/20190209T0930Z](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/minute/20190209T0930Z "Z signifies time zone as UTC") 
+    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T0930Z](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T0930Z "Z signifies time zone as UTC") 
 
-- __Local__ time in Jakarta with +/- offset 
+- __Local__ time in Jakarta with +/- offset
 
-    *20190209T1630-0700 == 09:30 UTC, -0700 == UTC offset for Jakarta*
+    *20190209T1630-0700 == 09:30 UTC, -0700== UTC offset for Jakarta*
 
-    http://api.endpoints.sundaya.cloud.goog/energy/hse/period/minute/YYYYMMDDTHHmmss.SSS±HHmm
+    http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/YYYYMMDDTHHmmss.SSS±HHmm
 
-    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/minute/20190209T1630-0700](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/minute/20190209T1630-0700 "-0700 is JKT offset from  UTC")
+    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630-0700](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630-0700 "-0700 is JKT offset from  UTC")
 
 ## Media types
 Request `Body` parameters and all response objects are sent and received in JSON. 
 
 Clients should specify and consume `Accept` and `Content-Type` request and response headers in their applications. This ensures that an expected response is received, even as new media types or hypermedia schemes are introduced and designated as default in future.
 
-These media types are currently supported in requests with an `Accept` header:
+These media types are currently supported and specified for each API path:
 
     application/vnd.collection+json
     application/json 
     text/html
     text/plain
+    text/csv
+
+A media type can be requested by sending an `Accept` header:
 
 - If an `Accept` header is *not* specified (or is wildcarded with '*/*') the default `application/vnd.collection+json` media type will be returned. 
 
 - If multiple `Accept` headers are sent the response will select the first matching media type in the list shown above, in the order shown.
 
-- If the request `Accept` headers do not contain a type from the list above a `415`response (*Unsupported Media Type*) will be returned.
+- If the request `Accept` headers do not contain a supported type a `415`response (*Unsupported Media Type*) will be returned.
 
 
 ## Headers
