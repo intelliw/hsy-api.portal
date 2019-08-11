@@ -20,23 +20,34 @@ e.g. [http:/api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20190210](ht
 The compressed version of ISO 8601 is required, without semi colons and with `T` as the time designator, as shown in examples below.
 
 ## Timezones
-Timezones are not assumed and must be explicitly specified where API parameters allow for a timestamp to be provided. 
+Timezones should be explicitly declared where API parameters require a timestamp to be provided. 
 
-The Timezone can be specified in UTC or local time as shown:
+The Timezone can be specified in UTC or as local time using one of the options shown below:
 
 - __UTC__, expressed with a trailing `Z` 
+
+    YYYYMMDDTHHmmss.SSS__Z__
 
     *20190209T0930Z==09:30 UTC*
     
     e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T0930Z](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T0930Z "Z signifies time zone as UTC") 
 
-- __Local__ time with +/- offset
+- __Local__ time with +/- offset 
+    
+    YYYYMMDDTHHmmss.SSS__±HHmm__
 
     *20190209T1630+0700==09:30 UTC, +0700==offset from UTC for Jakarta*
 
-    http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/YYYYMMDDTHHmmss.SSS±HHmm
-
     e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630+0700](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630+0700 "+0700 is JKT offset from  UTC")
+
+- __Indonesian Western Standard Time (WIB)__ as the default time format (no trailing `Z` and no +/- offset)
+
+    YYYYMMDDTHHmmss.SSS
+
+    *20190209T1630==09:30 UTC, 16:30 WIB (Jakarta)*
+
+    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630 "JKT is the default if no 'Z' and no UTC offset provided")
+ 
 
 ## Media types
 Request `Body` parameters and all response objects are sent and received in JSON. 
