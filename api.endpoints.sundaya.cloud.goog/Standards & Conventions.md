@@ -40,7 +40,7 @@ The Timezone can be specified in UTC or as local time using one of the options s
 
     e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630+0700](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630+0700 "+0700 is JKT offset from  UTC")
 
-- __Indonesian Western Standard Time (WIB)__ is the default format (UTC+07:00) if there is no trailing `Z` and no +/- offset
+- __Indonesian Western Standard Time (WIB)__ is the default format (UTC+07:00) when there is no trailing `Z` and no `+/-` offset
 
     YYYYMMDDTHHmmss.SSS
 
