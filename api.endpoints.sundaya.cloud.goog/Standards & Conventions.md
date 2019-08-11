@@ -26,27 +26,27 @@ The Timezone can be specified in UTC or as local time using one of the options s
 
 - __UTC__, expressed with a trailing `Z` 
 
-    YYYYMMDDTHHmmss.SSS__Z__
+    YYYYMMDDTHHmmss.SSSZ
 
     *20190209T0930Z==09:30 UTC*
     
     e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T0930Z](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T0930Z "Z signifies time zone as UTC") 
 
-- __Local__ time with +/- offset 
+- __Local__ time with `+/-` offset 
     
-    YYYYMMDDTHHmmss.SSS__±HHmm__
+    YYYYMMDDTHHmmss.SSS±HHmm
 
     *20190209T1630+0700==09:30 UTC, +0700==offset from UTC for Jakarta*
 
     e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630+0700](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630+0700 "+0700 is JKT offset from  UTC")
 
-- __Indonesian Western Standard Time (WIB)__ as the default time format (no trailing `Z` and no +/- offset)
+- __Indonesian Western Standard Time (WIB)__ is the default format (UTC+07:00) if there is no trailing `Z` and no +/- offset
 
     YYYYMMDDTHHmmss.SSS
 
     *20190209T1630==09:30 UTC, 16:30 WIB (Jakarta)*
 
-    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630 "JKT is the default if no 'Z' and no UTC offset provided")
+    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630 "WIB is the default when there is no 'Z' and no UTC offset provided")
  
 
 ## Media types
