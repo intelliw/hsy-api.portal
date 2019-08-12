@@ -211,7 +211,7 @@ The following time attributes are prepended to each data item. These attributes 
 
 Initially `time_local` is left empty if the request `time` contained a `UTC` value. (see *Timezones* in [Standards & Conventions](https://endpointsportal.sundaya.cloud.goog/docs/api.endpoints.sundaya.cloud.goog/0/c/Standards%20&%20Conventions)). 
 
-In this case `time_local` is populated later in the pipeline after looking up the device location from the `site` reference dataset.
+In this case `time_local` is populated later in the pipeline after looking up device location from the `site` reference dataset.
 
 If the request `time` contained a `Local` value, both `time_local` and `time_utc` will be populated in the initial data item. 
 
