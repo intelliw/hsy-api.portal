@@ -24,7 +24,7 @@ Timezones should be explicitly declared where API parameters require a timestamp
 
 The Timezone can be specified in UTC or as local time using one of the options shown below.
 
-*If there is no trailing `Z` and no `+/-` offset the default time format is assumed to be UTC*.
+*If there is no trailing `Z` and no `+/-` offset, the default time format is assumed to be `UTC`*.
 
 - __UTC__, expressed with a trailing `Z` 
 
