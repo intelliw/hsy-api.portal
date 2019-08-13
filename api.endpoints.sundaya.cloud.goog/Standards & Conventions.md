@@ -21,12 +21,13 @@ The compressed version of ISO 8601 is required, without semi colons and with `T`
 
 ## Timezones
 Timezones must be represented in API timestamp parameters as `UTC` time, or as `Local` time with UTC offset. 
+
 Local time on its own (with no offset and therefore location unspecified) is not accepted.
 
-*API timestamp parameters in `GET` requests may be provided in either format: `UTC` time, or `Local` time.*
-*API timestamp parameters in `POST` requests must be provided as `Local` time. `UTC` time is not accepted.*.
+- *API timestamp parameters in `GET` requests may be provided in either format: `UTC` time, or `Local` time.*
+- *API timestamp parameters in `POST` requests must be provided as `Local` time. `UTC` time is not accepted.*.
 
-The two formats are shown below with examples: 
+The two supported formats are described below with examples: 
 
 - __UTC__ time, represented with a trailing `Z` or trailing zero offset `+0000`
 
