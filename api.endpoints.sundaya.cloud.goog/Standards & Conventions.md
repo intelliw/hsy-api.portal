@@ -20,7 +20,7 @@ e.g. [http:/api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20190210](ht
 The compressed version of ISO 8601 is required, without semi colons and with `T` as the time designator, as shown in examples below.
 
 ## Timezones
-Timezones must be represented in API timestamp parameters as `UTC` time, or as `Local` time with UTC offset. 
+Timezones must be represented in API parameters as `UTC` time, or as `Local` time with UTC offset. 
 
 Local time on its own (with no offset and therefore location unspecified) is not accepted.
 
