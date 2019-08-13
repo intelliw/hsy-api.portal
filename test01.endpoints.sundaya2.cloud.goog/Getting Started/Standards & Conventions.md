@@ -33,7 +33,7 @@ The Timezone can be specified in UTC or local time as shown:
 
     http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/period/week/YYYYMMDDTHHmmss.SSS±HHmm
 
-    e.g. http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/period/minute/20190209T1630-0700 == 09:30 UTC
+    e.g. http://api.endpoints.sundaya.cloud.goog/energy/hse/periods/period/minute/20190209T1630+0700 == 09:30 UTC
 ## Media types
 Request `Body` parameters and all response objects are sent and received in JSON. 
 

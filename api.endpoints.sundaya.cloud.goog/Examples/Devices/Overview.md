@@ -27,7 +27,7 @@ The following snippet shows the structure of a `pms` dataset:
   "datasets": [
     { "pms": { "id": "PMS-01-001" }, 
       "data": [
-        { "time": "20190209T150006.032-0700",
+        { "time_local": "20190209T150006.032+0700",
           "pack": { "id": "0241", "dock": 1, "volts": "55.1", "amps": "-1.601", "temp": ["35.0", "33.0", "34.0"],
             "cell": { "open": [1, 6],
               "volts": ["3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.91"] },
@@ -40,7 +40,7 @@ The dataset attributes are specified below.
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | --- 
 `pms.id` | - | string | - | The `pms.id` is configured for each site during pre-shipment. It is stored on each Ehub (or BBC); upto 4 EHubs (i.e. Cabinets) can share the same `pms.id`. The id is the foreign key for relationally joining the pms dataset to reference data in the cloud. As packs self identify they cab be hot-swapped on site without any need for re-configuring pack metadata.
-`time` | - | datetime | RFC 3339 | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
+`time_local` | - | datetime | RFC 3339 | The local time of the event which produced this data sample, represented with a mandatory `+/-` offset from UTC for the device's location, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
 `pack.id` | - | string | - | The pack identifier. This is the Case id which is laser engraved in human-readable form on the outside of the case. Initially (temporarily) the `pack.id` will be populated with the pack’s acquisition board hardware id, and converted to the Case id through a lookup on the server. In future the Case id will be directly stored in the acquisition board during pre-shipment configuration and no further data transformation will be required for determining the Pack id during data collection.
 `pack.dock` | - | integer | 1-48 | The dock number (1 - 48) into which this pack is installed. The dock number covers 4 cabinets with 12 docks per cabinet in sequence. For example dock number 13 indicates that the pack is installed in dock 1 of cabinet B (the second cabinet).
 `pack.volts` | volts | float | - | The voltage of this pack.
@@ -62,7 +62,7 @@ The following snippet shows the structure of a `mppt` dataset:
   "datasets": [
     { "mppt": { "id": "IT6415AD-01-001" }, 
       "data": [
-        { "time": "20190209T150006.032-0700",
+        { "time_local": "20190209T150006.032+0700",
           "pv": { "volts": ["48.000", "48.000"], "amps": ["6.0", "6.0"] },
           "batt": { "volts" : "55.1", "amps": "-1.601" }, 
           "load": { "volts": ["48.000", "48.000"], "amps": ["1.2", "1.2"] }
@@ -74,7 +74,7 @@ The dataset attributes are specified below.
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | --- 
 `mppt.id` | - | string | - | Id of the MPPT charge controller. *(__Note__: a site can have any number of MPPT controllers, and each controller can have multiple PV strings and Loads)*.
-`time` | - | datetime | RFC 3339 | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
+`time_local` | - | datetime | RFC 3339 | The local time of the event which produced this data sample, represented with a mandatory `+/-` offset from UTC for the device's location, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
 `pv.volts` | volts | float *(array)* | *array size 1-4* | An ordered set of Voltage readings for PV strings connected to this MPPT. Each value in the data array applies to a numbered PV string based on its position in the array. For example the 2nd value in the data array is the data for the 2nd PV string. The array size depends on the number of PV strings. Presently upto 4 PV strings per controller are supported. In future each string will have its own dedicated controller.
 `pv.amps` | amps | float *(array)* | *array size 1-4* | An ordered set of Current readings for PV strings (corresponding to voltage readings in `pv.volts`).  
 `batt.volts` | volts | float | - | The voltage of the connected Battery.
@@ -91,7 +91,7 @@ The following snippet shows the structure of an `inverter` dataset:
   "datasets": [
     { "inverter": { "id": "SPI-B2-01-001" }, 
       "data": [
-        { "time": "20190209T150006.032-0700",
+        { "time_local": "20190209T150006.032+0700",
           "pv": { "volts": ["48.000", "48.000"], "amps": ["6.0", "6.0"] },
           "batt": { "volts" : "55.1", "amps": "-1.601" }, 
           "load": { "volts": ["48.000", "48.000"], "amps": ["1.2", "1.2"] }
@@ -103,7 +103,7 @@ The dataset attributes are specified below.
 Attribute | Metric | Data | Optionality | Description
 --- | --- | --- | --- | ---
 `inverter.id` | - | string | - | Id of the Inverter charge controller. *(__Note__: a site can have any number of Inverter controllers, and each controller can have multiple PV strings and Loads)*.
-`time` | - | datetime | RFC 3339 | The time of the event which produced this data sample, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
+`time_local` | - | datetime | RFC 3339 | The local time of the event which produced this data sample, represented with a mandatory `+/-` offset from UTC for the device's location, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
 `pv.volts` | volts | float *(array)* | *array size 1-4* | An ordered set of Voltage readings for PV strings connected to this Inverter. Each value in the data array applies to a numbered PV string based on its position in the array. For example the 2nd value in the data array is the data for the 2nd PV string. The array size depends on the number of PV strings. Presently upto 4 PV strings per controller are supported. In future each string will have its own dedicated controller.
 `pv.amps` | amps | float *(array)* | *array size 1-4* | An ordered set of Current readings for PV strings (corresponding to voltage readings in `pv.volts`).  
 `batt.volts` | volts | float | - | The voltage of the connected Battery.

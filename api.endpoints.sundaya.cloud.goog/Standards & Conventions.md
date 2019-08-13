@@ -20,27 +20,29 @@ e.g. [http:/api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20190210](ht
 The compressed version of ISO 8601 is required, without semi colons and with `T` as the time designator, as shown in examples below.
 
 ## Timezones
-Timezones should be explicitly declared where API parameters require a timestamp to be provided. 
+Timezones must be represented in API timestamp parameters as `UTC` time, or as `Local` time with UTC offset. 
+Local time on its own (with no offset and therefore location unspecified) is not accepted.
 
-The Timezone can be specified in UTC or as local time using one of the options shown below.
+*API timestamp parameters in `GET` requests may be provided in either format: `UTC` time, or `Local` time.*
+*API timestamp parameters in `POST` requests must be provided as `Local` time. `UTC` time is not accepted.*.
 
-*If there is no trailing `Z` and no `+/-` offset, the default time format is assumed to be `UTC`*.
+The two formats are shown below with examples: 
 
-- __UTC__, expressed with a trailing `Z` 
+- __UTC__ time, represented with a trailing `Z` or trailing zero offset `+0000`
 
-    YYYYMMDDTHHmmss.SSSSZ
+    format: `YYYYMMDDTHHmmss.SSSSZ` or `YYYYMMDDTHHmmss.SSSS+0000`
 
-    *20190209T0930Z==09:30 UTC*
+    example: *0930 UTC == 1630 WIB (Indonesian Western Standard Time)*
     
-    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T0930Z](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T0930Z "Z signifies time zone as UTC") 
+    [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T0930Z](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T0930Z "Z signifies time zone as UTC") 
 
-- __Local__ time with `+/-` offset from UTC
+- __Local__ time with UTC offset, represented with a trailing `+/-` offset from UTC (e.g. `+0700`) 
     
-    YYYYMMDDTHHmmss.SSS±HHmm
+    format: `YYYYMMDDTHHmmss.SSS±HHmm`
 
-    *20190209T1630+0700==09:30 UTC, +0700==offset for Indonesian Western Standard Time (WIB)*
+    example: *1630 WIB == 0930 UTC*
 
-    e.g. [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630+0700](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630+0700 "+0700 is JKT offset from  UTC")
+    [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630+0700](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630+0700 "+0700 is JKT offset from  UTC")
 
 
 ## Media types
