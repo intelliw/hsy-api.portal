@@ -1,8 +1,8 @@
 # Data Model
 ---
 
-# Metamodel
+### Metamodel
 ---
 
-![Devices metamodel.png](../../images/DevicesMetamodel.png)
+![Devices metamodel.png](../images/DevicesMetamodel.png)
 
