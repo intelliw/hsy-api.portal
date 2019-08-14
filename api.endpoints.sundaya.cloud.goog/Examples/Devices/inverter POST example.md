@@ -111,7 +111,7 @@ Content-Length: 1171
             "target": "device:SPI-B2-01-001 | dataset:inverter | events:2"
         },
         {
-            "message": "New data logs created",
+            "message": "New data logs created.",
             "target": "device:SPI-B2-01-002 | dataset:inverter | events:2"
         }
     ]

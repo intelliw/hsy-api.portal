@@ -29,6 +29,7 @@ ordering:
 - Roadmap & Changelog
 - API Reference
 - Examples
+- Implementation
 - Resources
 
 folders:
@@ -59,6 +60,11 @@ folders:
         - pms POST example
         - mppt POST example
         - inverter POST example
+  
+  Implementation:
+    ordering:
+    - Data Model
+  
 
 
       

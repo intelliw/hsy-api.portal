@@ -192,11 +192,11 @@ Content-Length: 8063
   "message": "Created",
   "details": [
     {
-      "message": "New data events created",
+      "message": "New data events created.",
       "target": "device:PMS-01-001 | dataset:pms | events:8"
     },
     {
-      "message": "New data events created",
+      "message": "New data events created.",
       "target": "device:PMS-01-002 | dataset:pms | events:8"
     }
   ]

@@ -107,11 +107,11 @@ Content-Length: 1171
     "message": "Created",
     "details": [
         {
-            "message": "New data logs created",
+            "message": "New data logs created.",
             "target": "device:IT6415AD-01-001 | dataset:mppt | events:2"
         },
         {
-            "message": "New data logs created",
+            "message": "New data logs created.",
             "target": "device:IT6415AD-01-002 | dataset:mppt | events:2"
         }
     ]
