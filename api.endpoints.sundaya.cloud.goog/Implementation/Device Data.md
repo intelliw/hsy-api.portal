@@ -1,4 +1,4 @@
-# Device Data Metamodel
+# Metamodel
 ---
 
 Device data consists of three dataset types for trackable items, shown in the model below. 
@@ -72,27 +72,10 @@ A Case links to Pack data through a shared ID. The human readable ID is stored o
 
 A PMS can have 1-4 Cabinets. If there are multiple Cabinets the same **PMS id** will be shared and stored on each Cabinet's **EHub**.
 
-### 'pms' dataset sample 
-
-The following snippet shows the structure of a `pms` dataset:
-
-```json
-{
-  "datasets": [
-    { "pms": { "id": "PMS-01-001" }, 
-      "data": [
-        { "time_local": "20190209T150006.032+0700",
-          "pack": { "id": "0241", "dock": 1, "volts": "55.1", "amps": "-1.601", "temp": ["35.0", "33.0", "34.0"],
-            "cell": { "open": [1, 6],
-              "volts": ["3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.91"] },
-            "fet": { "open": [1, 2], "temp": ["34.1", "33.5"] } }
-        },
-```
 
 ### Identifiers
 
 The PMS dataset depends on two identifiers, the rest of the dataset consists entirely of data needed for monitoring and analytics.
-![PMS Composite](../images/PMSComposite.png)
 
 **Pack id**
 
@@ -110,17 +93,60 @@ The PMS dataset depends on two identifiers, the rest of the dataset consists ent
 
 - It allows Packs to be hot-swapped on site without any re-configuration needed.
 
+### 'pms' dataset sample 
 
+The following snippet shows the structure of a `pms` dataset:
 
+```json
+{
+  "datasets": [
+    { "pms": { "id": "PMS-01-001" }, 
+      "data": [
+        { "time_local": "20190209T150006.032+0700",
+          "pack": { "id": "0241", "dock": 1, "volts": "55.1", "amps": "-1.601", "temp": ["35.0", "33.0", "34.0"],
+            "cell": { "open": [1, 6],
+              "volts": ["3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.91"] },
+            "fet": { "open": [1, 2], "temp": ["34.1", "33.5"] } }
+        },
+```
 
-
-
-
-
-
-
+# MPPT Data
+---
 
 ![MPPT Data](../images/MPPTData.png)
-![Inverter Data](../images/InverterData.png)
+### 'mppt' dataset sample 
 
+The following snippet shows the structure of a `mppt` dataset:
+
+```json
+{
+  "datasets": [
+    { "mppt": { "id": "IT6415AD-01-001" }, 
+      "data": [
+        { "time_local": "20190209T150006.032+0700",
+          "pv": { "volts": ["48.000", "48.000"], "amps": ["6.0", "6.0"] },
+          "batt": { "volts" : "55.1", "amps": "-1.601" }, 
+          "load": { "volts": ["48.000", "48.000"], "amps": ["1.2", "1.2"] }
+        },
+```
+
+# Inverter Data
+---
+
+![Inverter Data](../images/InverterData.png)
+### 'inverter' Body parameter
+
+The following snippet shows the structure of an `inverter` dataset:
+
+```json
+{
+  "datasets": [
+    { "inverter": { "id": "SPI-B2-01-001" }, 
+      "data": [
+        { "time_local": "20190209T150006.032+0700",
+          "pv": { "volts": ["48.000", "48.000"], "amps": ["6.0", "6.0"] },
+          "batt": { "volts" : "55.1", "amps": "-1.601" }, 
+          "load": { "volts": ["48.000", "48.000"], "amps": ["1.2", "1.2"] }
+        },
+```
 
