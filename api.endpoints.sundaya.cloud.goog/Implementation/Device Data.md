@@ -22,6 +22,8 @@ Trackable items are composites made of the following types:
 
 - **device** - a device is an item which provides core functionality in the energy management domain. These include inverters, batteries and appliances. 
 
+- **assembly** - an assembly can contain devices, components, and sub-assemblies. These items are typically assembled or logically configured before shipment. They include battery cases and cabinets. 
+
 
 # PMS Data
 ---
