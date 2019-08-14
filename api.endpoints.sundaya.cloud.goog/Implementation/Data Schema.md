@@ -59,22 +59,22 @@ Entities in the Monitoring Dataset are linked to Master data through a shared **
 
 Unlike PMS monitoring data, master data is event-driven, has inserts and updates, and is infrequently changed.
 
-The PMS master and transaction data includes Cases and Cabinets (Ehub or BBC) assemblies, including a record of changes when components are procured, or swapped.
+The PMS master and transaction data includes Cases and Cabinets (Ehub or BBC) assemblies, including a record of changes when components are procured, installed, or swapped.
 
 A **Case** contains:
-14 **Cell Blocks**
-1 **Acqu. Board**
-1 **Fet Board** containing 2 **Fets**
+- 14 **Cell Blocks**
+- 1 **Acqu. Board**
+- 1 **Fet Board** containing 2 **Fets**
 
 A **Cabinet** contains:
-1 **EHub**
-1 **Busbar** with 4-12 **Cases**
+- 1 **EHub**
+- 1 **Busbar** with 4-12 **Cases**
 
-A Case links to Pack data through a shared ID. The human readable ID is stored on each Case's Acqu. Board.
+A Case links to Pack data through a shared ID. The human readable ID is stored on each Case's **Acqu. Board**.
 
-A PMS can have 1-4 Cabinets. If there are multiple Cabinets the same PMS id will be shared and stored on each Cabinet's EHub.
+A PMS can have 1-4 Cabinets. If there are multiple Cabinets the same **PMS id** will be shared and stored on each Cabinet's **EHub**.
 
-### Key Identifiers
+### Identifiers
 
 The PMS dataset depends on two identifiers, the rest of the dataset consists entirely of data needed for monitoring and analytics.
 
