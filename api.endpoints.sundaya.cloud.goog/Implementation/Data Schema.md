@@ -1,9 +1,13 @@
 # Device Data Metamodel
 ---
 
-### Dataset Types
+Device data consists of three dataset types for trackable items, shown in the model below. 
 
-Device data consists of three dataset types for trackable items:
+A _trackable_ item provides datasets which allow the item to be tracked in real-time or through retrospective reports. The data is used to trace problems and trends in the item's supply chain, operational performance, maintenance, e.t.c.
+ 
+  ![Devices metamodel](../images/DevicesMetamodel.png)
+
+### Dataset Types
 
 - **monitoring data** - time-series datasets collected through a recurring schedule. Typically the data consists of device metrics streamed from a device controller (BBC) or device gateway (EHub) in near-real-time. The data is appended to a persistent log and is never modified. 
 
@@ -13,16 +17,14 @@ Device data consists of three dataset types for trackable items:
 
 ### Trackable Items (devices, components, assemblies)
 
-A _trackable_ item provides datasets which allow the item to be tracked in real-time or through retrospective reports. The data is used to trace problems and trends in the item's supply chain, operational performance, maintenance, e.t.c.
-
-Trackable items are composite objects made up of the following types:
+Trackable items are composites made of the following types:
 
 - **component** - a device component which needs to identified and tracked is considered to be a trackable item. This includes device controllers and MOSFET boards. 
 
 - **device** - a device is an item which provides core functionality in the energy management domain. These include inverters, batteries and appliances. 
 
-- ![Devices metamodel](../images/DevicesMetamodel.png)
 
+# PMS Data Model
 
 
 ![PMS Data](../images/PMSData.png)
