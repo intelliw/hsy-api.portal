@@ -6,7 +6,6 @@ Device data consists of three dataset types for trackable items, shown in the mo
 A _trackable_ item provides datasets which allow the item to be tracked in real-time or through retrospective reports. The data is used to trace problems and trends in the item's supply chain, operational performance, maintenance, e.t.c.
  
   ![Devices metamodel](../images/DevicesMetamodel.png)
-
 ### Dataset Types
 
 - **monitoring data** - time-series datasets collected through a recurring schedule. Typically the data consists of device metrics streamed from a device controller (BBC) or device gateway (EHub) in near-real-time. The data is appended to a persistent log and is never modified. 
@@ -39,7 +38,6 @@ A Case contains 14 **Cell Blocks**, 1 **Fet Board**, and 1 **Acqu. Board**.
 PMS data consists of two distinct datasets, _Monitoring_ data and _Transaction/Master_ data, which are joined through a relationship as shown in the model below:
 
   ![PMS Data](../images/PMSData.png)
-
 ### Monitoring Data
 
 PMS monitoring data is schedule-driven (e.g. every 5 seconds), is append-only, and is time-series data.
@@ -74,9 +72,27 @@ A Case links to Pack data through a shared ID. The human readable ID is stored o
 
 A PMS can have 1-4 Cabinets. If there are multiple Cabinets the same **PMS id** will be shared and stored on each Cabinet's **EHub**.
 
+### 'pms' dataset sample 
+
+The following snippet shows the structure of a `pms` dataset:
+
+```json
+{
+  "datasets": [
+    { "pms": { "id": "PMS-01-001" }, 
+      "data": [
+        { "time_local": "20190209T150006.032+0700",
+          "pack": { "id": "0241", "dock": 1, "volts": "55.1", "amps": "-1.601", "temp": ["35.0", "33.0", "34.0"],
+            "cell": { "open": [1, 6],
+              "volts": ["3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.91"] },
+            "fet": { "open": [1, 2], "temp": ["34.1", "33.5"] } }
+        },
+```
+
 ### Identifiers
 
 The PMS dataset depends on two identifiers, the rest of the dataset consists entirely of data needed for monitoring and analytics.
+![PMS Composite](../images/PMSComposite.png)
 
 **Pack id**
 
@@ -103,7 +119,7 @@ The PMS dataset depends on two identifiers, the rest of the dataset consists ent
 
 
 
-![PMS Composite](../images/PMSComposite.png)
+
 ![MPPT Data](../images/MPPTData.png)
 ![Inverter Data](../images/InverterData.png)
 
