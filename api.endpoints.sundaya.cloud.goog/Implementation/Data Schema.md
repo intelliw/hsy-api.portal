@@ -24,10 +24,85 @@ Trackable items are composites made of the following types:
 - **device** - a device is an item which provides core functionality in the energy management domain. These include inverters, batteries and appliances. 
 
 
-# PMS Data Model
+# PMS Data
+---
+
+A PMS system consists of 1-4 Cabinets with 1 Busbar in each Cabinet.
+
+Each Busbar docks 4-12 **Cases**.
+
+- Case and Pack data are related through a shared **id**.
+- Pack data includes the Busbar **dock** number.
+
+A Case contains 14 **Cell Blocks**, 1 **Fet Board**, and 1 **Acqu. Board**. 
+
+PMS data consists of two distinct datasets, _Monitoring_ data and _Transaction/Master_ data, which are joined through a relationship as shown in the model below:
+
+  ![PMS Data](../images/PMSData.png)
+
+### Monitoring Data
+
+PMS monitoring data is schedule-driven (e.g. every 5 seconds), is append-only, and is time-series data.
+
+The PMS recurring dataset consists of data from:
+- 4-48 **Packs**
+
+- 14 **Cells** per Pack
+
+- 2 **Fets** per Pack
+
+The dataset is collected through a recurring schedule and appended to a time-series log. 
+
+Entities in the Monitoring Dataset are linked to Master data through a shared **Pack id** and **Case Id** respectively. 
+
+### Master/Transaction Data 
+
+Unlike PMS monitoring data, master data is event-driven, has inserts and updates, and is infrequently changed.
+
+The PMS master and transaction data includes Cases and Cabinets (Ehub or BBC) assemblies, including a record of changes when components are procured, or swapped.
+
+A **Case** contains:
+14 **Cell Blocks**
+1 **Acqu. Board**
+1 **Fet Board** containing 2 **Fets**
+
+A **Cabinet** contains:
+1 **EHub**
+1 **Busbar** with 4-12 **Cases**
+
+A Case links to Pack data through a shared ID. The human readable ID is stored on each Case's Acqu. Board.
+
+A PMS can have 1-4 Cabinets. If there are multiple Cabinets the same PMS id will be shared and stored on each Cabinet's EHub.
+
+### Key Identifiers
+
+The PMS dataset depends on two identifiers, the rest of the dataset consists entirely of data needed for monitoring and analytics.
+
+**Pack id**
+
+- The **Pack id** _is_ the **Case id** (laser engraved in human-readable form on outside of case).
+
+- Initially (temporarily) the **Pack id** will be populated with the **Acqu Board id** and converted through a lookup to the **Case id** on the server.
+
+- In future the **Case Id** will be directly stored on the **Acqu Board** during pre-shipment configuration. No further data transformation will be required for determining the Pack id during data collection.
+
+**PMS id**
+
+- The **PMS id** is configured for each site during pre-shipment configuration.
+
+- It is stored on each **Ehub** (or BBC); upto 4 EHubs (i.e. Cabinets) can have the same PMS id.
+
+- It allows Packs to be hot-swapped on site without any re-configuration needed.
 
 
-![PMS Data](../images/PMSData.png)
+
+
+
+
+
+
+
+
 ![PMS Composite](../images/PMSComposite.png)
 ![MPPT Data](../images/MPPTData.png)
 ![Inverter Data](../images/InverterData.png)
