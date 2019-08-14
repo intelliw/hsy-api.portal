@@ -3,7 +3,7 @@
 
 Device data consists of three dataset types for trackable items, shown in the model below. 
 
-A _trackable_ item provides datasets which allow the item to be tracked in real-time or through retrospective reports. The data is used to trace problems and trends in the item's supply chain, operational performance, maintenance, e.t.c.
+A _trackable_ item provides datasets which allow the item to be tracked in real-time or through retrospective reports. The data is used to trace problems and trends in the item's supply chain, operational performance, maintenance, etc.
  
   ![Devices metamodel](../images/DevicesMetamodel.png)
 ### Dataset Types
