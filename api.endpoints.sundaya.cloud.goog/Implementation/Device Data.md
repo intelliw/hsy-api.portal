@@ -44,9 +44,7 @@ PMS monitoring data is schedule-driven (e.g. every 5 seconds), is append-only, a
 
 The PMS recurring dataset consists of data from:
 - 4-48 **Packs**
-
 - 14 **Cells** per Pack
-
 - 2 **Fets** per Pack
 
 The dataset is collected through a recurring schedule and appended to a time-series log. 
@@ -134,7 +132,7 @@ The following snippet shows the structure of a `mppt` dataset:
 ---
 
 ![Inverter Data](../images/InverterData.png)
-### 'inverter' Body parameter
+### 'inverter' dataset sample
 
 The following snippet shows the structure of an `inverter` dataset:
 
