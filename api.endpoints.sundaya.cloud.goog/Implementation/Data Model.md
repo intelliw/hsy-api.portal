@@ -4,5 +4,5 @@
 # Metamodel
 ---
 
-![Devices metamodel.png](../../images/Devices metamodel.png)
+![Devices metamodel.png](../../images/DevicesMetamodel.png)
 
