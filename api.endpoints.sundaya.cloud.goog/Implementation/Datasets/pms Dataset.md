@@ -17,7 +17,7 @@ PMS data consists of two distinct datasets, _Monitoring_ data and _Transaction/M
 
 PMS monitoring data is schedule-driven (e.g. every 5 seconds), is append-only, and is time-series data.
 
-The PMS recurring dataset consists of data from:
+The recurring dataset consists of data from:
 - 4-48 **Packs**
 - 14 **Cells** per Pack
 - 2 **Fets** per Pack
