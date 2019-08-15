@@ -1,6 +1,7 @@
 # Platform Overview
 
 ---
+
 # Device Data Metamodel
 ---
 
