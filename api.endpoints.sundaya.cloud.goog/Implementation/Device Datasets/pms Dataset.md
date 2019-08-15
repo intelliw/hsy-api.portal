@@ -12,7 +12,7 @@ A Case contains 14 **Cell Blocks**, 1 **Fet Board**, and 1 **Acqu. Board**.
 
 PMS data consists of two distinct datasets, _Monitoring_ data and _Transaction/Master_ data, which are joined through a relationship as shown in the model below:
 
-![PMS Data](../images/PMSData.png)
+![PMS Data](../../images/PMSData.png)
 ### Monitoring Data
 
 PMS monitoring data is schedule-driven (e.g. every 5 seconds), is append-only, and is time-series data.
@@ -80,46 +80,6 @@ The following snippet shows the structure of a `pms` dataset:
             "cell": { "open": [1, 6],
               "volts": ["3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.92", "3.91"] },
             "fet": { "open": [1, 2], "temp": ["34.1", "33.5"] } }
-        },
-```
-
-# MPPT Data
----
-
-![MPPT Data](../images/MPPTData.png)
-### 'mppt' dataset sample 
-
-The following snippet shows the structure of a `mppt` dataset:
-
-```json
-{
-  "datasets": [
-    { "mppt": { "id": "IT6415AD-01-001" }, 
-      "data": [
-        { "time_local": "20190209T150006.032+0700",
-          "pv": { "volts": ["48.000", "48.000"], "amps": ["6.0", "6.0"] },
-          "batt": { "volts" : "55.1", "amps": "-1.601" }, 
-          "load": { "volts": ["48.000", "48.000"], "amps": ["1.2", "1.2"] }
-        },
-```
-
-# Inverter Data
----
-
-![Inverter Data](../images/InverterData.png)
-### 'inverter' dataset sample
-
-The following snippet shows the structure of an `inverter` dataset:
-
-```json
-{
-  "datasets": [
-    { "inverter": { "id": "SPI-B2-01-001" }, 
-      "data": [
-        { "time_local": "20190209T150006.032+0700",
-          "pv": { "volts": ["48.000", "48.000"], "amps": ["6.0", "6.0"] },
-          "batt": { "volts" : "55.1", "amps": "-1.601" }, 
-          "load": { "volts": ["48.000", "48.000"], "amps": ["1.2", "1.2"] }
         },
 ```
 

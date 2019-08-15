@@ -2,7 +2,7 @@
 
 ---
 
-# Device Data Metamodel
+# Dataset Metamodel
 ---
 
 Device data consists of three dataset types for trackable devices, shown in the model below. 

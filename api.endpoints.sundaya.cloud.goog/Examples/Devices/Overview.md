@@ -13,9 +13,10 @@ The following types may be specified as the `{dataset}` parameter in a `/device`
 
 dataset | Description
 --- | --- | --- 
-`pms` | Data from pack management systems (PMS) for cabinets, including monitored epacks, cells, and mosfets.
+`pms` | Data from pack management systems (PMS) for cabinets, including monitored epacks, cells, and mosfets (see [pms Data](https://endpointsportal.sundaya.cloud.goog/docs/api.endpoints.sundaya.cloud.goog/0/c/Implementation/Device%20Datasets/pms%20Dataset)).
 `mppt` | Data from Maximum Power Point Tracking (MPPTcontrollers, including connected PV strings, batteries, and DC loads.
 `inverter` | Data from Inverter charge controllers, including connected pv strings, batteries, and AC loads.
+
 
 
 ### 'pms' Body parameter
