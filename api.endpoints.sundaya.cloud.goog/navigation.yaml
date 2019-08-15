@@ -70,9 +70,9 @@ folders:
     folders:
       Device Data:
         ordering:
-        - PMS Data
-        - MPPT Data
-        - Inverter Data
+        - pms Data
+        - mppt Data
+        - inverter Data
 
 
 

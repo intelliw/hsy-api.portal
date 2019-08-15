@@ -35,7 +35,7 @@ The following snippet shows the structure of a `pms` dataset:
         },
 ```
 
-The dataset attributes are specified below. 
+The dataset attributes are specified in [pms Data](https://endpointsportal.sundaya.cloud.goog/docs/api.endpoints.sundaya.cloud.goog/0/c/Implementation/Device%20Data/PMS%20Data). 
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | --- 
