@@ -62,10 +62,18 @@ folders:
   
   Implementation:
     ordering:
+    - Overview
     - Device Data
     - Changelog
     - Roadmap
-  
+    
+    folders:
+      Device Data:
+        ordering:
+        - PMS Data
+        - MPPT Data
+        - Inverter Data
+
 
 
       
