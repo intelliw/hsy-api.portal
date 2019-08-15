@@ -63,12 +63,12 @@ folders:
   Implementation:
     ordering:
     - Overview
-    - Device Datasets
+    - Datasets
     - Changelog
     - Roadmap
     
     folders:
-      Device Datasets:
+      Datasets:
         ordering:
         - pms Dataset
         - mppt Dataset
