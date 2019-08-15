@@ -42,7 +42,7 @@ The following table describes each `period` and formats used for `epoch` in the 
 
 Period | Child Period | Duration | Grandchild Period | Duration | Format (*compressed*) | (*uncompressed*)
 --- | --- |--- | --- | --- | --- | --- 
-`instant` | - | - | - | - | YYYYMMDDTHHmmss.SSS | DD/MM/YY HHmmss.SSS
+`instant` | - | - | - | - | YYYYMMDDTHHmmss.SSS | DD/MM/YY HHmmss.SSSS
 `second` | `instant` | *varies* | - | - | YYYYMMDDTHHmmss | DD/MM/YY HHmm:ss
 `minute` | `second` | 60 | `instant` | *varies* | YYYYMMDDTHHmm | DD/MM/YY HH:mm
 `hour` | `minute` | 60 | `second` | 60 (360) | YYYYMMDDTHHmm | DD/MM/YY HH:mm
