@@ -51,7 +51,8 @@ Attribute | Metric | Data | Constraint | Description
 `fet.temp` | degC | float | *array size == 2* | An ordered set of temperature readings for the two MOSFETS in this pack. The first is the input (CMOS) and the 2nd is the output (DMOS) MOSFET.
 `fet.open` | *open/closed* | integer *(array)* | 1-2, *uniqueitems, array size == 2* | An unordered set of unique ordinal numbers for FETs which are ‘open’ due to pack balancing. The data values must be a number from 1-2 as there are only 2 FETS in each pack. For example a data value of [1,2] signifies that FETS 1 and 2 are both open.
  
-- Attributes marked as '*required on change*' may be ommitted if the value has not changed since the last successful post (a POST is successful if acknowledged by the server with a 200 level response). All other attributes are mandatory and must be present. 
+- Attributes marked as '*required on change*' may be omitted if the value has not changed since the last successful post (a POST is successful if the API server responds with a 200 level reply).
+All other attributes are mandatory and must be present.
 
 ### 'mppt' Body parameter
 

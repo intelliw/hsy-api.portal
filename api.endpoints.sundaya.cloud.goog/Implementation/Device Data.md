@@ -1,11 +1,11 @@
 # Metamodel
 ---
 
-Device data consists of three dataset types for trackable items, shown in the model below. 
+Device data consists of three dataset types for trackable devices, shown in the model below. 
 
 A _trackable_ item provides datasets which allow the item to be tracked in real-time or through retrospective reports. The data is used to trace problems and trends in the item's supply chain, operational performance, maintenance, etc.
  
-  ![Devices metamodel](../images/DevicesMetamodel.png)
+![Devices metamodel](../images/DevicesMetamodel.png)
 ### Dataset Types
 
 - **monitoring data** - time-series datasets collected through a recurring schedule. Typically the data consists of device metrics streamed from a device controller (BBC) or device gateway (EHub) in near-real-time. The data is appended to a persistent log and is never modified. 
@@ -14,9 +14,9 @@ A _trackable_ item provides datasets which allow the item to be tracked in real-
 
 - **master data** - the core data needed to uniquely define the other datasets, includign data and metadata for customers, sites, partners, suppliers, personnel, products and services. This includes product metadata from vendors. Data in this dataset is changed very infrequently.
 
-### Trackable Items (devices, components, assemblies)
+### Trackable Devices (devices, components, assemblies)
 
-Trackable items are composites made of the following types:
+Trackable devices are composites made of the following types:
 
 - **component** - a device component which needs to identified and tracked is considered to be a trackable item. This includes device controllers and MOSFET boards. 
 
@@ -39,7 +39,7 @@ A Case contains 14 **Cell Blocks**, 1 **Fet Board**, and 1 **Acqu. Board**.
 
 PMS data consists of two distinct datasets, _Monitoring_ data and _Transaction/Master_ data, which are joined through a relationship as shown in the model below:
 
-  ![PMS Data](../images/PMSData.png)
+![PMS Data](../images/PMSData.png)
 ### Monitoring Data
 
 PMS monitoring data is schedule-driven (e.g. every 5 seconds), is append-only, and is time-series data.
@@ -53,7 +53,7 @@ The dataset is collected through a recurring schedule and appended to a time-ser
 
 Entities in the Monitoring Dataset are linked to Master data through a shared **Pack id** and **Case Id** respectively. 
 
-### Master/Transaction Data 
+### Transaction/Master Data 
 
 Unlike PMS monitoring data, master data is event-driven, has inserts and updates, and is infrequently changed.
 
