@@ -21,7 +21,7 @@ The following snippet shows the structure of a `mppt` dataset:
 
 ### Attributes 
 
-The dataset attributes are specified below. 
+The mppt dataset attributes are specified below. 
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | --- 

@@ -85,7 +85,7 @@ The following snippet shows the structure of a `pms` dataset:
 
 ### Attributes 
 
-The dataset attributes are specified below. 
+The pms dataset attributes are specified below. 
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | --- 

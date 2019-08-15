@@ -21,21 +21,7 @@ The following snippet shows the structure of an `inverter` dataset:
 
 ### Attributes 
 
-The following snippet shows the structure of an `inverter` dataset:
-
-```json
-{
-  "datasets": [
-    { "inverter": { "id": "SPI-B2-01-001" }, 
-      "data": [
-        { "time_local": "20190209T150006.032+0700",
-          "pv": { "volts": ["48.000", "48.000"], "amps": ["6.0", "6.0"] },
-          "batt": { "volts" : "55.1", "amps": "-1.601" }, 
-          "load": { "volts": ["48.000", "48.000"], "amps": ["1.2", "1.2"] }
-        },
-```
-
-The dataset attributes are specified below. 
+The inverter dataset attributes are specified below. 
 
 Attribute | Metric | Data | Optionality | Description
 --- | --- | --- | --- | ---
