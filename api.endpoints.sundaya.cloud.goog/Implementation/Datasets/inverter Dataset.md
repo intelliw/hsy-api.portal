@@ -3,7 +3,7 @@
 
 ![Inverter Data](../../images/InverterData.png)
 
-# inverter Dataset Structure 
+# Dataset Structure 
 
 The following snippet shows the structure of an `inverter` dataset:
 

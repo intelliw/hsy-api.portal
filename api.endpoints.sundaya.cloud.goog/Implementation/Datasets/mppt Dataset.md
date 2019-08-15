@@ -3,7 +3,7 @@
 
 ![MPPT Data](../../images/MPPTData.png)
 
-# mppt Dataset Structure 
+# Dataset Structure 
 
 The following snippet shows the structure of a `mppt` dataset:
 

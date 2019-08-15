@@ -66,7 +66,7 @@ The PMS dataset depends on two identifiers, the rest of the dataset consists ent
 
 - It allows Packs to be hot-swapped on site without any re-configuration needed.
 
-# pms Dataset Structure 
+# Dataset Structure 
 
 The following snippet shows the structure of a `pms` dataset:
 
