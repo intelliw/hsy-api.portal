@@ -63,7 +63,7 @@ folders:
   Implementation:
     ordering:
     - Overview
-    - Device Data
+    - Device Datasets
     - Changelog
     - Roadmap
     
