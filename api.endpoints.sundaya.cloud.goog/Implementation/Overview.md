@@ -1,6 +1,6 @@
 # Platform Overview
 
-![Daat Management Architecture](../images/data-management-architecture-overview.png)
+![Data Management Architecture](../images/data-management-architecture-overview.png)
 ---
 
 # Dataset Metamodel
