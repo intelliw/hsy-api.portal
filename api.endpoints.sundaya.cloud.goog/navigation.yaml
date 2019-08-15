@@ -68,11 +68,11 @@ folders:
     - Roadmap
     
     folders:
-      Device Data:
+      Device Datasets:
         ordering:
-        - pms Data
-        - mppt Data
-        - inverter Data
+        - pms Dataset
+        - mppt Dataset
+        - inverter Dataset
 
 
 
