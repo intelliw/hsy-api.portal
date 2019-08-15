@@ -1,4 +1,4 @@
-# PMS Data
+# pms Dataset
 ---
 
 A PMS system consists of 1-4 Cabinets with 1 Busbar in each Cabinet.
@@ -66,7 +66,7 @@ The PMS dataset depends on two identifiers, the rest of the dataset consists ent
 
 - It allows Packs to be hot-swapped on site without any re-configuration needed.
 
-### pms Dataset Structure 
+# pms Dataset Structure 
 
 The following snippet shows the structure of a `pms` dataset:
 
@@ -83,7 +83,7 @@ The following snippet shows the structure of a `pms` dataset:
         },
 ```
 
-### pms Dataset Attributes 
+### Attributes 
 
 The dataset attributes are specified below. 
 

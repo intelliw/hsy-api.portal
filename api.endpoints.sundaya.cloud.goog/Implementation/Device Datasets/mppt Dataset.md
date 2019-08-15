@@ -1,9 +1,9 @@
-# MPPT Data
+# mppt Dataset
 ---
 
 ![MPPT Data](../../images/MPPTData.png)
 
-### mppt Dataset Structure 
+# mppt Dataset Structure 
 
 The following snippet shows the structure of a `mppt` dataset:
 
@@ -19,7 +19,7 @@ The following snippet shows the structure of a `mppt` dataset:
         },
 ```
 
-### mppt Dataset Attributes 
+### Attributes 
 
 The dataset attributes are specified below. 
 

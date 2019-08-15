@@ -1,9 +1,9 @@
-# Inverter Data
+# inverter Dataset
 ---
 
 ![Inverter Data](../../images/InverterData.png)
 
-### inverter Dataset Structure 
+# inverter Dataset Structure 
 
 The following snippet shows the structure of an `inverter` dataset:
 
@@ -19,7 +19,7 @@ The following snippet shows the structure of an `inverter` dataset:
         },
 ```
 
-### inverter Dataset Attributes 
+### Attributes 
 
 The following snippet shows the structure of an `inverter` dataset:
 

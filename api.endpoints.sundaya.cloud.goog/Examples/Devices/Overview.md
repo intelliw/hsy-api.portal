@@ -18,6 +18,7 @@ dataset | Description
 [inverter](https://endpointsportal.sundaya.cloud.goog/docs/api.endpoints.sundaya.cloud.goog/0/c/Implementation/Device%20Datasets/inverter%20Dataset) | Data from Inverter charge controllers, including connected pv strings, batteries, and AC loads.
 
 
+
 # /device/dataset GET
 ---
 
