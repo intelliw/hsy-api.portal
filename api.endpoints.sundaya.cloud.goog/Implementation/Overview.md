@@ -1,4 +1,4 @@
-# Platform Overview
+# Data Management Platform
 ---
 
 The Sundaya Data Management platform consist of the follwoing core components:
@@ -13,7 +13,7 @@ The Sundaya Data Management platform consist of the follwoing core components:
 
 - **Data Storage** - 
 
-- **Visualisation** - 
+- **Data Visualisation** - 
 
 
 # Dataset Metamodel
