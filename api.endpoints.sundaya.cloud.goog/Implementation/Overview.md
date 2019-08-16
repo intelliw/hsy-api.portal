@@ -5,21 +5,21 @@ The Sundaya Data Management platform consist of the following core components:
 
 ### Trackable Devices (devices, components, assemblies)
 
-1. **Energy Management Devices** - such as PMS, MPPT, and Invertersm which produce monitoring data.  
+1. **Energy Management Devices** - such as _PMS_, _MPPT_, and _Inverters_ which produce continuous monitoring data.
 
-2. **Device Controllers** - such as BBC or EHub Gateways, which collect and upload the monitoring data.
+2. **Device Controllers** - such as _BBC_ or _EHub Gateways_, which collect and upload monitoring data.
 
 ![Platform Devices](../images/platform-devices.jpg)
 
 ### Data Management Platform 
 
-3. **Trilateral API** - asynchronous Publish, and synchronous Command/Query, Subscribe APIs.
+3. **Trilateral API** - asynchronous _Publish_, and synchronous _Command/Query_, and _Subscribe_ APIs.
 
-4. **Data Pipeline** - Message Broker cluster, and real-time ingest and query Analytics Engine.
+4. **Data Pipeline** - _Message Broker_ cluster, and real-time ingest and query _Analytics Engine_.
 
-5. **Data Storage** - Data Warehouse for deep storage, view materialisation, and data retention management.
+5. **Data Storage** - _Data Warehouse_ for deep storage, view materialisation, and data retention management.
 
-6. **Data Visualisation** - BI Dashboard for ad-hoc queries. 
+6. **Data Visualisation** - _BI Dashboard_ for ad-hoc queries. 
 
 ![Real-Time Analytics](../images/platform-backend.jpg)
 
