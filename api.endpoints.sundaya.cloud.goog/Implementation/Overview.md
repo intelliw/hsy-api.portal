@@ -13,13 +13,13 @@ The Sundaya Data Management platform consist of the following core components:
 
 ### Data Management Platform 
 
-3. **Trilateral API** 
+3. **Trilateral API** - asynchronous Publish, and synchronous Command/Query, Subscribe APIs.
 
-4. **Data Pipeline** 
+4. **Data Pipeline** - Message Broker cluster, and real-time ingest and query Analytics Engine.
 
-5. **Data Storage**  
+5. **Data Storage** - Data Warehouse for deep storage, view materialisation, and data retention management.
 
-6. **Data Visualisation** 
+6. **Data Visualisation** - BI Dashboard for ad-hoc queries. 
 
 ![Real-Time Analytics](../images/platform-backend.jpg)
 
