@@ -9,11 +9,11 @@ The Sundaya Data Management platform consists of the following core components:
 
 2. **Device Controllers** - such as _BBC_ and _EHub Gateways_, which collect and upload data through an API.
 
+3. **Trilateral API** - asynchronous _Publish_, and synchronous _Command/Query_, and _Subscribe_ APIs.
+
 ![Platform Devices](../images/platform-devices.jpg)
 
 ### Data Management
-
-3. **Trilateral API** - asynchronous _Publish_, and synchronous _Command/Query_, and _Subscribe_ APIs.
 
 4. **Data Pipeline** - _Message Broker_ cluster, and real-time ingest and query _Analytics Engine_.
 
