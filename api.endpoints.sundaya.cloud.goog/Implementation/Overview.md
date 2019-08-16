@@ -1,13 +1,13 @@
 # Overview
 ---
 
-The Sundaya Data Management platform consist of the following core components:
+The Sundaya Data Management platform consists of the following core components:
 
 ### Trackable Devices (devices, components, assemblies)
 
 1. **Energy Management Devices** - such as _PMS_, _MPPT_, and _Inverters_ which produce continuous monitoring data.
 
-2. **Device Controllers** - such as _BBC_ or _EHub Gateways_, which collect and upload monitoring data.
+2. **Device Controllers** - such as _BBC_ and _EHub Gateways_, which collect and upload monitoring data.
 
 ![Platform Devices](../images/platform-devices.jpg)
 
