@@ -1,7 +1,3 @@
-# Devices API
----
-
-
 # /devices/dataset POST
 ---
 
