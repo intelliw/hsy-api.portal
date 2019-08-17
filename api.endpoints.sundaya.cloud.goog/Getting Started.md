@@ -55,15 +55,13 @@ Flow | From / To
     
 To query specific assets, clients can filter requests by `category`, `subcategory`, and `productType` (in the request *Body*).
 
-## Data Visualisation
-
 ### Colour codes
 
 The API’s response data can be visualised through an application as a stacked bar graph, based on these standard colours for each dataset in the response 'data' element.
 
 ![Colour codes & energy sources](/images/energy.colour-codes.png)
  
-### Double-entry format
+### Visualisation
 
 Graphs are typically shown in a ‘double entry’ format (the up and down bars are the same size), as shown in the following sample. 
 

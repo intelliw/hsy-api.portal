@@ -57,7 +57,7 @@ folders:
   
   Implementation:
     ordering:
-    - Overview
+    - Architecture
     - Datasets
     - Changelog
     - Roadmap
