@@ -26,6 +26,8 @@ ordering:
 - Introduction
 - Getting Started
 - Standards & Conventions
+- Energy API
+- Devices API
 - API Reference
 - Examples
 - Implementation
@@ -37,11 +39,6 @@ folders:
     # In this example, there is only a 'Getting Started' page and no sub-folders.
     # The add_example_page script will add a page named 'Example Page' here.
  
-  Getting Started:
-    ordering:
-    - Energy API
-    - Devices API
-
   Examples:
     ordering:
     - GET
