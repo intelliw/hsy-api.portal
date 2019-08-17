@@ -1,7 +1,3 @@
-# Energy API
----
-
-
 # /energy GET
 ---
 
