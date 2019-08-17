@@ -17,9 +17,9 @@ The Sundaya Data Management platform consists of the following core components:
 
 4. **Data Pipeline** - _Message Broker_ cluster, and real-time ingest and query _Analytics Engine_.
 
-5. **Data Storage** - _Data Warehouse_ for SQL analytics by technical users, deep storage, view materialisation, and data retention management.
+5. **Data Storage** - _Data Warehouse_ for SQL analytics (technical users), deep storage, view materialisation, and data retention management.
 
-6. **Data Visualisation** - _BI Dashboard_ for business intelligence reports and ad-hoc queries by business users. 
+6. **Data Visualisation** - _Analytics Engine_ and _BI Dashboard_ for business intelligence reports and ad-hoc queries by business users.
 
 ![Real-Time Analytics](../images/platform-backend.jpg)
 
