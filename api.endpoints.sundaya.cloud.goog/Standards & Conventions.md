@@ -39,7 +39,7 @@ The two supported formats are described below with examples:
 
 - __Local__ time with UTC offset, represented with a trailing `+/-` offset from UTC (e.g. `+0700`) 
     
-    format: `YYYYMMDDTHHmmss.SSS±HHmm`
+    format: `YYYYMMDDTHHmmss.SSSS±HHmm`
 
     example: *1630 WIB == 0930 UTC*
 

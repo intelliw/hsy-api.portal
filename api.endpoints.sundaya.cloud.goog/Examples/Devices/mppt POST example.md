@@ -35,28 +35,28 @@ Content-Type: application/json
     { "mppt": { "id": "IT6415AD-01-001" }, 
       "data": [
         { "time_local": "20190209T150006.032+0700",
-          "pv": { "volts": ["48.000", "48.000"], "amps": ["6.0", "6.0"] },
-          "battery": { "volts" : "55.1" }, 
-          "load": { "volts": ["48.000", "48.000"], "amps": ["1.2", "1.2"] }
+          "pv": { "volts": [48.000, 48.000], "amps": [6.0, 6.0] },
+          "battery": { "volts" : 55.1 }, 
+          "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2] }
         },
         { "time_local": "20190209T150016.022+0700",
-          "pv": { "volts": ["48.000", "48.000"], "amps": ["6.0", "6.0"] },
-          "battery": { "volts" : "55.1" }, 
-          "load": { "volts": ["48.000", "48.000"], "amps": ["1.2", "1.2"] }
+          "pv": { "volts": [48.000, 48.000], "amps": [6.0, 6.0] },
+          "battery": { "volts" : 55.1 }, 
+          "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2] }
         }
       ]
     },
     { "mppt": { "id": "IT6415AD-01-002" }, 
       "data": [
         { "time_local": "20190209T150007.032+0700",
-          "pv": { "volts": ["48.000", "48.000"], "amps": ["6.0", "6.0"] },
-          "battery": { "volts" : "55.1" }, 
-          "load": { "volts": ["48.000", "48.000"], "amps": ["1.2", "1.2"] }
+          "pv": { "volts": [48.000, 48.000], "amps": [6.0, 6.0] },
+          "battery": { "volts" : 55.1 }, 
+          "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2] }
         },
         { "time_local": "20190209T150017.022+0700",
-          "pv": { "volts": ["48.000", "48.000"], "amps": ["6.0", "6.0"] },
-          "battery": { "volts" : "55.1" }, 
-          "load": { "volts": ["48.000", "48.000"], "amps": ["1.2", "1.2"] }
+          "pv": { "volts": [48.000, 48.000], "amps": [6.0, 6.0] },
+          "battery": { "volts" : 55.1 }, 
+          "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2] }
         }
       ]
     }
@@ -117,3 +117,24 @@ Content-Length: 1171
     ]
 }
 ```
+
+The initial data item format sent to the message broker is shown in the followng example:
+
+```
+*** MESSAGE ***
+Topic: mppt
+Key: IT6415AD-01-001
+Value:	
+```
+
+```json
+{ 
+    "time_processing_utc":"2019-02-09T09:31:05.0110+0000",
+    "time_utc": "2019-02-09T09:30:00.0200+0000",
+    "time_local": "2019-02-09T16:30:00.0200+0700",
+    "id": "IT6415AD-01-001",
+    "pv": { "volts": [48.000, 48.000], "amps": [6.0, 6.0], "watts": 288.01 },
+    "battery": { "volts" : 55.1 }, 
+    "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2], "watts": 57.60 }
+}
+---
