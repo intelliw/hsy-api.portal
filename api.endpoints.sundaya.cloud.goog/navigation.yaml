@@ -39,23 +39,18 @@ folders:
  
   Examples:
     ordering:
-    - Diagnostics
-    - Energy
-    - Devices
-  
+    - Overview
+    - GET
+    - POST
+    
     folders:
-      Diagnostics:
+      GET:
         ordering:
+        - energy GET example
         - versions GET example
 
-      Energy:
+      POST:
         ordering:
-        - Overview
-        - energy GET example
-
-      Devices:
-        ordering:
-        - Overview
         - pms POST example
         - mppt POST example
         - inverter POST example
