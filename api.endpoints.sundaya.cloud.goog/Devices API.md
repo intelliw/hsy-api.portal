@@ -1,10 +1,6 @@
 # Devices API
 ---
 
-The `/devices` path is for device controllers (e.g. Bus Bar Controller) and gateways (e.g. EHub Gateway) to accumulate and periodically send data from multiple monitored devices installed at a site.
-
----
-
 
 # /devices/dataset POST
 ---
@@ -46,3 +42,5 @@ Parameter | Description
 
 ### Query parameters
 There are no query parameters for the `/device/dataset` route.
+
+---

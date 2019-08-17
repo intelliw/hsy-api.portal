@@ -49,4 +49,4 @@ Trackable devices are composites made of the following types:
 
 - **assembly** - an assembly can contain devices, components, and sub-assemblies. These items are typically assembled or logically configured before shipment. They include battery cases and cabinets. 
 
-
+---
