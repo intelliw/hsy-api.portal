@@ -25,9 +25,9 @@
 ordering:
 - Introduction
 - Getting Started
-- Standards & Conventions
 - Energy API
 - Devices API
+- Standards & Conventions
 - API Reference
 - Examples
 - Implementation
