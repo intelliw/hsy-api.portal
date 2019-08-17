@@ -148,7 +148,7 @@ The link-relation typese are based on [RFC8288](https://tools.ietf.org/html/rfc8
 
 If the client specifies *text/html* in the request `Accept` header a formatted graph is returned as shown below.
 
-The graph includes display labels and hyperlinks to related dataset elements as shown.
+The page displays labels and hyperlink elements from the hypermedia dataset as shown.
 
 ![Data element mappings for graph rendering](../images/graph.data-mappings.png)
 
