@@ -110,7 +110,7 @@ Links have the following attributes:
 
 The following table shows a set of links provided with energy data for a *week* period. 
 
-![Links in energy data](../../images/collection-links-table.png)
+![Links in energy data](../images/collection-links-table.png)
 
 
 
@@ -144,13 +144,13 @@ The link-relation typese are based on [RFC8288](https://tools.ietf.org/html/rfc8
 - **next**, **prev** - Identifies the next or previous sibling of the item series (`name` = *'week'*). The `prompt` and `title` properties signify the next or previous item in the series (`prompt` = *'Week 07 2019'*).
 
 
-### text/html Graph format
+### Accept 'text/html' page format
 
 If the client specifies *text/html* in the request `Accept` header a formatted graph is returned as shown below.
 
 The graph includes display labels and hyperlinks to related dataset elements as shown.
 
-![Data element mappings for graph rendering](../../images/graph.data-mappings.png)
+![Data element mappings for graph rendering](../images/graph.data-mappings.png)
 
 ---
 
