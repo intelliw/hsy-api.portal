@@ -38,7 +38,7 @@ To restate the Law of Conservation of Energy in API terms, Energy flows are base
 
 The following 6 data element names are used to refer to these energy flows in API paths and responses. 
 
-Each data element refers to a subset of the overall energy dataset. For any given time window the net flow from these elements will be zero.
+Each data element refers to a subset of the overall energy dataset. 
 
 - `store.in` and `store.out` indicate *charge* and *discharge* flows for batteries.
 
@@ -50,43 +50,23 @@ Each data element refers to a subset of the overall energy dataset. For any give
 
 ### Visualisation
 
-The API helps to further visualise data flows in graphical views, as a flow of energy from 'sources' at the top, to 'sinks' at the bottom.  
+The API helps to further visualise data flows in graphical views as a flow of energy from 'sources' at the top, to 'sinks' at the bottom. 
 
 Sources | Sinks    
 --- |---
 `harvest`, `store.out`, `grid.out` |`enjoy`, `store.in`, `grid.in`
 
-Graphs are typically shown in a ‘double entry’ format (the up and down bars are the same size), as shown in the following sample. 
+For any given time window the net flows from source and sink data elements will sum to zero. 
 
-![Stacked bar graph format](/images/graph.stacked-bar-example.png)
-
-The example shows the following behaviour:
-- In the 1st hour all `enjoy` energy came from the battery (`store.out`). 
-- In the 2nd hour half came from battery and the other half from grid (`grid.out`). 
-- In the 3rd hour all came from the grid.
-- In the 4th hour the sun starts delivering (`harvest`)
-- In the 10th hour harvest data is more than enjoy and the energy flows into store (`store.in`)
-
-A graph with lot of _Black_ in the top tier indicates that you need to do something about it. In general it indicates a need for more battery capacity and/or `harvest` generation capacity. 
-
- 
-    
-Note: To query specific assets, API consumers can also filter requests by `category`, `subcategory`, and `productType` (in the request *Body*).
-
-### Colour codes
-
-The API’s response data can be visualised through an application as a stacked bar graph, based on these standard colours for each dataset in the response 'data' element.
-
-![Colour codes & energy sources](/images/energy.colour-codes.png)
- 
-
-
-
-### Double-entry format 
-
-The following monthly `period` graph shows a representation of all data elements returned by the energy API.
+This is can be depicted in a stacked bar graph with up and down bars of the same size, as shown in the following monthly `period` graph.
 
 ![Monthly usage example](/images/graph.monthly-usage.png)
+
+**Colours**
+
+The standard colours for each data element type is shown below.
+
+![Colour codes & energy sources](/images/energy.colour-codes.png)
 
 **Top tier**
 
@@ -99,3 +79,21 @@ The following monthly `period` graph shows a representation of all data elements
 - _Red_ represents energy consumption (`enjoy`) and is always shown in the bottom tier.
 - _Black_ in the bottom tier shows a net excess (of `harvest` energy, compared to `store.in` and `enjoy` energy volumes), resulting in feed-in flows to the grid (`grid.in`).
 - _Blue_ in the bottom tier shows battery *charge* (`store.in`) again due to a net excess of `harvest` energy.
+
+### Example
+
+A graph with lot of _Black_ in the top tier indicates an opportunity to optimise long term costs.  
+
+In general it indicates a need for more battery capacity and/or `harvest` generation capacity. 
+
+![Stacked bar graph format](/images/graph.stacked-bar-example.png)
+
+The example shows the following behaviour:
+- In the 1st hour all `enjoy` energy came from the battery (`store.out`). 
+- In the 2nd hour half came from battery and the other half from grid (`grid.out`). 
+- In the 3rd hour all came from the grid.
+- In the 4th hour the sun starts delivering (`harvest`)
+- In the 10th hour harvest data is more than enjoy and the energy flows into store (`store.in`)
+ 
+Note: To query specific assets, API consumers can also filter requests by `category`, `subcategory`, and `productType` (in the request *Body*).
+
