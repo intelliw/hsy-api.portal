@@ -15,7 +15,8 @@ The following snippet shows the structure of an `inverter` dataset:
         { "time_local": "20190209T150006.032+0700",
           "pv": { "volts": [48.000, 48.000], "amps": [6.0, 6.0] },
           "battery": { "volts" : 55.1 }, 
-          "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2] }
+          "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2] },
+          "grid": { "volts": [48.000, 48.000, 48.000], "amps": [1.2, 1.2, 1.2], "pf": [0.92, 0.92, 0.92] }
         },
 ```
 
@@ -32,5 +33,8 @@ Attribute | Metric | Data | Optionality | Description
 `batt.volts` | volts | float | - | The voltage of the connected Battery.
 `batt.amps` | amps | float [+/-] | - | The current for the connected Battery. The value is positive for charge current and negative when discharging.
 `load.volts` | volts | float *(array)* | *array size 1-2* | An ordered set of Voltage readings for connected Loads. Each value in the data array applies to a Load number based on its position in the array. For example the 2nd value in the data array is the data for the 2nd Load. The array size depends on the number of loads. Each load and its ordinal position must be declared in this API documentation.
-`load.amps` | amps | float *(array)* | *array size 1-2* | An ordered set of Current readings for connected Loads  (corresponding to values in `load.volts`).  
+`load.amps` | amps | float *(array)* | *array size 1-2* | An ordered set of Current readings for connected Loads (corresponding to values in `load.volts`).  
+`grid.volts` | volts | float *(array)* | *array size 1-3* | An ordered set of up to 3 Voltage readings for each phase of the connected grid supply. The array size depends on the number of phases in the supply. If the supply is single-phase there will be only one element in the array.
+`grid.amps` | amps | float *(array)* | *array size 1-2* | An ordered set of Current readings for for each phase of the connected grid supply (corresponding to values in `grid.volts` and `grid.pf`).  
+`grid.pf` | - | float *(array)* | *array size 1-2* | An ordered set of Poswer Factor readings for for each phase of the connected grid supply (corresponding to values in `grid.volts` and `grid.amps`). 
 
