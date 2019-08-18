@@ -124,6 +124,11 @@ Content-Length: 1171
 
 The initial data item format sent to the message broker is shown in the followng example:
 
+The wattage for each phase of the grid data element is calculated as:
+
+    `grid.watts` = `grid.volts` x `grid.amps` x `grid.pf` x `1.732`
+    
+
 ```
 *** MESSAGE ***
 Topic: inverter
