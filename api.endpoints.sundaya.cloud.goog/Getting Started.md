@@ -34,7 +34,11 @@ Energy | Assets | Devices
 
 ### Energy Flows
 
-To restate the Law of Conservation of Energy in API terms, Energy flows are based on a "double entry" format where each flow has an equal and opposite flow. 
+To restate the Law of Conservation of Energy in API terms: 
+```
+  Energy flows are based on a "double entry" format where each flow has an equal and opposite flow, expressed with positive and negative values in the data. 
+  Flows from positive and negative data elements in a period will sum to zero.
+```
 
 The following 6 data element names are used to refer to these energy flows in API paths and responses. 
 
