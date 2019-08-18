@@ -58,11 +58,11 @@ The API helps to further visualise data flows in graphical views as a flow of en
 
 Sources | Sinks    
 --- |---
-`harvest`, `store.out`, `grid.out` |`enjoy`, `store.in`, `grid.in`
+`harvest` `store.out` `grid.out` |`enjoy` `store.in` `grid.in`
 
 For any given time window the net flows from source and sink data elements will sum to zero. 
 
-This is can be depicted in a stacked bar graph with up and down bars of the same size, as shown in the following monthly `period` graph.
+This is best depicted in a stacked bar graph with up and down bars of the same size, as shown in the following monthly `period` graph.
 
 ![Monthly usage example](/images/graph.monthly-usage.png)
 
