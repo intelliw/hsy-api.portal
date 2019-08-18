@@ -1,7 +1,7 @@
 # Overview
 ---
 
-The Sundaya Data Management platform consists of the following core components:
+The Sundaya Device and Data Management platform consists of the following core components:
 
 ### Data Collection
 
