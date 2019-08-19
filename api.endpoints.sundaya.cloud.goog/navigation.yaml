@@ -58,16 +58,8 @@ folders:
 
   Implementation:
     ordering:
-    - Datasets
     - DevOps
 
-    folders:
-      Datasets:
-        ordering:
-        - pms Dataset
-        - mppt Dataset
-        - inverter Dataset
-        
     folders:
       DevOps:
         ordering:
