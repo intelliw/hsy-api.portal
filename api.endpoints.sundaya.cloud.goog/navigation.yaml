@@ -25,9 +25,9 @@
 ordering:
 - Introduction
 - Getting Started
+- Standards & Conventions
 - Energy API
 - Devices API
-- Standards & Conventions
 - API Reference
 - Examples
 - Implementation
@@ -60,9 +60,14 @@ folders:
     ordering:
     - Architecture
     - Datasets
-    - Changelog
-    - Roadmap
-    
+    - DevOps
+
+    folders:
+      Architecture:
+        ordering:
+        - System Overview
+        - Dataset Metamodel
+
     folders:
       Datasets:
         ordering:
@@ -70,7 +75,12 @@ folders:
         - mppt Dataset
         - inverter Dataset
 
-
+    folders:
+      DevOps:
+        ordering:
+        - Roadmap
+        - Changelog
+ 
 
       
   
