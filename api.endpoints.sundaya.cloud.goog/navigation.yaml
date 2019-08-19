@@ -30,6 +30,7 @@ ordering:
 - Devices API
 - API Reference
 - Examples
+- Implementation
 - Resources
 
 folders:
@@ -54,3 +55,14 @@ folders:
         - pms POST example
         - mppt POST example
         - inverter POST example
+
+  Implementation:
+    ordering:
+    - Datasets
+    
+    folders:
+      Datasets:
+        ordering:
+        - pms Dataset
+        - mppt Dataset
+        - inverter Dataset
