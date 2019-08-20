@@ -83,6 +83,9 @@ The following snippet shows the structure of a `pms` request:
               "volts": [3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.91] },
             "fet": { "open": [1, 2], "temp": [34.1, 32.2, 33.5] } }
         },
+        ...
+    }        
+}
 ```
 
 ### Request Attributes 
