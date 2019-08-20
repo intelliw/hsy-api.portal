@@ -44,11 +44,6 @@ Attribute | Metric | Data | Constraint | Description
 
 The data structure sent to the message broker at the first stage of processing is shown in the followng example:
 
-A wattage for each grid phase is calculated as follows:
-
-    `grid.watts` = `grid.volts` x `grid.amps` x `grid.pf` x `√3`
-    
-
 ```
 *** MESSAGE ***
 Topic: inverter
@@ -68,3 +63,12 @@ Value:
     "grid": { "volts": [48.000, 48.000, 48.000], "amps": [1.2, 1.2, 1.2], "pf": [0.92, 0.92, 0.92], "watts": [91.785, 91.785, 91.785] }
 },
 ---
+
+### Power Factor
+
+The value of `watts` is calculated for each phase based on the power factor, as follows:
+
+    `grid.watts` = `grid.volts` x `grid.amps` x `grid.pf` x `√3`
+
+
+    
