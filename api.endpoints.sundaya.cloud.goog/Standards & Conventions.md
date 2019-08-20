@@ -22,12 +22,7 @@ The compressed version of ISO 8601 is required, without semi colons and with `T`
 ## Timezones
 Timezones must be represented in API parameters as `UTC` time, or as `Local` time with UTC offset. 
 
-Local time on its own (with no offset and therefore location unspecified) is not accepted.
-
-- *API timestamp parameters in `GET` requests may be provided in either format: `UTC` time, or `Local` time.*
-- *API timestamp parameters in `POST` requests must be provided as `Local` time. `UTC` time is not accepted.*.
-
-The two supported formats are described below with examples: 
+The supported timezone formats are described below with examples: 
 
 - __UTC__ time, represented with a trailing `Z` or trailing zero offset `+0000`
 
@@ -46,17 +41,31 @@ The two supported formats are described below with examples:
     [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630+0700](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630+0700 "+0700 is JKT offset from  UTC")
 
 
-## Tiemstamps
+## Timestamps
+
+Local time on its own (with no offset and therefore location unspecified) is not accepted.
+
+- API timestamp parameters in `GET` requests may be provided in either format: `UTC` time, or `Local` time.
+
+- API timestamp parameters in `POST` requests must be provided as `Local` time. `UTC` time is not accepted.
 
 The following time attributes are prepended to each data item at the first stage of processing a `/devices` POST request. 
 
 The added timestamps are based on the *event* time (`time_local`) sent in the request. 
 
-Note that the value in the request `time_local` attribute is overwritten and replaced with a normalised format.
+Note that the request `time_local` attribute is overwritten and replaced with the normalised format shown in the example below.
 
- - `time_processing_utc` - the time when the request was received and *processed* on the API host (e.g. _2019-08-12T18:28:08.8760+0000_).
- - `time_utc` - the *event* time converted to `UTC` time (e.g. _2019-02-09T16:00:17.0200+0000_).
- - `time_local` - the *event* time formatted as a local time for the device site (e.g. _2019-02-09T15:00:17.0200+0700_).
+ - `time_processing_utc` - the time when the request was received and *processed* on the API host. 
+
+    example: _2019-08-12T18:28:08.8760+0000_)
+    
+ - `time_utc` - the *event* time converted to `UTC` time.
+
+    example: _2019-02-09T16:00:17.0200+0000_)
+
+ - `time_local` - the *event* time formatted as a local time for the device site.
+
+    example: _2019-02-09T15:00:17.0200+0700_)
 
 
 ## Media types
