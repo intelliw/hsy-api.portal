@@ -19,7 +19,7 @@ The Sundaya Device and Data Management platform consists of the following core c
 
 5. **Data Storage** - _Data Warehouse_ for SQL analytics (technical users), deep storage, view materialisation, and data retention management.
 
-6. **Data Visualisation** - _Analytics Engine_ and _BI Dashboard_ for business intelligence reports and ad-hoc queries by business users.
+6. **Data Visualisation** - _Analytics Engine_, OLAP data store, and _BI Dashboard_ for business intelligence reports and ad-hoc queries by business users.
 
 ![Real-Time Analytics](../images/platform-backend.jpg)
 
