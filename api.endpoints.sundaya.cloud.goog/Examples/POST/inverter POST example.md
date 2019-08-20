@@ -122,29 +122,3 @@ Content-Length: 1171
 }
 ```
 
-The initial data item format sent to the message broker is shown in the followng example:
-
-The wattage for each phase of the grid data element is calculated as:
-
-    `grid.watts` = `grid.volts` x `grid.amps` x `grid.pf` x `1.732`
-    
-
-```
-*** MESSAGE ***
-Topic: inverter
-Key: SPI-B2-01-001
-Value:	
-```
-
-```json
-{ 
-    "time_processing_utc":"2019-02-09T09:31:05.0110+0000",
-    "time_utc": "2019-02-09T09:30:00.0200+0000",
-    "time_local": "2019-02-09T16:30:00.0200+0700",
-    "id": "SPI-B2-01-001",
-    "pv": { "volts": [48.000, 48.000], "amps": [6.0, 6.0], "watts": 288.01 },
-    "battery": { "volts" : 55.1 }, 
-    "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2], "watts": 57.60 },
-    "grid": { "volts": [48.000, 48.000, 48.000], "amps": [1.2, 1.2, 1.2], "pf": [0.92, 0.92, 0.92], "watts": [91.782, 91.782, 91.782] }
-},
----

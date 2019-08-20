@@ -203,37 +203,3 @@ Content-Length: 8063
 }
 ```
 
-The following time attributes are prepended to each data item, based on the *event* time (`time_local`) sent in the request. The `time_local` attribute is overwritten and augmented by these attributes.
-
- - `time_processing_utc` - the time when the request was received and *processed* on the API host.
- - `time_utc` - the *event* time converted to `UTC` time.
- - `time_local` - the *event* time converted to the local time at the device site.
-
-Initially `time_local` is left empty if the request `time` contained a `UTC` value. (see *Timezones* in [Standards & Conventions](https://endpointsportal.sundaya.cloud.goog/docs/api.endpoints.sundaya.cloud.goog/0/c/Standards%20&%20Conventions)). 
-
-In this case `time_local` is populated later in the pipeline after looking up device location from the `site` reference dataset.
-
-If the request `time` contained a `Local` value, both `time_local` and `time_utc` will be populated in the initial data item. 
-
-The initial data item format sent to the message broker is shown in the followng example:
-
-```
-*** MESSAGE ***
-Topic: pms
-Key: PMS-01-001
-Value:	
-```
-
-```json
-{
-    "time_processing_utc": "2019-08-12T18:28:08.8760+0000",
-    "time_utc": "2019-02-09T16:00:17.0200+0000",
-    "time_local": "2019-02-09T15:00:17.0200+0700",    
-    "id": "PMS-01-002",
-    "pack": { "id":"0248","dock":4,"volts":55.1,"amps":-1.601,"temp":[35.0,33.0,34.0],
-       "cell": { "open":[1,6],"volts":[3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92] },
-       "fet": { "open":[1,2],"temp":[34.1,32.2,33.5] },
-       "watts": -88.2151 }
-},
-
-```

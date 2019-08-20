@@ -66,9 +66,11 @@ The PMS dataset depends on two identifiers, the rest of the dataset consists ent
 
 - It allows Packs to be hot-swapped on site without any re-configuration needed.
 
-# Dataset Structure 
+---
 
-The following snippet shows the structure of a `pms` dataset:
+# Request Structure 
+
+The following snippet shows the structure of a `pms` request:
 
 ```json
 {
@@ -83,7 +85,7 @@ The following snippet shows the structure of a `pms` dataset:
         },
 ```
 
-### Attributes 
+### Request Attributes 
 
 The pms dataset attributes are specified below. 
 
@@ -103,4 +105,31 @@ Attribute | Metric | Data | Constraint | Description
  
 - Attributes marked as '*required on change*' may be omitted if the value has not changed since the last successful post (a POST is successful if the API server responds with a 200 level reply).
 All other attributes are mandatory and must be present.
+
+---
+
+# Dataset Structure 
+
+The data structure sent to the message broker at the first stage of processing is shown in the followng example:
+
+```
+*** MESSAGE ***
+Topic: pms
+Key: PMS-01-001
+Value:	
+```
+
+```json
+{
+    "time_processing_utc": "2019-08-12T18:28:08.8760+0000",
+    "time_utc": "2019-02-09T16:00:17.0200+0000",
+    "time_local": "2019-02-09T15:00:17.0200+0700",    
+    "id": "PMS-01-002",
+    "pack": { "id":"0248","dock":4,"volts":55.1,"amps":-1.601,"temp":[35.0,33.0,34.0],
+       "cell": { "open":[1,6],"volts":[3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92] },
+       "fet": { "open":[1,2],"temp":[34.1,32.2,33.5] },
+       "watts": -88.2151 }
+},
+
+```
 
