@@ -66,6 +66,6 @@ Value:
 
 ### Derived Values
 
-The value of `watts` is calculated for each grid supply phase based on the power factor, as follows:
+The value of `watts` is calculated for each grid supply phase, based on the following formula:
 
-    `grid.watts` = `grid.volts` x `grid.amps` x `grid.pf` x `√3`
+    `grid.watts` = `grid.volts` * `grid.amps` * `grid.pf` * `√3`
