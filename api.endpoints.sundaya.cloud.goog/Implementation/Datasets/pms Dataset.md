@@ -68,7 +68,7 @@ The PMS dataset depends on two identifiers, the rest of the dataset consists ent
 
 ---
 
-# Request Structure 
+# Request Message
 
 The following snippet shows the structure of a `pms` request:
 

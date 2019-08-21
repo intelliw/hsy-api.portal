@@ -3,7 +3,7 @@
 
 ![MPPT Data](../../images/MPPTData.png)
 
-# Request Structure 
+# Request Message
 
 The following snippet shows the structure of a `mppt` request:
 

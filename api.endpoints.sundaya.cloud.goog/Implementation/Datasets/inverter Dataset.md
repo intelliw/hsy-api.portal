@@ -3,7 +3,7 @@
 
 ![Inverter Data](../../images/InverterData.png)
 
-# Request Structure 
+# Request Message 
 
 The following snippet shows the structure of an `inverter` request:
 

@@ -13,7 +13,7 @@ The Sundaya Device and Data Management platform consists of the following core c
 
 ![Platform Devices](../images/platform-devices.jpg)
 
-### Data Management
+### Data Management Platform
 
 4. **Data Pipeline** - _Message Broker_ cluster, and real-time ingest and query _Analytics Engine_.
 
