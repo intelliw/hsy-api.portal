@@ -85,7 +85,7 @@ The following snippet shows the structure of a `pms` request:
         },
 ```
 
-### Request Attributes 
+### Message Attributes 
 
 The pms dataset attributes are specified below. 
 

@@ -20,7 +20,7 @@ The following snippet shows the structure of an `inverter` request:
         },
 ```
 
-### Request Attributes 
+### Message Attributes 
 
 The inverter dataset attributes are specified below. 
 

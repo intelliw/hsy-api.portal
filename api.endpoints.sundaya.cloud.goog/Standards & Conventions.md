@@ -40,14 +40,13 @@ The supported timezone formats are described below with examples:
 
     [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630+0700](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630+0700 "+0700 is JKT offset from  UTC")
 
-
-## Timestamps
-
-Local time on its own (with no offset and therefore location unspecified) is not accepted.
+Local time without offset (and therefore location unspecified) is not accepted.
 
 - API timestamp parameters in `GET` requests may be provided in either format: `UTC` time, or `Local` time.
 
 - API timestamp parameters in `POST` requests must be provided as `Local` time. `UTC` time is not accepted.
+
+## Timestamps
 
 The following time attributes are prepended to each data item at the first stage of processing a `/devices` POST request. 
 

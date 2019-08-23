@@ -19,7 +19,7 @@ The following snippet shows the structure of a `mppt` request:
         },
 ```
 
-### Request Attributes 
+### Message Attributes 
 
 The mppt dataset attributes are specified below. 
 
