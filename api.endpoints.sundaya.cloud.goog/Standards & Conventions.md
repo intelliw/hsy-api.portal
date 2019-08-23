@@ -46,27 +46,6 @@ Local time without offset (and therefore location unspecified) is not supported.
 
 - API timestamp parameters in `POST` requests must be provided as `Local` time. `UTC` time is not accepted.
 
-## Timestamps
-
-The following time attributes are prepended to each data item at the first stage of processing a `/devices` POST request. 
-
-The added timestamps are based on the *event* time (`time_local`) sent in the request. 
-
-Note that the request `time_local` attribute is overwritten and replaced with the normalised format as shown in the example.
-
- - `time_processing_utc` - the time when the request was received and *processed* on the API host. 
-
-    example: _2019-08-12T18:28:08.8760+0000_
-    
- - `time_utc` - the *event* time converted to `UTC` time.
-
-    example: _2019-02-09T16:00:17.0200+0000_
-
- - `time_local` - the *event* time formatted as a local time for the device site.
-
-    example: _2019-02-09T15:00:17.0200+0700_
-
-
 ## Media types
 Request `Body` parameters and all response objects are sent and received in JSON. 
 

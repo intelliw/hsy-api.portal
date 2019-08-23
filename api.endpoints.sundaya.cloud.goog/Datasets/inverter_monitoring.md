@@ -1,7 +1,7 @@
 # inverter_monitoring Dataset
 ---
 
-![Inverter Data](../../images/InverterData.png)
+![Inverter Data](../images/InverterData.png)
 
 # Request Message 
 
