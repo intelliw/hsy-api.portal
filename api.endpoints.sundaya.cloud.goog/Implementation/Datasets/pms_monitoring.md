@@ -1,4 +1,4 @@
-# pms Dataset
+# pms_monitoring Dataset
 ---
 
 A PMS system consists of 1-4 Cabinets with 1 Busbar in each Cabinet.
@@ -87,7 +87,7 @@ The following snippet shows the structure of a `pms` request:
 
 ### Message Attributes 
 
-The pms dataset attributes are specified below. 
+The pms request message attributes are specified below. 
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | --- 
@@ -110,7 +110,20 @@ All other attributes are mandatory and must be present.
 
 # Dataset Structure 
 
-The data structure sent to the message broker at the first stage of processing is shown in the followng example:
+The following attributes are prepended to request message attributes at the first stage of processing the `/devices` POST request. 
+
+The added timestamps are based on `time_local` sent in the request message, which is replaced by these timestamps.  
+
+The dataset timestamps are stored in the canonical timestamp format used for data storage ('YYYY-MM-DD HH:mm:ss.SSSS') as shown in the examples.
+
+Attribute | Metric | Data | Constraint | Description
+--- | --- | --- | --- | ---
+`id` | - | string | - | Id of the Inverter charge controller. This attribute replaces `pms.id` in the request message.
+`time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
+`time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
+`time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
+
+The dataset structure sent to the message broker at the first stage of processing is shown in the followng example:
 
 ```
 *** MESSAGE ***
@@ -121,10 +134,10 @@ Value:
 
 ```json
 {
-    "time_processing_utc": "2019-08-12T18:28:08.8760+0000",
-    "time_utc": "2019-02-09T16:00:17.0200+0000",
-    "time_local": "2019-02-09T15:00:17.0200+0700",    
     "id": "PMS-01-002",
+    "time_utc": "2019-02-09 09:30:17.0200",
+    "time_local": "2019-02-09 16:30:00.0200",
+    "time_processing": "2019-02-09 09:31:05.0110",
     "pack": { "id":"0248","dock":4,"volts":55.1,"amps":-1.601,"temp":[35.0,33.0,34.0],
        "cell": { "open":[1,6],"volts":[3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92] },
        "fet": { "open":[1,2],"temp":[34.1,32.2,33.5] },

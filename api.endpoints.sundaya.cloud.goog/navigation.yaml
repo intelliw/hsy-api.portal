@@ -30,6 +30,7 @@ ordering:
 - Devices API
 - API Reference
 - Examples
+- Datasets
 - Implementation
 - Resources
 
@@ -56,10 +57,15 @@ folders:
         - mppt POST example
         - inverter POST example
   
+  Datasets:
+    ordering:
+    - pms_monitoring
+    - mppt_monitoring
+    - inverter_monitoring
+
   Implementation:
     ordering:
     - Architecture
-    - Datasets
     - DevOps
 
     folders:
@@ -67,12 +73,6 @@ folders:
         ordering:
         - System Overview
         - Dataset Metamodel
-
-      Datasets:
-        ordering:
-        - pms Dataset
-        - mppt Dataset
-        - inverter Dataset
 
       DevOps:
         ordering:

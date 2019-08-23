@@ -1,4 +1,4 @@
-# inverter Dataset
+# inverter_monitoring Dataset
 ---
 
 ![Inverter Data](../../images/InverterData.png)
@@ -22,7 +22,7 @@ The following snippet shows the structure of an `inverter` request:
 
 ### Message Attributes 
 
-The inverter dataset attributes are specified below. 
+The inverter request message attributes are specified below. 
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
@@ -42,7 +42,20 @@ Attribute | Metric | Data | Constraint | Description
 
 # Dataset Structure 
 
-The data structure sent to the message broker at the first stage of processing is shown in the followng example:
+The following attributes are prepended to request message attributes at the first stage of processing the `/devices` POST request. 
+
+The added timestamps are based on `time_local` sent in the request message, which is replaced by these timestamps.  
+
+The dataset timestamps are stored in the canonical timestamp format used for data storage ('YYYY-MM-DD HH:mm:ss.SSSS') as shown in the examples.
+
+Attribute | Metric | Data | Constraint | Description
+--- | --- | --- | --- | ---
+`id` | - | string | - | Id of the Inverter charge controller. This attribute replaces `inverter.id` in the request message.
+`time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
+`time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
+`time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
+
+The dataset structure sent to the message broker at the first stage of processing is shown in the followng example:
 
 ```
 *** MESSAGE ***
@@ -52,15 +65,15 @@ Value:
 ```
 
 ```json
-{
-    "time_processing_utc":"2019-02-09T09:31:05.0110+0000",
-    "time_utc": "2019-02-09T09:30:00.0200+0000",
-    "time_local": "2019-02-09T16:30:00.0200+0700",
+{ 
     "id": "SPI-B2-01-001",
+    "time_utc": "2019-02-09 09:30:00.0200",
+    "time_local": "2019-02-09 16:30:00.0200",
+    "time_processing":"2019-02-09 09:31:05.0110",
     "pv": { "volts": [48.000, 48.000], "amps": [6.0, 6.0], "watts": 288.01 },
     "battery": { "volts" : 55.1 }, 
     "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2], "watts": 57.60 },
-    "grid": { "volts": [48.000, 48.000, 48.000], "amps": [1.2, 1.2, 1.2], "pf": [0.92, 0.92, 0.92], "watts": [91.785, 91.785, 91.785] }
+    "grid": { "volts": [48.000, 48.000, 48.000], "amps": [1.2, 1.2, 1.2], "pf": [0.92, 0.92, 0.92], "watts": [91.782, 91.782, 91.782] }
 },
 ```
 

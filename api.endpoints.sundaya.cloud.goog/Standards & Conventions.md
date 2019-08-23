@@ -40,7 +40,7 @@ The supported timezone formats are described below with examples:
 
     [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630+0700](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630+0700 "+0700 is JKT offset from  UTC")
 
-Local time without offset (and therefore location unspecified) is not accepted.
+Local time without offset (and therefore location unspecified) is not supported.
 
 - API timestamp parameters in `GET` requests may be provided in either format: `UTC` time, or `Local` time.
 
