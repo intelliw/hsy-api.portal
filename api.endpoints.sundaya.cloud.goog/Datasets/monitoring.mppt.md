@@ -1,4 +1,4 @@
-# mppt_monitoring Dataset
+# monitoring.mppt Dataset
 ---
 
 ![MPPT Data](../images/MPPTData.png)
