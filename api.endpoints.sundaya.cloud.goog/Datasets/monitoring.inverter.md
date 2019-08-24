@@ -1,4 +1,4 @@
-# inverter_monitoring Dataset
+# monitoring.inverter Dataset
 ---
 
 ![Inverter Data](../images/InverterData.png)

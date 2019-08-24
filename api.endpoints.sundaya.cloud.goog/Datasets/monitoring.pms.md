@@ -48,7 +48,7 @@ A PMS can have 1-4 Cabinets. If there are multiple Cabinets the same **PMS id** 
 
 ### Identifiers
 
-The PMS dataset depends on two identifiers, the rest of the dataset consists entirely of data needed for monitoring and analytics.
+The PMS dataset depends on two identifiers, the rest of this dataset consists entirely of data needed for monitoring and analytics.
 
 **Pack id**
 
