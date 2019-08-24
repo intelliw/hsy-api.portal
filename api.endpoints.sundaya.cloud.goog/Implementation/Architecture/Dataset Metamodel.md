@@ -5,7 +5,7 @@ Device data consists of three dataset types for trackable devices, shown in the 
 
 A _trackable_ item provides datasets which allow the item to be tracked in real-time or through retrospective reports. The data is used to trace problems and trends in the item's supply chain, operational performance, maintenance, etc.
  
-![Devices metamodel](../images/DevicesMetamodel.png)
+![Devices metamodel](../../images/DevicesMetamodel.png)
 ### Dataset Types
 
 - **monitoring data** - infinite and unordered time-series data collected through a recurring schedule. Typically this dataset consists of device metrics streamed by a device controller (BBC) or a device gateway (EHub), in near-real-time. However some data may be delayed or arrive out-of-order with data from other devices in the same location; often due to poor connectivity seen in remote locations, or lack of system availability due to maintenance etc. The data is appended to a persistent log and is never modified.

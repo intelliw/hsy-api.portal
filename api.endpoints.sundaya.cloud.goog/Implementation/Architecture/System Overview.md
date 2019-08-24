@@ -11,7 +11,7 @@ The Sundaya Device and Data Management platform consists of the following core c
 
 3. **Trilateral API** - synchronous _Command/Query_, and asynchronous _Publish_ and _Subscribe_ API interfaces.
 
-![Platform Devices](../images/platform-devices.jpg)
+![Platform Devices](../../images/platform-devices.jpg)
 
 ### Data Management Platform
 
@@ -21,6 +21,6 @@ The Sundaya Device and Data Management platform consists of the following core c
 
 6. **Data Visualisation** - _Analytics Engine_, OLAP data store, and _BI Dashboard_ for business intelligence reports and ad-hoc queries by business users.
 
-![Real-Time Analytics](../images/platform-backend.jpg)
+![Real-Time Analytics](../../images/platform-backend.jpg)
 
 ---
