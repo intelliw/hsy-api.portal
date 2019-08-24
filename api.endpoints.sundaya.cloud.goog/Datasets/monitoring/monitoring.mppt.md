@@ -1,7 +1,7 @@
 # monitoring.mppt Dataset
 ---
 
-![MPPT Data](../images/MPPTData.png)
+![MPPT Data](../../images/MPPTData.png)
 
 # Request Message
 

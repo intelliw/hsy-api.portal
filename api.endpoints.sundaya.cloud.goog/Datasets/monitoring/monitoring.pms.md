@@ -12,7 +12,7 @@ A Case contains 14 **Cell Blocks**, 1 **Fet Board**, and 1 **Acqu. Board**.
 
 PMS data consists of two distinct datasets, _Monitoring_ data and _Transaction/Master_ data, which are joined through a relationship as shown in the model below:
 
-![PMS Data](../images/PMSData.png)
+![PMS Data](../../images/PMSData.png)
 ### Monitoring Data
 
 PMS monitoring data is schedule-driven (e.g. every 5 seconds), is append-only, and is time-series data.
