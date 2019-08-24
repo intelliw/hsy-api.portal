@@ -1,4 +1,4 @@
-# pms_monitoring Dataset
+# monitoring.pms Dataset
 ---
 
 A PMS system consists of 1-4 Cabinets with 1 Busbar in each Cabinet.

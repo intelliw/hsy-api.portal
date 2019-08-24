@@ -59,9 +59,15 @@ folders:
   
   Datasets:
     ordering:
-    - monitoring.pms
-    - monitoring.mppt
-    - monitoring.inverter
+    - monitoring
+
+    folders:
+      monitoring:
+        ordering:
+        - monitoring.pms
+        - monitoring.mppt
+        - monitoring.inverter
+
 
   Implementation:
     ordering:
