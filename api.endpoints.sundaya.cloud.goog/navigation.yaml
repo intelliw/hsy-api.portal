@@ -64,9 +64,9 @@ folders:
     folders:
       monitoring:
         ordering:
-        - monitoring.pms
-        - monitoring.mppt
-        - monitoring.inverter
+        - pms
+        - mppt
+        - inverter
 
 
   Implementation:
