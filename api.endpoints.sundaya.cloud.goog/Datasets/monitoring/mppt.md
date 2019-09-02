@@ -50,6 +50,8 @@ Attribute | Metric | Data | Constraint | Description
 `time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
 `time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
 `time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
+`pv.watts` | - | float | - | The product of `pv.volts` and `pv.amps`.
+`load.watts` | - | float | - | The product of `load.volts` and `load.amps`.
 
 The dataset structure sent to the message broker at the first stage of processing, is shown in the followng example:
 
