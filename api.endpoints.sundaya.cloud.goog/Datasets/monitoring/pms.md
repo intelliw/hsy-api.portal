@@ -122,6 +122,7 @@ Attribute | Metric | Data | Constraint | Description
 `time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
 `time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
 `pack.volts` | - | float | - | The cellblocks are connected in series so the pack voltage is the sum of all 14 cell voltages (`cell.volts[1-14]`).
+`pack.watts` | - | float | - | The product of `pack.volts` and `pack.amps`.
 
 The dataset structure sent to the message broker at the first stage of processing is shown in the followng example:
 
@@ -138,10 +139,10 @@ Value:
     "time_utc": "2019-02-09 09:30:17.0200",
     "time_local": "2019-02-09 16:30:00.0200",
     "time_processing": "2019-02-09 09:31:05.0110",
-    "pack": { "id":"0248","dock":4,"volts":55.1,"amps":-1.601,"temp":[35.0,33.0,34.0],
+    "pack": { "id":"0248","dock":4,"volts":55.1,"amps":-1.601,"temp":[35.0,33.0,34.0], "watts": -88.2151, 
        "cell": { "open":[1,6],"volts":[3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92] },
-       "fet": { "open":[1,2],"temp":[34.1,32.2,33.5] },
-       "watts": -88.2151 }
+       "fet": { "open":[1,2],"temp":[34.1,32.2,33.5] }
+      }
 },
 ```
 
