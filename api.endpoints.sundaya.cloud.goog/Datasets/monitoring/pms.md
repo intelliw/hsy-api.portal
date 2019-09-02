@@ -78,7 +78,7 @@ The following snippet shows the structure of a `pms` request:
     { "pms": { "id": "PMS-01-001" }, 
       "data": [
         { "time_local": "20190209T150006.032+0700",
-          "pack": { "id": "0241", "dock": 1, "volts": 55.1, "amps": -1.601, "temp": [35.0, 33.0, 34.0],
+          "pack": { "id": "0241", "dock": 1, "amps": -1.601, "temp": [35.0, 33.0, 34.0],
             "cell": { "open": [1, 6],
               "volts": [3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.91] },
             "fet": { "open": [1, 2], "temp": [34.1, 32.2, 33.5] } }
@@ -95,10 +95,9 @@ Attribute | Metric | Data | Constraint | Description
 `time_local` | - | datetime | RFC 3339 | The local time of the event which produced this data sample, represented with a mandatory `+/-` offset from UTC for the device's location, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
 `pack.id` | - | string | - | The pack identifier. This is the Case id which is laser engraved in human-readable form on the outside of the case. Initially (temporarily) the `pack.id` will be populated with the pack’s acquisition board hardware id, and converted to the Case id through a lookup on the server. In future the Case id will be directly stored in the acquisition board during pre-shipment configuration and no further data transformation will be required for determining the Pack id during data collection.
 `pack.dock` | - | integer | 1-48 | The dock number (1 - 48) into which this pack is installed. The dock number covers 4 cabinets with 12 docks per cabinet in sequence. For example dock number 13 indicates that the pack is installed in dock 1 of cabinet B (the second cabinet).
-`pack.volts` | volts | float | - | The voltage of this pack.
 `pack.amps` | amps | float [+/-] | - | The current draw for this pack. The value is positive for charge current and negative when discharging. 
 `pack.temp` | degC | float *(array)* | *array size 3* | An ordered set of 3 temperature readings in degC, for the temperature of the cell-pack at its top, middle, and bottom. The array position of  each value is significant: the 1st value applies to the top of the pack, 2nd to the middle, and 3rd to the bottom. 
-`cell.volts` | volts | float *(array)* | *array size 14* | An ordered set of 14 Voltage readings for 14 cellblocks in this pack. Each value in the data array applies to a cell number based on its position in the array. For example the 2nd value in the data array is the data for the 2nd cell in the pack.
+`cell.volts` | volts | float *(array)* | *array size 14* | An ordered set of 14 Voltage readings for 14 cellblocks in this pack. Each value in the data array applies to a cell number based on its position in the array. For example the 2nd value in the data array is the data for the 2nd cell in the pack. The cellblocks are connected in series so the pack voltage the sum of all 14 cell voltages.
 `cell.open` | *open/closed* | integer *(array)* | 1-14, *uniqueitems, array size 0-14* | An unordered set of unique ordinal numbers for cells  which are ‘open’ due to cell balancing. Must contain numbers from 1-14 as there are only 14 cells in a pack. For example a data value of [1,6] signifies that cell 1 and 6 are open (bypassed) to allow the other cells in the pack to charge and reach parity with this cell block. Typically the array will be empty to indicate that there is no cell balancing in effect.
 `fet.temp` | degC | float | *array size 2* | An ordered set of temperature readings for the two MOSFETS in this pack. The first is the input (CMOS) and the 2nd is the output (DMOS) MOSFET.
 `fet.open` | *open/closed* | integer *(array)* | 1-2, *uniqueitems, array size 2* | An unordered set of unique ordinal numbers for FETs which are ‘open’ due to pack balancing. The data values must be a number from 1-2 as there are only 2 FETS in each pack. For example a data value of [1,2] signifies that FETS 1 and 2 are both open.
@@ -110,7 +109,7 @@ All other attributes are mandatory and must be present.
 
 # Dataset Structure 
 
-The following attributes are prepended to request message attributes at the first stage of processing the `/devices` POST request. 
+The following attributes are added to request message attributes at the first stage of processing the `/devices` POST request. 
 
 The added timestamps are based on `time_local` sent in the request message, which is replaced by these timestamps.  
 
@@ -122,6 +121,7 @@ Attribute | Metric | Data | Constraint | Description
 `time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
 `time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
 `time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
+`pack.volts` | - | float | - | The cellblocks are connected in series so the pack voltage is the sum of all 14 cell voltages (`cell.volts[1-14]`).
 
 The dataset structure sent to the message broker at the first stage of processing is shown in the followng example:
 
