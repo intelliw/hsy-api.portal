@@ -12,19 +12,21 @@ A Case contains 14 **Cell Blocks**, 1 **Fet Board**, and 1 **Acqu. Board**.
 
 PMS data consists of two distinct datasets, _Monitoring_ data and _Transaction/Master_ data, which are joined through a relationship as shown in the model below:
 
-![PMS Data](../../images/PMSData.png)
+![PMS System](../../images/PMSComposite.png)
 ### Monitoring Data
 
-PMS monitoring data is schedule-driven (e.g. every 5 seconds), is append-only, and is time-series data.
+PMS monitoring data streams in as a time-series unbounded dataset. The data is schedule-driven (e.g. every 5 seconds) and is append-only.
 
-The recurring dataset consists of data from:
+Monitoring data is collected from:
 - 4-48 **Packs**
 - 14 **Cells** per Pack
 - 2 **Fets** per Pack
 
 The dataset is collected through a recurring schedule and appended to a time-series log. 
 
-Entities in the Monitoring Dataset are linked to Master data through a shared **Pack id** and **Case Id** respectively. 
+The Monitoring Dataset links to Master data through a shared key in **Pack id** and **Case Id** respectively. 
+
+![PMS Data](../../images/PMSData.png)
 
 ### Transaction/Master Data 
 
