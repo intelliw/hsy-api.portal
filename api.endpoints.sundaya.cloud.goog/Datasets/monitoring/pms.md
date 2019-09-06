@@ -127,7 +127,7 @@ Attribute | Metric | Data | Constraint | Description
 `pack.watts` | - | float | - | The product of `pack.volts` and `pack.amps`.
 `cell.vcl` | volts | float | - | The lowest cell voltage in `cell.volts`.
 `cell.vch` | volts | float | - | The highest cell voltage in `cell.volts`.
-`cell.dvcl` | volts | float *(array)* | *array size 14* | The voltage difference (delta) between the lowest cell voltage (`cell.vcl`) and the Voltage reading for each cellblock (`cell.volts`). Each value in the data array applies to a cell number based on its position in the array.
+`cell.dvcl` | volts | float *(array)* | *array size 14* | The voltage difference (delta) between the lowest cell voltage (`cell.vcl`) and the Voltage of each cell (`cell.volts`). Each value in the data array applies to a cell number based on its position in the array.
 
 The dataset structure sent to the message broker at the first stage of processing is shown in the followng sample:
 
@@ -149,7 +149,7 @@ Value:
         "temp": [35,33,34], 
         "cell": { 
             "open": [1,6], 
-            "volts": [3.661,3.666,3.655,3.676,3.658,3.662,3.660,3.659,3.658,3.657,3.656,3.665,3.669,3.661],
+            "volts": [3.661,3.666,3.654,3.676,3.658,3.662,3.660,3.659,3.658,3.657,3.656,3.665,3.669,3.661],
             "vcl": 3.654, "vch": 3.676, "dvcl": [7,12,0,22,4,8,6,5,4,3,2,11,15,7] },
         "fet": { 
             "open": [1,2], 
