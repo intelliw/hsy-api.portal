@@ -125,8 +125,11 @@ Attribute | Metric | Data | Constraint | Description
 `time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
 `pack.volts` | - | float | - | The cellblocks are connected in series so the pack voltage is the sum of all 14 cell voltages (`cell.volts[1-14]`).
 `pack.watts` | - | float | - | The product of `pack.volts` and `pack.amps`.
+`cell.vcl` | volts | float | - | The lowest cell voltage in `cell.volts`.
+`cell.vch` | volts | float | - | The highest cell voltage in `cell.volts`.
+`cell.dvcl` | volts | float *(array)* | *array size 14* | The voltage difference (delta) between the lowest cell voltage (`cell.vcl`) and the Voltage reading for each cellblock (`cell.volts`). Each value in the data array applies to a cell number based on its position in the array.
 
-The dataset structure sent to the message broker at the first stage of processing is shown in the followng example:
+The dataset structure sent to the message broker at the first stage of processing is shown in the followng sample:
 
 ```
 *** MESSAGE ***
@@ -137,14 +140,21 @@ Value:
 
 ```json
 {
-  "id": "PMS-01-002",
-  "time_utc": "2019-02-09 08:00:17.0200",
-  "time_local": "2019-02-09 15:00:17.0200",
-  "time_processing": "2019-09-02 08:22:13.4310",
-  "pack": { "id": "0248", "dock": 4, "amps": -1.601, "temp": [35,33,34], "volts": 54.88, "watts": -87.863,
-    "cell": {"open": [1,6], "volts": [3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92,3.92] },
-    "fet": {"open": [1,2], "temp": [34.1,32.2,33.5] }    
-  }
+    "id": "PMS-01-002",
+    "time_utc": "2019-02-09 08:00:17.0200",
+    "time_local": "2019-02-09 15:00:17.0200",
+    "time_processing": "2019-09-02 08:22:13.4310",
+    "pack": { 
+        "id": "0248", "dock": 4, "volts": 51.262, "amps": -0.625, "watts": -32.039,
+        "temp": [35,33,34], 
+        "cell": { 
+            "open": [1,6], 
+            "volts": [3.661,3.666,3.655,3.676,3.658,3.662,3.660,3.659,3.658,3.657,3.656,3.665,3.669,3.661],
+            "vcl": 3.654, "vch": 3.676, "dvcl": [7,12,0,22,4,8,6,5,4,3,2,11,15,7] },
+        "fet": { 
+            "open": [1,2], 
+            "temp": [34.1,32.2,33.5] }    
+    }
 },
 
 ```
