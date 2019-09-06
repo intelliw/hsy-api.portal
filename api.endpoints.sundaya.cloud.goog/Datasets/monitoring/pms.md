@@ -127,7 +127,7 @@ Attribute | Metric | Data | Constraint | Description
 `pack.watts` | - | float | - | The product of `pack.volts` and `pack.amps`.
 `cell.vcl` | volts | float | - | The lowest cell voltage in `cell.volts`.
 `cell.vch` | volts | float | - | The highest cell voltage in `cell.volts`.
-`cell.dvcl` | millivolts | float *(array)* | *array size 14* | The difference (delta) in millivolts, between the lowest cell voltage (`cell.vcl`) and each cell voltage). Each value in `cell.dvcl`  corresponds to values in `cell.volts` and applies to a cell number based on its position in the array.
+`cell.dvcl` | millivolts | float *(array)* | *array size 14* | The millivolts difference (delta) between the lowest cell voltage (`cell.vcl`) and each cell voltage. Each value in `cell.dvcl` corresponds to a value in `cell.volts` and applies to a cell number based on its position in the array.
 
 The dataset structure sent to the message broker at the first stage of processing is shown in the followng sample:
 
