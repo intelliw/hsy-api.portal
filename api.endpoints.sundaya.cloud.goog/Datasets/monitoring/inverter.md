@@ -57,7 +57,7 @@ Attribute | Metric | Data | Constraint | Description
 `pv.watts` | - | float | - | The product of `pv.volts` and `pv.amps`.
 `load.watts` | - | float | - | The product of `load.volts` and `load.amps`.
 `grid.watts` | - | float | - | The product of `grid.volts` and `grid.amps`.
-`sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the system.source dataset table, which provides traceability, and data provenance for monitoring data.
+`sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for monitoring data.
 
 
 The dataset structure sent to the message broker at the first stage of processing is shown in the followng example:

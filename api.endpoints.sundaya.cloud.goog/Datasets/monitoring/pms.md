@@ -128,7 +128,7 @@ Attribute | Metric | Data | Constraint | Description
 `cell.vcl` | volts | float | - | The lowest cell voltage in `cell.volts`.
 `cell.vch` | volts | float | - | The highest cell voltage in `cell.volts`.
 `cell.dvcl` | millivolts | float *(array)* | *array size 14* | The millivolts difference (delta) between the lowest cell voltage (`cell.vcl`) and each cell voltage in `cell.volts`. Values in `cell.dvcl` correspond to values in `cell.volts`.
-`sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the system.source dataset table, which provides traceability, and data provenance for monitoring data.
+`sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for monitoring data.
 
 The dataset structure sent to the message broker at the first stage of processing is shown in the followng sample:
 
