@@ -14,7 +14,7 @@ A _trackable_ item provides datasets which allow the item to be tracked in real-
 
 - **master** - provides core data needed to uniquely define other datasets, including data and metadata for customers, sites, partners, suppliers, personnel, products and services. This includes product metadata from vendors. Data in this dataset is changed very infrequently.
 
-- **system** - this dataset provides reference data for platform services and the data management system, including data needed for security, traceability, and data provenance. It includes configuration data needed for provisioning and commissioning monitored devices and systems.
+- **system** - provides reference data for platform services and the data management system, including data needed for security, traceability, and data provenance. It includes configuration data needed for provisioning and commissioning monitored devices and systems.
 
 ### Trackable Devices (devices, components, assemblies)
 
