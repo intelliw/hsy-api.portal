@@ -119,7 +119,7 @@ The dataset timestamps are stored in the canonical timestamp format used for dat
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
-`id` | - | string | - | Id of the Inverter charge controller. This attribute replaces `pms.id` in the request message.
+`id` | - | string | - | Id of the PMS system, as displayed on the cabinet. This attribute replaces `pms.id` in the request message.
 `time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
 `time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
 `time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
