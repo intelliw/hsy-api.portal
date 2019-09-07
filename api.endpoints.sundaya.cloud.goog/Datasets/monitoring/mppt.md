@@ -52,6 +52,8 @@ Attribute | Metric | Data | Constraint | Description
 `time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
 `pv.watts` | - | float | - | The product of `pv.volts` and `pv.amps`.
 `load.watts` | - | float | - | The product of `load.volts` and `load.amps`.
+`sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the system.source dataset table, which provides traceability, and data provenance for monitoring data.
+
 
 The dataset structure sent to the message broker at the first stage of processing, is shown in the followng example:
 
@@ -76,6 +78,8 @@ Value:
         "volts" : 55.1 }, 
     "load": { 
         "volts": [48.000, 48.000], 
-        "amps": [1.2, 1.2], "watts": 57.60 }
+        "amps": [1.2, 1.2], "watts": 57.60 },
+    "sys": {
+        "source": "S002" } 
 },
 ```

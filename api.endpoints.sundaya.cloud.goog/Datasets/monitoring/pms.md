@@ -128,6 +128,7 @@ Attribute | Metric | Data | Constraint | Description
 `cell.vcl` | volts | float | - | The lowest cell voltage in `cell.volts`.
 `cell.vch` | volts | float | - | The highest cell voltage in `cell.volts`.
 `cell.dvcl` | millivolts | float *(array)* | *array size 14* | The millivolts difference (delta) between the lowest cell voltage (`cell.vcl`) and each cell voltage in `cell.volts`. Values in `cell.dvcl` correspond to values in `cell.volts`.
+`sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the system.source dataset table, which provides traceability, and data provenance for monitoring data.
 
 The dataset structure sent to the message broker at the first stage of processing is shown in the followng sample:
 
@@ -145,16 +146,18 @@ Value:
     "time_local": "2019-02-09 15:00:17.0200",
     "time_processing": "2019-09-02 08:22:13.4310",
     "pack": { 
-        "id": "0248", "dock": 4, "volts": 51.262, "amps": -0.625, "watts": -32.039,
-        "temp": [35,33,34], 
-        "cell": { 
-            "open": [1,6], 
-            "volts": [3.661,3.666,3.655,3.676,3.658,3.662,3.660,3.659,3.658,3.657,3.656,3.665,3.669,3.661],
-            "vcl": 3.654, "vch": 3.676, "dvcl": [7,12,0,22,4,8,6,5,4,3,2,11,15,7] },
-        "fet": { 
-            "open": [1,2], 
-            "temp": [34.1,32.2,33.5] }    
-    }
+        "id": "0248", "dock": 4, "volts": 51.262, "amps": -0.625, 
+        "watts": -32.039,
+        "temp": [35,33,34] }, 
+    "cell": { 
+        "open": [1,6], 
+        "volts": [3.661,3.666,3.655,3.676,3.658,3.662,3.660,3.659,3.658,3.657,3.656,3.665,3.669,3.661],
+        "vcl": 3.654, "vch": 3.676, "dvcl": [7,12,0,22,4,8,6,5,4,3,2,11,15,7] },
+    "fet": { 
+        "open": [1,2], 
+        "temp": [34.1,32.2,33.5] },
+    "sys": {
+        "source": "S002" } 
 },
 
 ```

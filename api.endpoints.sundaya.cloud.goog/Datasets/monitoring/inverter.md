@@ -57,6 +57,8 @@ Attribute | Metric | Data | Constraint | Description
 `pv.watts` | - | float | - | The product of `pv.volts` and `pv.amps`.
 `load.watts` | - | float | - | The product of `load.volts` and `load.amps`.
 `grid.watts` | - | float | - | The product of `grid.volts` and `grid.amps`.
+`sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the system.source dataset table, which provides traceability, and data provenance for monitoring data.
+
 
 The dataset structure sent to the message broker at the first stage of processing is shown in the followng example:
 
@@ -74,19 +76,19 @@ Value:
     "time_local": "2019-02-09 16:30:00.0200",
     "time_processing":"2019-02-09 09:31:05.0110",
     "pv": { 
-        "volts": [48.000, 48.000], 
-        "amps": [6.0, 6.0], 
+        "volts": [48.000, 48.000], "amps": [6.0, 6.0],  
         "watts": 288.01 },
     "battery": { 
         "volts" : 55.1 }, 
     "load": { 
-        "volts": [48.000, 48.000], 
-        "amps": [1.2, 1.2], "watts": 57.60 },
+        "volts": [48.000, 48.000], "amps": [1.2, 1.2], 
+        "watts": 57.60 }, 
     "grid": { 
-        "volts": [48.000, 48.000, 48.000], 
-        "amps": [1.2, 1.2, 1.2], 
+        "volts": [48.000, 48.000, 48.000], "amps": [1.2, 1.2, 1.2], 
         "pf": [0.92, 0.92, 0.92], 
-        "watts": [91.782, 91.782, 91.782] }
+        "watts": [91.782, 91.782, 91.782] },
+    "sys": {
+        "source": "S002" } 
 },
 ```
 
