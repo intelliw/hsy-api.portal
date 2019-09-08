@@ -119,16 +119,16 @@ The dataset timestamps are stored in the canonical timestamp format used for dat
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
-`id` | - | string | - | Id of the PMS system, as displayed on the cabinet. This attribute replaces `pms.id` in the request message.
-`time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
-`time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
-`time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
+`pms_id` | - | string | - | Id of the PMS system, as displayed on the cabinet. This attribute replaces `pms.id` in the request message.
 `pack.volts` | - | float | - | The cellblocks are connected in series so the pack voltage is the sum of all 14 cell voltages (`cell.volts[1-14]`).
 `pack.watts` | - | float | - | The product of `pack.volts` and `pack.amps`.
 `cell.vcl` | volts | float | - | The lowest cell voltage in `cell.volts`.
 `cell.vch` | volts | float | - | The highest cell voltage in `cell.volts`.
 `cell.dvcl` | millivolts | float *(array)* | *array size 14* | The millivolts difference (delta) between the lowest cell voltage (`cell.vcl`) and each cell voltage in `cell.volts`. Values in `cell.dvcl` correspond to values in `cell.volts`.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for monitoring data.
+`time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
+`time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
+`time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
 
 The dataset structure sent to the message broker at the first stage of processing is shown in the followng sample:
 
@@ -140,25 +140,24 @@ Value:
 ```
 
 ```json
-{
-    "id": "PMS-01-002",
-    "time_utc": "2019-02-09 08:00:17.0200",
-    "time_local": "2019-02-09 15:00:17.0200",
-    "time_processing": "2019-09-02 08:22:13.4310",
-    "pack": { 
-        "id": "0248", "dock": 4, "volts": 51.262, "amps": -0.625, 
-        "watts": -32.039,
-        "temp": [35,33,34] }, 
-    "cell": { 
-        "open": [1,6], 
-        "volts": [3.661,3.666,3.655,3.676,3.658,3.662,3.660,3.659,3.658,3.657,3.656,3.665,3.669,3.661],
-        "vcl": 3.654, "vch": 3.676, "dvcl": [7,12,0,22,4,8,6,5,4,3,2,11,15,7] },
-    "fet": { 
-        "open": [1,2], 
-        "temp": [34.1,32.2,33.5] },
-    "sys": {
-        "source": "S002" } 
-},
+{   "pms_id":"PMS-01-002",
+    "pack":{
+        "id":"0248","dock":4,"volts":51.262,"amps":-0.625,
+        "watts":-32.039,
+        "temp":[35,33,34]},
+    "cell":{
+        "open":[1,6],
+        "volts":[3.661,3.666,3.654,3.676,3.658,3.662,3.66,3.659,3.658,3.657,3.656,3.665,3.669,3.661],
+        "vcl":3.654,"vch":3.676,"dvcl":[7,12,0,22,4,8,6,5,4,3,2,11,15,7]},
+    "fet":{
+        "open":[1,2],
+        "temp":[34.1,32.2,33.5]},
+    "sys":{
+        "source":"S000"},
+    "time_utc":"2019-02-09 08:00:17.0200",
+    "time_local":"2019-02-09 15:00:17.0200",
+    "time_processing":"2019-09-08 05:00:48.9830"        
+}
 
 ```
 

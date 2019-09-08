@@ -46,13 +46,13 @@ The dataset timestamps are stored in the canonical timestamp format used for dat
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
-`id` | - | string | - | Id of the MPPT charge controller. This attribute replaces `mppt.id` in the request message.
-`time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
-`time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
-`time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
+`mppt_id` | - | string | - | Id of the MPPT charge controller. This attribute replaces `mppt.id` in the request message.
 `pv.watts` | - | float | - | The product of `pv.volts` and `pv.amps`.
 `load.watts` | - | float | - | The product of `load.volts` and `load.amps`.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for monitoring data.
+`time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
+`time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
+`time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
 
 
 The dataset structure sent to the message broker at the first stage of processing, is shown in the followng example:
@@ -66,10 +66,7 @@ Value:
 
 ```json
 { 
-    "id": "IT6415AD-01-001",
-    "time_utc": "2019-02-09T09:30:00.0200",
-    "time_local": "2019-02-09 16:30:00.0200",
-    "time_processing":"2019-02-09 09:31:05.0110",
+    "mppt_id": "IT6415AD-01-001",
     "pv": { 
         "volts": [48.000, 48.000], 
         "amps": [6.0, 6.0], 
@@ -80,6 +77,9 @@ Value:
         "volts": [48.000, 48.000], 
         "amps": [1.2, 1.2], "watts": 57.60 },
     "sys": {
-        "source": "S002" } 
+        "source": "S002" },
+    "time_utc": "2019-02-09T09:30:00.0200",
+    "time_local": "2019-02-09 16:30:00.0200",
+    "time_processing":"2019-02-09 09:31:05.0110"   
 },
 ```

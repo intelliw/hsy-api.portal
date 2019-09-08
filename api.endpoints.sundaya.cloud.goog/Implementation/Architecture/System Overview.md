@@ -19,7 +19,7 @@ The Sundaya Device and Data Management platform consists of the following core c
 
 5. **Data Storage** - _Data Warehouse_ for SQL analytics (technical users), deep storage, view materialisation, and data retention management.
 
-6. **Data Visualisation** - _Analytics Engine_, OLAP data store, and _BI Dashboard_ for business intelligence reports and ad-hoc queries by business users.
+6. **Data Visualisation** - _Analytics Engine_, OLAP data store, and _BI/OI Dashboard_ for business intelligence reports and ad-hoc queries by business users. _BI_ (Business Intelligence) artefacts include reports and visualisations for analyzing trends over time. _OI_ (Operational Intelligence) artefacts include real-time dashboards and alerts for exceptions to provide a holistic picture of what is currently happening across the system landscape.
 
 ![Real-Time Analytics](../../images/platform-backend.jpg)
 
