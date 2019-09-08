@@ -1,7 +1,8 @@
 # Dataset Metamodel
 ---
 
-Device data consists of three dataset types for trackable devices, shown in the model below. 
+Device data consists of four dataset types for trackable devices, shown in the model below. 
+
 
 A _trackable_ item provides datasets which allow the item to be tracked in real-time or through retrospective reports. The data is used to trace problems and trends in the item's supply chain, operational performance, maintenance, etc.
  
@@ -27,3 +28,15 @@ Trackable devices are composites made of the following types:
 - **assembly** - an assembly can contain devices, components, and sub-assemblies. These items are typically assembled or logically configured before shipment. They include battery cases and cabinets. 
 
 ---
+
+### Dataset Table Partitions
+
+All Dataset Tables are partitioned based on the `time_local` field, into daily segments, to reduce cost and improve performance. 
+
+Queries require a mandatory predicate filter (a WHERE clause) for the `time_local` attribute to limit the number of partitions scanned, as shown in this example.
+
+```sql
+SELECT 	pms_id, pack.id, cell.vcl, cell.vch, cell.dvcl
+FROM `sundaya.monitoring.pms`
+WHERE time_local BETWEEN '2019-02-09' AND '2019-02-12'  
+```
