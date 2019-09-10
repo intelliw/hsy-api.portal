@@ -42,7 +42,7 @@ Attribute | Metric | Data | Constraint | Description
 
 # Dataset Structure 
 
-The following attributes are prepended to request message attributes at the first stage of processing the `/devices` POST request. 
+The following fields are prepended to request message attributes at the first stage of processing the `dataset/inverter` POST request. 
 
 The added timestamps are based on `time_local` sent in the request message, which is replaced by these timestamps.  
 
@@ -91,8 +91,8 @@ Value:
 },
 ```
 
-### Derived Values
+### Calculated Fields
 
 The value of `watts` is calculated for each supply phase, based on the following formula:
 
-    `grid.watts` = `grid.volts` * `grid.amps` * `grid.pf` * `√3`
+    grid.watts = grid.volts * grid.amps * grid.pf * √3

@@ -111,7 +111,7 @@ All other attributes are mandatory and must be present.
 
 # Dataset Structure 
 
-The following attributes are added to request message attributes at the first stage of processing the `/devices` POST request. 
+The following fields are added to request message attributes at the first stage of processing the `dataset/pms` POST message. 
 
 The added timestamps are based on `time_local` sent in the request message, which is replaced by these timestamps.  
 
