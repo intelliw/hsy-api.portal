@@ -42,7 +42,7 @@ Attribute | Metric | Data | Constraint | Description
 
 # Dataset Structure 
 
-The following fields are prepended to request message attributes at the first stage of processing the `dataset/inverter` POST request. 
+The following fields are prepended to request message attributes at the first stage of processing the `dataset/inverter` POST message. 
 
 The added timestamps are based on `time_local` sent in the request message, which is replaced by these timestamps.  
 
@@ -53,7 +53,8 @@ Attribute | Metric | Data | Constraint | Description
 `inverter_id` | - | string | - | Id of the Inverter charge controller. This attribute replaces `inverter.id` in the request message.
 `pv.watts` | - | float | - | The product of `pv.volts` and `pv.amps`.
 `load.watts` | - | float | - | The product of `load.volts` and `load.amps`.
-`grid.watts` | - | float | - | The product of `grid.volts` and `grid.amps`.
+`grid.watts` | - | float | - | Calculated for each supply phase, based on the following formula: 
+`grid.watts = grid.volts * grid.amps * grid.pf * √3`.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
 `time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
 `time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
@@ -90,9 +91,3 @@ Value:
     "time_processing":"2019-09-10 04:11:09.2930"
 },
 ```
-
-### Calculated Fields
-
-The value of `watts` is calculated for each supply phase, based on the following formula:
-
-    grid.watts = grid.volts * grid.amps * grid.pf * √3
