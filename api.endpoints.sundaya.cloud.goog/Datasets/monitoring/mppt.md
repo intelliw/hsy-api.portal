@@ -38,7 +38,7 @@ Attribute | Metric | Data | Constraint | Description
 
 # Dataset Structure 
 
-The following fields are prepended to request message attributes at the first stage of processing the `dataset/mppt` POST request. 
+The following fields are prepended to request message attributes at the first stage of processing the `dataset/mppt` POST message. 
 
 The added timestamps are based on `time_local` sent in the request message, which is replaced by these timestamps.  
 
@@ -83,3 +83,7 @@ Value:
 },
 
 ```
+
+### Partitions and Clustering
+
+__mppt__ dataset tables are partitioned based on `time_local` and clustered by `mppt_id`.
