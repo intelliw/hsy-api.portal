@@ -90,3 +90,7 @@ Value:
     "time_processing":"2019-09-10 04:11:09.2930"
 },
 ```
+
+### Partitions and Clustering
+
+__inverter__ dataset tables are partitioned based on `time_local` and clustered by `inverter_id`.

@@ -120,7 +120,7 @@ The dataset timestamps are stored in the canonical timestamp format used for dat
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
 `pms_id` | - | string | - | Id of the PMS system, as displayed on the cabinet. This attribute replaces `pms.id` in the request message.
-`pack_id` | - | string | - | Id of the `pack` associated with this data record. This attribute replaces `pack.id` as a top-level attribute, so that it can be included in the data clustering specification (the __pms__ dataset table is clustered by `pms_id` and `pack_id`).
+`pack_id` | - | string | - | Id of the `pack` associated with this data record. This attribute replaces `pack.id` as a top-level attribute, so that it can be included in the data clustering specification.
 `pack.volts` | - | float | - | The cellblocks are connected in series so the pack voltage is the sum of all 14 cell voltages (`cell.volts[1-14]`).
 `pack.watts` | - | float | - | The product of `pack.volts` and `pack.amps`.
 `cell.vcl` | volts | float | - | The lowest cell voltage in `cell.volts`.
@@ -163,3 +163,6 @@ Value:
 
 ```
 
+### Partitions and Clustering
+
+__pms__ dataset tables are partitioned based on `time_local` and clustered by `pms_id` and `pack_id`.
