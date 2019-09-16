@@ -14,8 +14,8 @@ The following snippet shows the structure of an `inverter` request:
       "data": [
         { "time_local": "20190209T150006.032+0700",
           "pv": { "volts": [48.000, 48.000], "amps": [6.0, 6.0] },
-          "battery": { "volts" : 55.1 }, 
-          "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2] },
+          "battery": { "volts" : 55.1, "amps": 0.0 }, 
+          "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2] }, 
           "grid": { "volts": [48.000, 48.000, 48.000], "amps": [1.2, 1.2, 1.2], "pf": [0.92, 0.92, 0.92] }
         },
 ```
@@ -76,7 +76,7 @@ Value:
         "volts": [48,48], "amps": [6,6],
         "watts": [288,288] },
     "battery": {
-        "volts": 55.1},
+        "volts": 55.1, "amps": 0.0 },
     "load": {
         "volts": [48,48], "amps": [1.2,1.2],
         "watts": [57.6,57.6] },
