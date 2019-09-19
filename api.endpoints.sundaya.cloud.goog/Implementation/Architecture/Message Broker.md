@@ -23,7 +23,9 @@ The default producer client id is:
 
  `clientid.apihost`.
 
-The message key, which determines the partition, is the dataset id. e.g. `pms.id`, `mppt.id` or `inverter.id`.   
+The message key, which determines the partition, is the dataset id. 
+
+e.g. `pms.id`, `mppt.id` or `inverter.id`.   
 
 ### Consumers
 
