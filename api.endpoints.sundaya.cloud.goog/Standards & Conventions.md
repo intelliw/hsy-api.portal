@@ -92,8 +92,8 @@ The API supports basic CRUD operations (create, read, update, and delete) using 
 Operation | Definition
 --- | --- 
 `GET` | Retrieve information about the resource.
-`POST` | Create, backup, or restore the resource.
-`PUT` | Update the resource.
+`POST` | Create, copy, or restore the resource.
+`PUT` | Replace or update the resource. 
 `DELETE` | Delete the resource. 
 
 ## Response codes
