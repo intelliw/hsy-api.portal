@@ -8,9 +8,14 @@ The Message Broker is implemented with a multi-node Kafka cluster. The standard 
 - Worker nodes run Kafka on port `9092`. 
 - Master nodes run Zookeeper on port `2181`, and do _not_ run brokers.
 
-Topics are divided into N partitions and have f+1 replicas. The default is 3 partitions and 2 replicas. The cluster is able to tolerate f failures with f+1 replicas. Partition size should be reconfigured during operation based on the number of consumer groups; and message volumes and cardinality of keys used for producing messages.
+Topics are divided into `N` partitions and have `f+1` replicas. 
+The cluster is able to tolerate `f` failures with `f+1` replicas. 
 
-The following topics are created at startup, by default with 3 partitions and 2 replicas per topic.
+Partition size will be reconfigured during operation based on the number of consumer groups; and message volumes and cardinality of keys used for producing messages.
+
+The default configuration has 3 partitions and 2 replicas per topic.
+
+The following topics are created at startup.
 
   `monitoring.pms:3:2`, `monitoring.mppt:3:2`, `monitoring.inverter:3:2`
 
