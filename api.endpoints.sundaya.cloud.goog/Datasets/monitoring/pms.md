@@ -111,22 +111,23 @@ All other attributes are mandatory and must be present.
 
 ### text/csv
 
-Requests with `content-type` of `text/csv` must provide raw UTF-8 `csv` data rows in the request body, including a header row.
+Requests with _content-type_ of `text/csv` must provide raw UTF-8 `csv` data in the request body, including a header row.
 
-Rows must include a column for every attribute listed in the __Message Attributes__ table above, including a separate column for each array item. 
+Rows must include a column for each attribute listed in the __Message Attributes__ table above, including a separate column for each array item aas follows: 
 
-Column names for array item should be suffixed with a number after the array attribute name. 
+- Column names for array items should be suffixed with the item number after the attribute name. 
 
-For example `cell.volts.1`, `cell.volts.2` etc. to represent each of the 14 elements in the `cell.volts` array.
+- For example `cell.volts.1`, `cell.volts.2` etc. to represent each of the 14 elements in the `cell.volts` array atttribute.
 
-The following list includes all column names which must be present in the request: 
-
+The following lists all the column names which must be present in a `csv` POST request: 
   
 `pms.id` `time_local` `pack.dock` `pack.id` `pack.dock` `pack.amps` `pack.temp.1` `pack.temp.2` `pack.temp.3` 
 `cell.volts.1`..`cell.volts.14` `cell.open.1`..`cell.open.14` 
 `fet.temp.1` `fet.temp.2` `fet.open.1` `fet.open.2`
 
-A sample data file with the required headers is available [here](../../files/190828-sample-pms-csv-data.csv). 
+A sample `csv` data file with required headers is available [here](../../files/190828-sample-pms-csv-data.csv). 
+
+[PMS System](../../images/PMSComposite.png)
 
 ---
 
