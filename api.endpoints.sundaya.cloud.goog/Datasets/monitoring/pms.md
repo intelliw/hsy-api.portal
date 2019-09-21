@@ -119,15 +119,18 @@ Rows must include a column for each attribute listed in the __Message Attributes
 
 - For example `cell.volts.1`, `cell.volts.2` etc. to represent each of the 14 elements in the `cell.volts` array atttribute.
 
-The following lists all the column names which must be present in a `csv` POST request: 
+The following lists the column names which must be present: 
   
 `pms.id` `time_local` `pack.dock` `pack.id` `pack.dock` `pack.amps` `pack.temp.1` `pack.temp.2` `pack.temp.3` 
 `cell.volts.1`..`cell.volts.14` `cell.open.1`..`cell.open.14` 
 `fet.temp.1` `fet.temp.2` `fet.open.1` `fet.open.2`
 
-A sample `csv` data file with required headers is available [here](../../files/190828-sample-pms-csv-data.csv). 
+A sample `csv` header and data row is shown below. 
 
-[PMS System](../../images/PMSComposite.png)
+```csv
+pms.id,time_local,pack.dock,pack.id,pack.dock,pack.amps,pack.temp.1,pack.temp.2,pack.temp.3,cell.volts.1,cell.volts.2,cell.volts.3,cell.volts.4,cell.volts.5,cell.volts.6,cell.volts.7,cell.volts.8,cell.volts.9,cell.volts.10,cell.volts.11,cell.volts.12,cell.volts.13,cell.volts.14,cell.open.1,cell.open.2,cell.open.3,cell.open.4,cell.open.5,cell.open.6,cell.open.7,cell.open.8,cell.open.9,cell.open.10,cell.open.11,cell.open.12,cell.open.13,cell.open.14,fet.temp.1,fet.temp.2,fet.open.1,fet.open.2
+025,20190820T115900.000+0700,6,269,6,-1.3,33,32,31,3.793,3.796,3.78,3.788,3.797,3.795,3.792,3.796,3.788,3.779,3.795,3.795,3.788,3.793,,,,,,,,,,,,,,,30,29,0,0
+```
 
 ---
 
