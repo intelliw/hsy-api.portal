@@ -1,6 +1,8 @@
 # monitoring.pms
 ---
 
+# System Overview
+
 A PMS system consists of 1-4 Cabinets with 1 Busbar in each Cabinet.
 
 Each Busbar docks 4-12 **Cases**.
@@ -104,8 +106,27 @@ Attribute | Metric | Data | Constraint | Description
 `fet.temp` | degC | float | *array size 2* | An ordered set of temperature readings for the two MOSFETS in this pack. The first is the input (CMOS) and the 2nd is the output (DMOS) MOSFET.
 `fet.open` | *open/closed* | integer *(array)* | 1-2, *uniqueitems, array size 2* | An unordered set of unique ordinal numbers for FETs which are ‘open’ due to pack balancing. The data values must be a number from 1-2 as there are only 2 FETS in each pack. For example a data value of [1,2] signifies that FETS 1 and 2 are both open.
  
-- Attributes marked as '*required on change*' may be omitted if the value has not changed since the last successful post (a POST is successful if the API server responds with a 200 level reply).
+- Attributes marked as '*required on change*' (if any) may be omitted if the value has not changed since the last successful post (a POST is successful if the API server responds with a 200 level reply).
 All other attributes are mandatory and must be present.
+
+### text/csv
+
+Requests with `content-type` of `text/csv` must provide raw UTF-8 `csv` data rows in the request body, including a header row.
+
+Rows must include a column for every attribute listed in the __Message Attributes__ table above, including a separate column for each array item. 
+
+Column names for array item should be suffixed with a number after the array attribute name. 
+
+For example `cell.volts.1`, `cell.volts.2` etc. to represent each of the 14 elements in the `cell.volts` array.
+
+The following list includes all column names which must be present in the request: 
+
+  
+`pms.id` `time_local` `pack.dock` `pack.id` `pack.dock` `pack.amps` `pack.temp.1` `pack.temp.2` `pack.temp.3` 
+`cell.volts.1`..`cell.volts.14` `cell.open.1`..`cell.open.14` 
+`fet.temp.1` `fet.temp.2` `fet.open.1` `fet.open.2`
+
+A sample data file with the required headers is available [here](../../files/190828-sample-pms-csv-data.csv). 
 
 ---
 
