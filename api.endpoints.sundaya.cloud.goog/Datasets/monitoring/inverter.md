@@ -1,9 +1,11 @@
 # monitoring.inverter
 ---
 
+# System Overview
+
 ![Inverter Data](../../images/InverterData.png)
 
-# Request Message 
+# Request Message
 
 The following snippet shows the structure of an `inverter` request:
 
@@ -20,7 +22,7 @@ The following snippet shows the structure of an `inverter` request:
         },
 ```
 
-### Message Attributes 
+### Message Attributes
 
 The inverter request message attributes are specified below. 
 
