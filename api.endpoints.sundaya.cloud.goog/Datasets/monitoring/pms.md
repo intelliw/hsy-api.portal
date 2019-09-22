@@ -130,7 +130,11 @@ pms.id,time_local,pack.dock,pack.id,pack.dock,pack.amps,pack.temp.1,pack.temp.2,
 
 # Dataset Structure 
 
-The following fields are added to request message attributes at the first stage of processing the `dataset/pms` POST message. 
+The request message structure described above is optimised to reduce size as the device gateways have limited bandwidth. 
+
+The arrays in the received message are flattened and transformed into the following dataset structure which is optimised to simplify queries for analytics. 
+
+The following fields are added to the request message attributes at the first stage of processing the `dataset/pms` POST message. 
 
 The added timestamps are based on `time_local` sent in the request message, which is replaced by these timestamps.  
 
@@ -141,16 +145,26 @@ Attribute | Metric | Data | Constraint | Description
 `pms_id` | - | string | - | Id of the PMS system, as displayed on the cabinet. This attribute replaces `pms.id` in the request message.
 `pack_id` | - | string | - | Id of the `pack` associated with this data record. This attribute replaces `pack.id` as a top-level attribute, so that it can be included in the data clustering specification.
 `pack.volts` | - | float | - | The cellblocks are connected in series so the pack voltage is the sum of all 14 cell voltages (`cell.volts[1-14]`).
+`pack.amps` | - | float | - | _(no change from request message)_.
 `pack.watts` | - | float | - | The product of `pack.volts` and `pack.amps`.
-`cell.vcl` | volts | float | - | The lowest cell voltage in `cell.volts`.
-`cell.vch` | volts | float | - | The highest cell voltage in `cell.volts`.
-`cell.dvcl` | millivolts | float *(array)* | *array size 14* | The millivolts difference (delta) between the lowest cell voltage (`cell.vcl`) and each cell voltage in `cell.volts`. Values in `cell.dvcl` correspond to values in `cell.volts`.
+`pack.vcl` | volts | float | - | The lowest cell voltage in `cell.volts`.
+`pack.vch` | volts | float | - | The highest cell voltage in `cell.volts`.
+`temp_top` | - | float | - | The 1st element in `pack.temp`.
+`temp_mid` | - | float | - | The 2nd element in `pack.temp`.
+`temp_bottom` | - | float | - | The 3rd element in `pack.temp`.
+`cell_nn_volts` | - | float | - | The element number corresponding to nn in `cell.volts`.
+`cell_nn_dvcl` | millivolts | float *(array)* | - | The millivolts difference (delta) between the lowest cell voltage (`cell.vcl`) and each cell voltage in `cell.volts`.
+`cell_nn_open` | - | float | - | The element number corresponding to nn in `cell.open`.
+`fet_in.open` | - | float | - | The 1st element in `fet.open`.
+`fet_out.open` | - | float | - | The 2nd element in `fet.open`.
+`fet_in.temp` | - | float | - | The 1st element in `fet.temp`.
+`fet_out.temp` | - | float | - | The 2nd element in `fet.temp`.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
 `time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
 `time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
 `time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
 
-The dataset structure sent to the message broker at the first stage of processing is shown in the followng sample:
+The transformed JSON structure used to load data into the datawarehouse, and which is sent to the message broker at the first stage of processing, is shown in the followng sample:
 
 ```
 *** MESSAGE ***
@@ -162,24 +176,30 @@ Value:
 ```json
 {   "pms_id": "PMS-01-002",
     "pack_id": "0248",
-    "pack": {
-        "dock": 4,"volts":  51.262,"amps":  -0.625,
-        "watts": -32.039,
-        "temp": [35,33,34] },
-    "cell": {
-        "open": [],
-        "volts": [3.661,3.666,3.654,3.676,3.658,3.662,3.66,3.659,3.658,3.657,3.656,3.665,3.669,3.661],
-        "vcl": 3.654, "vch": 3.676, "dvcl": [7,12,0,22,4,8,6,5,4,3,2,11,15,7] },
-    "fet": {
-        "open": [1,2],
-        "temp": [34.1,32.2] },
-    "sys": {
-        "source": "S000" },
+    "pack": { "volts": 51.262, "amps": -0.625, "watts": -32.039, 
+        "vcl": 3.654, "vch": 3.676, "dock": 4, 
+        "temp_top": 35, "temp_mid": 33, "temp_bottom": 34 },
+    "cell_01": {"volts": 3.661, "dvcl": 7, "open": 0 },
+    "cell_02": {"volts": 3.666, "dvcl": 12, "open": 0 },
+    "cell_03": {"volts": 3.654, "dvcl": 0, "open": 0},
+    "cell_04": {"volts": 3.676, "dvcl": 22, "open": 0 },
+    "cell_05": {"volts": 3.658, "dvcl": 4, "open": 0 },
+    "cell_06": {"volts": 3.662, "dvcl": 8, "open": 0 },
+    "cell_07": {"volts": 3.660, "dvcl": 6, "open": 0 },
+    "cell_08": {"volts": 3.659, "dvcl": 5, "open": 0 },
+    "cell_09": {"volts": 3.658, "dvcl": 4, "open": 0 },
+    "cell_10": {"volts": 3.657, "dvcl": 3, "open": 0 },
+    "cell_11": {"volts": 3.656, "dvcl": 2, "open": 0 },
+    "cell_12": {"volts": 3.665, "dvcl": 11, "open": 0 },
+    "cell_13": {"volts": 3.669, "dvcl": 15, "open": 0 },
+    "cell_14": {"volts": 3.661, "dvcl": 7, "open": 0},
+    "fet_in": {"open": 1, "temp": 34.1 },
+    "fet_out": {"open": 0, "temp": 32.2 },
+    "sys": {"source": "S000" },
     "time_utc": "2019-02-09 08:00:17.0200",
     "time_local": "2019-02-09 15:00:17.0200",
-    "time_processing":  "2019-09-08 05:00:48.9830"        
+    "time_processing": "2019-09-08 05:00:48.9830"        
 },
-
 ```
 
 ### Partitions and Clustering

@@ -74,19 +74,15 @@ Value:
 ```json
 {
     "inverter_id":"SPI-B2-01-002",
-    "pv": {
-        "volts": [48,48], "amps": [6,6],
-        "watts": [288,288] },
-    "battery": {
-        "volts": 55.1, "amps": 0.0 },
-    "load": {
-        "volts": [48,48], "amps": [1.2,1.2],
-        "watts": [57.6,57.6] },
-    "grid": {
-        "volts": [48,48,48], "amps": [1.2,1.2,1.2], "pf": [0.92,0.92,0.92],
-        "watts": [91.785,91.785,91.785] },
-    "sys": {
-        "source": "S000" },
+    "pv_01": {"volts": 48, "amps": 6, "watts": 288 },
+    "pv_02": {"volts": 48, "amps": 6, "watts": 288 },
+    "battery": {"volts": 55.1, "amps": 0.0, "watts": 0 },
+    "load_01": { "volts": 48, "amps": 1.2, "watts": 57.6 },
+    "load_02": { "volts": 48, "amps": 1.2, "watts": 57.6 },
+    "grid_01": {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
+    "grid_02": {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
+    "grid_03": {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
+    "sys": {"source": "S000" },
     "time_utc":"2019-02-09 08:00:17.0220",
     "time_local":"2019-02-09 15:00:17.0220",
     "time_processing":"2019-09-10 04:11:09.2930"
