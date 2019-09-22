@@ -40,24 +40,33 @@ Attribute | Metric | Data | Constraint | Description
 
 # Dataset Structure 
 
-The following fields are prepended to request message attributes at the first stage of processing the `dataset/mppt` POST message. 
+While the request message structure described above is optimised to reduce size, the dataset structure is optimised to simplify queries for analytics. 
 
-The added timestamps are based on `time_local` sent in the request message, which is replaced by these timestamps.  
+In particular the arrays in the request message structure are flattened and transformed into the following dataset structure, which includes additional elements.
 
-The dataset timestamps are stored in the canonical timestamp format used for data storage ('YYYY-MM-DD HH:mm:ss.SSSS') as shown in the examples.
+- The added timestamps are based on `time_local` sent in the request message, which is replaced by these timestamps.  
+
+- The timestamps are stored in the canonical format used for data storage ('YYYY-MM-DD HH:mm:ss.SSSS') as shown in the examples.
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
 `mppt_id` | - | string | - | Id of the MPPT charge controller. This attribute replaces `mppt.id` in the request message.
-`pv.watts` | - | float | - | The product of `pv.volts` and `pv.amps`.
-`load.watts` | - | float | - | The product of `load.volts` and `load.amps`.
+`pv_nn_volts` | - | float | - | The element number corresponding to nn in `pv.volts`.
+`pv_nn_amps` | - | float | - | The element number corresponding to nn in `pv.amps`.
+`pv_nn_watts` | - | float | - | The product of `pv.volts` and `pv.amps`.
+`battery.volts` | - | float | - | _(no change from request message)_.
+`battery.amps` | - | float | - | _(no change from request message)_.
+`battery.watts` | - | float | - | The product of `battery.volts` and `battery.amps`.
+`load_nn_volts` | - | float | - | The element number corresponding to nn in `load.volts`.
+`load_nn_amps` | - | float | - | The element number corresponding to nn in `load.amps`.
+`load_nn_watts` | - | float | - | The product of `load.volts` and `load.amps`.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
 `time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
 `time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
 `time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
 
 
-The dataset structure sent to the message broker at the first stage of processing, is shown in the followng example:
+The transformed JSON structure which is sent to the message broker at the first stage of processing the `dataset/pms` POST message, and which is used to load data into the datawarehouse, is shown in the followng sample:
 
 ```
 *** MESSAGE ***

@@ -132,7 +132,7 @@ pms.id,time_local,pack.dock,pack.id,pack.dock,pack.amps,pack.temp.1,pack.temp.2,
 
 While the request message structure described above is optimised to reduce size, the dataset structure is optimised to simplify queries for analytics. 
 
-In particualr the arrays in the request message structure are flattened and transformed into the following dataset structure, which includes additional fields. 
+In particular the arrays in the request message structure are flattened and transformed into the following dataset structure, which includes additional elements.
 
 - The added timestamps are based on `time_local` sent in the request message, which is replaced by these timestamps.  
 
@@ -162,7 +162,8 @@ Attribute | Metric | Data | Constraint | Description
 `time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
 `time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
 
-The transformed JSON structure used to load data into the datawarehouse, and which is sent to the message broker at the first stage of processing, is shown in the followng sample:
+
+The transformed JSON structure which is sent to the message broker at the first stage of processing the `dataset/pms` POST message, and which is used to load data into the datawarehouse, is shown in the followng sample:
 
 ```
 *** MESSAGE ***
