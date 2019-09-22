@@ -130,15 +130,13 @@ pms.id,time_local,pack.dock,pack.id,pack.dock,pack.amps,pack.temp.1,pack.temp.2,
 
 # Dataset Structure 
 
-The request message structure described above is optimised to reduce size as the device gateways have limited bandwidth. 
+While the request message structure described above is optimised to reduce size, the dataset structure is optimised to simplify queries for analytics. 
 
-The arrays in the received message are flattened and transformed into the following dataset structure which is optimised to simplify queries for analytics. 
+In particualr the arrays in the request message structure are flattened and transformed into the following dataset structure, which includes additional fields. 
 
-The following fields are added to the request message attributes at the first stage of processing the `dataset/pms` POST message. 
+- The added timestamps are based on `time_local` sent in the request message, which is replaced by these timestamps.  
 
-The added timestamps are based on `time_local` sent in the request message, which is replaced by these timestamps.  
-
-The dataset timestamps are stored in the canonical timestamp format used for data storage ('YYYY-MM-DD HH:mm:ss.SSSS') as shown in the examples.
+- The timestamps are stored in the canonical format used for data storage ('YYYY-MM-DD HH:mm:ss.SSSS') as shown in the examples.
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
