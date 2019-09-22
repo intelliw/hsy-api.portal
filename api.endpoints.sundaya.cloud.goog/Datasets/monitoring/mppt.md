@@ -51,15 +51,15 @@ In particular the arrays in the request message structure are flattened and tran
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
 `mppt_id` | - | string | - | Id of the MPPT charge controller. This attribute replaces `mppt.id` in the request message.
-`pv_nn_volts` | - | float | - | The element number corresponding to nn in `pv.volts`.
-`pv_nn_amps` | - | float | - | The element number corresponding to nn in `pv.amps`.
-`pv_nn_watts` | - | float | - | The product of `pv.volts` and `pv.amps`.
-`battery.volts` | - | float | - | _(no change from request message)_.
-`battery.amps` | - | float | - | _(no change from request message)_.
-`battery.watts` | - | float | - | The product of `battery.volts` and `battery.amps`.
-`load_nn_volts` | - | float | - | The element number corresponding to nn in `load.volts`.
-`load_nn_amps` | - | float | - | The element number corresponding to nn in `load.amps`.
-`load_nn_watts` | - | float | - | The product of `load.volts` and `load.amps`.
+`pv_nn_volts` | volts | float | - | The element number corresponding to nn in `pv.volts`.
+`pv_nn_amps` | amps | float | - | The element number corresponding to nn in `pv.amps`.
+`pv_nn_watts` | watts | float | - | The product of `pv.volts` and `pv.amps`.
+`battery.volts` | volts | float | - | _(no change from request message)_.
+`battery.amps` | amps | float | - | _(no change from request message)_.
+`battery.watts` | watts | float | - | The product of `battery.volts` and `battery.amps`.
+`load_nn_volts` | volts | float | - | The element number corresponding to nn in `load.volts`.
+`load_nn_amps` | amps | float | - | The element number corresponding to nn in `load.amps`.
+`load_nn_watts` | watts | float | - | The product of `load.volts` and `load.amps`.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
 `time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
 `time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.

@@ -142,21 +142,21 @@ Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
 `pms_id` | - | string | - | Id of the PMS system, as displayed on the cabinet. This attribute replaces `pms.id` in the request message.
 `pack_id` | - | string | - | Id of the `pack` associated with this data record. This attribute replaces `pack.id` as a top-level attribute, so that it can be included in the data clustering specification.
-`pack.volts` | - | float | - | The cellblocks are connected in series so the pack voltage is the sum of all 14 cell voltages (`cell.volts[1-14]`).
-`pack.amps` | - | float | - | _(no change from request message)_.
-`pack.watts` | - | float | - | The product of `pack.volts` and `pack.amps`.
+`pack.volts` | volts | float | - | The cellblocks are connected in series so the pack voltage is the sum of all 14 cell voltages (`cell.volts[1-14]`).
+`pack.amps` | amps | float | - | _(no change from request message)_.
+`pack.watts` | watts | float | - | The product of `pack.volts` and `pack.amps`.
 `pack.vcl` | volts | float | - | The lowest cell voltage in `cell.volts`.
 `pack.vch` | volts | float | - | The highest cell voltage in `cell.volts`.
-`temp_top` | - | float | - | The 1st element in `pack.temp`.
-`temp_mid` | - | float | - | The 2nd element in `pack.temp`.
-`temp_bottom` | - | float | - | The 3rd element in `pack.temp`.
-`cell_nn_volts` | - | float | - | The element number corresponding to nn in `cell.volts`.
+`temp_top` | degC | float | - | The 1st element in `pack.temp`.
+`temp_mid` | degC | float | - | The 2nd element in `pack.temp`.
+`temp_bottom` | degC | float | - | The 3rd element in `pack.temp`.
+`cell_nn_volts` | volts | float | - | The element number corresponding to nn in `cell.volts`.
 `cell_nn_dvcl` | millivolts | float *(array)* | - | The millivolts difference (delta) between the lowest cell voltage (`cell.vcl`) and each cell voltage in `cell.volts`.
-`cell_nn_open` | - | float | - | The element number corresponding to nn in `cell.open`.
-`fet_in.open` | - | float | - | The 1st element in `fet.open`.
-`fet_out.open` | - | float | - | The 2nd element in `fet.open`.
-`fet_in.temp` | - | float | - | The 1st element in `fet.temp`.
-`fet_out.temp` | - | float | - | The 2nd element in `fet.temp`.
+`cell_nn_open` | open/closed | integer | - | 1 if any element in `cell.open` contains the value nn, otherwise 0.
+`fet_in.open` | open/closed | integer | - | 1 if any element in `fet.open` contains the value 1 as corresponds to `fet_in`, otherwise 0.
+`fet_out.open` | open/closed | integer | - | 1 if any element in `fet.open` contains the value 2 as corresponds to `fet_out`, otherwise 0.
+`fet_in.temp` | degC | float | - | The 1st element in `fet.temp`.
+`fet_out.temp` | degC | float | - | The 2nd element in `fet.temp`.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
 `time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
 `time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
