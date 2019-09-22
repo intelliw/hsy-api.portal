@@ -66,6 +66,7 @@ Attribute | Metric | Data | Constraint | Description
 `load_nn_watts` | watts | float | - | The product of `load.volts` and `load.amps`.
 `grid_nn_volts` | volts | float | - | The element number corresponding to nn in `grid.volts`.
 `grid_nn_amps` | amps | float | - | The element number corresponding to nn in `grid.amps`.
+`grid_nn_pf` | amps | float | *maximum 1.0* | The element number corresponding to nn in `grid.pf`.
 `grid_nn_watts` | watts | float | - | Calculated for each supply phase, based on the formula: `grid.watts` = `grid.volts` * `grid.amps` * `grid.pf` * `√3`.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
 `time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.

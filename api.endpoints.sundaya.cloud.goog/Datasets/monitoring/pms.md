@@ -147,14 +147,15 @@ Attribute | Metric | Data | Constraint | Description
 `pack.watts` | watts | float | - | The product of `pack.volts` and `pack.amps`.
 `pack.vcl` | volts | float | - | The lowest cell voltage in `cell.volts`.
 `pack.vch` | volts | float | - | The highest cell voltage in `cell.volts`.
+`pack.dock` | - | integer | 1-48 | _(no change from request message)_.
 `temp_top` | degC | float | - | The 1st element in `pack.temp`.
 `temp_mid` | degC | float | - | The 2nd element in `pack.temp`.
 `temp_bottom` | degC | float | - | The 3rd element in `pack.temp`.
 `cell_nn_volts` | volts | float | - | The element number corresponding to nn in `cell.volts`.
 `cell_nn_dvcl` | millivolts | float *(array)* | - | The millivolts difference (delta) between the lowest cell voltage (`cell.vcl`) and each cell voltage in `cell.volts`.
-`cell_nn_open` | open/closed | integer | - | 1 if any element in `cell.open` contains the value nn, otherwise 0.
-`fet_in.open` | open/closed | integer | - | 1 if any element in `fet.open` contains the value 1 as corresponds to `fet_in`, otherwise 0.
-`fet_out.open` | open/closed | integer | - | 1 if any element in `fet.open` contains the value 2 as corresponds to `fet_out`, otherwise 0.
+`cell_nn_open` | open/closed | integer | 1/0 | 1 if any element in `cell.open` contains the value nn, otherwise 0.
+`fet_in.open` | open/closed | integer | 1/0 | 1 if any element in `fet.open` contains the value 1 as corresponds to `fet_in`, otherwise 0.
+`fet_out.open` | open/closed | integer | 1/0 | 1 if any element in `fet.open` contains the value 2 as corresponds to `fet_out`, otherwise 0.
 `fet_in.temp` | degC | float | - | The 1st element in `fet.temp`.
 `fet_out.temp` | degC | float | - | The 2nd element in `fet.temp`.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
