@@ -44,9 +44,9 @@ Attribute | Metric | Data | Constraint | Description
 
 # Dataset Structure 
 
-While the request message structure described above is optimised to reduce size, the dataset structure is optimised to simplify queries for analytics. 
+While the request message structure described above is optimised to reduce size, the dataset structure is optimised to simplify queries for analytics.
 
-In particular the arrays in the request message structure are flattened and transformed into the following dataset structure, which includes additional elements.
+In particular arrays in the request message structure are flattened and transformed into the following dataset structure, which includes additional elements.
 
 - The added timestamps are based on `time_local` sent in the request message, which is replaced by these timestamps.  
 
@@ -55,15 +55,16 @@ In particular the arrays in the request message structure are flattened and tran
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
 `inverter_id` | - | string | - | Id of the Inverter charge controller. This attribute replaces `inverter.id` in the request message.
-`pv_nn_volts` | volts | float | - | The element number corresponding to nn in `pv.volts`.
-`pv_nn_amps` | amps | float | - | The element number corresponding to nn in `pv.amps`.
-`pv_nn_watts` | watts | float | - | The product of `pv.volts` and `pv.amps`.
+`pv` | - | object *(array)* | - | The `pv` array contains elements which aggregate `pv.volts` and `pv.amps` .
+`pv[].volts` | volts | float | - | The value of `volts` in the `pv` object corresponds to an element in the `pv.volts` request message array.
+`pv[].amps` | amps | float | - | The value of `amps` in the `pv` object corresponds to an element in the `pv.amps` request message array.
+`pv[].watts` | watts | float | - | The product of `pv.volts` and `pv.amps`.
 `battery.volts` | volts | float | - | _(no change from request message)_.
 `battery.amps` | amps | float | - | _(no change from request message)_.
 `battery.watts` | watts | float | - | The product of `battery.volts` and `battery.amps`.
-`load_nn_volts` | volts | float | - | The element number corresponding to nn in `load.volts`.
-`load_nn_amps` | amps | float | - | The element number corresponding to nn in `load.amps`.
-`load_nn_watts` | watts | float | - | The product of `load.volts` and `load.amps`.
+`load[].volts` | volts | float | - | The value of `volts` in the `load` object corresponds to an element in the `load.amps` request message array.
+`load[].amps` | amps | float | - | The value of `amps` in the `load` object corresponds to an element in the `load.amps` request message array.
+`load[].nn_watts` | watts | float | - | The product of `load.volts` and `load.amps`.
 `grid_nn_volts` | volts | float | - | The element number corresponding to nn in `grid.volts`.
 `grid_nn_amps` | amps | float | - | The element number corresponding to nn in `grid.amps`.
 `grid_nn_pf` | amps | float | *maximum 1.0* | The element number corresponding to nn in `grid.pf`.
@@ -86,11 +87,13 @@ Value:
 ```json
 {
     "inverter_id":"SPI-B2-01-002",
-    "pv_01": {"volts": 48, "amps": 6, "watts": 288 },
-    "pv_02": {"volts": 48, "amps": 6, "watts": 288 },
+    "pv": [
+        {"volts": 48, "amps": 6, "watts": 288 },
+        {"volts": 48, "amps": 6, "watts": 288 } ],
     "battery": {"volts": 55.1, "amps": 0.0, "watts": 0 },
-    "load_01": { "volts": 48, "amps": 1.2, "watts": 57.6 },
-    "load_02": { "volts": 48, "amps": 1.2, "watts": 57.6 },
+    "load": [
+        { "volts": 48, "amps": 1.2, "watts": 57.6 },
+        { "volts": 48, "amps": 1.2, "watts": 57.6 } ],
     "grid_01": {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
     "grid_02": {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
     "grid_03": {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
