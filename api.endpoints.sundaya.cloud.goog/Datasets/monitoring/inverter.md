@@ -55,13 +55,14 @@ In particular arrays in the request message structure are flattened and transfor
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
 `inverter_id` | - | string | - | Id of the Inverter charge controller. This attribute replaces `inverter.id` in the request message.
-`pv` | - | object *(array)* | - | The `pv` array contains elements which aggregate `pv.volts` and `pv.amps` .
+`pv[]` | - | object *(array)* | - | The `pv` array contains objects which aggregate `pv.volts` and `pv.amps` from the request message.
 `pv[].volts` | volts | float | - | The value of `volts` in the `pv` object corresponds to an element in the `pv.volts` request message array.
 `pv[].amps` | amps | float | - | The value of `amps` in the `pv` object corresponds to an element in the `pv.amps` request message array.
 `pv[].watts` | watts | float | - | The product of `pv.volts` and `pv.amps`.
 `battery.volts` | volts | float | - | _(no change from request message)_.
 `battery.amps` | amps | float | - | _(no change from request message)_.
 `battery.watts` | watts | float | - | The product of `battery.volts` and `battery.amps`.
+`load[]` | - | object *(array)* | - | The `load` array contains objects which aggregate `load.volts` and `load.amps` in the request message.
 `load[].volts` | volts | float | - | The value of `volts` in the `load` object corresponds to an element in the `load.amps` request message array.
 `load[].amps` | amps | float | - | The value of `amps` in the `load` object corresponds to an element in the `load.amps` request message array.
 `load[].nn_watts` | watts | float | - | The product of `load.volts` and `load.amps`.
