@@ -26,7 +26,7 @@ Monitoring data is collected from:
 
 The dataset is collected through a recurring schedule and appended to a time-series log. 
 
-The Monitoring Dataset links to Master data through a shared key in **Pack id** and **Case Id** respectively. 
+The Monitoring Dataset links to Master data through a shared key in **PMS id** and **Case Id** respectively. 
 
 ![PMS Data](../../images/PMSData.png)
 
