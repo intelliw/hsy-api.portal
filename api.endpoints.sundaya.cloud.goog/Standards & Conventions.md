@@ -132,8 +132,8 @@ In all other paths an API key is required and the caller must reference one of t
 
 Method | Parameter | In | Description
 --- | --- | --- | ---
-GET | `api_key` | query | GET requests may provide a key in the `api_key` query parameter, or in a `x-api-key` header  (preferred). 
-POST | `x-api-key` | header | POST requests must provide a key in the `x-api-key` header.
+GET | `api_key` | query | GET requests may provide an `api_key` query parameter, or a `x-api-key` header (preferred). 
+POST | `x-api-key` | header | POST requests must provide a `x-api-key` header.
 
 ```
 *** REQUEST ***	
@@ -141,7 +141,9 @@ POST /devices/dataset/pms HTTP/1.1
 Host: api.endpoints.sundaya.cloud.goog
 Accept: application/vnd.collection+json	
 x-api-key: X2zaSyASFGxf4PmOXtVS1Dt911PcZ4IQ8PUUMqX
+```
 
+```
 *** REQUEST ***	
 GET energy/hse/period/week/20190930T1200?api_key=X2zaSyASFGxf4PmOXt911PcZ4IQ8PUUMqX HTTP/1.1	
 Host: api.endpoints.sundaya.cloud.goog
