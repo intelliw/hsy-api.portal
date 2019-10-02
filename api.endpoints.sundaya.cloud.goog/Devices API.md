@@ -23,7 +23,7 @@ The following dataset types may be specified as the `{dataset}` parameter in a `
 
 The `/device/{device-id}/dataset/{dataset}` path allows field engineers to monitor an individual device during operation.
  
- [http:/api.endpoints.sundaya.cloud.goog/device/**{device-id}**/dataset/**{dataset}**/period/week/20150204/1](http:/api.endpoints.sundaya.cloud.goog/device/BBC-PR1202-999/dataset/BBC-MPPT/period/week/20150204/1)
+ [http:/api.endpoints.sundaya.cloud.goog/device/**{device-id}**/dataset/**{dataset}**/period/week/20150204/1](http:/api.endpoints.sundaya.cloud.goog/device/MPPT-01-002/dataset/mppt/period/week/20150204/1)
 
 - This path provide a dedicated endpoint to retrive data for an individual **device** and dataset. 
 
