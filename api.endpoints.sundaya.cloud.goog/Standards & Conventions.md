@@ -127,8 +127,9 @@ You can also request an additional key if you need to replace your key in future
 
 Each client application has its own unique key. The API gateway pre-authorises requests using this key, and references it in request logs for traceability.
 
-The 'GET' operation in path `/api/versions` does not require an API key; callers may invoke this method without a key. 
-In all other paths an API key is required and the caller must reference one of the following options to provide a key.
+The 'GET' operations in paths `/api/versions` and `/energy` do not require an API key; callers may invoke these methods without a key.
+
+In all other paths an API key is required and the caller must reference one of the following options to provide the key.
 
 Method | Parameter | In | Description
 --- | --- | --- | ---
