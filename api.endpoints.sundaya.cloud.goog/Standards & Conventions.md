@@ -125,18 +125,29 @@ You can also request an additional key if you need to replace your key in future
 
 ### API key usage
 
-The API key must be provided in all requests as a query parameter, as shown:
+Each client application has its own unique key. The API gateway pre-authorises requests using this key, and references it in request logs for traceability.
 
-Parameter | In | Description
---- | --- | ---
-`api_key` | Request header | Each client application has its own unique key. The API gateway pre-authorises requests using this key, and includes it in request logs. 
+The 'GET' operation in path `/api/versions` does not require an API key; callers may invoke this method without a key. 
+In all other paths an API key is required and the caller must reference one of the following options to provide the key.
+
+Method | Parameter | In | Description
+--- | --- | --- | ---
+GET | `api_key` | query | GET requests may provide a key in the `api_key` query parameter, or in a `x-api-key` header  (preferred). 
+POST | `x-api-key` | header | POST requests must provide a key in the `x-api-key` header.
 
 ```
 *** REQUEST ***	
-GET /energy/hse/period/week/20190204/ HTTP/1.1	
+POST /devices/dataset/pms HTTP/1.1	
 Host: api.endpoints.sundaya.cloud.goog
 Accept: application/vnd.collection+json	
-api_key: X2zaSyASFGxf4PmOitVS1Dt911PcZ4IQ8PUUMqA
+x-api-key: X2zaSyASFGxf4PmOXtVS1Dt911PcZ4IQ8PUUMqX
+
+*** REQUEST ***	
+GET energy/hse/period/week/20190930T1200?api_key=X2zaSyASFGxf4PmOXt911PcZ4IQ8PUUMqX HTTP/1.1	
+Host: api.endpoints.sundaya.cloud.goog
+Accept: application/vnd.collection+json	
+x-api-key: X2zaSyASFGxf4PmOXt911PcZ4IQ8PUUMqX
+
 ```
 
 `401 Unauthorized` is returned if the API key is not valid or does not have access to the requested path.
