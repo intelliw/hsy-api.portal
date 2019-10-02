@@ -132,8 +132,9 @@ In all other paths an API key is required and the caller must reference one of t
 
 Method | Parameter | In | Description
 --- | --- | --- | ---
-GET | `api_key` | query | GET requests may provide an `api_key` query parameter, or a `x-api-key` header (preferred). 
-POST | `x-api-key` | header | POST requests must provide a `x-api-key` header.
+GET | `api_key` | query | `api_key` query parameter is accepted only in GET requests. 
+GET | `x-api-key` | header | `x-api-key` header is preferred for GET requests.
+POST | `x-api-key` | header | POST requests must provide `x-api-key` header.
 
 ```
 *** REQUEST ***	
@@ -145,10 +146,10 @@ x-api-key: X2zaSyASFGxf4PmOXtVS1Dt911PcZ4IQ8PUUMqX
 
 ```
 *** REQUEST ***	
-GET energy/hse/period/week/20190930T1200?api_key=X2zaSyASFGxf4PmOXt911PcZ4IQ8PUUMqX HTTP/1.1	
+GET energy/hse/period/week/20190930T1200?api_key=X2zaSyASFGxf4PmOXt911PcZ4IQ8PUUMqX HTTP/1.1
 Host: api.endpoints.sundaya.cloud.goog
-Accept: application/vnd.collection+json	
-x-api-key: X2zaSyASFGxf4PmOXt911PcZ4IQ8PUUMqX
+Accept: text/html	
+api_key: X2zaSyASFGxf4PmOXt911PcZ4IQ8PUUMqX
 
 ```
 
@@ -161,8 +162,8 @@ Content-Type: application/json; charset=utf-8
 Content-Length: 286
 ```
 
-The developer portal injects an `api_key` **query** parameter for the 'Try this API' interface.
+### Portal usage
 
-This query parameter is not inspected by the API host and is required only for the portal functionality. 
+The developer portal injects a `api_key` **query** parameter when using the 'Try this API' interface for GET requests. The parameter is not inspected by the API host and is required only for portal functionality. 
 
-The `api_key` **header** parameter must also be populated and sent in the request when using the 'Try this API' interface. 
+A `x-api-key` **header** must be populated and sent when using 'Try this API' with POST requests. 
