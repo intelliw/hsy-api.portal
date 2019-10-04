@@ -125,17 +125,20 @@ You can also request an additional key if you need to replace your key in future
 
 ### API key usage
 
-Each client application has its own unique key. The API gateway pre-authorises requests using this key, and references it in request logs for traceability.
+Each client application vendor has a unique key. The API gateway pre-authorises requests using this key and references it in request logs for traceability.
 
-The 'GET' operations in paths `/api/versions` and `/energy` do not require an API key; callers may invoke these methods without a key.
+An API key is required in all paths except the following:
 
-In all other paths an API key is required and the caller must reference one of the following options to provide the key.
+- The 'GET' operations in the `/api/versions` path does not require an API key.
+
+- The 'GET' operations in the `/energy` path does not require an API key for the default site (`site=999`) which is reserved for aggregate querying.
+
+In all other paths an API key is required using one of the following options.
 
 Method | Parameter | In | Description
 --- | --- | --- | ---
 GET | `api_key` | query | `api_key` query parameter is accepted only in GET requests. 
-GET | `x-api-key` | header | `x-api-key` header is preferred for GET requests.
-POST | `x-api-key` | header | POST requests must provide `x-api-key` header.
+POST, GET | `x-api-key` | header | POST requests must provide a `x-api-key` header. This option is also preferred for GET requests.
 
 ```
 *** REQUEST ***	
