@@ -65,7 +65,9 @@ folders:
   Datasets:
     ordering:
     - monitoring
+    - master
     - system
+    - transaction
 
     folders:
       monitoring:
@@ -73,9 +75,14 @@ folders:
         - pms
         - mppt
         - inverter
+      master:
+        ordering:
+        - pms
       system:
         ordering:
         - source
+      transaction:
+        ordering:
 
 
   Implementation:
