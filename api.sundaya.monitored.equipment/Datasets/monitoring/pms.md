@@ -113,21 +113,21 @@ All other attributes are mandatory and must be present.
 
 
 ### Equipment Status
-The `status` attribute in the request message should contain a hex-encoding of the following bitmap of status fields. 
+The `status` attribute in the request message should contain a hex-encoding of the following bitmaped status fields. Bit number '0' corresponds to the least significant bit (rightmost).
 
-Bit | Status | Mnemonic | Constraint 
+Bit | Status | Mnemonic | Status 
 --- | --- | --- | --- 
-0 | Bus Connectivity | --- | --- 
-1,2 | Input Status | --- | --- 
-0 | Charging Mosfet | --- | --- 
-0 | Charging Anti Reverse Mosfet | --- | --- 
-0 | Anti Reverse Mosfet | --- | --- 
-0 | Input Current | --- | --- 
-7,8 | Load | --- | --- 
-9 | PV Input | --- | --- 
-10,11 | Charging Status | --- | --- 
-12 | System Status | --- | --- 
-13 | Standby Status | --- | --- 
+0 | Bus Connectivity | bus_connect | --- 
+1,2 | Input Status | input | --- 
+0 | Charging Mosfet | chgfet | --- 
+0 | Charging Anti Reverse Mosfet | chgfet_antirev | --- 
+0 | Anti Reverse Mosfet | fet_antirev | --- 
+0 | Input Current | input_current | --- 
+7,8 | Load | load | --- 
+9 | PV Input | pv_input | --- 
+10,11 | Charging Status | charging | --- 
+12 | System Status | system | --- 
+13 | Standby Status | standby | --- 
 
 
 ### text/csv Data
