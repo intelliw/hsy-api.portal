@@ -57,21 +57,19 @@ In particular arrays in the request message structure are flattened and transfor
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
 `inverter_id` | - | string | - | Id of the Inverter charge controller. This attribute replaces `inverter.id` in the request message.
-`pv[]` | - | object *(array)* | - | The `pv` array contains objects which aggregate `pv.volts` and `pv.amps` from the request message.
-`pv[].volts` | volts | float | - | The value of `volts` in the `pv` object corresponds to an element in the `pv.volts` request message array.
-`pv[].amps` | amps | float | - | The value of `amps` in the `pv` object corresponds to an element in the `pv.amps` request message array.
-`pv[].watts` | watts | float | - | The product of `pv.volts` and `pv.amps`.
+`pv[nn].volts` | volts | float | - | The value of the element corresponding to nn in the request `pv.volts` array.
+`pv[nn].amps` | amps | float | - | The value of the element corresponding to nn in the request `pv.amps` array.
+`pv[nn].watts` | watts | float | - | The product of `pv.volts` and `pv.amps`.
 `battery.volts` | volts | float | - | _(no change from request message)_.
 `battery.amps` | amps | float | - | _(no change from request message)_.
 `battery.watts` | watts | float | - | The product of `battery.volts` and `battery.amps`.
-`load[]` | - | object *(array)* | - | The `load` array contains objects which aggregate `load.volts` and `load.amps` in the request message.
-`load[].volts` | volts | float | - | The value of `volts` in the `load` object corresponds to an element in the `load.amps` request message array.
-`load[].amps` | amps | float | - | The value of `amps` in the `load` object corresponds to an element in the `load.amps` request message array.
-`load[].nn_watts` | watts | float | - | The product of `load.volts` and `load.amps`.
-`grid_nn_volts` | volts | float | - | The element number corresponding to nn in `grid.volts`.
-`grid_nn_amps` | amps | float | - | The element number corresponding to nn in `grid.amps`.
-`grid_nn_pf` | amps | float | *maximum 1.0* | The element number corresponding to nn in `grid.pf`.
-`grid_nn_watts` | watts | float | - | Calculated for each supply phase, based on the formula: `grid.watts` = `grid.volts` * `grid.amps` * `grid.pf` * `√3`.
+`load[nn].volts` | volts | float | - | The value of the element corresponding to nn in the request `load.volts` array.
+`load[nn].amps` | amps | float | - | The value of the element corresponding to nn in the request `load.amps` array.
+`load[nn].watts` | watts | float | - | The product of `load.volts` and `load.amps`.
+`grid[nn].volts` | volts | float | - | The value of the element corresponding to nn in the request `grid.volts` array.
+`grid[nn].amps` | amps | float | - | The value of the element corresponding to nn in the request `grid.amps` array.
+`grid[nn].pf` | amps | float | *maximum 1.0* | The value of the element corresponding to nn in the request `grid.pf` array.
+`grid_nn_watts` | watts | float | - | Calculated watts for each supply phase based on the formula: `grid.watts` = `grid.volts` * `grid.amps` * `grid.pf` * `√3`.
 `status.bus_connected` | ok/fault | integer | 1/0 | A boolean status indicating whether the device's data bus is connected or faulty. The value corresponds to bit 0 in the binary-decoded request `status`.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
 `time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.

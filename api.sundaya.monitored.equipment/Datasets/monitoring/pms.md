@@ -161,7 +161,7 @@ Attribute | Metric | Data | Constraint | Description
 `fet_in.temp` | degC | float | - | The 1st element in `fet.temp`.
 `fet_out.temp` | degC | float | - | The 2nd element in `fet.temp`.
 `status.bus_connected` | ok/fault | integer | 1/0 | A boolean status indicating whether the device's data bus is connected or faulty. The value corresponds to bit 0 in the binary-decoded request `status`.
-`status.input` | status | string | normal,no-power,high-volt-input,input-volt-error | The device's `Input Status`. The value corresponds to bits 1 and 2 in the binary-decoded request `status`.
+`status.input` | status | string | normal, no-power, high-volt-input, input-volt-error | The device's `Input Status`. The value corresponds to bits 1 and 2 in the binary-decoded request `status`.
 `status.charging_fet` | ok/short | integer | 1/0 | The devices's `Charging Mosfet` status. This value corresponds to bit 0 in the binary-decoded request `status`.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
 `time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
