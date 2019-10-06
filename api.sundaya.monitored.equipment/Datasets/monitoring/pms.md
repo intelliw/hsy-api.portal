@@ -115,19 +115,19 @@ All other attributes are mandatory and must be present.
 ### Equipment Status
 The `status` attribute in the request message should contain a hex-encoding of the following bitmaped status fields. Bit number '0' corresponds to the least significant bit (rightmost).
 
-Bit | Status | Mnemonic | Status 
+Bit | Status | Mnemonic | Status
 --- | --- | --- | --- 
-0 | Bus Connectivity | bus_connect | --- 
-1,2 | Input Status | input | --- 
-0 | Charging Mosfet | chgfet | --- 
-0 | Charging Anti Reverse Mosfet | chgfet_antirev | --- 
-0 | Anti Reverse Mosfet | fet_antirev | --- 
-0 | Input Current | input_current | --- 
-7,8 | Load | load | --- 
-9 | PV Input | pv_input | --- 
-10,11 | Charging Status | charging | --- 
-12 | System Status | system | --- 
-13 | Standby Status | standby | --- 
+0 | Bus Connectivity | bus_connect | 1=_ok_, 0=_fault_
+1,2 | Input Status | input | 0,0=_normal_, 0,1=_no-power_, 1,0=_high-volt-input_, 1,1=_input-volt-error_ 
+0 | Charging Mosfet | chgfet | 1=_ok_, 0=_short_
+0 | Charging Anti Reverse Mosfet | chgfet_antirev | 1=_ok_, 0=_short_
+0 | Anti Reverse Mosfet | fet_antirev | 1=_ok_, 0=_short_
+0 | Input Current | input_current | 1=_ok_, 0=_overcurrent_
+7,8 | Load | load | 0,0=_ok_, 0,1=_overcurrent_, 1,0=_short_, 1,1=_not-applicable_ 
+9 | PV Input | pv_input | 1=_ok_, 0=_short_
+10,11 | Charging Status | charging | 0,0=_not-charging_, 0,1=_float_, 1,0=_boost_, 1,1=_equalisation_
+12 | System Status | system | 1=_ok_, 0=_fault_
+13 | Standby Status | standby | _standby/ running_
 
 
 ### text/csv Data
