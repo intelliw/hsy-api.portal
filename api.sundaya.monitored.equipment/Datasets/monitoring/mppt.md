@@ -63,7 +63,7 @@ Attribute | Metric | Data | Constraint | Description
 `load[nn].volts` | volts | float | - | The value of the element corresponding to nn in the request `load.volts` array.
 `load[nn].amps` | amps | float | - | The value of the element corresponding to nn in the request `load.amps` array.
 `load[nn].watts` | watts | float | - | The product of `load.volts` and `load.amps`.
-`status.bus_connected` | ok/fault | integer | 1/0 | A boolean status indicating whether the device's data bus is connected or faulty. The value corresponds to bit 0 in the binary-decoded request `status`.
+`status.bus_connected` | ok/fault | integer | 1/0 | A boolean status indicating whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
 `time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
 `time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
