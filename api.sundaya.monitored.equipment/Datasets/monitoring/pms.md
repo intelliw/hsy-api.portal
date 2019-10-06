@@ -157,28 +157,39 @@ Attribute | Metric | Data | Constraint | Description
 `pack.temp_bottom` | degC | float | - | The 3rd element in `pack.temp`.
 `cell[nn].volts` | volts | float | - | The value of the element corresponding to nn in the request `cell.volts` array.
 `cell[nn].dvcl` | millivolts | float *(array)* | - | The millivolts difference (delta) between the lowest cell voltage in the pack (`pack.vcl`) and the cell voltage (`cell[nn].volts`).
-`cell[nn].open` | open/closed | integer | 1/0 | 1 if any element in the request `cell.open` array contained the value nn, otherwise 0.
-`fet_in.open` | open/closed | integer | 1/0 | 1 if any element in `fet.open` contains the value 1 as corresponds to the request's `fet_in`, otherwise 0.
-`fet_out.open` | open/closed | integer | 1/0 | 1 if any element in `fet.open` contains the value 2 as corresponds to the request's `fet_out`, otherwise 0.
+`cell[nn].open` | _open/closed_ | integer | 1/0 | 1 if any element in the request `cell.open` array contained the value nn, otherwise 0.
+`fet_in.open` | _open/closed_ | integer | 1/0 | 1 if any element in `fet.open` contains the value 1 as corresponds to the request's `fet_in`, otherwise 0.
+`fet_out.open` | _open/closed_ | integer | 1/0 | 1 if any element in `fet.open` contains the value 2 as corresponds to the request's `fet_out`, otherwise 0.
 `fet_in.temp` | degC | float | - | The 1st element in `fet.temp`.
 `fet_out.temp` | degC | float | - | The 2nd element in `fet.temp`.
-`status.``bus_connected` | ok/fault | integer | 1/0 | A boolean status indicating whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
-`status.``input` | status | string | _normal_, _no-power_, _high-volt-input_, _input-volt-error_ | The device's `Input Status`. Corresponds to bits __1__ and __2__ in the binary-decoded request `status`.
-`status.``charging_fet` | ok/short | integer | 1/0 | The devices's `Charging Mosfet` status. Corresponds to bit __3__ in the binary-decoded request `status`.
-`status.``charging_fet_antireverse` | ok/short | integer | 1/0 | The devices's `Charging Anti Reverse Mosfet` status. Corresponds to bit __4__ in the binary-decoded request `status`.
-`status.``fet_antireverse` | ok/short | integer | 1/0 | The devices's `Anti Reverse Mosfet` status. Corresponds to bit __5__ in the binary-decoded request `status`.
-`status.``input_current` | ok/overcurrent | integer | 1/0 | The devices's `Input Current` status. Corresponds to bit __6__ in the binary-decoded request `status`.
-`status.``load` | status | string | _ok_, _overcurrent_, _short_, _not-applicable_ | The device's `Load`. Corresponds to bits __7__ and __8__ in the binary-decoded request `status`.
-`status.``pv_input` | ok/short | integer | 1/0 | The devices's `PV Input` status. Corresponds to bit __9__ in the binary-decoded request `status`.
-`status.``charging` | status | string | _not-charging_, _float_, _boost_, _equalisation_ | The device's `Charging Status`. Corresponds to bits __10__ and __11__ in the binary-decoded request `status`.
-`status.``system` | ok/fault | integer | 1/0 | The devices's `System Status` status. Corresponds to bit __12__ in the binary-decoded request `status`.
-`status.``standby` | standby/running | integer | 1/0 | The devices's `Standby Status` status. Corresponds to bit __13__ in the binary-decoded request `status`.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
 `time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
 `time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
 `time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
 
-The transformed JSON structure which is sent to the message broker at the first stage of processing the `dataset/pms` POST message, and which is used to load data into the datawarehouse, is shown in the followng sample:
+### Equipment status attributes 
+
+The dataset includes the following status atrributes which are based on the hex-encoded request `status`.
+
+Attribute | Metric | Data | Constraint | Description
+--- | --- | --- | --- | ---
+`bus_connected` | _ok/fault_ | integer | 1/0 | A boolean status indicating whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
+`bus_connected` | _ok/fault_ | integer | 1/0 | A boolean status indicating whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
+`input` | status | string | _normal_, _no-power_, _high-volt-input_, _input-volt-error_ | The device's `Input Status`. Corresponds to bits __1__ and __2__ in the binary-decoded request `status`.
+`charging_fet` | _ok/short_ | integer | 1/0 | The devices's `Charging Mosfet` status. Corresponds to bit __3__ in the binary-decoded request `status`.
+`charging_fet_antireverse` | ok/short | integer | 1/0 | The devices's `Charging Anti Reverse Mosfet` status. Corresponds to bit __4__ in the binary-decoded request `status`.
+`fet_antireverse` | _ok/short_ | integer | 1/0 | The devices's `Anti Reverse Mosfet` status. Corresponds to bit __5__ in the binary-decoded request `status`.
+`input_current` | _ok/overcurrent_ | integer | 1/0 | The devices's `Input Current` status. Corresponds to bit __6__ in the binary-decoded request `status`.
+`load` | status | string | _ok_, _overcurrent_, _short_, _not-applicable_ | The device's `Load`. Corresponds to bits __7__ and __8__ in the binary-decoded request `status`.
+`pv_input` | _ok/short_ | integer | 1/0 | The devices's `PV Input` status. Corresponds to bit __9__ in the binary-decoded request `status`.
+`charging` | status | string | _not-charging_, _float_, _boost_, _equalisation_ | The device's `Charging Status`. Corresponds to bits __10__ and __11__ in the binary-decoded request `status`.
+`system` | _ok/fault_ | integer | 1/0 | The devices's `System Status` status. Corresponds to bit __12__ in the binary-decoded request `status`.
+`standby` | _standby/running_ | integer | 1/0 | The devices's `Standby Status` status. Corresponds to bit __13__ in the binary-decoded request `status`.
+
+
+### Transformed JSON message
+
+The transformed JSON structure is shown in the followng sample. This structure is sent to the message broker at the first stage of processing the `dataset/pms` POST message, and later used to load data into the datawarehouse:
 
 ```
 *** MESSAGE ***

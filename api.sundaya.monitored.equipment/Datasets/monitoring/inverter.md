@@ -70,14 +70,23 @@ Attribute | Metric | Data | Constraint | Description
 `grid[nn].amps` | amps | float | - | The value of the element corresponding to nn in the request `grid.amps` array.
 `grid[nn].pf` | amps | float | *maximum 1.0* | The value of the element corresponding to nn in the request `grid.pf` array.
 `grid_nn_watts` | watts | float | - | Calculated watts for each supply phase based on the formula: `grid.watts` = `grid.volts` * `grid.amps` * `grid.pf` * `√3`.
-`status.bus_connected` | ok/fault | integer | 1/0 | A boolean status indicating whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
 `time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
 `time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
 `time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
 
+### Equipment status attributes 
 
-The transformed JSON structure which is sent to the message broker at the first stage of processing the `dataset/pms` POST message, and which is used to load data into the datawarehouse, is shown in the followng sample:
+The dataset includes the following status atrributes which are based on the hex-encoded request `status`.
+
+Attribute | Metric | Data | Constraint | Description
+--- | --- | --- | --- | ---
+`bus_connected` | _ok/fault_ | integer | 1/0 | A boolean status indicating whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
+
+
+### Transformed JSON message
+
+The transformed JSON structure is shown in the followng sample. This structure is sent to the message broker at the first stage of processing the `dataset/inverter` POST message, and later used to load data into the datawarehouse:
 
 ```
 *** MESSAGE ***
