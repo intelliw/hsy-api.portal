@@ -33,7 +33,7 @@ POST, GET | `x-api-key` | header | POST requests must provide a `x-api-key` head
 ```
 *** REQUEST ***	
 POST /devices/dataset/pms HTTP/1.1	
-Host: api.endpoints.sundaya.cloud.goog
+Host: api.sundaya.monitored.equipment
 Accept: application/vnd.collection+json	
 x-api-key: X2zaSyASFGxf4PmOXtVS1Dt911PcZ4IQ8PUUMqX
 ```
@@ -41,7 +41,7 @@ x-api-key: X2zaSyASFGxf4PmOXtVS1Dt911PcZ4IQ8PUUMqX
 ```
 *** REQUEST ***	
 GET energy/hse/period/week/20190930T1200?api_key=X2zaSyASFGxf4PmOXt911PcZ4IQ8PUUMqX HTTP/1.1
-Host: api.endpoints.sundaya.cloud.goog
+Host: api.sundaya.monitored.equipment
 Accept: text/html	
 api_key: X2zaSyASFGxf4PmOXt911PcZ4IQ8PUUMqX
 

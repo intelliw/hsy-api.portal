@@ -3,12 +3,12 @@
 
 The API is based on REST / Hypermedia and specified in [OpenAPI v2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md). 
 
-API documentation is available through the *Sundaya Developer Portal* at [https://endpointsportal.sundaya.cloud.goog](https://endpointsportal.sundaya.cloud.goog).
+API documentation is available through the *Sundaya Developer Portal* at [https://docs.sundaya.monitored.equipment](https://docs.sundaya.monitored.equipment).
 
 
 ### Devices API
 
-The `/devices` path is for receiving monitoring data from trackable devices such as _[pms](https://endpointsportal.sundaya.cloud.goog/docs/api.endpoints.sundaya.cloud.goog/0/c/Implementation/Device%20Datasets/pms%20Dataset)_, _[mppt](https://endpointsportal.sundaya.cloud.goog/docs/api.endpoints.sundaya.cloud.goog/0/c/Implementation/Device%20Datasets/mppt%20Dataset)_, and _[inverters](https://endpointsportal.sundaya.cloud.goog/docs/api.endpoints.sundaya.cloud.goog/0/c/Implementation/Device%20Datasets/inverter%20Dataset)_.
+The `/devices` path is for receiving monitoring data from trackable devices such as _[pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Device%20Datasets/pms%20Dataset)_, _[mppt](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Device%20Datasets/mppt%20Dataset)_, and _[inverters](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Device%20Datasets/inverter%20Dataset)_.
 
 These devices continuously produce monitoring data which is then collected and uploaded by device controllers (e.g. Bus Bar Controller) and gateways (e.g. EHub Gateway) through the `/devices` API path.
 

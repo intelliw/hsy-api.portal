@@ -3,12 +3,12 @@
 
 ### GET /versions response
 
-[/api/versions](http:/api.endpoints.sundaya.cloud.goog/api/versions)
+[/api/versions](http:/api.sundaya.monitored.equipment/api/versions)
 
 ```
 *** REQUEST ***	
 GET /v HTTP/1.1	
-Host: api.endpoints.sundaya.cloud.goog
+Host: api.sundaya.monitored.equipment
 Accept: application/json
     
 *** RESPONSE ***	
