@@ -1,23 +1,34 @@
-# system.source Dataset
+# master.pms Dataset
 ---
 
-This dataset provides reference data for platform services and the data management system, including data needed for security, traceability, and data provenance. It includes configuration data needed for provisioning and commissioning monitored devices and systems.
-
+This dataset provides reference data for pack management systems.
 
 ---
 
 # Dataset Structure 
 
-The following attributes are added to request message attributes at the first stage of processing the `/devices` POST request. 
-
-The added timestamps are based on `time_local` sent in the request message, which is replaced by these timestamps.  
-
-The dataset timestamps are stored in the canonical timestamp format used for data storage ('YYYY-MM-DD HH:mm:ss.SSSS') as shown in the examples.
+The following `master.pms` attributes are joined with `monitoring.pms` data to provide dashboard views and KPI metrics. 
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
-`id` | - | string | - | The identifier of a source system which sends data. This identifier is sent as a foreign key in the `sys.source` attribute in monitoring datasets, to provide traceability and data provenance.
-`name` | - | string | - | The name of the vendor or development organisatopm responsible for the source system. 
+`case.id` | - | string | - | 
+`board.id` | - | string | - | 
+`fet.board.id` | - | string | - | 
+`cell.id.1` | - | string | - | 
+`cell.id.2` | - | string | - | 
+`cell.id.3` | - | string | - | 
+`cell.id.4` | - | string | - | 
+`cell.id.5` | - | string | - | 
+`cell.id.6` | - | string | - | 
+`cell.id.7` | - | string | - | 
+`cell.id.8` | - | string | - | 
+`cell.id.9` | - | string | - | 
+`cell.id.10` | - | string | - | 
+`cell.id.11` | - | string | - | 
+`cell.id.12` | - | string | - | 
+`cell.id.13` | - | string | - | 
+`cell.id.14` | - | string | - | 
+
 
 ```
 

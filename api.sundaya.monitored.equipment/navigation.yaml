@@ -83,8 +83,7 @@ folders:
         - source
       transaction:
         ordering:
-        - source
-
+        - installation
 
   Implementation:
     ordering:

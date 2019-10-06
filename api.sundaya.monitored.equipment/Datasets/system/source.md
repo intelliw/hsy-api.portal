@@ -12,7 +12,7 @@ The following attributes are added to request message attributes at the first st
 
 The added timestamps are based on `time_local` sent in the request message, which is replaced by these timestamps.  
 
-The dataset timestamps are stored in the canonical timestamp format used for data storage ('YYYY-MM-DD HH:mm:ss.SSSS') as shown in the examples.
+The dataset timestamps are stored in canonical timestamp format ('YYYY-MM-DD HH:mm:ss.SSSS') as shown in `monitoring` dataset examples.
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---

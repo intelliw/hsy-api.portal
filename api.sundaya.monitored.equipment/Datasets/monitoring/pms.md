@@ -136,7 +136,7 @@ In particular the arrays in the request message structure are flattened and tran
 
 - The added timestamps are based on `time_local` sent in the request message, which is replaced by these timestamps.  
 
-- The timestamps are stored in the canonical format used for data storage ('YYYY-MM-DD HH:mm:ss.SSSS') as shown in the examples.
+- timestamps are stored in canonical format ('YYYY-MM-DD HH:mm:ss.SSSS') as shown in the examples.
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
