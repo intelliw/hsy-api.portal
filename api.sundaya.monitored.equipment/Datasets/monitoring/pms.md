@@ -85,7 +85,8 @@ The following snippet shows the structure of a `pms` request:
           "pack": { "id": "0241", "dock": 1, "amps": -1.601, "temp": [35.0, 33.0, 34.0],
             "cell": { "open": [],
               "volts": [3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.91] },
-            "fet": { "open": [1, 2], "temp": [34.1, 32.2] } }
+            "fet": { "open": [1, 2], "temp": [34.1, 32.2] },
+            "status": "1A79" }
         },
 ```
 
@@ -105,6 +106,7 @@ Attribute | Metric | Data | Constraint | Description
 `cell.open` | *open/closed* | integer *(array)* | 1-14, *uniqueitems, array size 0-14* | An unordered set of unique ordinal numbers for cells  which are ‘open’ due to cell balancing. Must contain numbers from 1-14 as there are only 14 cells in a pack. For example a data value of [1,6] signifies that cell 1 and 6 are open (bypassed) to allow the other cells in the pack to charge and reach parity with this cell block. Typically the array will be empty to indicate that there is no cell balancing in effect.
 `fet.temp` | degC | float | *array size 2* | An ordered set of temperature readings for the two MOSFETS in this pack. The first is the input (CMOS) and the 2nd is the output (DMOS) MOSFET.
 `fet.open` | *open/closed* | integer *(array)* | 1-2, *uniqueitems, array size 2* | An unordered set of unique ordinal numbers for FETs which are ‘open’ due to pack balancing. The data values must be a number from 1-2 as there are only 2 FETS in each pack. For example a data value of [1,2] signifies that FETS 1 and 2 are both open.
+`status` | - | string | - | A 4-character, hex-encoded string value corresponding to a bitmap of status fields; described below in the __Equipment Status__ section.
  
 - Attributes marked as '*required on change*' (if any) may be omitted if the value has not changed since the last successful post (a POST is successful if the API server responds with a 200 level reply).
 All other attributes are mandatory and must be present.
@@ -154,10 +156,13 @@ Attribute | Metric | Data | Constraint | Description
 `cell[nn].volts` | volts | float | - | The value of the element corresponding to nn in the request `cell.volts` array.
 `cell[nn].dvcl` | millivolts | float *(array)* | - | The millivolts difference (delta) between the lowest cell voltage in the pack (`pack.vcl`) and the cell voltage (`cell[nn].volts`).
 `cell[nn].open` | open/closed | integer | 1/0 | 1 if any element in the request `cell.open` array contained the value nn, otherwise 0.
-`fet_in.open` | open/closed | integer | 1/0 | 1 if any element in `fet.open` contains the value 1 as corresponds to `fet_in`, otherwise 0.
-`fet_out.open` | open/closed | integer | 1/0 | 1 if any element in `fet.open` contains the value 2 as corresponds to `fet_out`, otherwise 0.
+`fet_in.open` | open/closed | integer | 1/0 | 1 if any element in `fet.open` contains the value 1 as corresponds to the request's `fet_in`, otherwise 0.
+`fet_out.open` | open/closed | integer | 1/0 | 1 if any element in `fet.open` contains the value 2 as corresponds to the request's `fet_out`, otherwise 0.
 `fet_in.temp` | degC | float | - | The 1st element in `fet.temp`.
 `fet_out.temp` | degC | float | - | The 2nd element in `fet.temp`.
+`status.bus_connected` | ok/fault | integer | 1/0 | A boolean status indicating whether the device's data bus is connected or faulty. The value corresponds to bit 0 in the binary-decoded request `status`.
+`status.input` | status | string | normal,no-power,high-volt-input,input-volt-error | The device's `Input Status`. The value corresponds to bits 1 and 2 in the binary-decoded request `status`.
+`status.charging_fet` | ok/short | integer | 1/0 | The devices's `Charging Mosfet` status. This value corresponds to bit 0 in the binary-decoded request `status`.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
 `time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
 `time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
@@ -195,6 +200,10 @@ Value:
         {"volts": 3.661, "dvcl": 7, "open": 0} ],
     "fet_in": {"open": 1, "temp": 34.1 },
     "fet_out": {"open": 0, "temp": 32.2 },
+    "status": { "bus_connected": 1, "input": "normal", 
+      "charging_fet": 1, "charging_fet_antireverse": 1, "fet_antireverse": 1, 
+      "input_current": 1, "load": "ok", "pv_input": 1, "charging": "not-charging", 
+      "system": 1, "standby": 1 },
     "sys": {"source": "S000" },
     "time_utc": "2019-02-09 08:00:17.0200",
     "time_local": "2019-02-09 15:00:17.0200",
