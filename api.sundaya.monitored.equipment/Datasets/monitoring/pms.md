@@ -111,6 +111,8 @@ Attribute | Metric | Data | Constraint | Description
 - Attributes marked as '*required on change*' (if any) may be omitted if the value has not changed since the last successful post (a POST is successful if the API server responds with a 200 level reply).
 All other attributes are mandatory and must be present.
 
+
+
 ### text/csv Data
 
 Requests with _content-type_ of `text/csv` must provide UTF-8 `csv` data in the request body and include a header row.
