@@ -41,10 +41,10 @@ folders:
     ordering:
     - Standards & Conventions
     - Security
-    - Overview
+    - API Overview
     
     folders:
-      Overview:
+      API Overview:
         ordering:
         - Energy API
         - Devices API
