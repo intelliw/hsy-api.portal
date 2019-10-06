@@ -42,9 +42,14 @@ folders:
     - Overview  
     - Standards & Conventions
     - Security
-    - Energy API
-    - Devices API
- 
+    - APIs
+    
+    folders:
+      APIs:
+        ordering:
+        - Energy API
+        - Devices API
+
   Examples:
     ordering:
     - GET

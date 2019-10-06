@@ -1,4 +1,4 @@
-# master.pms Dataset
+# master.pms
 ---
 
 This dataset provides reference data for pack management systems.
