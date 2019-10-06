@@ -116,7 +116,7 @@ All other attributes are mandatory and must be present.
 The `status` attribute in the request message should contain a hex-encoding of the following bitmaped status fields. Bit number '0' corresponds to the least significant bit (rightmost).
 
 Bit | Status | Mnemonic | Value | Status
---- | --- | --- | --- 
+--- | --- | --- | --- | --- 
 0 | Bus Connectivity | bus_connect | 1 | _ok_
  |  | 0 | _fault_
 
