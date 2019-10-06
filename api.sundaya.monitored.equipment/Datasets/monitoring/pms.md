@@ -148,12 +148,12 @@ Attribute | Metric | Data | Constraint | Description
 `pack.vcl` | volts | float | - | The lowest cell voltage in `cell.volts`.
 `pack.vch` | volts | float | - | The highest cell voltage in `cell.volts`.
 `pack.dock` | - | integer | 1-48 | _(no change from request message)_.
-`temp_top` | degC | float | - | The 1st element in `pack.temp`.
-`temp_mid` | degC | float | - | The 2nd element in `pack.temp`.
-`temp_bottom` | degC | float | - | The 3rd element in `pack.temp`.
-`cell_nn_volts` | volts | float | - | The element number corresponding to nn in `cell.volts`.
-`cell_nn_dvcl` | millivolts | float *(array)* | - | The millivolts difference (delta) between the lowest cell voltage (`cell.vcl`) and each cell voltage in `cell.volts`.
-`cell_nn_open` | open/closed | integer | 1/0 | 1 if any element in `cell.open` contains the value nn, otherwise 0.
+`pack.temp_top` | degC | float | - | The 1st element in `pack.temp`.
+`pack.temp_mid` | degC | float | - | The 2nd element in `pack.temp`.
+`pack.temp_bottom` | degC | float | - | The 3rd element in `pack.temp`.
+`cell[nn].volts` | volts | float | - | The value of the element corresponding to nn in the request `cell.volts` array.
+`cell[nn].dvcl` | millivolts | float *(array)* | - | The millivolts difference (delta) between the lowest cell voltage in the pack (`pack.vcl`) and the cell voltage (`cell[nn].volts`).
+`cell[nn].open` | open/closed | integer | 1/0 | 1 if any element in the request `cell.open` array contained the value nn, otherwise 0.
 `fet_in.open` | open/closed | integer | 1/0 | 1 if any element in `fet.open` contains the value 1 as corresponds to `fet_in`, otherwise 0.
 `fet_out.open` | open/closed | integer | 1/0 | 1 if any element in `fet.open` contains the value 2 as corresponds to `fet_out`, otherwise 0.
 `fet_in.temp` | degC | float | - | The 1st element in `fet.temp`.
@@ -162,7 +162,6 @@ Attribute | Metric | Data | Constraint | Description
 `time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
 `time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
 `time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
-
 
 The transformed JSON structure which is sent to the message broker at the first stage of processing the `dataset/pms` POST message, and which is used to load data into the datawarehouse, is shown in the followng sample:
 
@@ -179,26 +178,27 @@ Value:
     "pack": { "volts": 51.262, "amps": -0.625, "watts": -32.039, 
         "vcl": 3.654, "vch": 3.676, "dock": 4, 
         "temp_top": 35, "temp_mid": 33, "temp_bottom": 34 },
-    "cell_01": {"volts": 3.661, "dvcl": 7, "open": 0 },
-    "cell_02": {"volts": 3.666, "dvcl": 12, "open": 0 },
-    "cell_03": {"volts": 3.654, "dvcl": 0, "open": 0},
-    "cell_04": {"volts": 3.676, "dvcl": 22, "open": 0 },
-    "cell_05": {"volts": 3.658, "dvcl": 4, "open": 0 },
-    "cell_06": {"volts": 3.662, "dvcl": 8, "open": 0 },
-    "cell_07": {"volts": 3.660, "dvcl": 6, "open": 0 },
-    "cell_08": {"volts": 3.659, "dvcl": 5, "open": 0 },
-    "cell_09": {"volts": 3.658, "dvcl": 4, "open": 0 },
-    "cell_10": {"volts": 3.657, "dvcl": 3, "open": 0 },
-    "cell_11": {"volts": 3.656, "dvcl": 2, "open": 0 },
-    "cell_12": {"volts": 3.665, "dvcl": 11, "open": 0 },
-    "cell_13": {"volts": 3.669, "dvcl": 15, "open": 0 },
-    "cell_14": {"volts": 3.661, "dvcl": 7, "open": 0},
+    "cell": [ 
+        {"volts": 3.661, "dvcl": 7, "open": 0 },
+        {"volts": 3.666, "dvcl": 12, "open": 0 },
+        {"volts": 3.654, "dvcl": 0, "open": 0},
+        {"volts": 3.676, "dvcl": 22, "open": 0 },
+        {"volts": 3.658, "dvcl": 4, "open": 0 },
+        {"volts": 3.662, "dvcl": 8, "open": 0 },
+        {"volts": 3.660, "dvcl": 6, "open": 0 },
+        {"volts": 3.659, "dvcl": 5, "open": 0 },
+        {"volts": 3.658, "dvcl": 4, "open": 0 },
+        {"volts": 3.657, "dvcl": 3, "open": 0 },
+        {"volts": 3.656, "dvcl": 2, "open": 0 },
+        {"volts": 3.665, "dvcl": 11, "open": 0 },
+        {"volts": 3.669, "dvcl": 15, "open": 0 },
+        {"volts": 3.661, "dvcl": 7, "open": 0} ],
     "fet_in": {"open": 1, "temp": 34.1 },
     "fet_out": {"open": 0, "temp": 32.2 },
     "sys": {"source": "S000" },
     "time_utc": "2019-02-09 08:00:17.0200",
     "time_local": "2019-02-09 15:00:17.0200",
-    "time_processing": "2019-09-08 05:00:48.9830"        
+    "time_processing": "2019-09-08 05:00:48.9830"
 },
 ```
 

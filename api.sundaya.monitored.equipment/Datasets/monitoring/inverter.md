@@ -95,9 +95,10 @@ Value:
     "load": [
         { "volts": 48, "amps": 1.2, "watts": 57.6 },
         { "volts": 48, "amps": 1.2, "watts": 57.6 } ],
-    "grid_01": {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
-    "grid_02": {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
-    "grid_03": {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
+    "grid": [
+        {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
+        {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
+        {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 } ],
     "sys": {"source": "S000" },
     "time_utc":"2019-02-09 08:00:17.0220",
     "time_local":"2019-02-09 15:00:17.0220",
