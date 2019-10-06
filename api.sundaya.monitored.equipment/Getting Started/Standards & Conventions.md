@@ -8,7 +8,7 @@ API documentation is available through the *Sundaya Developer Portal* at [https:
 
 
 ## API Endpoint
-The API endpoint host is [http://api.sundaya.monitored.equipment](http://api.sundaya.monitored.equipment). 
+The API endpoint host is [https://api.sundaya.monitored.equipment](https://api.sundaya.monitored.equipment). 
 
 All requests to the API endpoint receive the latest version of the API.     
 
@@ -19,9 +19,9 @@ Client applications may request an older API version by specifying the version n
 ## Date-time Format
 Date and time parameters must be expressed in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format and must conform to [RFC3359](https://tools.ietf.org/html/rfc3339) .
 
-    http://api.sundaya.monitored.equipment/energy/{type}/{period}/{epoch}
+    https://api.sundaya.monitored.equipment/energy/{type}/{period}/{epoch}
 
-e.g. [http:/api.sundaya.monitored.equipment/energy/hse/period/week/20190210](http:/api.sundaya.monitored.equipment/energy/hse/period/week/20190210)
+e.g. [https:/api.sundaya.monitored.equipment/energy/hse/period/week/20190210](https:/api.sundaya.monitored.equipment/energy/hse/period/week/20190210)
 
 The compressed version of ISO 8601 is required, without semi colons and with `T` as the time designator, as shown in examples below.
 
@@ -36,7 +36,7 @@ The supported timezone formats are described below with examples:
 
     example: *0930 UTC == 1630 WIB (Indonesian Western Standard Time)*
     
-    [http://api.sundaya.monitored.equipment/energy/hse/period/hour/20190209T0930Z](http://api.sundaya.monitored.equipment/energy/hse/period/hour/20190209T0930Z "Z signifies time zone as UTC") 
+    [https://api.sundaya.monitored.equipment/energy/hse/period/hour/20190209T0930Z](https://api.sundaya.monitored.equipment/energy/hse/period/hour/20190209T0930Z "Z signifies time zone as UTC") 
 
 - __Local__ time with UTC offset, represented with a trailing `+/-` offset from UTC (e.g. `+0700`) 
     
@@ -44,7 +44,7 @@ The supported timezone formats are described below with examples:
 
     example: *1630 WIB == 0930 UTC*
 
-    [http://api.sundaya.monitored.equipment/energy/hse/period/hour/20190209T1630+0700](http://api.sundaya.monitored.equipment/energy/hse/period/hour/20190209T1630+0700 "+0700 is JKT offset from  UTC")
+    [https://api.sundaya.monitored.equipment/energy/hse/period/hour/20190209T1630+0700](https://api.sundaya.monitored.equipment/energy/hse/period/hour/20190209T1630+0700 "+0700 is JKT offset from  UTC")
 
 Local time without offset (and therefore location unspecified) is not supported.
 
