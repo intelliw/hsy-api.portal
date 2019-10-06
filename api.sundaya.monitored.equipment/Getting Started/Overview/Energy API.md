@@ -1,3 +1,41 @@
+
+# Energy API
+
+The `/energy` path provides time-windowed data for four **Energy Types** :`harvest`, `store`, `enjoy`, `grid`. 
+
+The API consolidates data for all four energy types in the requested period (week, month etc.).
+
+API consumers use this data to manage and optimise their energy assets, through graphical views and by scheduling energy use at preferred times (through the `/devices` path).
+
+The following table summarises the four **Energy Types** and examples of their data sources (devices). 
+
+Energy | Assets | Devices
+--- | --- | ---
+`harvest` | Renewables | PV Modules, Maximum Power Point Trackers (MPPT)
+`store` | Storage | Busbar Controllers (BBC), Pack Management Systems (PMS)
+`enjoy` | Appliances | Multicore-Cable Current Sensors, Switchboard Clamp Sensors
+`grid` | Mains Electricity | Smart Meters, PV Grid-interactive Inverters
+
+
+### Energy Flows
+
+To restate the Law of Conservation of Energy in this API's terms: Energy flows are based on a "double entry" format where each flow has an equal and opposite flow, expressed with positive and negative values in the data. 
+
+Positive and negative flows in a time period will produce data elements which sum to zero.
+
+The following 6 data elements represent energy flowsin API paths and responses. 
+
+Each data element refers to a subset of the overall energy dataset. 
+
+- `store.in` and `store.out` indicate *charge* and *discharge* flows for batteries.
+
+- `grid.in` and `grid.out` indicate mains use, and feed-in/out flows from the public grid.
+
+- `harvest` refers to renewable energy generation. 
+
+- `enjoy` indicates energy use by end users and appliances. 
+
+
 # /energy GET
 ---
 
@@ -113,7 +151,6 @@ The following table shows a set of links provided with energy data for a *week* 
 ![Links in energy data](/images/collection-links-table.png)
 
 
-
 ### Link-relation types
 
 The `rel` attribute of links in `application/vnd.collection+json` responses contain the one of the following registered link-relation types. 
@@ -153,3 +190,53 @@ The page displays labels and hyperlink elements from the hypermedia dataset as s
 ![Data element mappings for graph rendering](/images/graph.data-mappings.png)
 
 ---
+
+# Visualisations
+---
+The API is primarily intended to help depict energy flows in graphical views, as time-windowed energy flow from 'sources' at the top, to 'sinks' at the bottom. 
+
+Sources | Sinks    
+--- |---
+`harvest` `store.out` `grid.out` |`enjoy` `store.in` `grid.in`
+
+For any given time window the net flows from source and sink data elements will sum to zero. 
+
+This is best depicted in a stacked bar graph with up and down bars of the same size, as shown in the following monthly `period` graph.
+
+![Monthly usage example](/images/graph.monthly-usage.png)
+
+**Colours**
+
+The standard colours for each data element type is shown below.
+
+![Colour codes & energy sources](/images/energy.colour-codes.png)
+
+**Top tier**
+
+- _Green_ represents renewable energy generation (`harvest`) and is always shown in the top tier.
+- _Black_ in the top tier shows energy drawn from the grid (`grid.out`).
+- _Blue_ in the top tier shows energy *discharge* from batteries (`store.out`).
+
+**Bottom tier**
+
+- _Red_ represents energy consumption (`enjoy`) and is always shown in the bottom tier.
+- _Black_ in the bottom tier shows a net excess (of `harvest` energy, compared to `store.in` and `enjoy` energy volumes), resulting in feed-in flows to the grid (`grid.in`).
+- _Blue_ in the bottom tier shows battery *charge* (`store.in`) again due to a net excess of `harvest` energy.
+
+### Example
+
+A graph with lot of _Black_ in the top tier indicates an opportunity to optimise long term costs.  
+
+In general it indicates a need for more battery capacity and/or `harvest` generation capacity. 
+
+![Stacked bar graph format](/images/graph.stacked-bar-example.png)
+
+The example shows the following behaviour:
+- In the 1st hour all `enjoy` energy came from the battery (`store.out`). 
+- In the 2nd hour half came from battery and the other half from grid (`grid.out`). 
+- In the 3rd hour all came from the grid.
+- In the 4th hour the sun starts delivering (`harvest`)
+- In the 10th hour harvest data is more than enjoy and the energy flows into store (`store.in`)
+ 
+Note: To query specific assets, API consumers can also filter requests by `category`, `subcategory`, and `productType` (in the request *Body*).
+

@@ -1,12 +1,18 @@
 # Standards & Conventions
 ---
 
-## Versions
+## API specification
+The API is based on REST / Hypermedia and specified in [OpenAPI v2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md). 
+
+API documentation is available through the *Sundaya Developer Portal* at [https://docs.sundaya.monitored.equipment](https://docs.sundaya.monitored.equipment).
+
+
+## API Endpoint
 The API endpoint host is [http://api.sundaya.monitored.equipment](http://api.sundaya.monitored.equipment). 
 
 All requests to the API endpoint receive the latest version of the API.     
 
-Client applications may request a specific version through the `Accept` header.
+Client applications may request an older API version by specifying the version number in the `Accept` header.
 
     Accept: application/vnd.sundaya.v1.0+yaml
 

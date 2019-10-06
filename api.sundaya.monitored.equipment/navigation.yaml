@@ -39,13 +39,12 @@ folders:
 
   Getting Started:
     ordering:
-    - Overview  
     - Standards & Conventions
     - Security
-    - APIs
+    - Overview
     
     folders:
-      APIs:
+      Overview:
         ordering:
         - Energy API
         - Devices API
