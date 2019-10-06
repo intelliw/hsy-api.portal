@@ -103,9 +103,9 @@ Attribute | Metric | Data | Constraint | Description
 `pack.amps` | amps | float [+/-] | - | The current draw for this pack. The value is positive for charge current and negative when discharging. 
 `pack.temp` | degC | float *(array)* | *array size 3* | An ordered set of 3 temperature readings in degC, for the temperature of the cell-pack at its top, middle, and bottom. The array position of  each value is significant: the 1st value applies to the top of the pack, 2nd to the middle, and 3rd to the bottom. 
 `cell.volts` | volts | float *(array)* | *array size 14* | An ordered set of 14 Voltage readings for 14 cellblocks in this pack. Each value in the data array applies to a cell number based on its position in the array. For example the 2nd value in the data array is the data for the 2nd cell in the pack. The pack voltage is not included in the monitoring dataset: as cellblocks are connected in series the pack voltage is calculated later as the sum of all 14 cell voltages.
-`cell.open` | *open/closed* | integer *(array)* | 1-14, *uniqueitems, array size 0-14* | An unordered set of unique ordinal numbers for cells  which are ‘open’ due to cell balancing. Must contain numbers from 1-14 as there are only 14 cells in a pack. For example a data value of [1,6] signifies that cell 1 and 6 are open (bypassed) to allow the other cells in the pack to charge and reach parity with this cell block. Typically the array will be empty to indicate that there is no cell balancing in effect.
+`cell.open` | *open/ closed* | integer *(array)* | 1-14, *uniqueitems, array size 0-14* | An unordered set of unique ordinal numbers for cells  which are ‘open’ due to cell balancing. Must contain numbers from 1-14 as there are only 14 cells in a pack. For example a data value of [1,6] signifies that cell 1 and 6 are open (bypassed) to allow the other cells in the pack to charge and reach parity with this cell block. Typically the array will be empty to indicate that there is no cell balancing in effect.
 `fet.temp` | degC | float | *array size 2* | An ordered set of temperature readings for the two MOSFETS in this pack. The first is the input (CMOS) and the 2nd is the output (DMOS) MOSFET.
-`fet.open` | *open/closed* | integer *(array)* | 1-2, *uniqueitems, array size 2* | An unordered set of unique ordinal numbers for FETs which are ‘open’ due to pack balancing. The data values must be a number from 1-2 as there are only 2 FETS in each pack. For example a data value of [1,2] signifies that FETS 1 and 2 are both open.
+`fet.open` | *open/ closed* | integer *(array)* | 1-2, *uniqueitems, array size 2* | An unordered set of unique ordinal numbers for FETs which are ‘open’ due to pack balancing. The data values must be a number from 1-2 as there are only 2 FETS in each pack. For example a data value of [1,2] signifies that FETS 1 and 2 are both open.
 `status` | - | string | - | A 4-character, hex-encoded string value corresponding to a bitmap of status fields; described below in the __Equipment Status__ section.
  
 - Attributes marked as '*required on change*' (if any) may be omitted if the value has not changed since the last successful post (a POST is successful if the API server responds with a 200 level reply).
@@ -157,9 +157,9 @@ Attribute | Metric | Data | Constraint | Description
 `pack.temp_bottom` | degC | float | - | The 3rd element in `pack.temp`.
 `cell[nn].volts` | volts | float | - | The value of the element corresponding to nn in the request `cell.volts` array.
 `cell[nn].dvcl` | millivolts | float *(array)* | - | The millivolts difference (delta) between the lowest cell voltage in the pack (`pack.vcl`) and the cell voltage (`cell[nn].volts`).
-`cell[nn].open` | _open/closed_ | integer | 1/0 | 1 if any element in the request `cell.open` array contained the value nn, otherwise 0.
-`fet_in.open` | _open/closed_ | integer | 1/0 | 1 if any element in `fet.open` contains the value 1 as corresponds to the request's `fet_in`, otherwise 0.
-`fet_out.open` | _open/closed_ | integer | 1/0 | 1 if any element in `fet.open` contains the value 2 as corresponds to the request's `fet_out`, otherwise 0.
+`cell[nn].open` | _open/ closed_ | integer | 1/0 | 1 if any element in the request `cell.open` array contained the value nn, otherwise 0.
+`fet_in.open` | _open/ closed_ | integer | 1/0 | 1 if any element in `fet.open` contains the value 1 as corresponds to the request's `fet_in`, otherwise 0.
+`fet_out.open` | _open/ closed_ | integer | 1/0 | 1 if any element in `fet.open` contains the value 2 as corresponds to the request's `fet_out`, otherwise 0.
 `fet_in.temp` | degC | float | - | The 1st element in `fet.temp`.
 `fet_out.temp` | degC | float | - | The 2nd element in `fet.temp`.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
@@ -173,18 +173,18 @@ The dataset includes the following status atrributes which are based on the hex-
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
-`bus_connected` | _ok/fault_ | integer | 1/0 | A boolean status indicating whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
-`bus_connected` | _ok/fault_ | integer | 1/0 | A boolean status indicating whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
+`bus_connected` | _ok/ fault_ | integer | 1/0 | A boolean status indicating whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
+`bus_connected` | _ok/ fault_ | integer | 1/0 | A boolean status indicating whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
 `input` | status | string | _normal_, _no-power_, _high-volt-input_, _input-volt-error_ | The device's `Input Status`. Corresponds to bits __1__ and __2__ in the binary-decoded request `status`.
-`charging_fet` | _ok/short_ | integer | 1/0 | The devices's `Charging Mosfet` status. Corresponds to bit __3__ in the binary-decoded request `status`.
+`charging_fet` | _ok/ short_ | integer | 1/0 | The devices's `Charging Mosfet` status. Corresponds to bit __3__ in the binary-decoded request `status`.
 `charging_fet_antireverse` | ok/short | integer | 1/0 | The devices's `Charging Anti Reverse Mosfet` status. Corresponds to bit __4__ in the binary-decoded request `status`.
-`fet_antireverse` | _ok/short_ | integer | 1/0 | The devices's `Anti Reverse Mosfet` status. Corresponds to bit __5__ in the binary-decoded request `status`.
-`input_current` | _ok/overcurrent_ | integer | 1/0 | The devices's `Input Current` status. Corresponds to bit __6__ in the binary-decoded request `status`.
+`fet_antireverse` | _ok/ short_ | integer | 1/0 | The devices's `Anti Reverse Mosfet` status. Corresponds to bit __5__ in the binary-decoded request `status`.
+`input_current` | _ok/ overcurrent_ | integer | 1/0 | The devices's `Input Current` status. Corresponds to bit __6__ in the binary-decoded request `status`.
 `load` | status | string | _ok_, _overcurrent_, _short_, _not-applicable_ | The device's `Load`. Corresponds to bits __7__ and __8__ in the binary-decoded request `status`.
-`pv_input` | _ok/short_ | integer | 1/0 | The devices's `PV Input` status. Corresponds to bit __9__ in the binary-decoded request `status`.
+`pv_input` | _ok/ short_ | integer | 1/0 | The devices's `PV Input` status. Corresponds to bit __9__ in the binary-decoded request `status`.
 `charging` | status | string | _not-charging_, _float_, _boost_, _equalisation_ | The device's `Charging Status`. Corresponds to bits __10__ and __11__ in the binary-decoded request `status`.
-`system` | _ok/fault_ | integer | 1/0 | The devices's `System Status` status. Corresponds to bit __12__ in the binary-decoded request `status`.
-`standby` | _standby/running_ | integer | 1/0 | The devices's `Standby Status` status. Corresponds to bit __13__ in the binary-decoded request `status`.
+`system` | _ok/ fault_ | integer | 1/0 | The devices's `System Status` status. Corresponds to bit __12__ in the binary-decoded request `status`.
+`standby` | _standby/ running_ | integer | 1/0 | The devices's `Standby Status` status. Corresponds to bit __13__ in the binary-decoded request `status`.
 
 
 ### Transformed JSON message
