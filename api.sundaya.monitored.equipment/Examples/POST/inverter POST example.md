@@ -15,7 +15,7 @@ The following snippet shows the structure of an `inverter` request:
           "battery": { "volts" : 55.1, "amps": 0.0 }, 
           "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2] }, 
           "grid": { "volts": [48.000, 48.000, 48.000], "amps": [1.2, 1.2, 1.2], "pf": [0.92, 0.92, 0.92] },
-          "status": "1A79"
+          "status": "0001"
         },
 ```
 

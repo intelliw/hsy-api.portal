@@ -15,7 +15,7 @@ The following snippet shows the structure of a `pms` request:
             "cell": { "open": [],
               "volts": [3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.91] },
             "fet": { "open": [1, 2], "temp": [34.1, 32.2] },
-            "status": "1A79" }
+            "status": "0001" }
         },
 ```
 
