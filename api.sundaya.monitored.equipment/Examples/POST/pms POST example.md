@@ -56,7 +56,7 @@ Bit   | Status                        | Field Name        | Value | ..
 ---   | ---                           | ---               | ---   | ---  
 0     | Bus Connectivity              | `bus_connect`     | 1     | _ok_
 ..    |                               |                   | 0     | _fault_
-1-15  | _unused_                      | -                 | -     | -
+1-15  | _unused_                      | -                 | 0     | -
 
 ### text/csv Data
 

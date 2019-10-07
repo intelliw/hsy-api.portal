@@ -78,7 +78,7 @@ Bit # | Status                        | Field Name        | Value | ..
 ..    |                               |                   | 0     | _fault_
 13    | Standby Status                | `standby`         | 1     | _standby_
 ..    |                               |                   | 0     | _running_
-14-15 | _unused_                      | -                 | -     | -
+14-15 | _unused_                      | -                 | 0     | -
 
 
 
