@@ -32,15 +32,16 @@ Attribute | Metric | Data | Constraint | Description
 `grid[nn].volts` | volts | float | - | The value of the element corresponding to nn in the request `grid.volts` array.
 `grid[nn].amps` | amps | float | - | The value of the element corresponding to nn in the request `grid.amps` array.
 `grid[nn].pf` | amps | float | *maximum 1.0* | The value of the element corresponding to nn in the request `grid.pf` array.
-`grid_nn_watts` | watts | float | - | Calculated watts for each supply phase based on the formula: `grid.watts` = `grid.volts` * `grid.amps` * `grid.pf` * `√3`.
+`grid[nn].watts` | watts | float | - | Calculated watts for each supply phase based on the formula: `grid.watts` = `grid.volts` * `grid.amps` * `grid.pf` * `√3`.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
-`time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
-`time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
+`time_event` | - | datetime | - | The UTC time of the event which produced this data sample.
+`time_zone` | - | string | - | The time offset in the time zone of the event which produced this data sample. The offset value is in '+/-HH:MM" format.
 `time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
+
 
 ### Equipment status attributes 
 
-The dataset includes the following status atrributes which are based on the hex-encoded request `status`.
+The dataset includes the following status attributes which are based on the hex-encoded request `status`.
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
@@ -74,12 +75,12 @@ Value:
         {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 } ],
     "status": { "bus_connected": 1 },    
     "sys": {"source": "S000" },
-    "time_utc":"2019-02-09 08:00:17.0220",
-    "time_local":"2019-02-09 15:00:17.0220",
+    "time_event":"2019-02-09 08:00:17.0220",
+    "time_zone":"+07:00",
     "time_processing":"2019-09-10 04:11:09.2930"
 },
 ```
 
 ### Partitions and clustering
 
-__inverter__ dataset tables are partitioned based on `time_local` and clustered by `inverter_id`.
+__inverter__ dataset tables are partitioned based on `time_event` and clustered by `inverter_id`.

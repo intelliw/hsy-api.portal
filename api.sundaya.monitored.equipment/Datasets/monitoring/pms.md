@@ -15,7 +15,8 @@ A Case contains 14 **Cell Blocks**, 1 **Fet Board**, and 1 **Acqu. Board**.
 PMS data consists of two distinct datasets, _Monitoring_ data and _Transaction/Master_ data, which are joined through a relationship as shown in the model below:
 
 ![PMS System](../../images/PMSComposite.png)
-### Monitoring Data
+
+### Monitoring data
 
 PMS monitoring data streams in as a time-series unbounded dataset. The data is schedule-driven (e.g. every 5 seconds) and is append-only.
 
@@ -104,28 +105,18 @@ Attribute | Metric | Data | Constraint | Description
 `fet_in.temp` | degC | float | - | The 1st element in `fet.temp`.
 `fet_out.temp` | degC | float | - | The 2nd element in `fet.temp`.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
-`time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
-`time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
+`time_event` | - | datetime | - | The UTC time of the event which produced this data sample.
+`time_zone` | - | string | - | The time offset in the time zone of the event which produced this data sample. The offset value is in '+/-HH:MM" format.
 `time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
+
 
 ### Equipment status attributes 
 
-The dataset includes the following status atrributes which are based on the hex-encoded request `status`.
+The dataset includes the following status attributes which are based on the hex-encoded request `status`.
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
-`bus_connected` | _ok/fault_ | integer | 1/0 | The devices's `Bus Connectivvity` status. Indicated whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
-`bus_connect` | _ok/fault_ | integer | 1/0 | A boolean status indicating whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
-`input` | status | string | _normal_, _no-power_, _high-volt-input_, _input-volt-error_ | The device's `Input Status`. Corresponds to bits __1__ and __2__ in the binary-decoded request `status`.
-`chgfet` | _ok/short_ | integer | 1/0 | The devices's `Charging Mosfet` status. Corresponds to bit __3__ in the binary-decoded request `status`.
-`chgfet_antirev` | _ok/short_ | integer | 1/0 | The devices's `Charging Anti Reverse Mosfet` status. Corresponds to bit __4__ in the binary-decoded request `status`.
-`fet_antirev` | _ok/short_ | integer | 1/0 | The devices's `Anti Reverse Mosfet` status. Corresponds to bit __5__ in the binary-decoded request `status`.
-`input_current` | _ok/ overcurrent_ | integer | 1/0 | The devices's `Input Current` status. Corresponds to bit __6__ in the binary-decoded request `status`.
-`load` | status | string | _ok_, _overcurrent_, _short_, _not-applicable_ | The device's `Load`. Corresponds to bits __7__ and __8__ in the binary-decoded request `status`.
-`pv_input` | _ok/short_ | integer | 1/0 | The devices's `PV Input` status. Corresponds to bit __9__ in the binary-decoded request `status`.
-`charging` | status | string | _not-charging_, _float_, _boost_, _equalisation_ | The device's `Charging Status`. Corresponds to bits __10__ and __11__ in the binary-decoded request `status`.
-`system` | _ok/fault_ | integer | 1/0 | The devices's `System Status`. Corresponds to bit __12__ in the binary-decoded request `status`.
-`standby` | _standby/ running_ | integer | 1/0 | The devices's `Standby Status`. Corresponds to bit __13__ in the binary-decoded request `status`.
+`bus_connect` | _ok/fault_ | integer | 1/0 | The devices's `Bus Connectivvity` status. Indicated whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
 
 
 ### Transformed JSON message
@@ -167,12 +158,12 @@ Value:
       "input_current": 1, "load": "ok", "pv_input": 1, "charging": "not-charging", 
       "system": 1, "standby": 1 },
     "sys": {"source": "S000" },
-    "time_utc": "2019-02-09 08:00:17.0200",
-    "time_local": "2019-02-09 15:00:17.0200",
+    "time_event": "2019-02-09 08:00:17.0200",
+    "time_zone": "+07:00",
     "time_processing": "2019-09-08 05:00:48.9830"
 },
 ```
 
 ### Partitions and clustering
 
-__pms__ dataset tables are partitioned based on `time_local` and clustered by `pms_id` and `pack_id`.
+__pms__ dataset tables are partitioned based on `time_event` and clustered by `pms_id` and `pack_id`.

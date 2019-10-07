@@ -8,11 +8,7 @@ This dataset provides reference data for platform services and the data manageme
 
 # Dataset Structure 
 
-The following attributes are added to request message attributes at the first stage of processing the `/devices` POST request. 
-
-The added timestamps are based on `time_local` sent in the request message, which is replaced by these timestamps.  
-
-The dataset timestamps are stored in canonical timestamp format ('YYYY-MM-DD HH:mm:ss.SSSS') as shown in `monitoring` dataset examples.
+The following attributes are present in the `system.source` dataset tab. 
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---

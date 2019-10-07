@@ -31,14 +31,14 @@ Trackable devices are composites made of the following types:
 
 ### Partitioning and Clustering
 
-All `monitoring` dataset Tables are partitioned based on the `time_local` field, into daily segments, to reduce cost and improve performance. 
+All `monitoring` dataset Tables are partitioned based on the `time_event` field, into daily segments, to reduce cost and improve performance. 
 
-Queries require a mandatory predicate filter (a WHERE clause) for the `time_local` attribute to limit the number of partitions scanned, as shown in this example.
+Queries require a mandatory predicate filter (a WHERE clause) for the `time_event` attribute to limit the number of partitions scanned, as shown in this example.
 
 ```sql
 SELECT 	pms_id, pack.id, cell.vcl, cell.vch, cell.dvcl
 FROM `sundaya.monitoring.pms`
-WHERE time_local BETWEEN '2019-02-09' AND '2019-02-12'
+WHERE time_event BETWEEN '2019-02-09' AND '2019-02-12'
 AND pms_id IN ('PMS-01-002', 'PMS-01-002')
 ```
 
