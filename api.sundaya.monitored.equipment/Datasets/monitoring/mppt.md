@@ -78,7 +78,10 @@ Value:
     "load": [ 
         { "volts": 48, "amps": 1.2, "watts": 57.6 },
         { "volts": 48, "amps": 1.2, "watts": 57.6 } ],
-    "status": { "bus_connected": 1 },
+    "status": { "bus_connect": 1, "input": "normal", 
+      "chgfet": 1, "chgfet_antirev": 1, "fet_antirev": 1, 
+      "input_current": 1, "load": "ok", "pv_input": 1, "charging": "not-charging", 
+      "system": 1, "standby": 1 },
     "sys": {"source": "S000" },
     "time_event": "2019-02-09 08:00:07.0320",
     "time_zone": "+07:00",
