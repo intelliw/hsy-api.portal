@@ -112,6 +112,7 @@ Attribute | Metric | Data | Constraint | Description
 All other attributes are mandatory and must be present.
 
 
+
 ### Equipment Status
 The `status` attribute in the request message should contain a hex-encoding of the following bitmaped status fields. 
 

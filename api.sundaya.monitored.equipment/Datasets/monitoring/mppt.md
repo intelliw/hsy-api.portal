@@ -38,6 +38,19 @@ Attribute | Metric | Data | Constraint | Description
 `load.amps` | amps | float *(array)* | *array size 1-2* | An ordered set of Current readings for connected Loads  (corresponding to values in `load.volts`).
 `status` | - | string | - | A 4-character, hex-encoded string value corresponding to a bitmap of status fields; described in the __Equipment Status__ section below.
 
+
+
+### Equipment Status
+The `status` attribute in the request message should contain a hex-encoding of the following bitmaped status fields. 
+
+Bit '0' corresponds to the least significant bit (the right-most).
+
+Bit   | Field Name                   | Mnemonic          | Value | Status
+---   | ---                           | ---               | ---   | ---  
+0     | Bus Connectivity              | `bus_connect`     | 1     | _ok_
+..    |                               |                   | 0     | _fault_
+
+
 --- 
 
 # Dataset Structure 
