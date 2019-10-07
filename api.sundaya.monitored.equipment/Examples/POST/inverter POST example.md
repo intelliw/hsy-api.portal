@@ -39,7 +39,6 @@ Attribute | Metric | Data | Constraint | Description
 `status` | - | string | - | A 4-character, hex-encoded string value corresponding to a bitmap of status fields; described in the __Equipment status__ section below.
 
 
-
 ### Equipment status
 The `status` attribute in the request message should contain a hex-encoding of the following bitmaped status fields. 
 

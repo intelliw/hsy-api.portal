@@ -1,13 +1,13 @@
 # monitoring.inverter
 ---
 
-# Dataset Source
+# Source system
 
 ![Inverter Data](../../images/InverterData.png)
 
 --- 
 
-# Dataset Structure 
+# Dataset structure 
 
 While the request message structure described above is optimised to reduce size, the dataset structure is optimised to simplify queries for analytics.
 
@@ -80,6 +80,6 @@ Value:
 },
 ```
 
-### Partitions and Clustering
+### Partitions and clustering
 
 __inverter__ dataset tables are partitioned based on `time_local` and clustered by `inverter_id`.
