@@ -115,10 +115,10 @@ All other attributes are mandatory and must be present.
 ### Equipment Status
 The `status` attribute in the request message should contain a hex-encoding of the following bitmaped status fields. Bit number '0' corresponds to the least significant bit (rightmost).
 
-Bit # | | Status | Mnemonic | Value | | Status
---- | --- | --- | --- | --- | --- | --- | --- 
-0 |   | Bus Connectivity  | `bus_connect` | 1/0 |   | _ok/fault_
-1 | 2 | Input Status      | `input`       | 0   | 0 | _normal_
+Bit   | Status Name       | Mnemonic      | Value | Status
+---   | ---               | ---           | ---   | ---  
+0     | Bus Connectivity  | `bus_connect` | 1/|0  | _ok/fault_
+1, 2  | Input Status      | `input`       | 0, 0  | _normal_
 
  |  |  |  | 0,1 | _no-power_
  |  |  |  | 1,0 | _high-volt-input_
