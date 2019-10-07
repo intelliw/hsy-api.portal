@@ -97,11 +97,11 @@ Attribute | Metric | Data | Constraint | Description
 `pack.temp_top` | degC | float | - | The 1st element in `pack.temp`.
 `pack.temp_mid` | degC | float | - | The 2nd element in `pack.temp`.
 `pack.temp_bottom` | degC | float | - | The 3rd element in `pack.temp`.
-`cell[nn].volts` | volts | float | - | The value of the element corresponding to nn in the request `cell.volts` array.
+`cell[nn].volts` | volts | float | - | The value corresponding to nn in the request `cell.volts` array.
 `cell[nn].dvcl` | millivolts | float *(array)* | - | The millivolts difference (delta) between the lowest cell voltage in the pack (`pack.vcl`) and the cell voltage (`cell[nn].volts`).
-`cell[nn].open` | _open/closed_ | integer | 1/0 | 1 if any element in the request `cell.open` array contained the value nn, otherwise 0.
-`fet_in.open` | _open/closed_ | integer | 1/0 | 1 if any element in `fet.open` contains the value 1 as corresponds to the request's `fet_in`, otherwise 0.
-`fet_out.open` | _open/closed_ | integer | 1/0 | 1 if any element in `fet.open` contains the value 2 as corresponds to the request's `fet_out`, otherwise 0.
+`cell[nn].open` | _open/closed_ | integer | _true/ false_ | 1 if any element in the request `cell.open` array contained the value nn, otherwise 0.
+`fet_in.open` | _open/closed_ | integer | _true/ false_ | 1 if any element in `fet.open` contains the value 1 as corresponds to the request's `fet_in`, otherwise 0.
+`fet_out.open` | _open/closed_ | integer | _true/ false_ | 1 if any element in `fet.open` contains the value 2 as corresponds to the request's `fet_out`, otherwise 0.
 `fet_in.temp` | degC | float | - | The 1st element in `fet.temp`.
 `fet_out.temp` | degC | float | - | The 2nd element in `fet.temp`.
 `status` | - | status | - | A set of status fields in a complex type which is described in __Equipment status__ section below.
@@ -117,7 +117,7 @@ The dataset includes the following status attributes which are based on the hex-
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
-`bus_connect` | _ok/fault_ | integer | 1/0 | The devices's `Bus Connectivvity` status. Indicated whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
+`bus_connect` | _ok/fault_ | integer | _true/ false_ | The devices's `Bus Connectivvity` status. Indicated whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
 
 
 ### Transformed JSON message

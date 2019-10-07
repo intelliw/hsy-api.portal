@@ -20,15 +20,14 @@ In particular the arrays in the request message structure are flattened and tran
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
 `mppt_id` | - | string | - | Id of the MPPT charge controller. This attribute replaces `mppt.id` in the request message.
-`pv[nn].volts` | volts | float | - | The value of the element corresponding to nn in the request `pv.volts` array.
-`pv[nn].amps` | amps | float | - | The value of the element corresponding to nn in the request `pv.amps` array.
+`pv[nn].volts` | volts | float | - | The value corresponding to nn in the request `pv.volts` array.
+`pv[nn].amps` | amps | float | - | The value corresponding to nn in the request `pv.amps` array.
 `pv[nn].watts` | watts | float | - | The product of `pv.volts` and `pv.amps`.
 `battery.volts` | volts | float | - | _(no change from request message)_.
 `battery.amps` | amps | float | - | _(no change from request message)_.
 `battery.watts` | watts | float | - | The product of `battery.volts` and `battery.amps`.
-`load[nn]` | - | object *(array)* | - | The `load` array contains elements which correspond to `load.volts[nn]` and `load.amps[nn]` in the request message.
-`load[nn].volts` | volts | float | - | The value of the element corresponding to nn in the request `load.volts` array.
-`load[nn].amps` | amps | float | - | The value of the element corresponding to nn in the request `load.amps` array.
+`load[nn].volts` | volts | float | - | The value corresponding to nn in the request `load.volts` array.
+`load[nn].amps` | amps | float | - | The value corresponding to nn in the request `load.amps` array.
 `load[nn].watts` | watts | float | - | The product of `load.volts` and `load.amps`.
 `status` | - | status | - | A set of status fields in a complex type which is described in __Equipment status__ section below.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
