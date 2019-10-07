@@ -5,7 +5,7 @@
 
 [/device/dataset/pms](https:/api.sundaya.monitored.equipment/devices/dataset/pms)
 
-The dataset example below shows data collected for 2 PMS systems at a site ('PMS-01-001' and 'PMS-01-002') with 1 cabinet each, and 4 packs in the cabinet (the smallest PMS system configuration). 
+The request example below shows data collected for 2 PMS systems at a site ('PMS-01-001' and 'PMS-01-002') with 1 cabinet each, and 4 packs in the cabinet (the smallest PMS system configuration). 
 
 *__Note__: PMS controllers (BBC or EHub) can handle expansion up to 4 cabinets x 12 packs in each cabinet (48 packs in total). Each pack contains 14 cells*.
 

@@ -5,7 +5,7 @@
 
 [/devices/dataset/inverter](https:/api.sundaya.monitored.equipment/devices/dataset/mppt)
 
-The example below shows datasets collected at a BTS site with 2 Kehua SPI-B2 Inverter / Charge Controllers ('SPI-B2-01-001' and 'SPI-B2-01-002').
+The request example below shows datasets collected at a BTS site with 2 Kehua SPI-B2 Inverter / Charge Controllers ('SPI-B2-01-001' and 'SPI-B2-01-002').
 
 *Note: A site can have any number of Inverter-controllers, and each controller can have multiple PV strings and Loads. Presently upto 4 PV strings per controller are supported. In future each string will have its own dedicated controller*.
 
