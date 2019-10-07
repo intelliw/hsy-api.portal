@@ -43,13 +43,45 @@ Attribute | Metric | Data | Constraint | Description
 ### Equipment Status
 The `status` attribute in the request message should contain a hex-encoding of the following bitmaped status fields. 
 
-Bit '0' corresponds to the least significant bit (the right-most).
+Bit '0' corresponds to the least significant bit (the right-most bit). 
 
-Bit   | Field Name                   | Mnemonic          | Value | Status
+Bit   | Status                        | Field Name        | Value | 
 ---   | ---                           | ---               | ---   | ---  
 0     | Bus Connectivity              | `bus_connect`     | 1     | _ok_
 ..    |                               |                   | 0     | _fault_
+1, 2  | Input Status                  | `input`           | 0, 0  | _normal_
+..    |                               |                   | 0, 1  | _no-power_
+..    |                               |                   | 1, 0  | _high-volt-input_
+..    |                               |                   | 0, 1  | _input-volt-error_
+3     | Charging Mosfet               | `chgfet`          | 1     | _ok_  
+..    |                               |                   | 0     | _short_
+4     | Charging Anti Reverse Mosfet  | `chgfet_antirev`  | 1     | _ok_  
+..    |                               |                   | 0     | _short_
+5     | Anti Reverse Mosfet           | `fet_antirev`     | 1     | _ok_  
+..    |                               |                   | 0     | _short_
+6     | Input Current                 | `input_current`   | 1     | _ok_
+..    |                               |                   | 0     | _overcurrent_
+7,8   | Load                          | `load`            | 0, 0  | _ok_
+..    |                               |                   | 0, 1  | _overcurrent_
+..    |                               |                   | 1, 0  | _short_
+..    |                               |                   | 0, 1  | _not-applicable_
+9     | PV Input                      | `pv_input`        | 1     | _ok_
+..    |                               |                   | 0     | _short_
+10,11 | Charging Status               | `charging`        | 0, 0  | _not-charging_
+..    |                               |                   | 0, 1  | _float_
+..    |                               |                   | 1, 0  | _boost_
+..    |                               |                   | 0, 1  | _equalisation_
+12    | System Status                 | `system`          | 1     | _ok_
+..    |                               |                   | 0     | _fault_
+13    | Standby Status                | `standby`         | 1     | _standby_
+..    |                               |                   | 0     | _running_
 
+Note that bits 14-16 are currently not used in this scheme but must be padded with zeros to produce a 4-character hex value.
+
+For example a `status` of '__1A79__' is equivalent to __0001 1010 0111 1001__ which indicates :
+-   the data bus is connected (_ok_)
+-   the _mppt_ system is on _standby_ with a charging status of _float_
+-   pv, load, fets, and input statuses are all _ok_
 
 --- 
 
