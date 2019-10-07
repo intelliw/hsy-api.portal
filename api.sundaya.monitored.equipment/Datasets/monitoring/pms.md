@@ -115,11 +115,10 @@ All other attributes are mandatory and must be present.
 ### Equipment Status
 The `status` attribute in the request message should contain a hex-encoding of the following bitmaped status fields. Bit number '0' corresponds to the least significant bit (rightmost).
 
-Bit # | | Status | Mnemonic | Value | | Status
---- | --- | --- | --- | --- | --- | --- | --- 
-0 |   | Bus Connectivity  | `bus_connect` | 1/0 |   | _ok/fault_
-1 | 2 | Input Status      | `input`       | 0   | 0 | _normal_
-
+Bit | Status | Mnemonic | Value | Status
+--- | --- | --- | --- | --- 
+0 | Bus Connectivity | `bus_connect` | 1/0 | _ok/fault_
+1,2 | Input Status | `input` | 0,0 | _normal_
  |  |  |  | 0,1 | _no-power_
  |  |  |  | 1,0 | _high-volt-input_
  |  |  |  | 0,1 | _input-volt-error_
@@ -205,8 +204,8 @@ Attribute | Metric | Data | Constraint | Description
 `load` | status | string | _ok_, _overcurrent_, _short_, _not-applicable_ | The device's `Load`. Corresponds to bits __7__ and __8__ in the binary-decoded request `status`.
 `pv_input` | _ok/short_ | integer | 1/0 | The devices's `PV Input` status. Corresponds to bit __9__ in the binary-decoded request `status`.
 `charging` | status | string | _not-charging_, _float_, _boost_, _equalisation_ | The device's `Charging Status`. Corresponds to bits __10__ and __11__ in the binary-decoded request `status`.
-`system` | _ok/fault_ | integer | 1/0 | The devices's `System Status`. Corresponds to bit __12__ in the binary-decoded request `status`.
-`standby` | _standby/ running_ | integer | 1/0 | The devices's `Standby Status`. Corresponds to bit __13__ in the binary-decoded request `status`.
+`system` | _ok/fault_ | integer | 1/0 | The devices's `System Status` status. Corresponds to bit __12__ in the binary-decoded request `status`.
+`standby` | _standby/ running_ | integer | 1/0 | The devices's `Standby Status` status. Corresponds to bit __13__ in the binary-decoded request `status`.
 
 
 ### Transformed JSON message
