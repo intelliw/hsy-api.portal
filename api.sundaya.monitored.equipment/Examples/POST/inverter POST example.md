@@ -50,10 +50,12 @@ As an example, a `status` of '__0001__' is equivalent to __0000 0000 0000 0001__
 -   that the data bus is connected (_ok_)
 
 
-Bit   | Status                        | Field Name        | Value | 
+Bit   | Status                        | Field Name        | Value | ..
 ---   | ---                           | ---               | ---   | ---  
 0     | Bus Connectivity              | `bus_connect`     | 1     | _ok_
 ..    |                               |                   | 0     | _fault_
+1-15  | _unused_                      | -                 | -     | -
+
 
 
 ### POST /dataset/inverter request

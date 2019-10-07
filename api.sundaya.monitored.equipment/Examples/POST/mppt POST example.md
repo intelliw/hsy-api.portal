@@ -40,7 +40,7 @@ The `status` attribute in the request message should contain a hex-encoding of t
 
 - bit '0' corresponds to the least significant bit (the right-most bit). 
 
-- bits 14-16 are currently not used in this scheme but must be padded with zeros to produce a 4-character hex value.
+- bits 14-15 are currently not used in this scheme but must be padded with zeros to produce a 4-character hex value.
 
 As an example, a `status` of '__1A79__' is equivalent to __0001 1010 0111 1001__ which indicates :
 -   the data bus is connected (_ok_)
@@ -78,6 +78,8 @@ Bit # | Status                        | Field Name        | Value | ..
 ..    |                               |                   | 0     | _fault_
 13    | Standby Status                | `standby`         | 1     | _standby_
 ..    |                               |                   | 0     | _running_
+14-15 | _unused_                      | -                 | -     | -
+
 
 
 ### POST /dataset/mppt request
