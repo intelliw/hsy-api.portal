@@ -154,7 +154,7 @@ Value:
         { "volts": 3.661, "dvcl": 7, "open": false } ], 
     "fet_in": { "open": true, "temp": 34.1 }, 
     "fet_out": { "open": false, "temp": 32.2 }, 
-    "status": { "bus_connected": true }, 
+    "status": { "bus_connect": true }, 
     "sys": { "source": "S000" }, 
     "time_event": "2019-02-09 08:00:17.0200", 
     "time_zone": "+07:00", 
