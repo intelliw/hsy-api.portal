@@ -42,18 +42,18 @@ The dataset includes the following status attributes which are based on the hex-
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
-`bus_connected` | _ok/fault_ | integer | 1/0 | The devices's `Bus Connectivvity` status. Indicated whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
-`bus_connect` | _ok/fault_ | integer | 1/0 | A boolean status indicating whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
+`bus_connected` | _ok/fault_ | integer | _true/false_ | The devices's `Bus Connectivvity` status. Indicated whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
+`bus_connect` | _ok/fault_ | integer | _true/false_ | A boolean status indicating whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
 `input` | status | string | _normal_, _no-power_, _high-volt-input_, _input-volt-error_ | The device's `Input Status`. Corresponds to bits __1__ and __2__ in the binary-decoded request `status`.
-`chgfet` | _ok/short_ | integer | 1/0 | The devices's `Charging Mosfet` status. Corresponds to bit __3__ in the binary-decoded request `status`.
-`chgfet_antirev` | _ok/short_ | integer | 1/0 | The devices's `Charging Anti Reverse Mosfet` status. Corresponds to bit __4__ in the binary-decoded request `status`.
-`fet_antirev` | _ok/short_ | integer | 1/0 | The devices's `Anti Reverse Mosfet` status. Corresponds to bit __5__ in the binary-decoded request `status`.
-`input_current` | _ok/ overcurrent_ | integer | 1/0 | The devices's `Input Current` status. Corresponds to bit __6__ in the binary-decoded request `status`.
+`chgfet` | _ok/short_ | integer | _true/false_ | The devices's `Charging Mosfet` status. Corresponds to bit __3__ in the binary-decoded request `status`.
+`chgfet_antirev` | _ok/short_ | integer | _true/false_ | The devices's `Charging Anti Reverse Mosfet` status. Corresponds to bit __4__ in the binary-decoded request `status`.
+`fet_antirev` | _ok/short_ | integer | _true/false_ | The devices's `Anti Reverse Mosfet` status. Corresponds to bit __5__ in the binary-decoded request `status`.
+`input_current` | _ok/ overcurrent_ | integer | _true/false_ | The devices's `Input Current` status. Corresponds to bit __6__ in the binary-decoded request `status`.
 `load` | status | string | _ok_, _overcurrent_, _short_, _not-applicable_ | The device's `Load`. Corresponds to bits __7__ and __8__ in the binary-decoded request `status`.
-`pv_input` | _ok/short_ | integer | 1/0 | The devices's `PV Input` status. Corresponds to bit __9__ in the binary-decoded request `status`.
+`pv_input` | _ok/short_ | integer | _true/false_ | The devices's `PV Input` status. Corresponds to bit __9__ in the binary-decoded request `status`.
 `charging` | status | string | _not-charging_, _float_, _boost_, _equalisation_ | The device's `Charging Status`. Corresponds to bits __10__ and __11__ in the binary-decoded request `status`.
-`system` | _ok/fault_ | integer | 1/0 | The devices's `System Status`. Corresponds to bit __12__ in the binary-decoded request `status`.
-`standby` | _standby/ running_ | integer | 1/0 | The devices's `Standby Status`. Corresponds to bit __13__ in the binary-decoded request `status`.
+`system` | _ok/fault_ | integer | _true/false_ | The devices's `System Status`. Corresponds to bit __12__ in the binary-decoded request `status`.
+`standby` | _standby/ running_ | integer | _true/false_ | The devices's `Standby Status`. Corresponds to bit __13__ in the binary-decoded request `status`.
 
 
 ### Transformed JSON message
