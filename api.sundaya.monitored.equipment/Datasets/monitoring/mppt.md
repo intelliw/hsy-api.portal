@@ -42,7 +42,6 @@ The dataset includes the following status attributes which are based on the hex-
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
-`bus_connected` | _ok/fault_ | integer | _true/false_ | The devices's `Bus Connectivvity` status. Indicated whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
 `bus_connect` | _ok/fault_ | integer | _true/false_ | A boolean status indicating whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
 `input` | status | string | _normal_, _no-power_, _high-volt-input_, _input-volt-error_ | The device's `Input Status`. Corresponds to bits __1__ and __2__ in the binary-decoded request `status`.
 `chgfet` | _ok/short_ | integer | _true/false_ | The devices's `Charging Mosfet` status. Corresponds to bit __3__ in the binary-decoded request `status`.
