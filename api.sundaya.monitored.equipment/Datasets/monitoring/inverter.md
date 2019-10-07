@@ -62,7 +62,7 @@ Value:
 
 ```json
 {
-    "inverter_id":"SPI-B2-01-002",
+    "inverter_id": "SPI-B2-01-002",
     "pv": [
         {"volts": 48, "amps": 6, "watts": 288 },
         {"volts": 48, "amps": 6, "watts": 288 } ],
@@ -74,7 +74,7 @@ Value:
         {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
         {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
         {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 } ],
-    "status": { "bus_connected": 1 },    
+    "status": { "bus_connected": true },    
     "sys": {"source": "S000" },
     "time_event":"2019-02-09 08:00:17.0220",
     "time_zone":"+07:00",
