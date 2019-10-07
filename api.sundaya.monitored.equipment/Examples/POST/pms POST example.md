@@ -42,6 +42,7 @@ All other attributes are mandatory and must be present.
 
 
 ### Equipment status
+
 The `status` attribute in the request message should contain a hex-encoding of the following bitmaped status fields. 
 
 - bit '0' corresponds to the least significant bit (the right-most bit). 
@@ -57,6 +58,7 @@ Bit   | Status                        | Field Name        | Value | ..
 0     | Bus Connectivity              | `bus_connect`     | 1     | _ok_
 ..    |                               |                   | 0     | _fault_
 1-15  | _unused_                      | -                 | 0     | -
+
 
 ### text/csv Data
 

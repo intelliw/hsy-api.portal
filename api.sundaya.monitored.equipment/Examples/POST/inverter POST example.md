@@ -40,6 +40,7 @@ Attribute | Metric | Data | Constraint | Description
 
 
 ### Equipment status
+
 The `status` attribute in the request message should contain a hex-encoding of the following bitmaped status fields. 
 
 - bit '0' corresponds to the least significant bit (the right-most bit). 
