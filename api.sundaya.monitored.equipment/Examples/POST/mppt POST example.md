@@ -1,4 +1,4 @@
-# mppt POST example
+# mppt POST
 ---
 
 ### POST /dataset/mppt request

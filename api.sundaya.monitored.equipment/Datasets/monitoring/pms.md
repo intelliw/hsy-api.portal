@@ -115,17 +115,18 @@ All other attributes are mandatory and must be present.
 ### Equipment Status
 The `status` attribute in the request message should contain a hex-encoding of the following bitmaped status fields. 
 
-Bit '0' corresponds to the least significant bit (the right-most bit). 
+- bit '0' corresponds to the least significant bit (the right-most bit). 
+
+- bits 1-15 are currently not used in this scheme but must be padded with zeros to produce a 4-character hex value.
+
+As an example, a `status` of '__0001__' is equivalent to __0000 0000 0000 0001__ which indicates :
+-   that the data bus is connected (_ok_)
+
 
 Bit   | Status                        | Field Name        | Value | 
 ---   | ---                           | ---               | ---   | ---  
 0     | Bus Connectivity              | `bus_connect`     | 1     | _ok_
 ..    |                               |                   | 0     | _fault_
-
-Note that bits 1-15 are currently not used in this scheme but must be padded with zeros to produce a 4-character hex value.
-
-For example a `status` of '__0001__' is equivalent to __0000 0000 0000 0001__ which indicates :
--   that the data bus is connected (_ok_)
 
 
 ### text/csv Data

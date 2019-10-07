@@ -1,4 +1,4 @@
-# Energy
+# energy GET
 ---
 
 ### GET /energy request
@@ -34,9 +34,6 @@ Body: {
 
 
 ### GET /energy response
-
-[/energy/hse/period/week/20190204/1](https://api.sundaya.monitored.equipment/energy/hse/period/week/20190204/1?site=999)
-
 
 ```    
 *** RESPONSE ***	

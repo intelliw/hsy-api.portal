@@ -1,4 +1,4 @@
-# pms POST example
+# pms POST
 ---
 
 ### POST /dataset/pms request

@@ -43,7 +43,15 @@ Attribute | Metric | Data | Constraint | Description
 ### Equipment Status
 The `status` attribute in the request message should contain a hex-encoding of the following bitmaped status fields. 
 
-Bit '0' corresponds to the least significant bit (the right-most bit). 
+- bit '0' corresponds to the least significant bit (the right-most bit). 
+
+- bits 14-16 are currently not used in this scheme but must be padded with zeros to produce a 4-character hex value.
+
+As an example, a `status` of '__1A79__' is equivalent to __0001 1010 0111 1001__ which indicates :
+-   the data bus is connected (_ok_)
+-   the _mppt_ system is on _standby_ with a charging status of _float_
+-   pv, load, fets, and input statuses are all _ok_
+
 
 Bit # | Status                        | Field Name        | Value | ..
 ---   | ---                           | ---               | ---   | ---  
@@ -76,12 +84,6 @@ Bit # | Status                        | Field Name        | Value | ..
 13    | Standby Status                | `standby`         | 1     | _standby_
 ..    |                               |                   | 0     | _running_
 
-Note that bits 14-16 are currently not used in this scheme but must be padded with zeros to produce a 4-character hex value.
-
-For example a `status` of '__1A79__' is equivalent to __0001 1010 0111 1001__ which indicates :
--   the data bus is connected (_ok_)
--   the _mppt_ system is on _standby_ with a charging status of _float_
--   pv, load, fets, and input statuses are all _ok_
 
 --- 
 

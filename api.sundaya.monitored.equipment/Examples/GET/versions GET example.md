@@ -1,9 +1,12 @@
-# Versions
+# versions GET
 ---
 
-### GET /versions response
+### GET /api/versions request
 
 [/api/versions](https:/api.sundaya.monitored.equipment/api/versions)
+
+
+### GET /api/versions response
 
 ```
 *** REQUEST ***	
