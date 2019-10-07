@@ -45,7 +45,7 @@ The `status` attribute in the request message should contain a hex-encoding of t
 
 Bit '0' corresponds to the least significant bit (the right-most bit). 
 
-Bit   | Status                        | Field Name        | Value | 
+Bit # | Status                        | Field Name        | Value | ..
 ---   | ---                           | ---               | ---   | ---  
 0     | Bus Connectivity              | `bus_connect`     | 1     | _ok_
 ..    |                               |                   | 0     | _fault_
