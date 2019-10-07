@@ -33,6 +33,7 @@ Attribute | Metric | Data | Constraint | Description
 `grid[nn].amps` | amps | float | - | The value of the element corresponding to nn in the request `grid.amps` array.
 `grid[nn].pf` | amps | float | *maximum 1.0* | The value of the element corresponding to nn in the request `grid.pf` array.
 `grid[nn].watts` | watts | float | - | Calculated watts for each supply phase based on the formula: `grid.watts` = `grid.volts` * `grid.amps` * `grid.pf` * `√3`.
+`status` | - | status | - | A set of status fields in a complex type which is described in __Equipment status__ section below .
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
 `time_event` | - | datetime | - | The UTC time of the event which produced this data sample.
 `time_zone` | - | string | - | The time offset in the time zone of the event which produced this data sample. The offset value is in '+/-HH:MM" format.
