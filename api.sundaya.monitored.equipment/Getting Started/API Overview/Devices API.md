@@ -18,13 +18,13 @@ The `/devices/{dataset}` path is for vendors and systems integrators to POST dev
 
 ### {dataset} parameter ###
 
-The following dataset types may be specified as the `{dataset}` parameter in a `/device` path.
+The following dataset table names may be used for the `{dataset}` parameter.
 
 {dataset} | Description
 --- | --- 
-[pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Device%20Datasets/pms%20Dataset) | Data from pack management systems (PMS) for cabinets, including monitored epacks, cells, and mosfets.
-[mppt](https:https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Devichttps:atasets/mppt%20Dataset) | Data from Maximum Power Point Tracking (MPPTcontrollers, including connected PV strings, batteries, and DC loads.
-[inverter](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Device%20Datasets/inverter%20Dataset) | Data from Inverter charge controllers, including connected pv strings, batteries, and AC loads.
+[pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Datasets/monitoring/pms) | Data from pack management systems (PMS) for cabinets, including monitored epacks, cells, and mosfets.
+[mppt](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Datasets/monitoring/mppt) | Data from Maximum Power Point Tracking (MPPTcontrollers, including connected PV strings, batteries, and DC loads.
+[inverter](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Datasets/monitoring/inverter) | Data from Inverter charge controllers, including connected pv strings, batteries, and AC loads.
 
 
 # /device/dataset GET
