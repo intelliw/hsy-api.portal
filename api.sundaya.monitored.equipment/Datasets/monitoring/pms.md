@@ -120,6 +120,10 @@ Bit   | Status Name                   | Mnemonic          | Value | Status
 0     | Bus Connectivity              | `bus_connect`     | 1/0   | _ok/fault_
 1, 2  | Input Status                  | `input`           | 0, 0  | _normal_
       |                               |                   | 0, 1  | _no-power_
+
+
+
+
       |                               |                   | 1, 0  | _high-volt-input_
       |                               |                   | 0, 1  | _input-volt-error_
 3     | Charging Mosfet               | `chgfet`          | 1/0   | _ok/short_  
