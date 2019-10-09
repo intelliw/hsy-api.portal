@@ -56,7 +56,7 @@ Bit # | Status                        | Field Name        | Value | ..
 1, 2  | Input Status                  | `input`           | 0, 0  | _normal_
 ..    |                               |                   | 0, 1  | _no-power_
 ..    |                               |                   | 1, 0  | _high-volt-input_
-..    |                               |                   | 0, 1  | _input-volt-error_
+..    |                               |                   | 1, 1  | _input-volt-error_
 3     | Charging Mosfet               | `chgfet`          | 1     | _ok_  
 ..    |                               |                   | 0     | _short_
 4     | Charging Anti Reverse Mosfet  | `chgfet_antirev`  | 1     | _ok_  
@@ -68,13 +68,13 @@ Bit # | Status                        | Field Name        | Value | ..
 7,8   | Load                          | `load`            | 0, 0  | _ok_
 ..    |                               |                   | 0, 1  | _overcurrent_
 ..    |                               |                   | 1, 0  | _short_
-..    |                               |                   | 0, 1  | _not-applicable_
+..    |                               |                   | 1, 1  | _not-applicable_
 9     | PV Input                      | `pv_input`        | 1     | _ok_
 ..    |                               |                   | 0     | _short_
 10,11 | Charging Status               | `charging`        | 0, 0  | _not-charging_
 ..    |                               |                   | 0, 1  | _float_
 ..    |                               |                   | 1, 0  | _boost_
-..    |                               |                   | 0, 1  | _equalisation_
+..    |                               |                   | 1, 1  | _equalisation_
 12    | System Status                 | `system`          | 1     | _ok_
 ..    |                               |                   | 0     | _fault_
 13    | Standby Status                | `standby`         | 1     | _standby_
