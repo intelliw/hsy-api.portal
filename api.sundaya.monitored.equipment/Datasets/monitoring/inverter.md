@@ -1,7 +1,7 @@
 # monitoring.inverter
 ---
 
-### Transformed JSON message
+### Transformed message structure
 
 The transformed JSON structure is shown in the followng sample. This structure is sent to the message broker at the first stage of processing the `dataset/inverter` POST message, and later used to load data into the datawarehouse:
 
