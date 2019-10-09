@@ -1,11 +1,40 @@
 # monitoring.inverter
 ---
 
-# Source system
+### Transformed JSON message
 
-![Inverter Data](../../images/InverterData.png)
+The transformed JSON structure is shown in the followng sample. This structure is sent to the message broker at the first stage of processing the `dataset/inverter` POST message, and later used to load data into the datawarehouse:
 
---- 
+```
+*** MESSAGE ***
+Topic: inverter
+Key: SPI-B2-01-001
+Value:	
+```
+
+```json
+{
+    "inverter_id": "SPI-B2-01-002",
+    "pv": [
+        {"volts": 48, "amps": 6, "watts": 288 },
+        {"volts": 48, "amps": 6, "watts": 288 } ],
+    "battery": {"volts": 55.1, "amps": 0.0, "watts": 0 },
+    "load": [
+        { "volts": 48, "amps": 1.2, "watts": 57.6 },
+        { "volts": 48, "amps": 1.2, "watts": 57.6 } ],
+    "grid": [
+        {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
+        {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
+        {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 } ],
+    "status": { "bus_connect": true },    
+    "sys": {"source": "S000" },
+    "time_event":"2019-02-09 08:00:17.0220",
+    "time_zone":"+07:00",
+    "time_processing":"2019-09-10 04:11:09.2930"
+},
+```
+
+---
 
 # Dataset structure 
 
@@ -49,39 +78,14 @@ Attribute | Metric | Data | Constraint | Description
 `bus_connect` | _ok/fault_ | integer | _true/false_ | The devices's `Bus Connectivvity` status. Indicated whether the device's data bus is connected or faulty. Corresponds to bit __0__ in the binary-decoded request `status`.
 
 
-### Transformed JSON message
-
-The transformed JSON structure is shown in the followng sample. This structure is sent to the message broker at the first stage of processing the `dataset/inverter` POST message, and later used to load data into the datawarehouse:
-
-```
-*** MESSAGE ***
-Topic: inverter
-Key: SPI-B2-01-001
-Value:	
-```
-
-```json
-{
-    "inverter_id": "SPI-B2-01-002",
-    "pv": [
-        {"volts": 48, "amps": 6, "watts": 288 },
-        {"volts": 48, "amps": 6, "watts": 288 } ],
-    "battery": {"volts": 55.1, "amps": 0.0, "watts": 0 },
-    "load": [
-        { "volts": 48, "amps": 1.2, "watts": 57.6 },
-        { "volts": 48, "amps": 1.2, "watts": 57.6 } ],
-    "grid": [
-        {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
-        {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
-        {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 } ],
-    "status": { "bus_connect": true },    
-    "sys": {"source": "S000" },
-    "time_event":"2019-02-09 08:00:17.0220",
-    "time_zone":"+07:00",
-    "time_processing":"2019-09-10 04:11:09.2930"
-},
-```
-
 ### Partitions and clustering
 
 __inverter__ dataset tables are partitioned based on `time_event` and clustered by `inverter_id`.
+
+---
+
+# Source system
+
+![Inverter Data](../../images/InverterData.png)
+
+--- 

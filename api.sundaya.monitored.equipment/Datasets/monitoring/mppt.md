@@ -1,11 +1,39 @@
 # monitoring.mppt
 ---
 
-# Source system
+### Transformed JSON message
 
-![MPPT Data](../../images/MPPTData.png)
+The transformed JSON structure is shown in the followng sample. This structure is sent to the message broker at the first stage of processing the `dataset/mppt` POST message, and later used to load data into the datawarehouse:
 
---- 
+```
+*** MESSAGE ***
+Topic: mppt
+Key: IT6415AD-01-001
+Value:	
+```
+
+```json
+{
+    "mppt_id": "IT6415AD-01-002",
+    "pv": [
+        {"volts": 48, "amps": 6, "watts": 288 },
+        {"volts": 48, "amps": 6, "watts": 288 } ],
+    "battery": {"volts": 55.1, "amps": 0.0, "watts": 0 },
+    "load": [ 
+        { "volts": 48, "amps": 1.2, "watts": 57.6 },
+        { "volts": 48, "amps": 1.2, "watts": 57.6 } ],
+    "status": { "bus_connect": true, "input": "normal", 
+      "chgfet": true, "chgfet_antirev": true, "fet_antirev": true, 
+      "input_current": true, "load": "ok", "pv_input": true, "charging": "not-charging", 
+      "system": true, "standby": true },
+    "sys": {"source": "S000" },
+    "time_event": "2019-02-09 08:00:07.0320",
+    "time_zone": "+07:00",
+    "time_processing": "2019-09-10 04:13:08.8780"
+},
+```
+
+---
 
 # Dataset structure 
 
@@ -55,38 +83,15 @@ Attribute | Metric | Data | Constraint | Description
 `standby` | _standby/ running_ | integer | _true/false_ | The devices's `Standby Status`. Corresponds to bit __13__ in the binary-decoded request `status`.
 
 
-### Transformed JSON message
-
-The transformed JSON structure is shown in the followng sample. This structure is sent to the message broker at the first stage of processing the `dataset/mppt` POST message, and later used to load data into the datawarehouse:
-
-```
-*** MESSAGE ***
-Topic: mppt
-Key: IT6415AD-01-001
-Value:	
-```
-
-```json
-{
-    "mppt_id": "IT6415AD-01-002",
-    "pv": [
-        {"volts": 48, "amps": 6, "watts": 288 },
-        {"volts": 48, "amps": 6, "watts": 288 } ],
-    "battery": {"volts": 55.1, "amps": 0.0, "watts": 0 },
-    "load": [ 
-        { "volts": 48, "amps": 1.2, "watts": 57.6 },
-        { "volts": 48, "amps": 1.2, "watts": 57.6 } ],
-    "status": { "bus_connect": true, "input": "normal", 
-      "chgfet": true, "chgfet_antirev": true, "fet_antirev": true, 
-      "input_current": true, "load": "ok", "pv_input": true, "charging": "not-charging", 
-      "system": true, "standby": true },
-    "sys": {"source": "S000" },
-    "time_event": "2019-02-09 08:00:07.0320",
-    "time_zone": "+07:00",
-    "time_processing": "2019-09-10 04:13:08.8780"
-},
-```
-
 ### Partitions and clustering
 
 __mppt__ dataset tables are partitioned based on `time_event` and clustered by `mppt_id`.
+
+---
+
+# Source system
+
+![MPPT Data](../../images/MPPTData.png)
+
+--- 
+
