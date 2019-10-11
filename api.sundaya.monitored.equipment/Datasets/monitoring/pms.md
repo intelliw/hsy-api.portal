@@ -15,6 +15,7 @@ Value:
 ```json
 {   "pms_id": "PMS-01-002",
     "pack_id": "0248",
+    "pms": { "temp": 48.3 },
     "pack": { "volts": 51.262, "amps": -0.625, "watts": -32.039,    
         "vcl": 3.654, "vch": 3.676, "dock": 4, 
         "temp_top": 35, "temp_mid": 33, "temp_bottom": 34 }, 
@@ -59,6 +60,7 @@ Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
 `pms_id` | - | string | - | Id of the PMS system, as displayed on the cabinet. This attribute replaces `pms.id` in the request message.
 `pack_id` | - | string | - | Id of the `pack` associated with this data record. This attribute replaces `pack.id` as a top-level attribute, so that it can be included in the data clustering specification.
+`pms.temp` | degC | float | - | The Ehub's self-monitored temperature. Attributes in the `pms` element provide a secondary dataset, as opposed to the `data` element which which provides the primary dataset for the actual equipment being monitored (`pack` data).
 `pack.volts` | volts | float | - | The cellblocks are connected in series so the pack voltage is the sum of all 14 cell voltages (`cell.volts[1-14]`).
 `pack.amps` | amps | float | - | _(no change from request message)_.
 `pack.watts` | watts | float | - | The product of `pack.volts` and `pack.amps`.

@@ -8,9 +8,9 @@ The following snippet shows the structure of a `pms` request:
 ```json
 {
   "datasets": [
-    { "pms": { "id": "PMS-01-001" }, 
+    { "pms": { "id": "PMS-01-001", "temp": 48.3 }, 
       "data": [
-        { "time_local": "20190209T150006.032+0700",
+        { "time_local": "20190909T150006.032+0700",
           "pack": { "id": "0241", "dock": 1, "amps": -1.601, "temp": [35.0, 33.0, 34.0],
             "cell": { "open": [],
               "volts": [3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.91] },
@@ -26,6 +26,7 @@ The pms request message attributes are specified below.
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | --- 
 `pms.id` | - | string | - | The `pms.id` is configured for each site during pre-shipment. It is stored on each Ehub (or BBC); upto 4 EHubs (i.e. Cabinets) can share the same `pms.id`. The id is the foreign key for relationally joining the pms dataset to reference data in the cloud. As a `pack` self identifies, it can be hot-swapped on site without any need for re-configuring metadata to associate the pack with the pms system.
+`pms.temp` | degC | float | - | The Ehub's self-monitored temperature. Attributes in the `pms` element provide a secondary dataset, as opposed to the `data` element which which provides the primary dataset for the actual equipment being monitored (`pack` data).
 `time_local` | - | datetime | RFC 3339 | The local time of the event which produced this data sample, represented with a mandatory `+/-` offset from UTC for the device's location, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
 `pack.id` | - | string | - | The pack identifier. This is the Case id which is laser engraved in human-readable form on the outside of the case. Initially (temporarily) the `pack.id` will be populated with the pack’s acquisition board hardware id, and converted to the Case id through a lookup on the server. In future the Case id will be directly stored in the acquisition board during pre-shipment configuration and no further data transformation will be required for determining the Pack id during data collection.
 `pack.dock` | - | integer | 1-48 | The dock number (1 - 48) into which this pack is installed. The dock number covers 4 cabinets with 12 docks per cabinet in sequence. For example dock number 13 indicates that the pack is installed in dock 1 of cabinet B (the second cabinet).
@@ -109,7 +110,7 @@ Content-Type: application/json
 ```json
 {
   "datasets": [
-    { "pms": { "id": "PMS-01-001" }, 
+    { "pms": { "id": "PMS-01-001", "temp": 48.3 }, 
       "data": [
         { "time_local": "20190909T150006.032+0700",
           "pack": { "id": "0241", "dock": 1, "amps": -1.601, "temp": [35.0, 33.0, 34.0],
@@ -141,7 +142,7 @@ Content-Type: application/json
         }
       ]
     },
-    { "pms": { "id": "PMS-01-002" }, 
+    { "pms": { "id": "PMS-01-002", "temp": 48.3  }, 
       "data": [
         { "time_local": "20190909T150007.020+0700",
           "pack": { "id": "0245", "dock": 1, "amps": -1.601, "temp": [35.0, 33.0, 34.0],
@@ -173,7 +174,7 @@ Content-Type: application/json
         }
       ]
     },
-    { "pms": { "id": "PMS-01-001" }, 
+    { "pms": { "id": "PMS-01-001", "temp": 48.3  }, 
       "data": [
         { "time_local": "20190909T150016.032+0700",
           "pack": { "id": "0241", "dock": 1, "amps": -1.601, "temp": [35.0, 33.0, 34.0],
@@ -205,7 +206,7 @@ Content-Type: application/json
         }
       ]
     },
-    { "pms": { "id": "PMS-01-002" }, 
+    { "pms": { "id": "PMS-01-002", "temp": 48.3  }, 
       "data": [
         { "time_local": "20190909T150017.020+0700",
           "pack": { "id": "0245", "dock": 1, "amps": -1.601, "temp": [35.0, 33.0, 34.0],
