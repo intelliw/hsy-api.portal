@@ -10,12 +10,12 @@
 
 ```
 *** REQUEST ***	
-GET /v HTTP/1.1	
+GET /v HTTPS/1.1	
 Host: api.sundaya.monitored.equipment
 Accept: application/json
     
 *** RESPONSE ***	
-200 OK HTTP/1.1	
+200 OK HTTPS/1.1	
 Content-Type: application/json
 Content-Length: 450	
 

@@ -21,18 +21,17 @@ An API key is required in all paths except the following:
 
 - The 'GET' operations in the `/api/versions` path does not require an API key.
 
-- The 'GET' operations in the `/energy` path does not require an API key for the default site (`site=999`) which is reserved for aggregate querying.
+- The 'GET' operations in the `/energy` path does not require an API key for the default site (`site=999`). Site '999' is a pseudo site reserved for aggregate queries.
 
 In all other paths an API key is required using one of the following options.
 
 Method | Parameter | In | Description
 --- | --- | --- | ---
-GET | `api_key` | query | `api_key` query parameter is accepted only in GET requests. 
-POST, GET | `x-api-key` | header | POST requests must provide a `x-api-key` header. This option is also preferred for GET requests.
+POST, GET   | `x-api-key` | header | GET and POST requests must provide a `x-api-key` header. 
 
 ```
 *** REQUEST ***	
-POST /devices/dataset/pms HTTP/1.1	
+POST /devices/dataset/pms HTTPS/1.1	
 Host: api.sundaya.monitored.equipment
 Accept: application/vnd.collection+json	
 x-api-key: X2zaSyASFGxf4PmOXtVS1Dt911PcZ4IQ8PUUMqX
@@ -40,10 +39,10 @@ x-api-key: X2zaSyASFGxf4PmOXtVS1Dt911PcZ4IQ8PUUMqX
 
 ```
 *** REQUEST ***	
-GET energy/hse/period/week/20190930T1200?api_key=X2zaSyASFGxf4PmOXt911PcZ4IQ8PUUMqX HTTP/1.1
+GET energy/hse/period/week/20190930T1200 HTTPS/1.1
 Host: api.sundaya.monitored.equipment
 Accept: text/html	
-api_key: X2zaSyASFGxf4PmOXt911PcZ4IQ8PUUMqX
+x-api-key: X2zaSyASFGxf4PmOXt911PcZ4IQ8PUUMqX
 
 ```
 
@@ -51,13 +50,13 @@ api_key: X2zaSyASFGxf4PmOXt911PcZ4IQ8PUUMqX
 
 ```
 *** RESPONSE ***	
-401 Unauthorized HTTP/1.1	
+401 Unauthorized HTTPS/1.1	
 Content-Type: application/json; charset=utf-8
 Content-Length: 286
 ```
 
 ### Portal usage
 
-The developer portal injects a `api_key` **query** parameter when using the 'Try this API' interface for GET requests. The parameter is not inspected by the API host and is required only for portal functionality. 
+The developer portal injects a `api_key` **query** parameter when using the 'Try this API' interface for GET requests. The API host does not inspect this parameter, it is supported only for portal functionality.
 
 A `x-api-key` **header** must be populated and sent when using 'Try this API' with POST requests. 

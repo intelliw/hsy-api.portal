@@ -78,13 +78,13 @@ A media type can be requested by sending an `Accept` header:
 This following example shows a sample HTTP request and response.
 ```
 *** REQUEST ***	
-GET /energy/hse/period/week/20190204/ HTTP/1.1	
+GET /energy/hse/period/week/20190204/ HTTPS/1.1	
 Host: api.sundaya.monitored.equipment
 Accept: application/vnd.collection+json	
-api_key: X2zaSyASFGxf4PmOitVS1Dt911PcZ4IQ8PUUMqA
+x-api-key: X2zaSyASFGxf4PmOitVS1Dt911PcZ4IQ8PUUMqA
     
 *** RESPONSE ***	
-200 OK HTTP/1.1	
+200 OK HTTPS/1.1	
 Content-Type: application/vnd.collection+json	
 Content-Length: 10757	
     

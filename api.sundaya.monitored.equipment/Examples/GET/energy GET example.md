@@ -11,7 +11,7 @@ The example below retrieves energy data for a `week` period from devices at site
 
 ```
 *** REQUEST ***	
-GET /energy/hse/period/week/20190204/1?site=999 HTTP/1.1	
+GET /energy/hse/period/week/20190204/1?site=999 HTTPS/1.1	
 Host: api.sundaya.monitored.equipment
 Accept: application/vnd.collection+json, application/vnd.sundaya.v1.0+yaml
 Content-Type: application/json
@@ -37,7 +37,7 @@ Body: {
 
 ```    
 *** RESPONSE ***	
-200 OK HTTP/1.1	
+200 OK HTTPS/1.1	
 Content-Type: application/vnd.collection+json	
 Content-Length: 3495	
 ```

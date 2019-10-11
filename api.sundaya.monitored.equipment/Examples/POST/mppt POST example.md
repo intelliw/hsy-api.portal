@@ -104,7 +104,7 @@ The size of each MPPT dataset is 367 bytes including whitespace, or 248 bytes if
 
 ```
 *** REQUEST ***	
-POST /devices/dataset/mppt HTTP/1.1	
+POST /devices/dataset/mppt HTTPS/1.1	
 Host: api.sundaya.monitored.equipment
 Accept: application/json
 Content-Type: application/json
@@ -156,7 +156,7 @@ A 200 Response will be sent if the request is accepted and queued for asynchrono
 
 ```
 *** RESPONSE ***	
-200 OK HTTP/1.1	
+200 OK HTTPS/1.1	
 Content-Type: application/json
 Content-Length: 1171	
 
@@ -179,7 +179,7 @@ If the request is processed synchronously a 201 Response will be returned as fol
 
 ```
 *** RESPONSE ***	
-201 Created HTTP/1.1	
+201 Created HTTPS/1.1	
 Location: https:/api.sundaya.monitored.equipment/device/IT6415AD-01-001/dataset/mppt/period/minute/20190209T1500+0700/1
 Location: https:/api.sundaya.monitored.equipment/device/IT6415AD-01-002/dataset/mppt/period/minute/20190209T1500+0700/1
 Content-Type: application/json

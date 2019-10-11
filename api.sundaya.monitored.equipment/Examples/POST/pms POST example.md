@@ -25,7 +25,7 @@ The pms request message attributes are specified below.
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | --- 
-`pms.id` | - | string | - | The `pms.id` is configured for each site during pre-shipment. It is stored on each Ehub (or BBC); upto 4 EHubs (i.e. Cabinets) can share the same `pms.id`. The id is the foreign key for relationally joining the pms dataset to reference data in the cloud. As packs self identify they cab be hot-swapped on site without any need for re-configuring pack metadata.
+`pms.id` | - | string | - | The `pms.id` is configured for each site during pre-shipment. It is stored on each Ehub (or BBC); upto 4 EHubs (i.e. Cabinets) can share the same `pms.id`. The id is the foreign key for relationally joining the pms dataset to reference data in the cloud. As a `pack` self identifies, it can be hot-swapped on site without any need for re-configuring metadata to associate the pack with the pms system.
 `time_local` | - | datetime | RFC 3339 | The local time of the event which produced this data sample, represented with a mandatory `+/-` offset from UTC for the device's location, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
 `pack.id` | - | string | - | The pack identifier. This is the Case id which is laser engraved in human-readable form on the outside of the case. Initially (temporarily) the `pack.id` will be populated with the pack’s acquisition board hardware id, and converted to the Case id through a lookup on the server. In future the Case id will be directly stored in the acquisition board during pre-shipment configuration and no further data transformation will be required for determining the Pack id during data collection.
 `pack.dock` | - | integer | 1-48 | The dock number (1 - 48) into which this pack is installed. The dock number covers 4 cabinets with 12 docks per cabinet in sequence. For example dock number 13 indicates that the pack is installed in dock 1 of cabinet B (the second cabinet).
@@ -99,7 +99,7 @@ The size of a dataset for a single cabinet (4 packs) is 2030 bytes including whi
 
 ```
 *** REQUEST ***	
-POST /devices/dataset/pms HTTP/1.1	
+POST /devices/dataset/pms HTTPS/1.1	
 Host: api.sundaya.monitored.equipment
 Accept: application/json
 Content-Type: application/json
@@ -247,7 +247,7 @@ A 200 Response will be sent if the request is accepted and queued for asynchrono
 
 ```
 *** RESPONSE ***	
-200 OK HTTP/1.1	
+200 OK HTTPS/1.1	
 Content-Type: application/json
 Content-Length: 1171	
 
@@ -271,7 +271,7 @@ If the request is processed synchronously a 201 Response will be returned as fol
 
 ```
 *** RESPONSE ***	
-201 Created HTTP/1.1	
+201 Created HTTPS/1.1	
 Location: https:/api.sundaya.monitored.equipment/device/CAB-01-001/dataset/pms/period/minute/20190209T1500+0700/1
 Location: https:/api.sundaya.monitored.equipment/device/CAB-01-002/dataset/pms/period/minute/20190209T1500+0700/1
 Content-Type: application/json

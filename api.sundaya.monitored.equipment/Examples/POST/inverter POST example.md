@@ -80,7 +80,7 @@ The size of each Inverter dataset is 367 bytes including whitespace, or 248 byte
 
 ```
 *** REQUEST ***	
-POST /devices/dataset/inverter HTTP/1.1	
+POST /devices/dataset/inverter HTTPS/1.1	
 Host: api.sundaya.monitored.equipment
 Accept: application/json
 Content-Type: application/json
@@ -136,7 +136,7 @@ A 200 Response will be sent if the request is accepted and queued for asynchrono
 
 ```
 *** RESPONSE ***	
-200 OK HTTP/1.1	
+200 OK HTTPS/1.1	
 Content-Type: application/json
 Content-Length: 1171	
 
@@ -159,7 +159,7 @@ If the request is processed synchronously a 201 Response will be returned as fol
 
 ```
 *** RESPONSE ***	
-201 Created HTTP/1.1	
+201 Created HTTPS/1.1	
 Location: https:/api.sundaya.monitored.equipment/device/SPI-B2-01-001/dataset/inverter/period/minute/20190209T1500+0700/1
 Location: https:/api.sundaya.monitored.equipment/device/SPI-B2-01-002/dataset/inverter/period/minute/20190209T1500+0700/1
 Content-Type: application/json
