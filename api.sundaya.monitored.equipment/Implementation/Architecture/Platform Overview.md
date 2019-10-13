@@ -1,4 +1,4 @@
-# System Overview
+# Platform Overview
 ---
 
 The Sundaya Device and Data Management platform consists of the following core components:

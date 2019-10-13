@@ -102,7 +102,7 @@ folders:
     folders:
       Architecture:
         ordering:
-        - System Overview
+        - Platform Overview
         - Dataset Metamodel
         - Message Broker
       DevOps:
