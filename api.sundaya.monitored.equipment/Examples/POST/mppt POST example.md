@@ -44,8 +44,8 @@ The `status` attribute in the request message should contain a hex-encoding of t
 - bits 14-15 are currently not used in this scheme but must be padded with zeros to produce a 4-character hex value.
 
 As an example, a `status` of '__1A79__' is equivalent to __0001 1010 0111 1001__ which indicates :
--   the data bus is connected and _ok_ (Bit 0=__1__).
--   the _mppt_ system is on _standby_ (Bit 13=__0__) with a charging status of _float_ (Bit 10,11=__0,1__).
+-   the data bus is connected and _ok_ (#0=__1__).
+-   the _mppt_ system is on _standby_ (#13=__0__) with a charging status of _float_ (#10,#11=__0,1__).
 -   pv, load, fets, and input statuses are all _ok_.
 
 
