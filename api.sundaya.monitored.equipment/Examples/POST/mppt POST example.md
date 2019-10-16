@@ -14,7 +14,7 @@ The following snippet shows the structure of a `mppt` request:
           "pv": { "volts": [48.000, 48.000], "amps": [6.0, 6.0] },
           "battery": { "volts" : 55.1, "amps": 0.0 }, 
           "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2] },
-          "status": "1A79"
+          "status": "0801"
         },
 ```
 
@@ -43,7 +43,7 @@ The `status` attribute in the request message should contain a hex-encoding of t
 
 - bits 14-15 are currently not used in this scheme but must be padded with zeros to produce a 4-character hex value.
 
-As an example, a `status` of '__1A79__' is equivalent to __0001 1010 0111 1001__ which indicates :
+As an example, a `status` of '__0801‬__' is equivalent to __0000 1000 0000 0001__ which indicates :
 -   the data bus is connected and _ok_ (#0=__1__).
 -   the _mppt_ system is on _standby_ (#13=__0__) with a charging status of _float_ (#10,#11=__0,1__).
 -   pv, load, fets, and input statuses are all _ok_.
@@ -120,13 +120,13 @@ Content-Type: application/json
           "pv": { "volts": [48.000, 48.000], "amps": [6.0, 6.0] },
           "battery": { "volts" : 55.1, "amps": 0.0 }, 
           "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2] },
-          "status": "1A79"
+          "status": "0801"
         },
         { "time_local": "20190909T150016.022+0700",
           "pv": { "volts": [48.000, 48.000], "amps": [6.0, 6.0] },
           "battery": { "volts" : 55.1, "amps": 0.0 }, 
           "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2] },
-          "status": "1A79"
+          "status": "0801"
         }
       ]
     },
@@ -136,13 +136,13 @@ Content-Type: application/json
           "pv": { "volts": [48.000, 48.000], "amps": [6.0, 6.0] },
           "battery": { "volts" : 55.1, "amps": 0.0 }, 
           "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2] },
-          "status": "1A79"
+          "status": "0801"
         },
         { "time_local": "20190909T150017.022+0700",
           "pv": { "volts": [48.000, 48.000], "amps": [6.0, 6.0] },
           "battery": { "volts" : 55.1, "amps": 0.0 }, 
           "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2] },
-          "status": "1A79"
+          "status": "0801"
         }
       ]
     }
