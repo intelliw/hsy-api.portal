@@ -57,28 +57,28 @@ Bit # | Status                        | Field Name        | Value | ..
 ..    |                               |                   | 0, 1  | _no-power_
 ..    |                               |                   | 1, 0  | _high-volt-input_
 ..    |                               |                   | 1, 1  | _input-volt-error_
-3     | Charging Mosfet               | `chgfet`          | 1     | _ok_  
-..    |                               |                   | 0     | _short_
-4     | Charging Anti Reverse Mosfet  | `chgfet_antirev`  | 1     | _ok_  
-..    |                               |                   | 0     | _short_
-5     | Anti Reverse Mosfet           | `fet_antirev`     | 1     | _ok_  
-..    |                               |                   | 0     | _short_
-6     | Input Current                 | `input_current`   | 1     | _ok_
-..    |                               |                   | 0     | _overcurrent_
+3     | Charging Mosfet               | `chgfet`          | 0     | _ok_  
+..    |                               |                   | 1     | _short_
+4     | Charging Anti Reverse Mosfet  | `chgfet_antirev`  | 0     | _ok_  
+..    |                               |                   | 1     | _short_
+5     | Anti Reverse Mosfet           | `fet_antirev`     | 0     | _ok_  
+..    |                               |                   | 1     | _short_
+6     | Input Current                 | `input_current`   | 0     | _ok_
+..    |                               |                   | 1     | _overcurrent_
 7,8   | Load                          | `load`            | 0, 0  | _ok_
 ..    |                               |                   | 0, 1  | _overcurrent_
 ..    |                               |                   | 1, 0  | _short_
 ..    |                               |                   | 1, 1  | _not-applicable_
-9     | PV Input                      | `pv_input`        | 1     | _ok_
-..    |                               |                   | 0     | _short_
+9     | PV Input                      | `pv_input`        | 0     | _ok_
+..    |                               |                   | 1     | _short_
 10,11 | Charging Status               | `charging`        | 0, 0  | _not-charging_
 ..    |                               |                   | 0, 1  | _float_
 ..    |                               |                   | 1, 0  | _boost_
 ..    |                               |                   | 1, 1  | _equalisation_
-12    | System Status                 | `system`          | 1     | _ok_
-..    |                               |                   | 0     | _fault_
-13    | Standby Status                | `standby`         | 1     | _standby_
-..    |                               |                   | 0     | _running_
+12    | System Status                 | `system`          | 0     | _ok_
+..    |                               |                   | 1     | _fault_
+13    | Standby Status                | `standby`         | 0     | _standby_
+..    |                               |                   | 1     | _running_
 14-15 | _unused_                      | -                 | 0     | -
 
 
