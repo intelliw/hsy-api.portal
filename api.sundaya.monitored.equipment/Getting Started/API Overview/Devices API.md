@@ -22,9 +22,9 @@ The following dataset table names may be used for the `{dataset}` parameter.
 
 {dataset} | Description
 --- | --- 
-[pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Datasets/monitoring/pms) | Data from pack management systems (PMS) for cabinets, including monitored epacks, cells, and mosfets.
-[mppt](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Datasets/monitoring/mppt) | Data from Maximum Power Point Tracking (MPPTcontrollers, including connected PV strings, batteries, and DC loads.
-[inverter](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Datasets/monitoring/inverter) | Data from Inverter charge controllers, including connected pv strings, batteries, and AC loads.
+[pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/pms) | Data from pack management systems (PMS) for cabinets, including monitored epacks, cells, and mosfets.
+[mppt](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/mppt) | Data from Maximum Power Point Tracking (MPPTcontrollers, including connected PV strings, batteries, and DC loads.
+[inverter](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/inverter) | Data from Inverter charge controllers, including connected pv strings, batteries, and AC loads.
 
 
 # /device/dataset GET
