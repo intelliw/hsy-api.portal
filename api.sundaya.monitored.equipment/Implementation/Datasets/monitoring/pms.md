@@ -113,7 +113,7 @@ A Case contains 14 **Cell Blocks**, 1 **Fet Board**, and 1 **Acqu. Board**.
 
 PMS data consists of two distinct datasets, _Monitoring_ data and _Transaction/Master_ data, which are joined through a relationship as shown in the model below:
 
-![PMS System](../../images/PMSComposite.png)
+![PMS System](/images/PMSComposite.png)
 
 ### Monitoring data
 
@@ -128,7 +128,7 @@ The dataset is collected through a recurring schedule and appended to a time-ser
 
 The Monitoring Dataset links to Master data through a shared key in **PMS id** and **Case Id** respectively. 
 
-![PMS Data](../../images/PMSData.png)
+![PMS Data](/images/PMSData.png)
 
 ### Transaction/Master data 
 
