@@ -86,27 +86,27 @@ folders:
         - Roadmap
         - Changelog
 
-  Datasets:
-    ordering:
-    - monitoring
-    - master
-    - system
-    - transaction
+      Datasets:
+        ordering:
+        - monitoring
+        - master
+        - system
+        - transaction
 
-    folders:
-      monitoring:
-        ordering:
-        - pms
-        - mppt
-        - inverter
-      master:
-        ordering:
-        - pms
-        - site
-      system:
-        ordering:
-        - source
-      transaction:
-        ordering:
-        - installation
+        folders:
+          monitoring:
+            ordering:
+            - pms
+            - mppt
+            - inverter
+          master:
+            ordering:
+            - pms
+            - site
+          system:
+            ordering:
+            - source
+          transaction:
+            ordering:
+            - installation
 
