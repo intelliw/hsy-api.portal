@@ -128,7 +128,7 @@ The dataset is collected through a recurring schedule and appended to a time-ser
 
 The Monitoring Dataset links to Master data through a shared key in **PMS id** and **Case Id** respectively. 
 
-![PMS Data](../../images/PMSData.png)
+![PMS Data](/images/PMSData.png)
 
 ### Transaction/Master data 
 
