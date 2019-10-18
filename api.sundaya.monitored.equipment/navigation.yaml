@@ -81,10 +81,7 @@ folders:
         - Platform Overview
         - Dataset Metamodel
         - Message Broker
-      DevOps:
-        ordering:
         - Roadmap
-        - Changelog
 
       Datasets:
         ordering:

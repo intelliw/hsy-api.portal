@@ -32,7 +32,7 @@ The following dataset table names may be used for the `{dataset}` parameter.
 
 The `/device/{device-id}/dataset/{dataset}` path allows field engineers to monitor an individual device during operation.
  
- [https:/api.sundaya.monitored.equipment/device/**{device-id}**/dataset/**{dataset}**/period/week/20150204/1](https:/api.sundaya.monitored.equipment/device/MPPT-01-002/dataset/mppt/period/week/20150204/1)
+ [https:/api.sundaya.monitored.equipment/device/**{device-id}**/dataset/**{dataset}**/period/week/20150204/1](https:/api.sundaya.monitored.equipment/device/MPPT-01-002/dataset/mppt/period/week/20150204/1 "device=MPPT-01-002, dataset=mppt, period=week, epoch=20150204, duration=1")
 
 - This path provide a dedicated endpoint to retrive data for an individual **device** and dataset. 
 
