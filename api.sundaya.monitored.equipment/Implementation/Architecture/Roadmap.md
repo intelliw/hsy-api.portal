@@ -1,6 +1,6 @@
 # Roadmap
 ---
-
+- OAuth for GET paths
 
 # Changelog
 ---

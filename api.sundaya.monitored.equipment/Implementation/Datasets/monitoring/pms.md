@@ -60,7 +60,7 @@ Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
 `pms_id` | - | string | - | Id of the PMS system, as displayed on the cabinet. This attribute replaces `pms.id` in the request message.
 `pack_id` | - | string | - | Id of the `pack` associated with this data record. This attribute replaces `pack.id` as a top-level attribute, so that it can be included in the data clustering specification.
-`pms.temp` | degC | float | - | The Ehub's self-monitored temperature. Attributes in the `pms` element provide a secondary dataset, as opposed to the `data` element which which provides the primary dataset for the actual equipment being monitored (`pack` data).
+`pms.temp` | degC | float | - | The Ehub's self-monitored temperature. Attributes in the `pms` element provide a secondary dataset (the `data` element contains the primary dataset for the equipment being monitored, e.g. `pack` data).
 `pack.volts` | volts | float | - | The cellblocks are connected in series so the pack voltage is the sum of all 14 cell voltages (`cell.volts[1-14]`).
 `pack.amps` | amps | float | - | _(no change from request message)_.
 `pack.watts` | watts | float | - | The product of `pack.volts` and `pack.amps`.
