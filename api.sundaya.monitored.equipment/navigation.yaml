@@ -73,7 +73,6 @@ folders:
     ordering:
     - Architecture
     - Datasets
-    - DevOps
 
     folders:
       Architecture:
