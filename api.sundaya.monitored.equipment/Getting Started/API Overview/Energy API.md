@@ -85,7 +85,7 @@ Period | Child Period | Duration | Grandchild Period | Duration | Format (*compr
 `minute` | `second` | 60 | `instant` | *varies* | YYYYMMDDTHHmm | DD/MM/YY HH:mm
 `hour` | `minute` | 60 | `second` | 60 (360) | YYYYMMDDTHHmm | DD/MM/YY HH:mm
 `timeofday` | `hour` | 6 | `minute` | 60 (360) | YYYYMMDDTHHmm | DD/MM/YY HH:mm
-`day` | `hour` | 4 | `minute` | 60 (240) | YYYYMMDD | DD/MM/YY
+`day` | `hour` | 24 | `minute` | 60 (240) | YYYYMMDD | DD/MM/YY
 `week` | `day` | 7 | `timeofday` | 4 (28) | YYYYMMDD | DD/MM/YY
 `month` | `day` | *varies* | `hour` | *varies* | YYYYMMDD | DD/MM/YY
 `quarter` | `month` | 3 | `day` | *varies* | YYYYMMDD | DD/MM/YY
