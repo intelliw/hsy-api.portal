@@ -81,7 +81,7 @@ pms.id,time_local,pack.dock,pack.id,pack.dock,pack.amps,pack.temp.1,pack.temp.2,
 
 ### POST /dataset/pms request
 
-[/device/dataset/pms](https:/api.sundaya.monitored.equipment/devices/dataset/pms)
+[/device/dataset/pms](https:/test.sundaya.monitored.equipment/devices/dataset/pms)
 
 The request example below shows data collected for 2 PMS systems at a site ('PMS-01-001' and 'PMS-01-002') with 1 cabinet each, and 4 packs in the cabinet (the smallest PMS system configuration). 
 
@@ -101,7 +101,7 @@ The size of a dataset for a single cabinet (4 packs) is 2030 bytes including whi
 ```
 *** REQUEST ***	
 POST /devices/dataset/pms HTTPS/1.1	
-Host: api.sundaya.monitored.equipment
+Host: test.sundaya.monitored.equipment
 Accept: application/json
 Content-Type: application/json
     
@@ -273,8 +273,8 @@ If the request is processed synchronously a 201 Response will be returned as fol
 ```
 *** RESPONSE ***	
 201 Created HTTPS/1.1	
-Location: https:/api.sundaya.monitored.equipment/device/CAB-01-001/dataset/pms/period/minute/20190209T1500+0700/1
-Location: https:/api.sundaya.monitored.equipment/device/CAB-01-002/dataset/pms/period/minute/20190209T1500+0700/1
+Location: https:/test.sundaya.monitored.equipment/device/CAB-01-001/dataset/pms/period/minute/20190209T1500+0700/1
+Location: https:/test.sundaya.monitored.equipment/device/CAB-01-002/dataset/pms/period/minute/20190209T1500+0700/1
 Content-Type: application/json
 Content-Length: 8063	
 

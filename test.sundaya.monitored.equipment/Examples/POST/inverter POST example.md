@@ -61,7 +61,7 @@ Bit   | Status                        | Field Name        | Value | ..
 
 ### POST /dataset/inverter request
 
-[/devices/dataset/inverter](https:/api.sundaya.monitored.equipment/devices/dataset/mppt)
+[/devices/dataset/inverter](https:/test.sundaya.monitored.equipment/devices/dataset/mppt)
 
 The request example below shows datasets collected at a BTS site with 2 Kehua SPI-B2 Inverter / Charge Controllers ('SPI-B2-01-001' and 'SPI-B2-01-002').
 
@@ -81,7 +81,7 @@ The size of each Inverter dataset is 367 bytes including whitespace, or 248 byte
 ```
 *** REQUEST ***	
 POST /devices/dataset/inverter HTTPS/1.1	
-Host: api.sundaya.monitored.equipment
+Host: test.sundaya.monitored.equipment
 Accept: application/json
 Content-Type: application/json
     
@@ -160,8 +160,8 @@ If the request is processed synchronously a 201 Response will be returned as fol
 ```
 *** RESPONSE ***	
 201 Created HTTPS/1.1	
-Location: https:/api.sundaya.monitored.equipment/device/SPI-B2-01-001/dataset/inverter/period/minute/20190209T1500+0700/1
-Location: https:/api.sundaya.monitored.equipment/device/SPI-B2-01-002/dataset/inverter/period/minute/20190209T1500+0700/1
+Location: https:/test.sundaya.monitored.equipment/device/SPI-B2-01-001/dataset/inverter/period/minute/20190209T1500+0700/1
+Location: https:/test.sundaya.monitored.equipment/device/SPI-B2-01-002/dataset/inverter/period/minute/20190209T1500+0700/1
 Content-Type: application/json
 Content-Length: 1171	
 

@@ -47,7 +47,7 @@ The response will also include links to navigate from the reqested period to adj
 
 - /energy/{`energy`}/period/{`period`}/{`epoch`}/{`duration`}?site={`site`}
 
-    e.g. [https://api.sundaya.monitored.equipment/energy/hse/period/week/20150204/1?site=999](https://api.sundaya.monitored.equipment/energy/hse/period/week/20150204/1?site=999 "energy=hse, period=week, duration=1, site=999")
+    e.g. [https://test.sundaya.monitored.equipment/energy/hse/period/week/20150204/1?site=999](https://test.sundaya.monitored.equipment/energy/hse/period/week/20150204/1?site=999 "energy=hse, period=week, duration=1, site=999")
 
 ### Path parameters
 
@@ -162,19 +162,19 @@ The link-relation typese are based on [RFC8288](https://tools.ietf.org/html/rfc8
 
     In `collection.links` it points to the collection as a whole (`name`=*'week'*)            
 
-    e.g. href=[https:/api.sundaya.monitored.equipment/energy/hse/period/week/20190210](https:/api.sundaya.monitored.equipment/energy/hse/period/week/20190210)
+    e.g. href=[https:/test.sundaya.monitored.equipment/energy/hse/period/week/20190210](https:/test.sundaya.monitored.equipment/energy/hse/period/week/20190210)
 
     In `collection.items.links` it points to a child item in the collection (`name`=*'day'*).
 
-    e.g. href=[https:/api.sundaya.monitored.equipment/energy/hse/period/day/20190204](https:/api.sundaya.monitored.equipment/energy/hse/period/day/20190204)
+    e.g. href=[https:/test.sundaya.monitored.equipment/energy/hse/period/day/20190204](https:/test.sundaya.monitored.equipment/energy/hse/period/day/20190204)
 
 - **collection** - in `collection.links` it points to the child items which make up the collection (`name`=*'week.day'*).
     
-    e.g. href=[https:/api.sundaya.monitored.equipment/energy/hse/period/day/20190204](https:/api.sundaya.monitored.equipment/energy/hse/period/day/20190204)
+    e.g. href=[https:/test.sundaya.monitored.equipment/energy/hse/period/day/20190204](https:/test.sundaya.monitored.equipment/energy/hse/period/day/20190204)
 
 - **item** - in `collection.items.links` it points to the subitems of the child item: i.e the grandchild items of the collection (`name`=*'day.hour'*).
 
-    e.g. href=[https:/api.sundaya.monitored.equipment/energy/hse/period/hour/20190205T0600](https:/api.sundaya.monitored.equipment/energy/hse/period/hour/20190205T0600)
+    e.g. href=[https:/test.sundaya.monitored.equipment/energy/hse/period/hour/20190205T0600](https:/test.sundaya.monitored.equipment/energy/hse/period/hour/20190205T0600)
 
 - **up** - Identifies the parent of the collection or item (`name`=*'month'* if a link is in collection object for a *'week'*).
     

@@ -3,7 +3,7 @@
 
 ### GET /api/versions request
 
-[/api/versions](https:/api.sundaya.monitored.equipment/api/versions)
+[/api/versions](https:/test.sundaya.monitored.equipment/api/versions)
 
 
 ### GET /api/versions response
@@ -11,7 +11,7 @@
 ```
 *** REQUEST ***	
 GET /v HTTPS/1.1	
-Host: api.sundaya.monitored.equipment
+Host: test.sundaya.monitored.equipment
 Accept: application/json
     
 *** RESPONSE ***	
