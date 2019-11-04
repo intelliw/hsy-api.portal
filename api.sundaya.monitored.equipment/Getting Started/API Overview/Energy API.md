@@ -41,7 +41,7 @@ Each data element refers to a subset of the overall energy dataset.
 
 The `/energy` path returns a ‘cube’ of energy data for a specified number of periods starting at an epoch. 
 
-It response contains aggregated data for the requested period, and for its child period. For example a request for a *week* period will produce a response with data aggregated for the *week* and for its child period: *day*.
+The response contains aggregated data for the requested period, and for its child period. For example a request for a *week* period will produce a response with data aggregated for the *week* and for its child period: *day*.
 
 The response will also include links to navigate from the reqested period to adjacent periods (next week, month etc.). 
 
