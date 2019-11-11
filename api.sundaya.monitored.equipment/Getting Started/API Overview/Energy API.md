@@ -69,7 +69,9 @@ Parameter                   | In            | Description               | Defaul
 
 - __epoch__ - The `epoch` parameter specifies the starting date-time of the period. If the epoch is a partial date or time (such as '2019' or '201910'), in which case it will be 'blended' with the *current* date and time to create a complete UTC epoch. For example a request for '_this week last year_' can be expressed with an epoch simply specifies as '_2018_': the API will construct and return data for 2018 in the current month and week. Note that the returned data will also display the epoch for each `period` in the `href` attribute of links.
 
-- __duration__ - The `duration` parameter can be a positive or negative integer, which specifies the number of periods required. For example if a request is made for a */week* period with a duration of 3, the response will contain 3 periods of weekly energy data (starting at the requested epoch). If the duration is negative the corresponding number of periods will be subtracted from the epoch so that the overall duration is retrospective to the requested epoch. For example a request for a */week* period with a duration of -3 will return data for the previous three weeks before the requested epoch.   
+- __duration__ - The `duration` parameter can be a positive or negative integer, which specifies the number of periods required. 
+
+    if a request is made for a */week* period with a duration of 3, the response will contain 3 periods of weekly energy data (starting at the requested epoch). If the duration is negative the corresponding number of periods will be subtracted from the epoch so that the overall duration is retrospective to the requested epoch. For example a request for a */week* period with a duration of -3 will return data for the previous three weeks before the requested epoch.   
 
 The following table describes each `period` and the supported timestamp format for its `epoch`. 
 
