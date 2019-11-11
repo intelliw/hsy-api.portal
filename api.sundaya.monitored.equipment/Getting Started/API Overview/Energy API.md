@@ -49,24 +49,25 @@ The response will also include links to navigate from the reqested period to adj
 
     e.g. [https://api.sundaya.monitored.equipment/energy/hse/period/week/20150204/1?site=999](https://api.sundaya.monitored.equipment/energy/hse/period/week/20150204/1?site=999 "energy=hse, period=week, duration=1, site=999")
 
+### Parameters
+
+The following parameters are supported in energy requests. If a parameter is omitted it will be defaulted as shown. If the parameter is provided it will be validated against a controlled value list (enumeration) as specified in the API specification.     
+
+Parameter                   | In            | Description               | Default
+---                         | ---           | ---                       | --- 
+`energy`                    | _path_        | The type of energy flow.  | *hse*
+`period`                    | _path_        | The time window for which total energy is aggregated. The only exception is 'instant' (which is for a single point in time, a millisecond) which is presented without aggregation. | *week*
+`epoch`                     | _path_        | The starting date and time for the period. | *now*
+`duration`                  | _path_        | The number of periods to return starting at epoch. | *1*
+`site`                      | _query_       | The customer site where energy assets have been installed. | *999*
+`productCatalogItems`       | _body_        | The installed products for which the data should be filtered. | *any*
+
 ### Path parameters
+- __period__ - The `period` parameter specifies the aggregation for the data returned by the request, including the child and grandchild of the requested `period` as shown in the table below. For example a request for a */week* period will return total energy for each *day* and a breakdown of daily energy for each *hour*.
 
-The following path parameters are required in energy data requests. If a parameter is omitted it will be defaulted as shown. If the paramter was provided it will be validated agains the controlled value lists (enums) specified in the API.     
+- __epoch__ - The `epoch` paramter specifies the starting date-time of the period. The epoch is displayed in links in the the `href` attribute, after the `period`. 
 
-Parameter | Description | Default
---- | --- | --- 
-`energy` | The type of energy flow. | *hse*
-`period` | The time window for which total energy is aggregated. The only exception is 'instant' (which is for a single point in time, a millisecond) which is presented without aggregation. | *week*
-`epoch` | The starting date and time for the period. | current UTC date-time
-`duration` | The number of periods to return starting at epoch. | *1*
-`site` | The customer site where energy assets have been installed. | *999*
-
-### period, epoch, duration
-- __period__ - The returned data includes the child and grandchild of the requested `period`. For example if a request is made for a */week* the response will contain total energy for each *day* and a breakdown of energy for each *hour*. 
-
-- __duration__ - The `duration` parameter specifies the number of periods required. For example if a request is made for a */week* period with a duration of 3, the response will contain 3 periods of weekly energy data (starting at the requested epoch). 
-
-- __period__ - The `epoch` paramter specifies the starting date-time of the period. The epoch is displayed in links in the the `href` attribute, after the `period`. 
+- __duration__ - The `duration` parameter specifies the number of periods required. For example if a request is made for a */week* period with a duration of 3, the response will contain 3 periods of weekly energy data (starting at the requested epoch). If the duration is a negative number it will 
 
 The following table describes each `period` and formats used for `epoch` in the returned data. 
 
