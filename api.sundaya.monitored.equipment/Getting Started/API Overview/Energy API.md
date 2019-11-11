@@ -63,13 +63,15 @@ Parameter                   | In            | Description               | Defaul
 `productCatalogItems`       | _body_        | The installed products for which the data should be filtered. | *any*
 
 ### Path parameters
-- __period__ - The `period` parameter specifies the aggregation for the data returned by the request, including the child and grandchild of the requested `period` as shown in the table below. For example a request for a */week* period will return total energy for each *day* and a breakdown of daily energy for each *hour*.
+- __energy__ - Specifies one of the four energy data types (described above), or `hse` if all four data types are required. `hse` stands for `harvest`, `store`, and `energy`, but implicitly includes `grid`.
 
-- __epoch__ - The `epoch` paramter specifies the starting date-time of the period. The epoch is displayed in links in the the `href` attribute, after the `period`. 
+- __period__ - The `period` parameter specifies the unit of aggregation for data returned by the request. Each period is associated with a child and grandchild period as shown in the table below. For example a request for a */week* period will return total energy for each *day* (child period) and a breakdown of daily energy for each *hour* (grandchild period).
 
-- __duration__ - The `duration` parameter specifies the number of periods required. For example if a request is made for a */week* period with a duration of 3, the response will contain 3 periods of weekly energy data (starting at the requested epoch). If the duration is a negative number it will 
+- __epoch__ - The `epoch` parameter specifies the starting date-time of the period. If the epoch is a partial date or time (such as '2019' or '201910'), in which case it will be 'blended' with the *current* date and time to create a complete UTC epoch. For example a request for '_this week last year_' can be expressed with an epoch simply specifies as '_2018_': the API will construct and return data for 2018 in the current month and week. Note that the returned data will also display the epoch for each `period` in the `href` attribute of links.
 
-The following table describes each `period` and formats used for `epoch` in the returned data. 
+- __duration__ - The `duration` parameter can be a positive or negative integer, which specifies the number of periods required. For example if a request is made for a */week* period with a duration of 3, the response will contain 3 periods of weekly energy data (starting at the requested epoch). If the duration is negative the corresponding number of periods will be subtracted from the epoch so that the overall duration is retrospective to the requested epoch. For example a request for a */week* period with a duration of -3 will return data for the previous three weeks before the requested epoch.   
+
+The following table describes each `period` and the supported timestamp format for its `epoch`. 
 
 - The *compressed* format is used in hyperlinks (in the `href` attribute) and the *uncompressed* format is intended for use in display labels.
 

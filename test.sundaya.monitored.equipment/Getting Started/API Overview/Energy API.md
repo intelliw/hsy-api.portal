@@ -51,7 +51,7 @@ The response will also include links to navigate from the reqested period to adj
 
 ### Path parameters
 
-The following path parameters are required in energy data requests. If a parameter is omitted it will be defaulted as shown. If the paramter was provided it will be validated agains the controlled value lists (enums) specified in the API.     
+The following path parameters are required in energy data requests. If a parameter is omitted it will be defaulted as shown. If the parameter was provided it will be validated agains the controlled value lists (enums) specified in the API.     
 
 Parameter | Description | Default
 --- | --- | --- 
