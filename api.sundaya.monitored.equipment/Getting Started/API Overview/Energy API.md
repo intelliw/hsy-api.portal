@@ -81,7 +81,7 @@ Parameter                   | In            | Description               | Defaul
     
     If the duration is _negative_ the duration will be retrospective to the requested epoch. For example a request for a */week* period and duration of __-3__ will return data for the previous three weeks, _ending_ at the requested epoch.
 
-The following table describes each `period` and the supported timestamp format for its `epoch`. 
+The table below describes each `period` and supported timestamp formats for `epoch`. 
 
 - The *compressed* format is used in hyperlinks (in the `href` attribute) and the *uncompressed* format is intended for use in display labels.
 
