@@ -62,7 +62,7 @@ Parameter | Description | Default
 `site` | The customer site where energy assets have been installed. | *999*
 
 ### period, epoch, duration
-- The returned data includes the child and grandchild of the requested `period`. For example if a request is made for a */week* the response will contain total energy for each *day* and a breakdown of energy for each *hour*. 
+- __`period`__ - The returned data includes the child and grandchild of the requested `period`. For example if a request is made for a */week* the response will contain total energy for each *day* and a breakdown of energy for each *hour*. 
 
 - The `duration` parameter specifies the third dimension. It returns multiples of the above period data arrays. For example if a request is made for a */week* period with a duration of 3, the response will contain 3 collections of weekly energy data as described above, starting at the requested epoch. 
 
@@ -99,7 +99,7 @@ Parameter | Description | Default
 --- | --- | --- 
 `site` | Identifier of the customer site where energy assets have been installed. | *999*
 
-### Body parameter
+### Body parameters
 The `productCatalogItems` optional body parameter specifies a query filter for `/energy` data to be restricted to one or more products. 
 
 The query response will contain data for *any* of the product categories, subcategories, and product types specified in the parameter. 
