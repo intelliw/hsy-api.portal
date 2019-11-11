@@ -71,7 +71,9 @@ Parameter                   | In            | Description               | Defaul
 
 - __epoch__ - The `epoch` parameter specifies the starting date-time of the period. 
 
-    If the epoch is a partial date or time (such as '2019' or '201910') it will be 'blended' with the *current* date and time to create a complete UTC epoch. For example a request for '_this week last year_' can be expressed with an epoch simply specified as '_2018_': the API will construct and return data for 2018 in the current month and week. Note that the returned data will also display the epoch for each `period` in the `href` attribute of links.
+    If the epoch is a partial date or time (such as '2019' or '201910') it will be 'blended' with the *current* date and time to create a complete UTC epoch. For example a request for '_this week last year_' can be expressed with an epoch simply specified as '_2018_': the API will construct and return data for 2018 in the current month and week. 
+    
+    Note that the returned data will also display the epoch for each `period` in the `href` attribute of links.
 
 - __duration__ - The `duration` parameter can be a positive or negative integer, which specifies the number of periods required. 
 
