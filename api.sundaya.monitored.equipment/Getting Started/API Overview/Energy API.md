@@ -75,7 +75,9 @@ Parameter                   | In            | Description               | Defaul
 
 - __duration__ - The `duration` parameter can be a positive or negative integer, which specifies the number of periods required. 
 
-    if a request is made for a */week* period with a duration of 3, the response will contain 3 periods of weekly energy data (starting at the requested epoch). If the duration is negative the corresponding number of periods will be subtracted from the epoch so that the overall duration is retrospective to the requested epoch. For example a request for a */week* period with a duration of -3 will return data for the previous three weeks before the requested epoch.   
+    A request for a */week* period with a _positive_ duration of __3__ will return 3 periods of weekly energy data _starting_ at the requested epoch. 
+    
+    If the duration is _negative_ the duration will be retrospective to the requested epoch. For example a request for a */week* period and duration of __-3__ will return data for the previous three weeks, _ending_ at the requested epoch.
 
 The following table describes each `period` and the supported timestamp format for its `epoch`. 
 
