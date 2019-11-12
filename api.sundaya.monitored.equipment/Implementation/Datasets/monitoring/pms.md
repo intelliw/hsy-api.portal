@@ -1,13 +1,32 @@
 # monitoring.pms
 ---
 
-### Transformed message structure
+### API host message structure
 
-The transformed JSON structure is shown in the following sample. This structure is sent to the message broker at the first stage of processing the `dataset/pms` POST message, and later used to load data into the datawarehouse:
+Each item in the the `dataset/pms` POST message body 'datasets' array is transformed into the JSON structure shown below.  
+
+The API host sends this structure to the `monitoring.pms` message broker topic at the first stage of processing the API POST message. 
 
 ```
 *** MESSAGE ***
-Topic: pms
+Topic: monitoring.mppt
+Key: IT6415AD-01-002
+Value:	
+```
+
+```json
+
+```
+
+### API consumer message structure
+
+The consumer process transforms messages in the above JSON structure, into the structure shown in the following sample.
+
+This structure is sent to the `monitoring.pms` dataset table in the datawarehouse as an audit log, and to the `monitoring.pms.dataset` message broker topic for stream processing.
+
+```
+*** MESSAGE ***
+Topic: monitoring.pms.dataset
 Key: PMS-01-001
 Value:	
 ```

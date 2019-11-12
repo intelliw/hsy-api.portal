@@ -1,14 +1,32 @@
 # monitoring.inverter
 ---
+### API host message structure
 
-### Transformed message structure
+Each item in the the `dataset/inverter` POST message body 'datasets' array is transformed into the JSON structure shown below.  
 
-The transformed JSON structure is shown in the following sample. This structure is sent to the message broker at the first stage of processing the `dataset/inverter` POST message, and later used to load data into the datawarehouse:
+The API host sends this structure to the `monitoring.inverter` message broker topic at the first stage of processing the API POST message. 
 
 ```
 *** MESSAGE ***
-Topic: inverter
-Key: SPI-B2-01-001
+Topic: monitoring.inverter
+Key: IT6415AD-01-002
+Value:	
+```
+
+```json
+
+```
+
+### API consumer message structure
+
+The consumer process transforms messages in the above JSON structure, into the structure shown in the following sample.
+
+This structure is sent to the `monitoring.inverter` dataset table in the datawarehouse as an audit log, and to the `monitoring.inverter.dataset` message broker topic for stream processing.
+
+```
+*** MESSAGE ***
+Topic: monitoring.inverter.dataset
+Key: SPI-B2-01-002
 Value:	
 ```
 
