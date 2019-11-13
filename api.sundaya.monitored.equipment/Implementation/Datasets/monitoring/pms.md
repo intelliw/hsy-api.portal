@@ -20,7 +20,7 @@ Value:
 
 ```json
 {
-  "pms": { "id": "TEST-09", "temp": 48.3 },
+  "pms": { "id": "PMS-01-001", "temp": 48.3 },
   "data": [
     { "pack": { 
         "id": "0241", "dock": 1, "amps": -1.601, "temp": [ 35, 33, 34 ],
