@@ -3,9 +3,13 @@
 
 ### API Host message structure
 
-Each item in the the `dataset/pms` POST message body 'datasets' array is transformed into the JSON structure shown below.  
+Each dataset item in the the `dataset/pms` POST message body 'datasets' array is transformed into a separate JSON message based on the structure shown below. 
 
-The API host sends this structure to the `monitoring.pms` message broker topic at the first stage of processing the API POST message. 
+Each message contains as many data items as there were in the POST request dataset.
+
+Typically there will be 14 data items in a `pms` dataset, one for each pack.
+
+The API host sends this message to the `monitoring.pms` message broker topic at the first stage of processing the API POST message. 
 
 ```
 *** MESSAGE ***

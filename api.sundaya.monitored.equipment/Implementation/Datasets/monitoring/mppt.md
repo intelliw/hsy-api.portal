@@ -3,7 +3,9 @@
 
 ### API Host message structure
 
-Each item in the the `dataset/mppt` POST message body 'datasets' array is transformed into the JSON structure shown below.  
+Each dataset item in the the `dataset/mppt` POST message body 'datasets' array is transformed into a separate JSON message based on the structure shown below. 
+
+Each message contains as many data items as there were in the POST request dataset.
 
 The API host sends this structure to the `monitoring.mppt` message broker topic at the first stage of processing the API POST message. 
 
