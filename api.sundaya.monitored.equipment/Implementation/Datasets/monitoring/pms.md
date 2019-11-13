@@ -29,7 +29,7 @@ Value:
         "status": "0001" },
       "sys": { "source": "S000" },
       "time_event": "2019-09-09 07:00:06.0320",
-      "time_zone": "+00:00",
+      "time_zone": "+07:00",
       "time_processing": "2019-11-12 10:43:24.7660"
     },
     { "pack": { 
@@ -38,9 +38,9 @@ Value:
         "fet": { "open": [1, 2 ], "temp": [ 34.1, 32.2 ] },
         "status": "0001" },
       "sys": { "source": "S000" },
-      "time_event": "2019-09-09 07:00:06.0320",
-      "time_zone": "+00:00",
-      "time_processing": "2019-11-12 10:43:24.7660"
+      "time_event": "2019-09-09 07:00:06.8110",
+      "time_zone": "+07:00",
+      "time_processing": "2019-11-12 10:43:25.9601"
     }    
     // ... 14 packs
   ]

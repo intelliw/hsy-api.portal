@@ -27,7 +27,7 @@ Value:
       "status": "0001",
       "sys": { "source": "S000" },
       "time_event": "2019-09-09 07:00:06.0320",
-      "time_zone": "+00:00",
+      "time_zone": "+07:00",
       "time_processing": "2019-11-12 10:04:10.1770"
     },
     { "pv": { "volts": [ 48, 48 ], "amps": [ 6, 6 ] },
@@ -37,7 +37,7 @@ Value:
       "status": "0001",
       "sys": { "source": "S000" },
       "time_event": "2019-09-09 07:00:16.0220",
-      "time_zone": "+00:00",
+      "time_zone": "+07:00",
       "time_processing": "2019-11-12 10:04:10.1770"
     }
   ]
