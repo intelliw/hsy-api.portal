@@ -1,6 +1,6 @@
 # monitoring.inverter
 ---
-### API Host message structure
+### API Host - output message
 
 Each dataset item in the the `dataset/inverter` POST message body 'datasets' array is transformed into a separate JSON message based on the structure shown below. 
 
@@ -10,9 +10,9 @@ The API host sends this structure to the `monitoring.inverter` message broker to
 
 ```
 *** MESSAGE ***
-Topic: monitoring.inverter
-Key: SPI-B2-01-002
-Value:	
+topic: monitoring.inverter
+key: SPI-B2-01-002
+value:	
 ```
 
 ```json
@@ -44,7 +44,7 @@ Value:
 }
 ```
 
-### API Consumer message structure
+### API Consumer - output message
 
 The consumer process transforms messages in the above JSON structure, into the structure shown in the following sample.
 
@@ -52,9 +52,9 @@ This structure is sent to the `monitoring.inverter` dataset table in the datawar
 
 ```
 *** MESSAGE ***
-Topic: monitoring.inverter.dataset
-Key: SPI-B2-01-002
-Value:	
+topic: monitoring.inverter.dataset
+key: SPI-B2-01-002
+value:	
 ```
 
 ```json

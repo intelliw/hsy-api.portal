@@ -1,7 +1,7 @@
 # monitoring.mppt
 ---
 
-### API Host message structure
+### API Host - output message
 
 Each dataset item in the the `dataset/mppt` POST message body 'datasets' array is transformed into a separate JSON message based on the structure shown below. 
 
@@ -11,9 +11,9 @@ The API host sends this structure to the `monitoring.mppt` message broker topic 
 
 ```
 *** MESSAGE ***
-Topic: monitoring.mppt
-Key: IT6415AD-01-002
-Value:	
+topic: monitoring.mppt
+key: IT6415AD-01-002
+value:	
 ```
 
 ```json
@@ -42,7 +42,7 @@ Value:
 }
 ```
 
-### Consumer message structure
+### API Consumer - output message
 
 The consumer process transforms messages in the above JSON structure, into the structure shown in the following sample.
 
@@ -50,9 +50,9 @@ This structure is sent to the `monitoring.mppt` dataset table in the datawarehou
 
 ```
 *** MESSAGE ***
-Topic: monitoring.mppt.dataset
-Key: IT6415AD-01-001
-Value:	
+topic: monitoring.mppt.dataset
+key: IT6415AD-01-001
+value:	
 ```
 
 ```json

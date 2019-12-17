@@ -1,7 +1,7 @@
 # monitoring.pms
 ---
 
-### API Host message structure
+### API Host - output message
 
 Each dataset item in the the `dataset/pms` POST message body 'datasets' array is transformed into a separate JSON message based on the structure shown below. 
 
@@ -13,9 +13,9 @@ The API host sends this message to the `monitoring.pms` message broker topic at 
 
 ```
 *** MESSAGE ***
-Topic: monitoring.pms
-Key: PMS-01-001
-Value:	
+topic: monitoring.pms
+key: PMS-01-001
+value:	
 ```
 
 ```json
@@ -47,7 +47,7 @@ Value:
 }
 ```
 
-### Consumer message structure
+### API Consumer - output message
 
 The consumer process transforms messages in the above JSON structure, into the structure shown in the following sample.
 
@@ -55,9 +55,9 @@ This structure is sent to the `monitoring.pms` dataset table in the datawarehous
 
 ```
 *** MESSAGE ***
-Topic: monitoring.pms.dataset
-Key: PMS-01-001
-Value:	
+topic: monitoring.pms.dataset
+key: PMS-01-001
+value:	
 ```
 
 ```json
