@@ -1,7 +1,7 @@
 
 # Energy API
 
-The `/energy` path provides time-windowed data for four **Energy Types** :`harvest`, `store`, `enjoy`, `grid`. 
+The `/energy` path provides time-windowed data for four **Energy Types** :`harvest`, `store`, `yield`, `grid`. 
 
 The API consolidates data for all four energy types in the requested period (week, month etc.).
 
@@ -13,7 +13,7 @@ Energy | Assets | Devices
 --- | --- | ---
 `harvest` | Renewables | PV Modules, Maximum Power Point Trackers (MPPT)
 `store` | Storage | Busbar Controllers (BBC), Pack Management Systems (PMS)
-`enjoy` | Appliances | Multicore-Cable Current Sensors, Switchboard Clamp Sensors
+`yield` | Appliances | Multicore-Cable Current Sensors, Switchboard Clamp Sensors
 `grid` | Mains Electricity | Smart Meters, PV Grid-interactive Inverters
 
 
@@ -33,7 +33,7 @@ Each data element refers to a subset of the overall energy dataset.
 
 - `harvest` refers to renewable energy generation. 
 
-- `enjoy` indicates energy use by end users and appliances. 
+- `yield` indicates energy use by end users and appliances. 
 
 
 # /energy GET
@@ -47,7 +47,7 @@ The response will also include links to navigate from the reqested period to adj
 
 - /energy/{`energy`}/period/{`period`}/{`epoch`}/{`duration`}?site={`site`}
 
-    e.g. [https://test.sundaya.monitored.equipment/energy/hse/period/week/20150204/1?site=999](https://test.sundaya.monitored.equipment/energy/hse/period/week/20150204/1?site=999 "energy=hse, period=week, duration=1, site=999")
+    e.g. [https://test.sundaya.monitored.equipment/energy/hsy/period/week/20150204/1?site=999](https://test.sundaya.monitored.equipment/energy/hsy/period/week/20150204/1?site=999 "energy=hsy, period=week, duration=1, site=999")
 
 ### Path parameters
 
@@ -55,7 +55,7 @@ The following path parameters are required in energy data requests. If a paramet
 
 Parameter | Description | Default
 --- | --- | --- 
-`energy` | The type of energy flow. | *hse*
+`energy` | The type of energy flow. | *hsy*
 `period` | The time window for which total energy is aggregated. The only exception is 'instant' (which is for a single point in time, a millisecond) which is presented without aggregation. | *week*
 `epoch` | The starting date and time for the period. | current UTC date-time
 `duration` | The number of periods to return starting at epoch. | *1*
@@ -138,7 +138,7 @@ Links have the following attributes:
 
     e.g:
 
-    -   "rel": "self", "name": "week", "description": "`hse week 20190204 1 999`"
+    -   "rel": "self", "name": "week", "description": "`hsy week 20190204 1 999`"
 
     -   "rel": "collection", "name": "week.day" "description": "`Mon Tue Wed Thu Fri Sat Sun`"
 
@@ -162,19 +162,19 @@ The link-relation typese are based on [RFC8288](https://tools.ietf.org/html/rfc8
 
     In `collection.links` it points to the collection as a whole (`name`=*'week'*)            
 
-    e.g. href=[https:/test.sundaya.monitored.equipment/energy/hse/period/week/20190210](https:/test.sundaya.monitored.equipment/energy/hse/period/week/20190210)
+    e.g. href=[https:/test.sundaya.monitored.equipment/energy/hsy/period/week/20190210](https:/test.sundaya.monitored.equipment/energy/hsy/period/week/20190210)
 
     In `collection.items.links` it points to a child item in the collection (`name`=*'day'*).
 
-    e.g. href=[https:/test.sundaya.monitored.equipment/energy/hse/period/day/20190204](https:/test.sundaya.monitored.equipment/energy/hse/period/day/20190204)
+    e.g. href=[https:/test.sundaya.monitored.equipment/energy/hsy/period/day/20190204](https:/test.sundaya.monitored.equipment/energy/hsy/period/day/20190204)
 
 - **collection** - in `collection.links` it points to the child items which make up the collection (`name`=*'week.day'*).
     
-    e.g. href=[https:/test.sundaya.monitored.equipment/energy/hse/period/day/20190204](https:/test.sundaya.monitored.equipment/energy/hse/period/day/20190204)
+    e.g. href=[https:/test.sundaya.monitored.equipment/energy/hsy/period/day/20190204](https:/test.sundaya.monitored.equipment/energy/hsy/period/day/20190204)
 
 - **item** - in `collection.items.links` it points to the subitems of the child item: i.e the grandchild items of the collection (`name`=*'day.hour'*).
 
-    e.g. href=[https:/test.sundaya.monitored.equipment/energy/hse/period/hour/20190205T0600](https:/test.sundaya.monitored.equipment/energy/hse/period/hour/20190205T0600)
+    e.g. href=[https:/test.sundaya.monitored.equipment/energy/hsy/period/hour/20190205T0600](https:/test.sundaya.monitored.equipment/energy/hsy/period/hour/20190205T0600)
 
 - **up** - Identifies the parent of the collection or item (`name`=*'month'* if a link is in collection object for a *'week'*).
     
@@ -197,7 +197,7 @@ The API is primarily intended to help depict energy flows in graphical views, as
 
 Sources | Sinks    
 --- |---
-`harvest` `store.out` `grid.out` |`enjoy` `store.in` `grid.in`
+`harvest` `store.out` `grid.out` |`yield` `store.in` `grid.in`
 
 For any given time window the net flows from source and sink data elements will sum to zero. 
 
@@ -219,8 +219,8 @@ The standard colours for each data element type is shown below.
 
 **Bottom tier**
 
-- _Red_ represents energy consumption (`enjoy`) and is always shown in the bottom tier.
-- _Black_ in the bottom tier shows a net excess (of `harvest` energy, compared to `store.in` and `enjoy` energy volumes), resulting in feed-in flows to the grid (`grid.in`).
+- _Red_ represents energy consumption (`yield`) and is always shown in the bottom tier.
+- _Black_ in the bottom tier shows a net excess (of `harvest` energy, compared to `store.in` and `yield` energy volumes), resulting in feed-in flows to the grid (`grid.in`).
 - _Blue_ in the bottom tier shows battery *charge* (`store.in`) again due to a net excess of `harvest` energy.
 
 ### Example
@@ -232,11 +232,11 @@ In general it indicates a need for more battery capacity and/or `harvest` genera
 ![Stacked bar graph format](/images/graph.stacked-bar-example.png)
 
 The example shows the following behaviour:
-- In the 1st hour all `enjoy` energy came from the battery (`store.out`). 
+- In the 1st hour all `yield` energy came from the battery (`store.out`). 
 - In the 2nd hour half came from battery and the other half from grid (`grid.out`). 
 - In the 3rd hour all came from the grid.
 - In the 4th hour the sun starts delivering (`harvest`)
-- In the 10th hour harvest data is more than enjoy and the energy flows into store (`store.in`)
+- In the 10th hour harvest data is more than yield and the energy flows into store (`store.in`)
  
 Note: To query specific assets, API consumers can also filter requests by `category`, `subcategory`, and `productType` (in the request *Body*).
 

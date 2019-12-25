@@ -15,7 +15,7 @@ Date and time parameters must be expressed in [ISO 8601](https://en.wikipedia.or
 
     http://api.endpoints.sundaya.cloud.goog/energy/{type}/{period}/{epoch}
 
-e.g. [http:/api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20190210](http:/api.endpoints.sundaya.cloud.goog/energy/hse/period/week/20190210)
+e.g. [http:/api.endpoints.sundaya.cloud.goog/energy/hsy/period/week/20190210](http:/api.endpoints.sundaya.cloud.goog/energy/hsy/period/week/20190210)
 
 The compressed version of ISO 8601 is required, without semi colons and with `T` as the time designator, as shown in examples below.
 
@@ -30,7 +30,7 @@ The supported timezone formats are described below with examples:
 
     example: *0930 UTC == 1630 WIB (Indonesian Western Standard Time)*
     
-    [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T0930Z](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T0930Z "Z signifies time zone as UTC") 
+    [http://api.endpoints.sundaya.cloud.goog/energy/hsy/period/hour/20190209T0930Z](http://api.endpoints.sundaya.cloud.goog/energy/hsy/period/hour/20190209T0930Z "Z signifies time zone as UTC") 
 
 - __Local__ time with UTC offset, represented with a trailing `+/-` offset from UTC (e.g. `+0700`) 
     
@@ -38,7 +38,7 @@ The supported timezone formats are described below with examples:
 
     example: *1630 WIB == 0930 UTC*
 
-    [http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630+0700](http://api.endpoints.sundaya.cloud.goog/energy/hse/period/hour/20190209T1630+0700 "+0700 is JKT offset from  UTC")
+    [http://api.endpoints.sundaya.cloud.goog/energy/hsy/period/hour/20190209T1630+0700](http://api.endpoints.sundaya.cloud.goog/energy/hsy/period/hour/20190209T1630+0700 "+0700 is JKT offset from  UTC")
 
 Local time without offset (and therefore location unspecified) is not supported.
 
@@ -72,7 +72,7 @@ A media type can be requested by sending an `Accept` header:
 This following example shows a sample HTTP request and response.
 ```
 *** REQUEST ***	
-GET /energy/hse/period/week/20190204/ HTTP/1.1	
+GET /energy/hsy/period/week/20190204/ HTTP/1.1	
 Host: api.endpoints.sundaya.cloud.goog
 Accept: application/vnd.collection+json	
 api_key: X2zaSyASFGxf4PmOitVS1Dt911PcZ4IQ8PUUMqA
@@ -150,7 +150,7 @@ x-api-key: X2zaSyASFGxf4PmOXtVS1Dt911PcZ4IQ8PUUMqX
 
 ```
 *** REQUEST ***	
-GET energy/hse/period/week/20190930T1200?api_key=X2zaSyASFGxf4PmOXt911PcZ4IQ8PUUMqX HTTP/1.1
+GET energy/hsy/period/week/20190930T1200?api_key=X2zaSyASFGxf4PmOXt911PcZ4IQ8PUUMqX HTTP/1.1
 Host: api.endpoints.sundaya.cloud.goog
 Accept: text/html	
 api_key: X2zaSyASFGxf4PmOXt911PcZ4IQ8PUUMqX

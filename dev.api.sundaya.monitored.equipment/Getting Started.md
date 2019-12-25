@@ -16,7 +16,7 @@ The collected data is then aggregated into time-windows to provide energy accoun
 
 ### Energy API
 
-The `/energy` path provides time-windowed data for four **Energy Types** :`harvest`, `store`, `enjoy`, `grid`. 
+The `/energy` path provides time-windowed data for four **Energy Types** :`harvest`, `store`, `yield`, `grid`. 
 
 The API consolidates data for all four energy types in the requested period (week, month etc.).
 
@@ -28,7 +28,7 @@ Energy | Assets | Devices
 --- | --- | ---
 `harvest` | Renewables | PV Modules, Maximum Power Point Trackers (MPPT)
 `store` | Storage | Busbar Controllers (BBC), Pack Management Systems (PMS)
-`enjoy` | Appliances | Multicore-Cable Current Sensors, Switchboard Clamp Sensors
+`yield` | Appliances | Multicore-Cable Current Sensors, Switchboard Clamp Sensors
 `grid` | Mains Electricity | Smart Meters, PV Grid-interactive Inverters
 
 
@@ -48,7 +48,7 @@ Each data element refers to a subset of the overall energy dataset.
 
 - `harvest` refers to renewable energy generation. 
 
-- `enjoy` indicates energy use by end users and appliances. 
+- `yield` indicates energy use by end users and appliances. 
 
 ### Visualisation
 
@@ -56,7 +56,7 @@ The API helps to further visualise data flows in graphical views as a flow of en
 
 Sources | Sinks    
 --- |---
-`harvest` `store.out` `grid.out` |`enjoy` `store.in` `grid.in`
+`harvest` `store.out` `grid.out` |`yield` `store.in` `grid.in`
 
 For any given time window the net flows from source and sink data elements will sum to zero. 
 
@@ -78,8 +78,8 @@ The standard colours for each data element type is shown below.
 
 **Bottom tier**
 
-- _Red_ represents energy consumption (`enjoy`) and is always shown in the bottom tier.
-- _Black_ in the bottom tier shows a net excess (of `harvest` energy, compared to `store.in` and `enjoy` energy volumes), resulting in feed-in flows to the grid (`grid.in`).
+- _Red_ represents energy consumption (`yield`) and is always shown in the bottom tier.
+- _Black_ in the bottom tier shows a net excess (of `harvest` energy, compared to `store.in` and `yield` energy volumes), resulting in feed-in flows to the grid (`grid.in`).
 - _Blue_ in the bottom tier shows battery *charge* (`store.in`) again due to a net excess of `harvest` energy.
 
 ### Example
@@ -91,11 +91,11 @@ In general it indicates a need for more battery capacity and/or `harvest` genera
 ![Stacked bar graph format](/images/graph.stacked-bar-example.png)
 
 The example shows the following behaviour:
-- In the 1st hour all `enjoy` energy came from the battery (`store.out`). 
+- In the 1st hour all `yield` energy came from the battery (`store.out`). 
 - In the 2nd hour half came from battery and the other half from grid (`grid.out`). 
 - In the 3rd hour all came from the grid.
 - In the 4th hour the sun starts delivering (`harvest`)
-- In the 10th hour harvest data is more than enjoy and the energy flows into store (`store.in`)
+- In the 10th hour harvest data is more than yield and the energy flows into store (`store.in`)
  
 Note: To query specific assets, API consumers can also filter requests by `category`, `subcategory`, and `productType` (in the request *Body*).
 

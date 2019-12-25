@@ -39,7 +39,7 @@ x-api-key: X2zaSyASFGxf4PmOXtVS1Dt911PcZ4IQ8PUUMqX
 
 ```
 *** REQUEST ***	
-GET energy/hse/period/week/20190930T1200 HTTPS/1.1
+GET energy/hsy/period/week/20190930T1200 HTTPS/1.1
 Host: test.sundaya.monitored.equipment
 Accept: text/html	
 x-api-key: X2zaSyASFGxf4PmOXt911PcZ4IQ8PUUMqX

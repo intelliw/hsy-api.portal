@@ -21,7 +21,7 @@ Date and time parameters must be expressed in [ISO 8601](https://en.wikipedia.or
 
     https://api.sundaya.monitored.equipment/energy/{type}/{period}/{epoch}
 
-e.g. [https:/api.sundaya.monitored.equipment/energy/hse/period/week/20190210](https:/api.sundaya.monitored.equipment/energy/hse/period/week/20190210)
+e.g. [https:/api.sundaya.monitored.equipment/energy/hsy/period/week/20190210](https:/api.sundaya.monitored.equipment/energy/hsy/period/week/20190210)
 
 The compressed version of ISO 8601 is required, without semi colons and with `T` as the time designator, as shown in examples below.
 
@@ -36,7 +36,7 @@ The supported timezone formats are described below with examples:
 
     example: *0930 UTC == 1630 WIB (Indonesian Western Standard Time)*
     
-    [https://api.sundaya.monitored.equipment/energy/hse/period/hour/20190209T0930Z](https://api.sundaya.monitored.equipment/energy/hse/period/hour/20190209T0930Z "Z signifies time zone as UTC") 
+    [https://api.sundaya.monitored.equipment/energy/hsy/period/hour/20190209T0930Z](https://api.sundaya.monitored.equipment/energy/hsy/period/hour/20190209T0930Z "Z signifies time zone as UTC") 
 
 - __Local__ time with UTC offset, represented with a trailing `+/-` offset from UTC (e.g. `+0700`) 
     
@@ -44,7 +44,7 @@ The supported timezone formats are described below with examples:
 
     example: *1630 WIB == 0930 UTC*
 
-    [https://api.sundaya.monitored.equipment/energy/hse/period/hour/20190209T1630+0700](https://api.sundaya.monitored.equipment/energy/hse/period/hour/20190209T1630+0700 "+0700 is JKT offset from  UTC")
+    [https://api.sundaya.monitored.equipment/energy/hsy/period/hour/20190209T1630+0700](https://api.sundaya.monitored.equipment/energy/hsy/period/hour/20190209T1630+0700 "+0700 is JKT offset from  UTC")
 
 Local time without offset (and therefore location unspecified) is not supported.
 
@@ -78,7 +78,7 @@ A media type can be requested by sending an `Accept` header:
 This following example shows a sample HTTP request and response.
 ```
 *** REQUEST ***	
-GET /energy/hse/period/week/20190204/ HTTPS/1.1	
+GET /energy/hsy/period/week/20190204/ HTTPS/1.1	
 Host: api.sundaya.monitored.equipment
 Accept: application/vnd.collection+json	
 x-api-key: X2zaSyASFGxf4PmOitVS1Dt911PcZ4IQ8PUUMqA
