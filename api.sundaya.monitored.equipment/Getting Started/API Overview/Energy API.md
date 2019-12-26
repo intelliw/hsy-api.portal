@@ -1,7 +1,7 @@
 
 # Energy API
 
-The `/energy` path provides time-windowed data for four **Energy Types** :`harvest`, `store`, `yield`, `buy`. 
+The `/energy` path provides data for four **Energy Types** :`harvest`, `store`, `yield`, `buy`. 
 
 The API consolidates data for all four energy types in the requested period (week, month etc.).
 
@@ -14,7 +14,7 @@ Energy | Assets | Devices
 `harvest` | Renewables | PV Modules, Maximum Power Point Trackers (MPPT)
 `store` | Storage | Busbar Controllers (BBC), Pack Management Systems (PMS)
 `yield` | Appliances | Multicore-Cable Current Sensors, Switchboard Clamp Sensors
-`buy` | Mains Electricity | Smart Meters, PV Grid-interactive Inverters
+`buy` | Grid | Smart Meters, PV Grid-interactive Inverters
 
 
 ### Energy Flows
