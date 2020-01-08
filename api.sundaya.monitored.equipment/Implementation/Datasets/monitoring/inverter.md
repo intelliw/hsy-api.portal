@@ -1,6 +1,6 @@
 # monitoring.inverter
 ---
-### API Host message structure ('monitoring.inverter')
+### API Host message ('monitoring.inverter' topic)
 
 Each dataset item in the the `dataset/inverter` POST message body 'datasets' array is transformed into a separate JSON message based on the structure shown below. 
 
