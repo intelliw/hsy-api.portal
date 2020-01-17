@@ -1,4 +1,4 @@
-# inverter POST
+# inverter POST example
 ---
 
 ### Request message structure

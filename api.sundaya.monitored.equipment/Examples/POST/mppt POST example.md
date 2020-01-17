@@ -1,4 +1,4 @@
-# mppt POST
+# mppt POST example
 ---
 
 ### Request message structure
