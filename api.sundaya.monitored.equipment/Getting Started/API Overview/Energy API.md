@@ -166,9 +166,9 @@ The following table shows a set of links provided with energy data for a *week* 
 
 ### Link-relation types
 
-The `rel` attribute of links in `application/vnd.collection+json` responses contain one of the following registered link-relation types. 
+The `rel` attribute of links in `application/vnd.collection+json` responses will contain one of the following registered link-relation types. 
 
-The link-relation typese are based on [RFC8288](https://tools.ietf.org/html/rfc8288#page-6).
+The types are based on [RFC8288](https://tools.ietf.org/html/rfc8288#page-6).
 
 
 - **self**	- Identifies the link's context.
