@@ -94,8 +94,8 @@ Content-Length: 3495
                 { "name": "store.in", "value": "57.695" },
                 { "name": "store.out", "value": "54.046" },
                 { "name": "yield", "value": "31.117" },
-                { "name": "buy.in", "value": "37.646" },
-                { "name": "buy.out", "value": "39.620" }
+                { "name": "sell", "value": "37.646" },
+                { "name": "buy", "value": "39.620" }
               ]
             },
             { "name": "day.timeofday", "value": "20190204T0000/4",
@@ -104,8 +104,8 @@ Content-Length: 3495
                 { "name": "store.in", "value": "18.894 17.784 18.056 2.961" },
                 { "name": "store.out", "value": "5.501 11.502 20.281 16.762" },
                 { "name": "yield", "value": "6.933 7.893 11.819 4.472" },
-                { "name": "buy.in", "value": "7.878 5.242 19.804 4.722" },
-                { "name": "buy.out", "value": "15.968 9.152 9.046 5.454" }
+                { "name": "sell", "value": "7.878 5.242 19.804 4.722" },
+                { "name": "buy", "value": "15.968 9.152 9.046 5.454" }
               ]
             }
           ]
@@ -128,8 +128,8 @@ Content-Length: 3495
                 { "name": "store.in", "value": "54.910" },
                 { "name": "store.out", "value": "62.107" },
                 { "name": "yield", "value": "47.133" },
-                { "name": "buy.in", "value": "53.736" },
-                { "name": "buy.out", "value": "26.970" }
+                { "name": "sell", "value": "53.736" },
+                { "name": "buy", "value": "26.970" }
               ]
             },
             { "name": "day.timeofday", "value": "20190205T0000/4",
@@ -138,8 +138,8 @@ Content-Length: 3495
                 { "name": "store.in", "value": "13.306 17.020 17.867 6.717" },
                 { "name": "store.out", "value": "18.423 18.045 19.547 6.092" },
                 { "name": "yield", "value": "9.838 6.235 10.747 20.313" },
-                { "name": "buy.in", "value": "5.371 15.965 20.025 12.375" },
-                { "name": "buy.out", "value": "2.981 4.699 14.417 4.873" }
+                { "name": "sell", "value": "5.371 15.965 20.025 12.375" },
+                { "name": "buy", "value": "2.981 4.699 14.417 4.873" }
               ]
             }
           ]
@@ -162,8 +162,8 @@ Content-Length: 3495
                 { "name": "store.in", "value": "25.213" },
                 { "name": "store.out", "value": "33.823" },
                 { "name": "yield", "value": "29.285" },
-                { "name": "buy.in", "value": "53.710" },
-                { "name": "buy.out", "value": "33.133" }
+                { "name": "sell", "value": "53.710" },
+                { "name": "buy", "value": "33.133" }
               ]
             },
             { "name": "day.timeofday", "value": "20190206T0000/4",
@@ -172,8 +172,8 @@ Content-Length: 3495
                 { "name": "store.in", "value": "2.837 2.723 16.514 3.139" },
                 { "name": "store.out", "value": "6.511 14.162 5.087 8.063" },
                 { "name": "yield", "value": "3.633 8.573 10.174 6.905" },
-                { "name": "buy.in", "value": "13.049 12.058 17.291 11.312" },
-                { "name": "buy.out", "value": "8.218 11.163 10.753 2.999" }
+                { "name": "sell", "value": "13.049 12.058 17.291 11.312" },
+                { "name": "buy", "value": "8.218 11.163 10.753 2.999" }
               ]
             }
           ]
@@ -196,8 +196,8 @@ Content-Length: 3495
                 { "name": "store.in", "value": "46.285" },
                 { "name": "store.out", "value": "36.414" },
                 { "name": "yield", "value": "42.065" },
-                { "name": "buy.in", "value": "60.249" },
-                { "name": "buy.out", "value": "65.810" }
+                { "name": "sell", "value": "60.249" },
+                { "name": "buy", "value": "65.810" }
               ]
             },
             { "name": "day.timeofday", "value": "20190207T0000/4",
@@ -206,8 +206,8 @@ Content-Length: 3495
                 { "name": "store.in", "value": "11.959 19.973 8.048 6.305" },
                 { "name": "store.out", "value": "3.482 16.666 4.611 11.655" },
                 { "name": "yield", "value": "14.435 11.439 7.516 8.675" },
-                { "name": "buy.in", "value": "10.436 19.600 16.107 14.106" },
-                { "name": "buy.out", "value": "9.612 15.357 20.516 20.325" }
+                { "name": "sell", "value": "10.436 19.600 16.107 14.106" },
+                { "name": "buy", "value": "9.612 15.357 20.516 20.325" }
               ]
             }
           ]
@@ -230,8 +230,8 @@ Content-Length: 3495
                 { "name": "store.in", "value": "50.381" },
                 { "name": "store.out", "value": "39.778" },
                 { "name": "yield", "value": "44.251" },
-                { "name": "buy.in", "value": "45.893" },
-                { "name": "buy.out", "value": "48.455" }
+                { "name": "sell", "value": "45.893" },
+                { "name": "buy", "value": "48.455" }
               ]
             },
             { "name": "day.timeofday", "value": "20190208T0000/4",
@@ -240,8 +240,8 @@ Content-Length: 3495
                 { "name": "store.in", "value": "8.614 12.059 19.861 9.847" },
                 { "name": "store.out", "value": "11.394 12.397 3.823 12.164" },
                 { "name": "yield", "value": "6.922 4.351 19.691 13.287" },
-                { "name": "buy.in", "value": "20.120 11.357 5.306 9.110" },
-                { "name": "buy.out", "value": "7.101 5.056 18.218 18.080" }
+                { "name": "sell", "value": "20.120 11.357 5.306 9.110" },
+                { "name": "buy", "value": "7.101 5.056 18.218 18.080" }
               ]
             }
           ]
@@ -264,8 +264,8 @@ Content-Length: 3495
                 { "name": "store.in", "value": "41.775" },
                 { "name": "store.out", "value": "44.196" },
                 { "name": "yield", "value": "25.758" },
-                { "name": "buy.in", "value": "24.605" },
-                { "name": "buy.out", "value": "70.239" }
+                { "name": "sell", "value": "24.605" },
+                { "name": "buy", "value": "70.239" }
               ]
             },
             { "name": "day.timeofday", "value": "20190209T0000/4",
@@ -274,8 +274,8 @@ Content-Length: 3495
                 { "name": "store.in", "value": "8.812 11.568 14.192 7.203" },
                 { "name": "store.out", "value": "13.611 7.758 10.496 12.331" },
                 { "name": "yield", "value": "7.070 9.485 5.213 3.990" },
-                { "name": "buy.in", "value": "4.032 4.707 7.169 8.697" },
-                { "name": "buy.out", "value": "19.473 18.050 18.175 14.541" }
+                { "name": "sell", "value": "4.032 4.707 7.169 8.697" },
+                { "name": "buy", "value": "19.473 18.050 18.175 14.541" }
               ]
             }
           ]
@@ -298,8 +298,8 @@ Content-Length: 3495
                 { "name": "store.in", "value": "66.581" },
                 { "name": "store.out", "value": "36.583" },
                 { "name": "yield", "value": "57.136" },
-                { "name": "buy.in", "value": "36.819" },
-                { "name": "buy.out", "value": "35.975" }
+                { "name": "sell", "value": "36.819" },
+                { "name": "buy", "value": "35.975" }
               ]
             },
             { "name": "day.timeofday", "value": "20190210T0000/4",
@@ -308,8 +308,8 @@ Content-Length: 3495
                 { "name": "store.in", "value": "19.577 19.504 7.257 20.243" },
                 { "name": "store.out", "value": "11.503 15.791 5.494 3.795" },
                 { "name": "yield", "value": "19.316 16.143 4.695 16.982" },
-                { "name": "buy.in", "value": "11.176 2.974 11.926 10.743" },
-                { "name": "buy.out", "value": "18.414 6.662 4.577 6.322" }
+                { "name": "sell", "value": "11.176 2.974 11.926 10.743" },
+                { "name": "buy", "value": "18.414 6.662 4.577 6.322" }
               ]
             }
           ]
