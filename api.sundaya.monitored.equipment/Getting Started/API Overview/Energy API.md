@@ -210,7 +210,7 @@ The API is primarily intended to help depict energy flows in graphical views, as
 
 Sources | Sinks    
 --- |---
-`harvest` `store.out` `buy` |`yield` `store.in` `sell`
+`harvest`, `store.out`, `buy` |`yield`, `store.in`, `sell`
 
 For any given time window the net flows from source and sink data elements will sum to zero. 
 
