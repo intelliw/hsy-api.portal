@@ -119,7 +119,7 @@ Logger associates with a Statement, which provides a supertype for each statemen
 
 Logger provides helper methods for clients to invoke each statement type.
 
-Logger      -> Statement    -> MessagingStatement
+        Logger -> Statement -> MessagingStatement
 
                         DataStatement
 
