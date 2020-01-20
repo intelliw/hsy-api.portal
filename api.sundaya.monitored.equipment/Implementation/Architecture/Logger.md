@@ -153,15 +153,17 @@ Enumerations for logging and error reporting configuration.
         }
     }
 ```
-__statements__  determines which log statements will produce log output 
-__verbosity__   log levels for error reporting and logged events
-__appenders__   output options for logging and error reporting   
+__statements__  - determines which log statements will produce log output.
+
+__verbosity__   - log levels for error reporting and logged events.
+
+__appenders__   - output options for logging and error reporting.
+
 
 
 ## feature configuration
 
-_flags for feature toogles_
-
+Flags for feature toogles.
 
 ```json
     enums.features = {
@@ -175,5 +177,7 @@ _flags for feature toogles_
         "permission": { "none": "none" }
     }
 ```
-__validation__  whether or not to to perform in-depth input validation for post requests
-__logging__     logging reconfiguration feature
+__validation__  - whether or not to to perform in-depth input validation for post requests.
+
+__logging__     - logging reconfiguration feature.
+
