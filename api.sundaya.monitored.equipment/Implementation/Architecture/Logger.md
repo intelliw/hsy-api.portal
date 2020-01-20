@@ -117,7 +117,9 @@ __permission__  the feature restricts access to certain users
 ## class hierarchy
 `Logger` class associates with a `Statement`, which provides a supertype for each `MessagingStatement`.
 
-        Logger -> Statement -> MessagingStatement
+        Logger -> 
+            Statement -> 
+                MessagingStatement
                 DataStatement
                 ExceptionStatement
                 ErrorStatement
