@@ -24,10 +24,10 @@ The configuration groups are listerd and described below.
             "appenders": [ enums.logging.appenders ]
         }
 ```
-- __statements__    - determines which statements in the code will be logged. 
-- __verbosity__     - determines whether logging _content_ is `info`, `debug`, or `none`
-                    if verbosity is set to 'none' all logging is effectively turned off
-                    only one of the three options are applicable: 
+- __statements__    - determines which statements will be logged (`data`, `error`, `exception`, `messaging`, `trace`). 
+- __verbosity__     - determines which content will be logged (`info`, `debug`, `none`).
+                    if verbosity is set to `none` all logging is effectively turned off.
+                    only one of the options is applicable: 
                         `none` overrides `debug` which overrides `info`.
 - __appenders__     - determines whether logging _output_ is sent to `stackdriver`, or `console`
                     both options may be configured and applicable. 
@@ -47,16 +47,16 @@ If a `statement`, `verbosity`, or `appender` option is excluded the correspondin
         }
     }
 ```
-__logging__     use 'generic_task' (not tested) for microservices. 
+-` __logging__     use 'generic_task' (not tested) for microservices. 
                 cloud run resourceType is "cloud_run_revision", 
                 for GCE VM Instance resourceType is ''gce_instance' 
                 logName appears in logs as jsonPayload.logName: "projects/sundaya/logs/monitoring"
                 the format is "projects/[PROJECT_ID]/logs/[LOG_ID]"
-__errors__      'production' (default), 'always', or 'never' 
+- __errors__      'production' (default), 'always', or 'never' 
                 'production' will not log unless NODE-ENV=production
                 'logLevel' specifies when errors are reported to the Error Reporting Console. 
                     2 (warnings). 0 (no logs) 5 (all logs)      
-__trace__       enabled=false to turn OFF tracing. 
+- __trace__       enabled=false to turn OFF tracing. 
                 samplingRate 500 means sample 1 trace every half-second, 5 means at most 1 every 200 ms. 
                 flushDelaySeconds = seconds to buffer traces before publishing to Stackdriver, keep short to allow cloud run to async trace immedatily after sync run             
                 ignoreUrls is configured to ignore /static "path", 
