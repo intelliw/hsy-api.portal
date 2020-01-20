@@ -26,6 +26,7 @@ The configuration groups are listerd and described below.
 ```
 - __statements__    - determines which statements will be logged (`data`, `error`, `exception`, `messaging`, `trace`). 
 - __verbosity__     - determines which content will be logged (`info`, `debug`, `none`).
+
                     if verbosity is set to `none` all logging is effectively turned off.
                     only one of the options is applicable: 
                         `none` overrides `debug` which overrides `info`.
