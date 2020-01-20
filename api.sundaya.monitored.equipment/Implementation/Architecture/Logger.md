@@ -14,7 +14,7 @@ Logger configurations are stored in these artefacts:
 - _enums.js_   -   enumerations for   `logging`, `features`
 - _env.js_     -   configurations per environment for  `logging`, `features`, `stackdriver` 
 
-_these configuratioons are described below_ 
+The configuration groups are listerd and described below_ 
 
 ### env.LOGGING configuration
 ```json
@@ -24,12 +24,12 @@ _these configuratioons are described below_
             "appenders": [ enums.logging.appenders ]
         }
 ```
-__statements__      determines which statements in the code will be logged. 
-__verbosity__       determines whether logging _content_ is `info`, `debug`, or `none`
+- __statements__    - determines which statements in the code will be logged. 
+- __verbosity__     - determines whether logging _content_ is `info`, `debug`, or `none`
                     if verbosity is set to 'none' all logging is effectively turned off
                     only one of the three options are applicable: 
                         `none` overrides `debug` which overrides `info`.
-__appenders__       determines whether logging _output_ is sent to `stackdriver`, or `console`
+- __appenders__     - determines whether logging _output_ is sent to `stackdriver`, or `console`
                     both options may be configured and applicable. 
                         for example the DEV environment may be configured to log to both `stackdriver` and `console`   
 
