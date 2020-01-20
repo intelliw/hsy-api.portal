@@ -14,7 +14,7 @@ Logger configurations are stored in these artefacts:
 - _enums.js_   -   enumerations for   `logging`, `features`
 - _env.js_     -   configurations per environment for  `logging`, `features`, `stackdriver` 
 
-The configuration groups are listerd and described below_ 
+The configuration groups are listerd and described below.
 
 ### env.LOGGING configuration
 ```json
@@ -33,7 +33,7 @@ The configuration groups are listerd and described below_
                     both options may be configured and applicable. 
                         for example the DEV environment may be configured to log to both `stackdriver` and `console`   
 
-_if a `statement`, `verbosity`, or `appender` option is excluded the corresponding Statement methods are annulled at startup (and after reconfiguration) to minimise the performance cost of 'not logging'_
+If a `statement`, `verbosity`, or `appender` option is excluded the corresponding Statement methods are annulled at startup (and after reconfiguration), this minimises the cost to performance from disabled statements (the 'cost of not logging') until they are needed.
 
 
 ### env._SHARED.STACKDRIVER configuration
