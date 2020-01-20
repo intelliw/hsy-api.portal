@@ -101,28 +101,21 @@ The logging feature (`enums.features.operational.logging`) detrermines whether l
 If the feature is present Logger can be reconfigured at runtime through the `api/logging` path and configuration changes will be propogated through the message broker to other microservices.
 
 
-__release__     
-    the feature is made active for a particular release.
+__release__     - feature is made active for a particular release.
 
-    automatically deactivated when a new release is made
+automatically deactivated when a new release is made
 
-    if multiple releases are present in the environment (e.g. canary release) only the specified release(s) will provide the feature. 
+if multiple releases are present in the environment (e.g. canary release) only the specified release(s) will provide the feature. 
 
-__operational__ 
+__operational__ - feature is intended for operational use (not business logic)
 
-    the feature is intended for operational use (not business logic)
+__experiment__  - feature is experimental and may be restricted by time and scope
 
-__experiment__  
-
-    the feature is experimental and may be restricted by time and scope
-
-__permission__  
-
-    the feature restricts access to certain users
+__permission__  - feature restricts access to certain users
 
 
 ## class hierarchy
-`Logger` class associates with a `Statement`, which provides a supertype for each `MessagingStatement`.
+`Logger` class associates with a `Statement`, which provides a supertype for each statement type.
 
         Logger -> 
             Statement -> 
