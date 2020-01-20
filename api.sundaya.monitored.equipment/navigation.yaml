@@ -80,6 +80,7 @@ folders:
         - Platform Overview
         - Dataset Metamodel
         - Message Broker
+        - Logger
         - Roadmap
 
       Datasets:
