@@ -52,31 +52,37 @@ This minimises the cost to performance from disabled statements (the 'cost of no
         }
     }
 ```
-- __logging__   use 'generic_task' (not tested) for microservices. 
+- __logging__   
+    
+    use 'generic_task' (not tested) for microservices. 
                 
-                Cloud Run resourceType is "cloud_run_revision".
+    Cloud Run resourceType is "cloud_run_revision".
 
-                For GCE VM Instances the resourceType is ''gce_instance'
+    For GCE VM Instances the resourceType is ''gce_instance'
 
-                logName appears in Stackdriver logs as _jsonPayload.logName_: "projects/sundaya/logs/monitoring"
+    logName appears in Stackdriver logs as _jsonPayload.logName_: "projects/sundaya/logs/monitoring"
 
-                The format is "projects/[PROJECT_ID]/logs/[LOG_ID]"
+    The format is "projects/[PROJECT_ID]/logs/[LOG_ID]"
 
-- __errors__    `production` (default), `always`, or `never` 
+- __errors__    
+    
+    `production` (default), `always`, or `never` 
 
-                `production` will not log unless _NODE-ENV=production_
+    `production` will not log unless _NODE-ENV=production_
 
-                `logLevel` specifies when errors are reported to the Error Reporting Console: 2 (warnings). 0 (no logs) 5 (all logs)      
+    `logLevel` specifies when errors are reported to the Error Reporting Console: 2 (warnings). 0 (no logs) 5 (all logs)      
 
-- __trace__     enabled=false to turn OFF tracing. 
+- __trace__     
 
-                samplingRate 500 means sample 1 trace every half-second, 5 means at most 1 every 200 ms. 
+    enabled=false to turn OFF tracing. 
 
-                flushDelaySeconds = seconds to buffer traces before publishing to Stackdriver, keep short to allow cloud run to async trace immedatily after sync run.
+    samplingRate 500 means sample 1 trace every half-second, 5 means at most 1 every 200 ms. 
 
-                ignoreUrls is configured to ignore /static "path".
+    flushDelaySeconds = seconds to buffer traces before publishing to Stackdriver, keep short to allow cloud run to async trace immedatily after sync run.
 
-                ignoreMethods is configured to ignore requests with OPTIONS & PUT methods (case-insensitive).
+    ignoreUrls is configured to ignore /static "path".
+
+    ignoreMethods is configured to ignore requests with OPTIONS & PUT methods (case-insensitive).
 
 
 ### env.FEATURES configuration
