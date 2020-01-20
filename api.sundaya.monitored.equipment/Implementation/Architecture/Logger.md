@@ -103,9 +103,9 @@ If the feature is present Logger can be reconfigured at runtime through the `api
 
 __release__     - feature is made active for a particular release.
 
-automatically deactivated when a new release is made
+    automatically deactivated when a new release is made
 
-if multiple releases are present in the environment (e.g. canary release) only the specified release(s) will provide the feature. 
+    if multiple releases are present in the environment (e.g. canary release) only the specified release(s) will provide the feature. 
 
 __operational__ - feature is intended for operational use (not business logic)
 
