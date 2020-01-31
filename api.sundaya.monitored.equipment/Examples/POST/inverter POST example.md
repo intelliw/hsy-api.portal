@@ -1,9 +1,9 @@
 # inverter POST example
 ---
 
-### Request message structure
+### API Request message ('/devices/dataset/inverter')
 
-The following snippet shows the structure of an `inverter` request:
+The following snippet shows the structure of the `inverter` message payload, in the request body:
 
 ```json
 {
@@ -75,7 +75,7 @@ In this example each Inverter controller has :
 
 - 2 AC Loads as shown by `load.volts` / `load.amps`.  
 
-The size of each Inverter dataset is 367 bytes including whitespace, or 248 bytes if whitespace is stripped (using JSON.stringify).
+The size of each Inverter dataset is approximately 367 bytes including whitespace, or 248 bytes if whitespace is stripped (using JSON.stringify).
 
 
 ```

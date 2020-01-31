@@ -1,9 +1,9 @@
 # pms POST example
 ---
 
-### Request message structure
+### API Request message ('/devices/dataset/pms')
 
-The following snippet shows the structure of a `pms` request:
+The following snippet shows the structure of the `pms` message payload, in the request body:
 
 ```json
 {
@@ -96,7 +96,7 @@ Each object in the `data` array contains data for a single pack, identified by `
 
 - `cell.volts` contains an array of 14 voltage datapoints corresponding to each of the 14 cell blocks in a pack.
 
-The size of a dataset for a single cabinet (4 packs) is 2030 bytes including whitespace, or 1420 bytes if whitespace is stripped (using JSON.stringify).
+The size of a dataset for a single cabinet (4 packs) is approximately 2030 bytes including whitespace, or 1420 bytes if whitespace is stripped (using JSON.stringify).
 
 
 ```
