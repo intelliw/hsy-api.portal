@@ -3,7 +3,7 @@
 
 ### API Request message ('/devices/dataset/mppt')
 
-The following snippet shows the structure of the `mppt` message payload, in the request body:
+The following snippet shows the structure of the `mppt` message expected in the request body:
 
 ```json
 {

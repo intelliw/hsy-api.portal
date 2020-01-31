@@ -3,7 +3,7 @@
 
 ### API Request message ('/devices/dataset/pms')
 
-The following snippet shows the structure of the `pms` message payload, in the request body:
+The following snippet shows the structure of the `pms` message expected in the request body:
 
 ```json
 {

@@ -3,7 +3,7 @@
 
 ### API Request message ('/devices/dataset/inverter')
 
-The following snippet shows the structure of the `inverter` message payload, in the request body:
+The following snippet shows the structure of the `inverter` message expected in the request body:
 
 ```json
 {
