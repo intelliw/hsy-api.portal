@@ -11,9 +11,9 @@ The following snippet shows the structure of the `pms` message expected in the r
     { "pms": { "id": "PMS-01-001", "temp": 48.3 }, 
       "data": [
         { "time_local": "20190909T150006.032+0700",
-          "pack": { "id": "0241", "dock": 1, "amps": -1.601, "temp": [35.0, 33.0, 34.0],
-            "cell": { "open": [],
-              "volts": [3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.91] },
+          "pack": { 
+            "id": "0241", "dock": 1, "amps": -1.601, "temp": [35.0, 33.0, 34.0],
+            "cell": { "open": [], "volts": [3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.91] },
             "fet": { "open": [1, 2], "temp": [34.1, 32.2] },
             "status": "0001" }
         },
