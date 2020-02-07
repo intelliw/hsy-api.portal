@@ -49,57 +49,48 @@ Content-Length: 3495
             "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/week/20190204/undefined?site=999",
             "version": "0.3.14.24",
             "links": [
-                {
-                    "rel": "self", "name": "week", "prompt": "Week 04-02-2019", "title": "04/02/19 - 10/02/19",
+                { "rel": "self", "name": "week", "prompt": "Week 04-02-2019", "title": "04/02/19 - 10/02/19",
                     "description": "hsy week 20190204 1 999",
                     "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/week/20190204/1?site=999",
                     "render": "link"
                 },
-                {
-                    "rel": "collection", "name": "week.day", "prompt": "Mon Feb 4th - Sun Feb 10th",
+                { "rel": "collection", "name": "week.day", "prompt": "Mon Feb 4th - Sun Feb 10th",
                     "title": "04/02/19 - 10/02/19",
                     "description": "Mon Tue Wed Thu Fri Sat Sun",
                     "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190204/7?site=999"
                 },
-                {
-                    "rel": "collection", "name": "day.timeofday", "prompt": "Feb 4 Night - Feb 10 Evening", 
+                { "rel": "collection", "name": "day.timeofday", "prompt": "Feb 4 Night - Feb 10 Evening", 
                     "title": "04/02/19 00:00 - 10/02/19 23:59",
                     "description": "Night Morning Afternoon Evening",
                     "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/timeofday/20190204T0000/28?site=999"
                 },
-                {
-                    "rel": "up", "name": "month", "prompt": "Feb 2019", 
+                { "rel": "up", "name": "month", "prompt": "Feb 2019", 
                     "title": "01/02/19 - 28/02/19",
                     "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/month/20190201/1?site=999",
                     "render": "link"
                 },
-                {
-                    "rel": "next", "name": "week", "prompt": "Week 11-02-2019", 
+                { "rel": "next", "name": "week", "prompt": "Week 11-02-2019", 
                     "title": "11/02/19 - 17/02/19",
                     "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/week/20190211/1?site=999",
                     "render": "link"
                 },
-                {
-                    "rel": "prev", "name": "week", "prompt": "Week 28-01-2019", 
+                { "rel": "prev", "name": "week", "prompt": "Week 28-01-2019", 
                     "title": "28/01/19 - 03/02/19",
                     "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/week/20190128/1?site=999",
                     "render": "link"
                 },
-                {
-                    "rel": "service-meta", "name": "period", "key": "period", 
+                { "rel": "service-meta", "name": "period", "key": "period", 
                     "value": {
                         "period": "week", "context": "week", "duration": 1, "epochInstant": "20190204T000000.0000",                        "endInstant": "20190210T235959.9990", "prompt": "Week 04-02-2019"
                     }
                 },
-                {
-                    "rel": "service-meta", "name": "period", "key": "child", 
+                { "rel": "service-meta", "name": "period", "key": "child", 
                     "value": {
                         "period": "day", "context": "week.day", "duration": 7, "epochInstant": "20190204T000000.0000",
                         "endInstant": "20190210T235959.9990", "prompt": "Mon Feb 4th - Sun Feb 10th"
                     }
                 },
-                {
-                    "rel": "service-meta", "name": "period", "key": "grandchild", 
+                { "rel": "service-meta", "name": "period", "key": "grandchild", 
                     "value": { 
                         "period": "timeofday", "context": "day.timeofday", "duration": 28, "epochInstant": "20190204T000000.0000", 
                         "endInstant": "20190210T235959.9990", "prompt": "Feb 4 Night - Feb 10 Evening"
@@ -107,8 +98,7 @@ Content-Length: 3495
                 }
             ],
             "items": [
-                {
-                    "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190204/undefined?site=999",
+                { "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190204/undefined?site=999",
                     "links": [
                         {
                             "rel": "self", 
@@ -189,8 +179,7 @@ Content-Length: 3495
                         }
                     ]
                 },
-                {
-                    "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190205/undefined?site=999",
+                { "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190205/undefined?site=999",
                     "links": [
                         {
                             "rel": "self",
@@ -271,8 +260,7 @@ Content-Length: 3495
                         }
                     ]
                 },
-                {
-                    "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190206/undefined?site=999",
+                { "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190206/undefined?site=999",
                     "links": [
                         {
                             "rel": "self",
@@ -353,8 +341,7 @@ Content-Length: 3495
                         }
                     ]
                 },
-                {
-                    "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190207/undefined?site=999",
+                { "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190207/undefined?site=999",
                     "links": [
                         {
                             "rel": "self",
@@ -435,8 +422,7 @@ Content-Length: 3495
                         }
                     ]
                 },
-                {
-                    "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190208/undefined?site=999",
+                { "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190208/undefined?site=999",
                     "links": [
                         {
                             "rel": "self",
@@ -517,8 +503,7 @@ Content-Length: 3495
                         }
                     ]
                 },
-                {
-                    "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190209/undefined?site=999",
+                { "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190209/undefined?site=999",
                     "links": [
                         {
                             "rel": "self",
@@ -599,8 +584,7 @@ Content-Length: 3495
                         }
                     ]
                 },
-                {
-                    "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190210/undefined?site=999",
+                { "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190210/undefined?site=999",
                     "links": [
                         {
                             "rel": "self",
