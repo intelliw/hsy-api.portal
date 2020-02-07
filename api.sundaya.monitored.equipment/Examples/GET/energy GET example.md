@@ -50,53 +50,60 @@ Content-Length: 3495
             "version": "0.3.14.24",
             "links": [
                 {
-                    "rel": "self",
-                    "name": "week",
-                    "prompt": "Week 04-02-2019",
-                    "title": "04/02/19 - 10/02/19",
+                    "rel": "self", "name": "week", "prompt": "Week 04-02-2019", "title": "04/02/19 - 10/02/19",
                     "description": "hsy week 20190204 1 999",
                     "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/week/20190204/1?site=999",
                     "render": "link"
                 },
                 {
-                    "rel": "collection",
-                    "name": "week.day",
-                    "prompt": "Mon Feb 4th - Sun Feb 10th",
+                    "rel": "collection", "name": "week.day", "prompt": "Mon Feb 4th - Sun Feb 10th",
                     "title": "04/02/19 - 10/02/19",
                     "description": "Mon Tue Wed Thu Fri Sat Sun",
                     "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190204/7?site=999"
                 },
                 {
-                    "rel": "collection",
-                    "name": "day.timeofday",
-                    "prompt": "Feb 4 Night - Feb 10 Evening",
+                    "rel": "collection", "name": "day.timeofday", "prompt": "Feb 4 Night - Feb 10 Evening", 
                     "title": "04/02/19 00:00 - 10/02/19 23:59",
                     "description": "Night Morning Afternoon Evening",
                     "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/timeofday/20190204T0000/28?site=999"
                 },
                 {
-                    "rel": "up",
-                    "name": "month",
-                    "prompt": "Feb 2019",
+                    "rel": "up", "name": "month", "prompt": "Feb 2019", 
                     "title": "01/02/19 - 28/02/19",
                     "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/month/20190201/1?site=999",
                     "render": "link"
                 },
                 {
-                    "rel": "next",
-                    "name": "week",
-                    "prompt": "Week 11-02-2019",
+                    "rel": "next", "name": "week", "prompt": "Week 11-02-2019", 
                     "title": "11/02/19 - 17/02/19",
                     "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/week/20190211/1?site=999",
                     "render": "link"
                 },
                 {
-                    "rel": "prev",
-                    "name": "week",
-                    "prompt": "Week 28-01-2019",
+                    "rel": "prev", "name": "week", "prompt": "Week 28-01-2019", 
                     "title": "28/01/19 - 03/02/19",
                     "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/week/20190128/1?site=999",
                     "render": "link"
+                },
+                {
+                    "rel": "service-meta", "name": "period", "key": "period", 
+                    "value": {
+                        "period": "week", "context": "week", "duration": 1, "epochInstant": "20190204T000000.0000",                        "endInstant": "20190210T235959.9990", "prompt": "Week 04-02-2019"
+                    }
+                },
+                {
+                    "rel": "service-meta", "name": "period", "key": "child", 
+                    "value": {
+                        "period": "day", "context": "week.day", "duration": 7, "epochInstant": "20190204T000000.0000",
+                        "endInstant": "20190210T235959.9990", "prompt": "Mon Feb 4th - Sun Feb 10th"
+                    }
+                },
+                {
+                    "rel": "service-meta", "name": "period", "key": "grandchild", 
+                    "value": { 
+                        "period": "timeofday", "context": "day.timeofday", "duration": 28, "epochInstant": "20190204T000000.0000", 
+                        "endInstant": "20190210T235959.9990", "prompt": "Feb 4 Night - Feb 10 Evening"
+                    }
                 }
             ],
             "items": [
@@ -104,7 +111,7 @@ Content-Length: 3495
                     "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190204/undefined?site=999",
                     "links": [
                         {
-                            "rel": "self",
+                            "rel": "self", 
                             "name": "week.day",
                             "prompt": "Mon Feb 4th",
                             "title": "04/02/19",
@@ -126,27 +133,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "52.307"
+                                    "value": "56.570"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "35.852"
+                                    "value": "33.927"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "41.385"
+                                    "value": "61.614"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "50.372"
+                                    "value": "56.572"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "24.624"
+                                    "value": "38.995"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "53.573"
+                                    "value": "28.702"
                                 }
                             ]
                         },
@@ -156,27 +163,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "6.385 20.495 5.739 19.688"
+                                    "value": "10.184 18.051 18.664 9.671"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "8.217 12.994 9.136 5.505"
+                                    "value": "13.804 4.325 13.052 2.746"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "13.581 4.271 11.502 12.031"
+                                    "value": "16.564 10.821 14.423 19.806"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "12.031 12.857 9.009 16.475"
+                                    "value": "16.258 13.689 9.304 17.321"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "7.759 4.025 5.307 7.533"
+                                    "value": "3.022 16.463 7.674 11.836"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "13.482 17.662 11.971 10.458"
+                                    "value": "4.400 8.581 4.730 10.991"
                                 }
                             ]
                         }
@@ -208,27 +215,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "51.419"
+                                    "value": "26.196"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "44.969"
+                                    "value": "56.628"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "29.322"
+                                    "value": "36.043"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "50.232"
+                                    "value": "48.202"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "51.066"
+                                    "value": "55.822"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "47.447"
+                                    "value": "54.568"
                                 }
                             ]
                         },
@@ -238,27 +245,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "20.526 13.767 5.865 11.261"
+                                    "value": "5.798 9.387 7.153 3.858"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "16.533 10.643 12.882 4.911"
+                                    "value": "13.859 15.008 19.250 8.511"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "12.385 4.345 7.909 4.683"
+                                    "value": "12.960 4.432 9.256 9.395"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "4.928 10.524 19.518 15.262"
+                                    "value": "12.742 5.670 18.395 11.395"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "15.651 3.688 14.282 17.445"
+                                    "value": "18.583 11.587 11.442 14.210"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "18.707 5.450 16.563 6.727"
+                                    "value": "3.124 15.476 16.943 19.025"
                                 }
                             ]
                         }
@@ -290,27 +297,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "37.000"
+                                    "value": "46.611"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "68.117"
+                                    "value": "44.131"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "78.498"
+                                    "value": "39.703"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "50.505"
+                                    "value": "39.117"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "52.912"
+                                    "value": "60.981"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "17.083"
+                                    "value": "76.797"
                                 }
                             ]
                         },
@@ -320,27 +327,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "12.769 9.593 8.721 5.917"
+                                    "value": "12.417 11.265 7.452 15.477"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "17.256 18.469 15.958 16.434"
+                                    "value": "18.048 6.352 16.345 3.386"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "20.375 18.755 19.838 19.530"
+                                    "value": "2.957 9.657 18.212 8.877"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "17.502 19.163 8.666 5.174"
+                                    "value": "13.022 2.984 11.715 11.396"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "16.237 12.672 4.581 19.422"
+                                    "value": "10.654 18.597 12.645 19.085"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "5.416 3.380 3.721 4.566"
+                                    "value": "19.441 17.596 20.526 19.234"
                                 }
                             ]
                         }
@@ -372,27 +379,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "45.865"
+                                    "value": "56.842"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "47.014"
+                                    "value": "64.177"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "37.836"
+                                    "value": "39.310"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "42.859"
+                                    "value": "68.785"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "37.967"
+                                    "value": "49.786"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "28.587"
+                                    "value": "23.785"
                                 }
                             ]
                         },
@@ -402,27 +409,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "5.228 12.303 20.375 7.959"
+                                    "value": "20.552 9.054 20.075 7.161"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "13.955 13.255 5.175 14.629"
+                                    "value": "19.879 18.029 17.228 9.041"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "17.626 4.747 5.158 10.305"
+                                    "value": "4.165 6.034 12.873 16.238"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "8.499 11.118 17.962 5.280"
+                                    "value": "19.699 15.295 13.705 20.086"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "16.565 7.751 8.907 4.744"
+                                    "value": "9.460 18.805 10.248 11.273"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "3.407 4.872 13.239 7.069"
+                                    "value": "8.390 2.863 8.801 3.731"
                                 }
                             ]
                         }
@@ -454,27 +461,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "47.994"
+                                    "value": "48.078"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "43.345"
+                                    "value": "48.018"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "60.493"
+                                    "value": "50.699"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "46.153"
+                                    "value": "49.278"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "55.542"
+                                    "value": "51.296"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "44.309"
+                                    "value": "43.716"
                                 }
                             ]
                         },
@@ -484,27 +491,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "15.010 7.254 16.897 8.833"
+                                    "value": "5.146 18.784 16.488 7.660"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "6.048 19.906 10.837 6.554"
+                                    "value": "5.458 11.376 12.744 18.440"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "19.648 4.608 18.727 17.510"
+                                    "value": "20.361 5.182 12.005 13.151"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "13.056 10.297 17.600 5.200"
+                                    "value": "6.446 17.492 17.149 8.191"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "20.304 14.961 4.987 15.290"
+                                    "value": "19.457 11.394 9.071 11.374"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "14.345 14.768 12.117 3.079"
+                                    "value": "9.368 11.416 18.173 4.759"
                                 }
                             ]
                         }
@@ -536,27 +543,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "74.694"
+                                    "value": "57.824"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "44.831"
+                                    "value": "47.738"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "36.197"
+                                    "value": "33.678"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "35.908"
+                                    "value": "57.888"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "35.712"
+                                    "value": "54.465"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "44.980"
+                                    "value": "60.211"
                                 }
                             ]
                         },
@@ -566,27 +573,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "18.546 19.182 18.249 18.717"
+                                    "value": "17.147 14.755 16.075 9.847"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "13.000 12.251 15.579 4.001"
+                                    "value": "13.478 15.928 5.792 12.540"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "11.471 6.318 3.935 14.473"
+                                    "value": "9.534 8.306 9.863 5.975"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "7.248 6.481 6.523 15.656"
+                                    "value": "17.747 18.682 14.194 7.265"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "15.051 14.603 3.090 2.968"
+                                    "value": "15.311 7.422 20.293 11.439"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "3.988 16.662 8.244 16.086"
+                                    "value": "13.771 18.717 14.601 13.122"
                                 }
                             ]
                         }
@@ -618,27 +625,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "53.881"
+                                    "value": "33.669"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "48.717"
+                                    "value": "53.197"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "55.418"
+                                    "value": "50.641"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "62.997"
+                                    "value": "53.124"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "48.372"
+                                    "value": "61.102"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "35.700"
+                                    "value": "53.471"
                                 }
                             ]
                         },
@@ -648,27 +655,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "12.351 18.994 16.019 6.517"
+                                    "value": "7.512 9.892 3.522 12.743"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "18.852 6.854 2.774 20.237"
+                                    "value": "15.399 14.689 18.929 4.180"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "18.725 17.005 12.991 6.697"
+                                    "value": "11.374 15.894 9.721 13.652"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "16.763 14.488 15.289 16.457"
+                                    "value": "14.726 14.333 18.406 5.659"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "18.492 14.514 11.864 3.502"
+                                    "value": "19.582 19.311 19.055 3.154"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "13.061 9.151 6.185 7.303"
+                                    "value": "7.627 9.419 20.305 16.120"
                                 }
                             ]
                         }
