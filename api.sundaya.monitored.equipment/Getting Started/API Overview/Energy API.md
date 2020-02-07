@@ -135,7 +135,7 @@ Response data is returned in a JSON Collection and includes links for the user t
 
 Links have the following attributes:
 
-- **rel**  - The rel property contains the link-to-collection relationship descriptor, which can be one of the following: `self`, `collection`, `up`, `next`, `prev`. These are described below in **Link-relation types** 
+- **rel**  - The rel property contains the link-to-collection relationship descriptor, which can be one of the following: `self`, `collection`, `up`, `down`, `next`, `prev`, `service-meta`. These are described below in **Link-relation types** 
 
 - **prompt** - A brief description of the link.
 
@@ -189,10 +189,20 @@ The types are based on [RFC8288](https://tools.ietf.org/html/rfc8288#page-6).
 
     e.g. href=[https:/api.sundaya.monitored.equipment/energy/hsy/period/hour/20190205T0600](https:/api.sundaya.monitored.equipment/energy/hsy/period/hour/20190205T0600)
 
-- **up** - Identifies the parent of the collection or item (`name`=*'month'* if a link is in collection object for a *'week'*).
-    
-- **next**, **prev** - Identifies the next or previous sibling of the item series (`name` = *'week'*). The `prompt` and `title` properties signify the next or previous item in the series (`prompt` = *'Week 07 2019'*).
+- **up**, **down** - Identifies the parent (`up`) or child (`down`) of the period respresented by a collection or item. 
 
+    The link's `name` attribute denotes parent or child period: 
+    For example a *'week'* collection might have a link with 'rel=`up`' and 'name=*month*`, to refer to the parent period of the week.
+    
+- **next**, **prev** - Identifies the next or previous sibling of the item series (`name` = *'week'*). 
+
+    The `prompt` and `title` properties signify the next or previous item in the series (`prompt` = *'Week 07 2019'*).
+
+- **service-meta** - adds a service description metadata link (see [RFC8631](https://tools.ietf.org/html/rfc8631#page-8)). 
+
+    The `value` attribute can be a JSON object which contains the resource metadata. 
+    The `name` and `key` attributes denote the *resource type* and *resource qualifier* respectively. 
+    For example an Energy resource might include a metadata link with 'rel=`service-meta`' and 'name=*period*`, to provide metadata about the period of the energy data it represents.
 
 ### Accept 'text/html' page format
 
