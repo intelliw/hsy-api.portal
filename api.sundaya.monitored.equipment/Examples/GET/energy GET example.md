@@ -49,59 +49,85 @@ Content-Length: 3495
             "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/week/20190204/undefined?site=999",
             "version": "0.3.14.24",
             "links": [
-                { "rel": "self", "name": "week", "prompt": "Week 04-02-2019", "title": "04/02/19 - 10/02/19",
+                {
+                    "rel": "self",
+                    "name": "week",
+                    "prompt": "Week 04-02-2019",
+                    "title": "04/02/19 - 10/02/19",
                     "description": "hsy week 20190204 1 999",
                     "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/week/20190204/1?site=999",
                     "render": "link"
                 },
-                { "rel": "collection", "name": "week.day", "prompt": "Mon Feb 4th - Sun Feb 10th",
+                {
+                    "rel": "collection",
+                    "name": "week.day",
+                    "prompt": "Mon Feb 4th - Sun Feb 10th",
                     "title": "04/02/19 - 10/02/19",
                     "description": "Mon Tue Wed Thu Fri Sat Sun",
                     "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190204/7?site=999"
                 },
-                { "rel": "collection", "name": "day.timeofday", "prompt": "Feb 4 Night - Feb 10 Evening", 
+                {
+                    "rel": "collection",
+                    "name": "day.timeofday",
+                    "prompt": "Feb 4 Night - Feb 10 Evening",
                     "title": "04/02/19 00:00 - 10/02/19 23:59",
                     "description": "Night Morning Afternoon Evening",
                     "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/timeofday/20190204T0000/28?site=999"
                 },
-                { "rel": "up", "name": "month", "prompt": "Feb 2019", 
+                {
+                    "rel": "up",
+                    "name": "month",
+                    "prompt": "Feb 2019",
                     "title": "01/02/19 - 28/02/19",
                     "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/month/20190201/1?site=999",
                     "render": "link"
                 },
-                { "rel": "next", "name": "week", "prompt": "Week 11-02-2019", 
+                {
+                    "rel": "next",
+                    "name": "week",
+                    "prompt": "Week 11-02-2019",
                     "title": "11/02/19 - 17/02/19",
                     "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/week/20190211/1?site=999",
                     "render": "link"
                 },
-                { "rel": "prev", "name": "week", "prompt": "Week 28-01-2019", 
+                {
+                    "rel": "prev",
+                    "name": "week",
+                    "prompt": "Week 28-01-2019",
                     "title": "28/01/19 - 03/02/19",
                     "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/week/20190128/1?site=999",
                     "render": "link"
                 },
-                { "rel": "service-meta", "name": "period", "key": "period", 
-                    "value": {
-                        "period": "week", "context": "week", "duration": 1, "epochInstant": "20190204T000000.0000",                        "endInstant": "20190210T235959.9990", "prompt": "Week 04-02-2019"
-                    }
-                },
-                { "rel": "service-meta", "name": "period", "key": "child", 
-                    "value": {
-                        "period": "day", "context": "week.day", "duration": 7, "epochInstant": "20190204T000000.0000",
-                        "endInstant": "20190210T235959.9990", "prompt": "Mon Feb 4th - Sun Feb 10th"
-                    }
-                },
-                { "rel": "service-meta", "name": "period", "key": "grandchild", 
-                    "value": { 
-                        "period": "timeofday", "context": "day.timeofday", "duration": 28, "epochInstant": "20190204T000000.0000", 
-                        "endInstant": "20190210T235959.9990", "prompt": "Feb 4 Night - Feb 10 Evening"
-                    }
+                {
+                    "rel": "service-meta",
+                    "name": "period",
+                    "description": {
+                        "name": "week",
+                        "epochInstant": "20190204T000000.0000",
+                        "endInstant": "20190210T235959.9990",
+                        "duration": 1,
+                        "child": {
+                            "name": "day",
+                            "epochInstant": "20190204T000000.0000",
+                            "endInstant": "20190210T235959.9990",
+                            "duration": 7
+                        },
+                        "grandchild": {
+                            "name": "timeofday",
+                            "epochInstant": "20190204T000000.0000",
+                            "endInstant": "20190210T235959.9990",
+                            "duration": 28
+                        }
+                    },
+                    "href": "https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/API%20Overview/Energy%20API"
                 }
             ],
             "items": [
-                { "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190204/undefined?site=999",
+                {
+                    "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190204/undefined?site=999",
                     "links": [
                         {
-                            "rel": "self", 
+                            "rel": "self",
                             "name": "week.day",
                             "prompt": "Mon Feb 4th",
                             "title": "04/02/19",
@@ -123,27 +149,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "56.570"
+                                    "value": "44.300"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "33.927"
+                                    "value": "47.609"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "61.614"
+                                    "value": "42.587"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "56.572"
+                                    "value": "33.090"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "38.995"
+                                    "value": "62.252"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "28.702"
+                                    "value": "45.682"
                                 }
                             ]
                         },
@@ -153,33 +179,34 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "10.184 18.051 18.664 9.671"
+                                    "value": "16.064 16.189 5.156 6.891"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "13.804 4.325 13.052 2.746"
+                                    "value": "20.354 5.529 11.205 10.521"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "16.564 10.821 14.423 19.806"
+                                    "value": "8.711 15.160 10.884 7.832"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "16.258 13.689 9.304 17.321"
+                                    "value": "7.066 15.581 4.810 5.633"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "3.022 16.463 7.674 11.836"
+                                    "value": "16.555 17.294 19.887 8.516"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "4.400 8.581 4.730 10.991"
+                                    "value": "11.082 10.238 4.517 19.845"
                                 }
                             ]
                         }
                     ]
                 },
-                { "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190205/undefined?site=999",
+                {
+                    "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190205/undefined?site=999",
                     "links": [
                         {
                             "rel": "self",
@@ -204,27 +231,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "26.196"
+                                    "value": "34.754"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "56.628"
+                                    "value": "43.215"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "36.043"
+                                    "value": "51.386"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "48.202"
+                                    "value": "28.528"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "55.822"
+                                    "value": "36.942"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "54.568"
+                                    "value": "38.301"
                                 }
                             ]
                         },
@@ -234,33 +261,34 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "5.798 9.387 7.153 3.858"
+                                    "value": "11.301 7.108 10.016 6.329"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "13.859 15.008 19.250 8.511"
+                                    "value": "8.354 17.750 3.763 13.348"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "12.960 4.432 9.256 9.395"
+                                    "value": "11.846 16.398 10.002 13.140"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "12.742 5.670 18.395 11.395"
+                                    "value": "8.024 6.193 3.168 11.143"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "18.583 11.587 11.442 14.210"
+                                    "value": "5.545 6.883 16.258 8.256"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "3.124 15.476 16.943 19.025"
+                                    "value": "14.538 5.344 10.638 7.781"
                                 }
                             ]
                         }
                     ]
                 },
-                { "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190206/undefined?site=999",
+                {
+                    "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190206/undefined?site=999",
                     "links": [
                         {
                             "rel": "self",
@@ -285,27 +313,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "46.611"
+                                    "value": "68.224"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "44.131"
+                                    "value": "40.517"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "39.703"
+                                    "value": "60.715"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "39.117"
+                                    "value": "45.496"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "60.981"
+                                    "value": "45.411"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "76.797"
+                                    "value": "42.247"
                                 }
                             ]
                         },
@@ -315,33 +343,34 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "12.417 11.265 7.452 15.477"
+                                    "value": "13.443 14.751 20.117 19.913"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "18.048 6.352 16.345 3.386"
+                                    "value": "13.725 3.109 5.940 17.743"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "2.957 9.657 18.212 8.877"
+                                    "value": "19.321 17.266 4.194 19.934"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "13.022 2.984 11.715 11.396"
+                                    "value": "8.407 20.087 6.748 10.254"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "10.654 18.597 12.645 19.085"
+                                    "value": "15.631 16.540 3.696 9.544"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "19.441 17.596 20.526 19.234"
+                                    "value": "14.911 6.117 15.900 5.319"
                                 }
                             ]
                         }
                     ]
                 },
-                { "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190207/undefined?site=999",
+                {
+                    "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190207/undefined?site=999",
                     "links": [
                         {
                             "rel": "self",
@@ -366,27 +395,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "56.842"
+                                    "value": "46.725"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "64.177"
+                                    "value": "64.594"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "39.310"
+                                    "value": "46.555"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "68.785"
+                                    "value": "31.307"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "49.786"
+                                    "value": "54.262"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "23.785"
+                                    "value": "39.756"
                                 }
                             ]
                         },
@@ -396,33 +425,34 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "20.552 9.054 20.075 7.161"
+                                    "value": "13.943 8.933 4.026 19.823"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "19.879 18.029 17.228 9.041"
+                                    "value": "18.554 12.843 18.119 15.078"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "4.165 6.034 12.873 16.238"
+                                    "value": "10.626 16.948 4.286 14.695"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "19.699 15.295 13.705 20.086"
+                                    "value": "11.566 2.952 3.238 13.551"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "9.460 18.805 10.248 11.273"
+                                    "value": "14.806 12.556 15.713 11.187"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "8.390 2.863 8.801 3.731"
+                                    "value": "11.834 8.605 3.494 15.823"
                                 }
                             ]
                         }
                     ]
                 },
-                { "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190208/undefined?site=999",
+                {
+                    "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190208/undefined?site=999",
                     "links": [
                         {
                             "rel": "self",
@@ -447,27 +477,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "48.078"
+                                    "value": "69.384"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "48.018"
+                                    "value": "67.540"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "50.699"
+                                    "value": "49.704"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "49.278"
+                                    "value": "40.481"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "51.296"
+                                    "value": "36.202"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "43.716"
+                                    "value": "41.567"
                                 }
                             ]
                         },
@@ -477,33 +507,34 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "5.146 18.784 16.488 7.660"
+                                    "value": "19.612 18.735 19.570 11.467"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "5.458 11.376 12.744 18.440"
+                                    "value": "20.475 11.447 17.365 18.253"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "20.361 5.182 12.005 13.151"
+                                    "value": "8.169 13.296 15.100 13.139"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "6.446 17.492 17.149 8.191"
+                                    "value": "15.815 2.797 6.438 15.431"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "19.457 11.394 9.071 11.374"
+                                    "value": "4.301 8.525 9.546 13.830"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "9.368 11.416 18.173 4.759"
+                                    "value": "7.240 6.939 16.829 10.559"
                                 }
                             ]
                         }
                     ]
                 },
-                { "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190209/undefined?site=999",
+                {
+                    "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190209/undefined?site=999",
                     "links": [
                         {
                             "rel": "self",
@@ -528,27 +559,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "57.824"
+                                    "value": "31.102"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "47.738"
+                                    "value": "38.079"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "33.678"
+                                    "value": "56.589"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "57.888"
+                                    "value": "47.826"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "54.465"
+                                    "value": "42.890"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "60.211"
+                                    "value": "69.613"
                                 }
                             ]
                         },
@@ -558,33 +589,34 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "17.147 14.755 16.075 9.847"
+                                    "value": "6.116 7.041 9.184 8.761"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "13.478 15.928 5.792 12.540"
+                                    "value": "18.163 10.797 5.702 3.417"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "9.534 8.306 9.863 5.975"
+                                    "value": "12.269 15.486 11.627 17.207"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "17.747 18.682 14.194 7.265"
+                                    "value": "10.970 20.060 3.102 13.694"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "15.311 7.422 20.293 11.439"
+                                    "value": "17.510 12.181 8.116 5.083"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "13.771 18.717 14.601 13.122"
+                                    "value": "19.157 12.966 18.085 19.405"
                                 }
                             ]
                         }
                     ]
                 },
-                { "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190210/undefined?site=999",
+                {
+                    "href": "http://api.sundaya.monitored.equipment/energy/hsy/period/day/20190210/undefined?site=999",
                     "links": [
                         {
                             "rel": "self",
@@ -609,27 +641,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "33.669"
+                                    "value": "47.429"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "53.197"
+                                    "value": "63.304"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "50.641"
+                                    "value": "40.010"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "53.124"
+                                    "value": "56.401"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "61.102"
+                                    "value": "46.043"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "53.471"
+                                    "value": "51.385"
                                 }
                             ]
                         },
@@ -639,27 +671,27 @@ Content-Length: 3495
                             "data": [
                                 {
                                     "name": "harvest",
-                                    "value": "7.512 9.892 3.522 12.743"
+                                    "value": "16.807 15.457 10.631 4.534"
                                 },
                                 {
                                     "name": "store.in",
-                                    "value": "15.399 14.689 18.929 4.180"
+                                    "value": "11.014 20.261 13.295 18.734"
                                 },
                                 {
                                     "name": "store.out",
-                                    "value": "11.374 15.894 9.721 13.652"
+                                    "value": "2.935 9.587 17.509 9.979"
                                 },
                                 {
                                     "name": "yield",
-                                    "value": "14.726 14.333 18.406 5.659"
+                                    "value": "10.746 20.649 6.218 18.788"
                                 },
                                 {
                                     "name": "sell",
-                                    "value": "19.582 19.311 19.055 3.154"
+                                    "value": "3.412 12.805 14.581 15.245"
                                 },
                                 {
                                     "name": "buy",
-                                    "value": "7.627 9.419 20.305 16.120"
+                                    "value": "14.761 16.316 5.993 14.315"
                                 }
                             ]
                         }
