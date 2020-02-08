@@ -143,7 +143,7 @@ Links have the following attributes:
 
 - **href** - The URI or URL of the resource.
 
-- **description** - The period or energy descriptor for display by user agents (applications). 
+- **description** - The descriptor for use in applications). If **rel** is `service-meta` this field contains JSON metadata for the resource.   
 
     For "self" links the `description` consists of a list of the resource parameters:
     
@@ -200,9 +200,10 @@ The types are based on [RFC8288](https://tools.ietf.org/html/rfc8288#page-6).
 
 - **service-meta** - adds a service description metadata link (see [RFC8631](https://tools.ietf.org/html/rfc8631#page-8)). 
 
-    The `value` attribute can be a JSON object which contains the resource metadata. 
-    The `name` and `key` attributes denote the *resource type* and *resource qualifier* respectively. 
-    For example an Energy resource might include a metadata link with 'rel=`service-meta`' and 'name=*period*`, to provide metadata about the period of the energy data it represents.
+    The `name` attribute denotes the *object type*, for example **period**.
+    The `description` attribute is a JSON object containing metadata for the object. 
+    
+    For example a link with 'rel=`service-meta`' and 'name=*period*` provides metadata about the period of the energy data it represents.
 
 ### Accept 'text/html' page format
 
