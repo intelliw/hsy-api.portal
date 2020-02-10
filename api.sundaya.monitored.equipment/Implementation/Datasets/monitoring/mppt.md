@@ -1,52 +1,13 @@
 # monitoring.mppt
 ---
 
-### API Host message ('monitoring.mppt')
+### API Consumer message ('monitoring.mppt')
 
 Each dataset item in the the `dataset/mppt` POST message body 'datasets' array, is transformed into a separate JSON message as shown below. 
 
-Each message contains as many data items as there were in the POST request dataset.
+The consumer process transforms messages into JSON structure shown in the following sample.
 
-The API host sends this structure to the `monitoring.mppt` message broker topic at the first stage of processing the API POST message. 
-
-```
-*** MESSAGE ***
-topic: monitoring.mppt
-key: IT6415AD-01-002
-value:	
-```
-
-```json
-{
-  "mppt": { "id": "IT6415AD-01-002"  },
-  "data": [
-    { "pv": { "volts": [48, 48 ], "amps": [6, 6 ] },
-      "battery": { "volts": 55.1, "amps": 0 },
-      "load": { "volts": [ 48, 48 ], "amps": [ 1.2, 1.2 ] },
-      "status": "0801",
-      "sys": { "source": "S000" },
-      "time_event": "2019-10-22 07:00:07.0320",
-      "time_zone": "+07:00",
-      "time_processing": "2019-11-12 08:01:54.3020"
-    },
-    { "pv": { "volts": [48, 48 ], "amps": [ 6, 6 ] },
-      "battery": { "volts": 55.1, "amps": 0 },
-      "load": { "volts": [ 48, 48 ], "amps": [ 1.2, 1.2 ] },
-      "status": "0801",
-      "sys": { "source": "S000" },
-      "time_event": "2019-10-22 07:00:17.0220",
-      "time_zone": "+07:00",
-      "time_processing": "2019-11-12 08:01:54.3030"
-    }
-  ]
-}
-```
-
-### API Consumer message ('monitoring.mppt.dataset')
-
-The consumer process transforms messages in the above JSON structure, into the structure shown in the following sample.
-
-This structure is sent to the `monitoring.mppt` dataset table in the datawarehouse as an audit log, and to the `monitoring.mppt.dataset` message broker topic for stream processing.
+This consumer sends this message to the `monitoring.mppt` dataset table in the datawarehouse as an audit log, and to the `monitoring.mppt.dataset` message broker topic for further stream processing.
 
 ```
 *** MESSAGE ***

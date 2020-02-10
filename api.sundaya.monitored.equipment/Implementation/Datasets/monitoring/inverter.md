@@ -1,54 +1,13 @@
 # monitoring.inverter
 ---
-### API Host message ('monitoring.inverter')
+
+### API Consumer message ('monitoring.inverter')
 
 Each dataset item in the the `dataset/inverter` POST message body 'datasets' array, is transformed into a separate JSON message as shown below. 
 
-Each message contains as many data items as there were in the POST request dataset.
+The consumer process transforms messages into JSON structure shown in the following sample.
 
-The API host sends this structure to the `monitoring.inverter` message broker topic at the first stage of processing the API POST message. 
-
-```
-*** MESSAGE ***
-topic: monitoring.inverter
-key: SPI-B2-01-002
-value:	
-```
-
-```json
-{
-  "inverter": { "id": "SPI-B2-01-002" },
-  "data": [
-    { "pv": { "volts": [ 48, 48 ], "amps": [ 6, 6 ] },
-      "battery": { "volts": 55.1, "amps": 0 },
-      "load": { "volts": [ 48, 48 ], "amps": [ 1.2, 1.2 ] },
-      "grid": { "volts": [ 48, 48, 48 ], "amps": [1.2, 1.2, 1.2 ],
-      "pf": [ 0.92, 0.92, 0.92 ] },
-      "status": "0001",
-      "sys": { "source": "S000" },
-      "time_event": "2019-09-09 07:00:06.0320",
-      "time_zone": "+07:00",
-      "time_processing": "2019-11-12 10:04:10.1770"
-    },
-    { "pv": { "volts": [ 48, 48 ], "amps": [ 6, 6 ] },
-      "battery": { "volts": 55.1, "amps": 0 },
-      "load": { "volts": [ 48, 48 ], "amps": [ 1.2, 1.2 ] },
-      "grid": { "volts": [ 48, 48, 48 ], "amps": [ 1.2, 1.2, 1.2 ], "pf": [ 0.92, 0.92, 0.92 ] },
-      "status": "0001",
-      "sys": { "source": "S000" },
-      "time_event": "2019-09-09 07:00:16.0220",
-      "time_zone": "+07:00",
-      "time_processing": "2019-11-12 10:04:10.1770"
-    }
-  ]
-}
-```
-
-### API Consumer message ('monitoring.inverter.dataset')
-
-The consumer process transforms messages in the above JSON structure, into the structure shown in the following sample.
-
-This structure is sent to the `monitoring.inverter` dataset table in the datawarehouse as an audit log, and to the `monitoring.inverter.dataset` message broker topic for stream processing.
+This consumer sends this message to the `monitoring.inverter` dataset table in the datawarehouse as an audit log, and to the `monitoring.inverter.dataset` message broker topic for further stream processing.
 
 ```
 *** MESSAGE ***

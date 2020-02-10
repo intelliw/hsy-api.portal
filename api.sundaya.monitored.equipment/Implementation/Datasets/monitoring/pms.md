@@ -1,57 +1,15 @@
 # monitoring.pms
 ---
 
-### API Host message ('monitoring.pms')
+### API Consumer message ('monitoring.pms')
 
 Each dataset item in the the `dataset/pms` POST message body 'datasets' array, is transformed into a separate JSON message as shown below. 
 
-Each message contains as many data items as there were in the POST request dataset.
+The consumer process transforms messages into JSON structure shown in the following sample.
 
-Typically there will be 14 data items in a `pms` dataset, one for each pack.
+Typically there will be 14 data items in each `pms` dataset, one for each pack.
 
-The API host sends this message to the `monitoring.pms` message broker topic at the first stage of processing the API POST message. 
-
-```
-*** MESSAGE ***
-topic: monitoring.pms
-key: PMS-01-001
-value:	
-```
-
-```json
-{
-  "pms": { "id": "PMS-01-001", "temp": 48.3 },
-  "data": [
-    { "pack": { 
-        "id": "0241", "dock": 1, "amps": -1.601, "temp": [ 35, 33, 34 ],
-        "cell": { "open": [], "volts": [3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.91 ] },
-        "fet": { "open": [1, 2 ], "temp": [ 34.1, 32.2 ] },
-        "status": "0001" },
-      "sys": { "source": "S000" },
-      "time_event": "2019-09-09 07:00:06.0320",
-      "time_zone": "+07:00",
-      "time_processing": "2019-11-12 10:43:24.7660"
-    },
-    { "pack": { 
-        "id": "0242", "dock": 2, "amps": -1.601, "temp": [ 35, 33, 34 ],
-        "cell": { "open": [], "volts": [3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.92, 3.91 ] },
-        "fet": { "open": [1, 2 ], "temp": [ 34.1, 32.2 ] },
-        "status": "0001" },
-      "sys": { "source": "S000" },
-      "time_event": "2019-09-09 07:00:06.8110",
-      "time_zone": "+07:00",
-      "time_processing": "2019-11-12 10:43:25.9601"
-    }    
-    // ... 14 packs
-  ]
-}
-```
-
-### API Consumer message ('monitoring.pms.dataset')
-
-The consumer process transforms messages in the above JSON structure, into the structure shown in the following sample.
-
-This structure is sent to the `monitoring.pms` dataset table in the datawarehouse as an audit log, and to the `monitoring.pms.dataset` message broker topic for stream processing.
+This consumer sends this message to the `monitoring.pms` dataset table in the datawarehouse as an audit log, and to the `monitoring.pms.dataset` message broker topic for further stream processing.
 
 ```
 *** MESSAGE ***
