@@ -76,15 +76,15 @@ Attribute | Data | Constraint | Description
 --- | --- | --- | ---
 `bus_connect` | boolean | _true/false_ | A boolean status indicating whether the device's data bus is connected (_true_) or faulty (_false_). Corresponds to bit __0__ in the binary-decoded request `status`.
 `input` | string | _normal_, _no-power_, _high-volt-input_, _input-volt-error_ | The device's `Input Status`. Corresponds to bits __1__ and __2__ in the binary-decoded request `status`.
-`chgfet` | string | _ok/short_ | The devices's `Charging Mosfet` status. Corresponds to bit __3__ in the binary-decoded request `status`.
-`chgfet_antirev` | string | _ok/short_ | The devices's `Charging Anti Reverse Mosfet` status. Corresponds to bit __4__ in the binary-decoded request `status`.
-`fet_antirev` | string | _ok/short_ | The devices's `Anti Reverse Mosfet` status. Corresponds to bit __5__ in the binary-decoded request `status`.
-`input_current` | string | _ok/ overcurrent_ | The devices's `Input Current` status. Corresponds to bit __6__ in the binary-decoded request `status`.
+`chgfet` | string | _ok/short_ | The device's `Charging Mosfet` status. Corresponds to bit __3__ in the binary-decoded request `status`.
+`chgfet_antirev` | string | _ok/short_ | The device's `Charging Anti Reverse Mosfet` status. Corresponds to bit __4__ in the binary-decoded request `status`.
+`fet_antirev` | string | _ok/short_ | The device's `Anti Reverse Mosfet` status. Corresponds to bit __5__ in the binary-decoded request `status`.
+`input_current` | string | _ok/ overcurrent_ | The device's `Input Current` status. Corresponds to bit __6__ in the binary-decoded request `status`.
 `load` | string | _ok_, _overcurrent_, _short_, _not-applicable_ | The device's `Load`. Corresponds to bits __7__ and __8__ in the binary-decoded request `status`.
-`pv_input` | string | _ok/short_ | The devices's `PV Input` status. Corresponds to bit __9__ in the binary-decoded request `status`.
+`pv_input` | string | _ok/short_ | The device's `PV Input` status. Corresponds to bit __9__ in the binary-decoded request `status`.
 `charging` | string | _not-charging_, _float_, _boost_, _equalisation_ | The device's `Charging Status`. Corresponds to bits __10__ and __11__ in the binary-decoded request `status`.
-`system` | string | _ok/fault_ | The devices's `System Status`. Corresponds to bit __12__ in the binary-decoded request `status`.
-`standby` | string | _standby/ running_ | The devices's `Standby Status`. Corresponds to bit __13__ in the binary-decoded request `status`.
+`system` | string | _ok/fault_ | The device's `System Status`. Corresponds to bit __12__ in the binary-decoded request `status`.
+`standby` | string | _standby/ running_ | The device's `Standby Status`. Corresponds to bit __13__ in the binary-decoded request `status`.
 
 
 ### Partitions and clustering

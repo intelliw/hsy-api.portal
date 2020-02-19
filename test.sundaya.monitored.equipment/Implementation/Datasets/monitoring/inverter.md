@@ -75,7 +75,7 @@ The dataset includes the following status attributes which are based on the hex-
 
 Attribute | Data | Constraint | Description
 --- | --- | --- | ---
-`bus_connect` | boolean | _true/false_ | The devices's `Bus Connectivvity` status. Indicated whether the device's data bus is connected (_true_) or faulty (_false_). Corresponds to bit __0__ in the binary-decoded request `status`.
+`bus_connect` | boolean | _true/false_ | The device's `Bus Connectivvity` status. Indicated whether the device's data bus is connected (_true_) or faulty (_false_). Corresponds to bit __0__ in the binary-decoded request `status`.
 
 
 ### Partitions and clustering
