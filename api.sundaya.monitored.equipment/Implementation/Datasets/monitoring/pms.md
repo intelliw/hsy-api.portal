@@ -21,10 +21,9 @@ value:
 ```json
 {   "pms_id": "PMS-01-002",
     "pack_id": "0248",
-    "pms": { "temp": 48.3 },
     "pack": { "volts": 51.262, "amps": -0.625, "watts": -32.039,    
         "vcl": 3.654, "vch": 3.676, "dock": 4, 
-        "temp_top": 35, "temp_mid": 33, "temp_bottom": 34 }, 
+        "temp_top": 35, "temp_mid": 33, "temp_bottom": 34 },
     "cell": [
         { "volts": 3.661, "dvcl": 7, "open": false },
         { "volts": 3.666, "dvcl": 12, "open": false },
@@ -42,7 +41,7 @@ value:
         { "volts": 3.661, "dvcl": 7, "open": false } ], 
     "fet_in": { "open": true, "temp": 34.1 }, 
     "fet_out": { "open": false, "temp": 32.2 }, 
-    "status": { "bus_connect": true }, 
+    "status": { "bus_connect": true, "temp": 48.3 }, 
     "sys": { "source": "S000" }, 
     "time_event": "2019-02-09 08:00:17.0200", 
     "time_zone": "+07:00", 
@@ -65,8 +64,7 @@ In particular the arrays in the request message structure are flattened and tran
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
 `pms_id` | - | string | - | Id of the PMS system, as displayed on the cabinet. This attribute replaces `pms.id` in the request message.
-`pack_id` | - | string | - | Id of the `pack` associated with this data record. This attribute replaces `pack.id` as a top-level attribute, so that it can be included in the data clustering specification.
-`pms.temp` | degC | float | - | The Ehub's self-monitored temperature. Attributes in the `pms` element provide a secondary dataset (the `data` element contains the primary dataset for the equipment being monitored, e.g. `pack` data).
+`pack_id` | - | string | - | Id of the `pack` associated with this data record. This attribute is used in place of `pack.id` as a top-level attribute, so that it can be included in the data clustering specification.
 `pack.volts` | volts | float | - | The cellblocks are connected in series so the pack voltage is the sum of all 14 cell voltages (`cell.volts[1-14]`).
 `pack.amps` | amps | float | - | _(no change from request message)_.
 `pack.watts` | watts | float | - | The product of `pack.volts` and `pack.amps`.
@@ -83,7 +81,8 @@ Attribute | Metric | Data | Constraint | Description
 `fet_out.open` | _open/closed_ | integer | _true/false_ | 1 if any element in `fet.open` contains the value 2 as corresponds to the request's `fet_out`, otherwise 0.
 `fet_in.temp` | degC | float | - | The 1st element in `fet.temp`.
 `fet_out.temp` | degC | float | - | The 2nd element in `fet.temp`.
-`status` | - | status | - | A set of status fields in a complex type which is described in __Equipment status__ section below.
+`status.temp` | degC | float | - | The Ehub's self-monitored temperature.
+`status.bus_connect` | - | boolean | - | One of the status fields described in __Equipment status__ section below.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
 `time_event` | - | datetime | - | The UTC time of the event which produced this data sample.
 `time_zone` | - | string | _+/-HH:MM_ | The time offset in the time zone of the event which produced this data sample.
@@ -92,11 +91,11 @@ Attribute | Metric | Data | Constraint | Description
 
 ### Equipment status attributes 
 
-The dataset includes the following status attributes which are based on the hex-encoded request `status`.
+The dataset includes the following status attributes which are based on the hex-encoded code in the request's `status.code`.
 
 Attribute | Data | Constraint | Description
 --- | --- | --- | ---
-`bus_connect` | boolean | _true/false_ | The device's `Bus Connectivvity` status. Indicated whether the device's data bus is connected (_true_) or faulty (_false_). Corresponds to bit __0__ in the binary-decoded request `status`.
+`bus_connect` | boolean | _true/false_ | The device's `Bus Connectivvity` status. Indicated whether the device's data bus is connected (_true_) or faulty (_false_). Corresponds to bit __0__ in the binary-decoded request `status.code`.
 
 
 ### Partitions and clustering

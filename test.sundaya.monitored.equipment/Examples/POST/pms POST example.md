@@ -44,7 +44,7 @@ All other attributes are mandatory and must be present.
 
 ### Equipment status
 
-The `status` attribute in the request message should contain a hex-encoding of the following bitmaped status fields. 
+The `status` attribute in the request message should contain a hex-encoding of the following bitmapped status fields. 
 
 - bit '0' corresponds to the least significant bit (the right-most bit). 
 
