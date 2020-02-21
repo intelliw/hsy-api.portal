@@ -62,10 +62,10 @@ Attribute | Metric | Data | Constraint | Description
 `load[nn].volts` | volts | float | - | The value corresponding to nn in the request `load.volts` array.
 `load[nn].amps` | amps | float | - | The value corresponding to nn in the request `load.amps` array.
 `load[nn].watts` | watts | float | - | The product of `load.volts` and `load.amps`.
-`grid[nn].volts` | volts | float | - | The value corresponding to nn in the request `grid.volts` array.
+`grid[nn].volts` | volts | float | - | The value corresponding to nn in the request `grid.volts` array. This value is assumed to be line-to-line volage for a 3-phase supply.
 `grid[nn].amps` | amps | float | - | The value corresponding to nn in the request `grid.amps` array.
 `grid[nn].pf` | amps | float | *maximum 1.0* | The value corresponding to nn in the request `grid.pf` array.
-`grid[nn].watts` | watts | float | - | Calculated watts for each supply phase based on the formula: `grid.watts` = `grid.volts` * `grid.amps` * `grid.pf` * `√3`.
+`grid[nn].watts` | watts | float | - | Calculated watts for each supply phase based on the formula: `grid.watts` = `grid.volts` * `grid.amps` * `grid.pf` * `√3`. If the supply is single-phase there will be only one element in the array and accordingly the formula used will be formula: `grid.watts` = `grid.volts` * `grid.amps` * `grid.pf`.
 `status` | - | status | - | A set of status fields in a complex type which is described in __Equipment status__ section below.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
 `time_event` | - | datetime | - | The UTC time of the event which produced this data sample.
@@ -75,11 +75,11 @@ Attribute | Metric | Data | Constraint | Description
 
 ### Equipment status attributes 
 
-The dataset includes the following status attributes which are based on the hex-encoded request `status`.
+The dataset includes the following status attributes which are based on the hex-encoded request `status.code`.
 
 Attribute | Data | Constraint | Description
 --- | --- | --- | ---
-`bus_connect` | boolean | _true/false_ | The device's `Bus Connectivvity` status. Indicated whether the device's data bus is connected (_true_) or faulty (_false_). Corresponds to bit __0__ in the binary-decoded request `status`.
+`bus_connect` | boolean | _true/false_ | The device's `Bus Connectivvity` status. Indicated whether the device's data bus is connected (_true_) or faulty (_false_). Corresponds to bit __0__ in the binary-decoded request `status.code`.
 
 
 ### Partitions and clustering
