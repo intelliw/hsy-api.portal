@@ -39,13 +39,14 @@ value:
         { "volts": 3.665, "dvcl": 11, "open": true},
         { "volts": 3.669, "dvcl": 15, "open": false },
         { "volts": 3.661, "dvcl": 7, "open": false } ], 
-    "fet_in": { "open": true, "temp": 34.1 }, 
-    "fet_out": { "open": false, "temp": 32.2 }, 
+    "fet": [
+        { "open": true, "temp": 34.1 },
+        { "open": false, "temp": 32.2 } ],
     "status": { "bus_connect": true, "temp": 48.3 }, 
-    "sys": { "source": "S000" }, 
-    "time_event": "2019-02-09 08:00:17.0200", 
+    "sender": "S000", 
+    "time_event": "2020-02-08 08:00:17.0200", 
     "time_zone": "+07:00", 
-    "time_processing": "2019-09-08 05:00:48.9830"
+    "time_processing": "2020-02-08 08:00:48.9830"
 },
 ```
 
@@ -77,10 +78,8 @@ Attribute | Metric | Data | Constraint | Description
 `cell[nn].volts` | volts | float | - | The value corresponding to nn in the request `cell.volts` array.
 `cell[nn].dvcl` | millivolts | float *(array)* | - | The millivolts difference (delta) between the lowest cell voltage in the pack (`pack.vcl`) and the cell voltage (`cell[nn].volts`).
 `cell[nn].open` | _open/closed_ | integer | _true/false_ | 1 if any element in the request `cell.open` array contained the value nn, otherwise 0.
-`fet_in.open` | _open/closed_ | integer | _true/false_ | 1 if any element in `fet.open` contains the value 1 as corresponds to the request's `fet_in`, otherwise 0.
-`fet_out.open` | _open/closed_ | integer | _true/false_ | 1 if any element in `fet.open` contains the value 2 as corresponds to the request's `fet_out`, otherwise 0.
-`fet_in.temp` | degC | float | - | The 1st element in `fet.temp`.
-`fet_out.temp` | degC | float | - | The 2nd element in `fet.temp`.
+`fet[nn].open` | _open/closed_ | integer | _true/false_ | The first element in `fet[nn]` corresponds to the input Fet (Fet In) and the second element corrsponds to the output fet (Fet Out). The value of `fet[1].open` is _true_ if any element in the request `fet.open` field contains the value 1, otherwise it will be _false_. The same applies to `fet[2].open` which is _true_ or _false_ depending on whether the request `fet.open` field contains the value 2.
+`fet[nn].temp` | degC | float | - | `fet[nn].temp`will be _true_ if the request `fet.temp` field contains the value `nn`.
 `status.temp` | degC | float | - | The Ehub's self-monitored temperature.
 `status.bus_connect` | - | boolean | - | One of the status fields described in __Equipment status__ section below.
 `sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.

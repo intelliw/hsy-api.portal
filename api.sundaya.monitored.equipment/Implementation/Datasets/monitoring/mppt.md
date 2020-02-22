@@ -30,8 +30,8 @@ value:
       "chgfet": "ok", "chgfet_antirev": "ok", "fet_antirev": "ok", 
       "input_current": "ok", "load": "ok", "pv_input": "ok", "charging": "float", 
       "system": "ok", "standby": "standby" },
-    "sys": {"source": "S000" },
-    "time_event": "2019-02-09 08:00:07.0320",
+    "sender": "S000",
+    "time_event": "2020-02-08 08:00:07.0320",
     "time_zone": "+07:00",
     "time_processing": "2019-09-10 04:13:08.8780"
 },

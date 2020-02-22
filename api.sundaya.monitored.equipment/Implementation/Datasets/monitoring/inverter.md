@@ -31,8 +31,8 @@ value:
         {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
         {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 } ],
     "status": { "bus_connect": true },    
-    "sys": {"source": "S000" },
-    "time_event":"2019-02-09 08:00:17.0220",
+    "sender": "S000",
+    "time_event":"2020-02-08 08:00:17.0220",
     "time_zone":"+07:00",
     "time_processing":"2019-09-10 04:11:09.2930"
 },

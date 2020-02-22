@@ -38,7 +38,7 @@ Queries require a mandatory predicate filter (a WHERE clause) for the `time_even
 ```sql
 SELECT 	pms_id, pack.id, cell.vcl, cell.vch, cell.dvcl
 FROM `sundaya.monitoring.pms`
-WHERE time_event BETWEEN '2019-02-09' AND '2019-02-12'
+WHERE time_event BETWEEN '2020-02-08' AND '2019-02-12'
 AND pms_id IN ('PMS-01-002', 'PMS-01-002')
 ```
 
