@@ -158,7 +158,7 @@ Attribute | Metric | Data | Constraint | Description
 `fet_out.open` | open/closed | integer | 1/0 | 1 if any element in `fet.open` contains the value 2 as corresponds to `fet_out`, otherwise 0.
 `fet_in.temp` | degC | float | - | The 1st element in `fet.temp`.
 `fet_out.temp` | degC | float | - | The 2nd element in `fet.temp`.
-`sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
+`sender` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
 `time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
 `time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
 `time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.

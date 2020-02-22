@@ -70,7 +70,7 @@ Attribute | Metric | Data | Constraint | Description
 `grid_nn_amps` | amps | float | - | The element number corresponding to nn in `grid.amps`.
 `grid_nn_pf` | amps | float | *maximum 1.0* | The element number corresponding to nn in `grid.pf`.
 `grid_nn_watts` | watts | float | - | Calculated for each supply phase, based on the formula: `grid.watts` = `grid.volts` * `grid.amps` * `grid.pf` * `√3`.
-`sys.source` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
+`sender` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
 `time_utc` | - | datetime | - | The UTC time of the event which produced this data sample.
 `time_local` | - | datetime | - | The local time of the event which produced this data sample. Note that the timezone offset is discarded.
 `time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.

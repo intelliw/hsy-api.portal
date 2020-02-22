@@ -16,7 +16,7 @@ The dataset timestamps are stored in the canonical timestamp format used for dat
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
-`id` | - | string | - | The identifier of a source system which sends data. This identifier is sent as a foreign key in the `sys.source` attribute in monitoring datasets, to provide traceability and data provenance.
+`id` | - | string | - | The identifier of a source system which sends data. This identifier is sent as a foreign key in the `sender` attribute in monitoring datasets, to provide traceability and data provenance.
 `name` | - | string | - | The name of the vendor or development organisatopm responsible for the source system. 
 
 ```
