@@ -83,5 +83,29 @@ folders:
         - Logger
         - Roadmap
 
-            
+      Datasets:
+        ordering:
+        - timeseries
+        - alignment
+        - reference
+        - system
 
+        folders:
+          timeries:
+            ordering:
+            - pms
+            - mppt
+            - inverter
+
+          alignment:
+            ordering:
+
+          reference:
+            ordering:
+            - pms
+            - site
+            - installation
+
+          system:
+            ordering:
+            - source
