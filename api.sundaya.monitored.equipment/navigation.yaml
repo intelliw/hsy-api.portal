@@ -72,7 +72,6 @@ folders:
   Implementation:
     ordering:
     - Architecture
-    - Datasets
 
     folders:
       Architecture:
@@ -83,29 +82,3 @@ folders:
         - Logger
         - Roadmap
 
-      Datasets:
-        ordering:
-        - timeseries
-        - alignment
-        - reference
-        - system
-
-        folders:
-          timeseries:
-            ordering:
-            - pms
-            - mppt
-            - inverter
-
-          alignment:
-            ordering:
-
-          reference:
-            ordering:
-            - pms
-            - site
-            - installation
-
-          system:
-            ordering:
-            - source
