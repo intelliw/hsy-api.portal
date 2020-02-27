@@ -11,13 +11,17 @@ Data for a _trackable_ item is used to track device performance in real-time, an
 
 - **timeseries** - the `timeseries` dataset includes _telemetry_ and _status_ data streaming in from field devices. 
 
-The dataset is infinite and unordered. Typically this dataset is streamed through a device controller (BBC) or a device gateway (EHub) in near-real-time. 
+    The dataset is infinite and unordered. Typically this dataset is streamed through a device controller (BBC) or a device gateway (EHub) in near-real-time. 
 
-However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. 
+    However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. 
 
- Data rows are append-only and never modified. This dataset is used mainly for anaytics (OLAP) in operational dashboards. The data is stored in a relational format and can be accessed through SQL queries.
+    Data rows are append-only and never modified. This dataset is used mainly for anaytics (OLAP) in operational dashboards. The data is stored in a relational format and can be accessed through SQL queries.
 
-- **alignment** - the `alignment` dataset contains aggregates of time-series data, aligned to data windows such as 'periods': for example energy data totals for a week. This dataset is produced by parallel stream processors for low latency and high throughput. The data is stored in a denormalised column-database for fast access by API services and transactional systems (OLTP).
+- **alignment** - the `alignment` dataset contains aggregates of time-series data, aligned to data windows such as 'periods': for example energy data totals for a week. 
+
+This dataset is produced by parallel stream processors for low latency and high throughput. 
+
+The data is stored in a denormalised column-database for fast access by API services and transactional systems (OLTP).
 
 - **reference** - the `reference` dataset contains _master_ data for customers, suppliers, personnel, sites, products and services. Typically this dataset changes very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from a stand-alone system, such as the ERP system. The reference data is stored as sheets or JSON in a document database. 
 
