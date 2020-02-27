@@ -13,7 +13,7 @@ This consumer sends this message to the `monitoring.pms` dataset table in the da
 
 ```
 *** MESSAGE ***
-topic: monitoring.pms.dataset
+topic: monitoring.pms
 key: PMS-01-001
 value:	
 ```

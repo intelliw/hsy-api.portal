@@ -11,7 +11,7 @@ This consumer sends this message to the `monitoring.mppt` dataset table in the d
 
 ```
 *** MESSAGE ***
-topic: monitoring.mppt.dataset
+topic: monitoring.mppt
 key: IT6415AD-01-001
 value:	
 ```

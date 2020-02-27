@@ -217,7 +217,7 @@ The page displays labels and hyperlink elements from the hypermedia dataset as s
 
 # Visualisations
 ---
-The API is primarily intended to help depict energy flows in graphical views, as time-windowed energy flow from 'sources' at the top, to 'sinks' at the bottom. 
+The API helps depict energy flows in graphical views, as time-windowed energy flow from 'sources' at the top, to 'sinks' at the bottom. 
 
 Sources | Sinks    
 --- |---
@@ -225,9 +225,7 @@ Sources | Sinks
 
 For any given time window the net flows from source and sink data elements will sum to zero. 
 
-This is best depicted in a stacked bar graph with up and down bars of the same size, as shown in the following monthly `period` graph.
-
-![Monthly usage example](/images/graph.monthly-usage.png)
+This is best depicted in a stacked bar graph as shown in the `period` graph above.
 
 **Colours**
 

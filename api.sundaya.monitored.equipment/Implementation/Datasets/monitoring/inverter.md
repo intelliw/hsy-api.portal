@@ -11,7 +11,7 @@ This consumer sends this message to the `monitoring.inverter` dataset table in t
 
 ```
 *** MESSAGE ***
-topic: monitoring.inverter.dataset
+topic: monitoring.inverter
 key: SPI-B2-01-002
 value:	
 ```
