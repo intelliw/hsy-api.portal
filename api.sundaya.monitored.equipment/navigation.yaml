@@ -85,25 +85,26 @@ folders:
 
       Datasets:
         ordering:
-        - monitoring
-        - master
+        - timeseries
+        - alignment
+        - reference
         - system
-        - transaction
 
         folders:
-          monitoring:
+          timeries:
             ordering:
             - pms
             - mppt
             - inverter
-          master:
+          alignment:
+            ordering:
+          reference:
             ordering:
             - pms
             - site
+            - installation
           system:
             ordering:
             - source
-          transaction:
-            ordering:
-            - installation
+            
 
