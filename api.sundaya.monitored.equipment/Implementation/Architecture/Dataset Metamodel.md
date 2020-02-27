@@ -19,13 +19,19 @@ Data for a _trackable_ item is used to track device performance in real-time, an
 
 - **alignment** - the `alignment` dataset contains aggregates of time-series data, aligned to data windows such as 'periods': for example energy data totals for a week. 
 
-This dataset is produced by parallel stream processors for low latency and high throughput. 
+    This dataset is produced by parallel stream processors for low latency and high throughput. 
 
-The data is stored in a denormalised column-database for fast access by API services and transactional systems (OLTP).
+    The data is stored in a denormalised column-database for fast access by API services and transactional systems (OLTP).
 
-- **reference** - the `reference` dataset contains _master_ data for customers, suppliers, personnel, sites, products and services. Typically this dataset changes very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from a stand-alone system, such as the ERP system. The reference data is stored as sheets or JSON in a document database. 
+- **reference** - the `reference` dataset contains _master_ data for customers, suppliers, personnel, sites, products and services. 
 
-- **system** - the `sytstem` dataset contains configuration data for the data management platform, including data needed for security, traceability, and data provenance. It includes scripts and data for provisioning and commissioning devices.
+    Typically this dataset changes very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from a stand-alone system, such as the ERP system. 
+    
+    The reference data is stored as sheets or JSON in a document database. 
+
+- **system** - the `system` dataset contains configuration data for the data management platform, including data needed for security, traceability, and data provenance. 
+
+    It includes scripts and data for provisioning and commissioning devices.
 
 ### Trackable Devices (devices, components, assemblies)
 
