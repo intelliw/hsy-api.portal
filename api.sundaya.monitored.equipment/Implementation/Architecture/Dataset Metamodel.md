@@ -1,21 +1,21 @@
 # Dataset Metamodel
 ---
 
-Device data consists of four dataset types for trackable devices, shown in the model below. 
+Trackable devices are assocaited with four datasets, described below. 
 
 
-A _trackable_ item provides datasets which allow the item to be tracked in real-time or through retrospective reports. The data is used to trace problems and trends in the item's supply chain, operational performance, maintenance, etc.
+Data for a _trackable_ item is used to track device performance in real-time, and to trace problems and trends, including predictions.
  
 ![Devices metamodel](/images/DevicesMetamodel.png)
 ### Dataset Types
 
-- **monitoring** - infinite and unordered time-series data collected through a recurring schedule. Typically this dataset consists of device metrics streamed from devices through a device controller (BBC) or a device gateway (EHub), in near-real-time. However some data may be delayed or arrive out-of-order with data from other devices in the same location; often due to poor connectivity seen in remote locations, or lack of system availability due to maintenance etc. The data is appended to a persistent log and is never modified.
+- **timeseries** - the `timeseries` dataset includes _telemetry_ and _status_ data streaming in from field devices. The dataset is infinite and unordered. Typically this dataset is streamed through a device controller (BBC) or a device gateway (EHub) in near-real-time. However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. Data rows are append-only and never modified. This dataset is used mainly for anaytics (OLAP) in operational dashboards. The data is stored in a relational format and can be accessed through SQL queries.
 
-- **transactions** - the transaction dataset contains business data which is maintained through both inserts and updates. The data is changed (created or modified) based on a business events such as procurement, installation, or servicing. The data is most typically sent through the Sales Portal web tier when a transaction is completed, or periodically (e.g. twice a day) through a data file for batch update. As the data is replicated and therefore latent, it can not be used in time-critical processes which depend on data consistency, such as real-time analytics or time-window based data aggregation.
+- **alignment** - the `alignment` dataset contains aggregates of time-series data, aligned to data windows such as 'periods': for example energy data totals for a week. This dataset is produced by parallel stream processors for low latency and high throughput. The data is stored in a denormalised column-database for fast access by API services and transactional systems (OLTP).
 
-- **master** - provides core data needed to uniquely define other datasets, including data and metadata for customers, sites, partners, suppliers, personnel, products and services. This includes product metadata from vendors. Data in this dataset is changed very infrequently.
+- **reference** - the `reference` dataset contains _master_ data for customers, suppliers, personnel, sites, products and services. Typically this dataset changes very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from a stand-alone system, such as the ERP system. The reference data is stored as sheets or JSON in a document database. 
 
-- **system** - provides reference data for platform services and the data management system, including data needed for security, traceability, and data provenance. It includes configuration data needed for provisioning and commissioning monitored devices and systems.
+- **system** - the `sytstem` dataset contains configuration data for the data management platform, including data needed for security, traceability, and data provenance. It includes scripts and data for provisioning and commissioning devices.
 
 ### Trackable Devices (devices, components, assemblies)
 
