@@ -91,7 +91,7 @@ folders:
         - system
 
         folders:
-          timeries:
+          timeseries:
             ordering:
             - pms
             - mppt
