@@ -97,6 +97,10 @@ folders:
             - mppt
             - inverter
 
+          alignment:
+            ordering:
+            - period
+
           reference:
             ordering:
             - pms
