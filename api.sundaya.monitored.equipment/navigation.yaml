@@ -103,8 +103,8 @@ folders:
 
           reference:
             ordering:
-            - pms
             - site
+            - pms_pack
             - installation
 
           system:

@@ -1,7 +1,7 @@
-# monitoring.pms
+# timeseries.pms
 ---
 
-### API Consumer message ('monitoring.pms')
+### API Consumer message ('timeseries.pms')
 
 Each dataset item in the the `dataset/pms` POST message body 'datasets' array, is transformed into a separate JSON message as shown below. 
 
@@ -9,11 +9,11 @@ The consumer process transforms messages into JSON structure shown in the follow
 
 Typically there will be 14 data items in each `pms` dataset, one for each pack.
 
-This consumer sends this message to the `monitoring.pms` dataset table in the datawarehouse as an audit log, and to the `monitoring.pms.dataset` message broker topic for further stream processing.
+This consumer sends this message to the `timeseries.pms` dataset table in the datawarehouse as an audit log, and to the `timeseries.pms.dataset` message broker topic for further stream processing.
 
 ```
 *** MESSAGE ***
-topic: monitoring.pms
+topic: timeseries.pms
 key: PMS-01-001
 value:	
 ```
@@ -115,30 +115,28 @@ Each Busbar docks 4-12 **Cases**.
 
 A Case contains 14 **Cell Blocks**, 1 **Fet Board**, and 1 **Acqu. Board**. 
 
-PMS data consists of two distinct datasets, _Monitoring_ data and _Transaction/Master_ data, which are joined through a relationship as shown in the model below:
+PMS data consists of two distinct datasets, _Timeseries_ data and _Transaction/Master_ data, which are joined through a relationship as shown in the model below:
 
 ![PMS System](/images/PMSComposite.png)
 
-### Monitoring data
+### Timeseries data
 
-PMS monitoring data streams in as a time-series unbounded dataset. The data is schedule-driven (e.g. every 5 seconds) and is append-only.
+PMS timeseries data streams in as a time-series unbounded dataset. The data is schedule-driven (e.g. every 5 seconds) and is append-only.
 
-Monitoring data is collected from:
+Timeseries data is collected from:
 - 4-48 **Packs**
 - 14 **Cells** per Pack
 - 2 **Fets** per Pack
 
 The dataset is collected through a recurring schedule and appended to a time-series log. 
 
-The Monitoring Dataset links to Master data through a shared key in **PMS id** and **Case Id** respectively. 
+The Timeseries Dataset links to Master data through a shared key in **PMS id** and **Case Id** respectively. 
 
 ![PMS Data](/images/PMSData.png)
 
-### Transaction/Master data 
+### Reference data 
 
-Unlike PMS monitoring data, master data is event-driven, has inserts and updates, and is infrequently changed.
-
-The PMS master and transaction data includes Cases and Cabinets (Ehub or BBC) assemblies, including a record of changes when components are procured, installed, or swapped.
+PMS `referece` data includes data for Cases and Cabinets (Ehub or BBC) assemblies, including a record of changes when components are procured, installed, or swapped.
 
 A **Case** contains:
 - 14 **Cell Blocks**

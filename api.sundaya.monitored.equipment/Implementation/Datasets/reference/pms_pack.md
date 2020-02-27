@@ -1,4 +1,4 @@
-# master.pms
+# reference.pms
 ---
 
 This dataset provides reference data for pack management systems.
@@ -7,7 +7,7 @@ This dataset provides reference data for pack management systems.
 
 # Dataset Structure 
 
-The following `master.pms` attributes are joined with `monitoring.pms` data to provide dashboard views and KPI metrics. 
+The following `reference.pms_pack` attributes are joined with `timeseries.pms` data to provide dashboard views and KPI metrics. 
 
 Attribute       | Data      | Description
 ---             | ---       | ---

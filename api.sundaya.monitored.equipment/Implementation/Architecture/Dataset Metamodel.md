@@ -31,17 +31,17 @@ Trackable devices are composites made of the following types:
 
 ### Partitioning and Clustering
 
-All `monitoring` dataset Tables are partitioned based on the `time_event` field, into daily segments, to reduce cost and improve performance. 
+All `timeseries` dataset Tables are partitioned based on the `time_event` field, into daily segments, to reduce cost and improve performance. 
 
 Queries require a mandatory predicate filter (a WHERE clause) for the `time_event` attribute to limit the number of partitions scanned, as shown in this example.
 
 ```sql
 SELECT 	pms_id, pack.id, cell.vcl, cell.vch, cell.dvcl
-FROM `sundaya.monitoring.pms`
+FROM `sundaya.timeseries.pms`
 WHERE time_event BETWEEN '2020-02-08' AND '2019-02-12'
 AND pms_id IN ('PMS-01-002', 'PMS-01-002')
 ```
 
-`monitoring` dataset tables are further clustered based on the contents of the primary key column (`pms_id`, `mppt_id`, `inverter_id`).
+`timeseries` dataset tables are further clustered based on the contents of the primary key column (`pms_id`, `mppt_id`, `inverter_id`).
 
 To optimize performance and cost queries should use an expression that filters on the clustered key column, as shown in the above SQL example.

@@ -1,4 +1,4 @@
-# master.site
+# reference.site
 ---
 
 This dataset provides reference data for sites.
@@ -7,7 +7,7 @@ This dataset provides reference data for sites.
 
 # Dataset Structure 
 
-The following `master.site` attributes are joined with `monitoring` data to provide dashboard views and KPI metrics. 
+The following `reference.site` attributes are joined with `timeseries` and `alignment` data to provide dashboard views and KPI metrics. 
 
 Attribute       | Data      | Description
 ---             | ---       | ---
