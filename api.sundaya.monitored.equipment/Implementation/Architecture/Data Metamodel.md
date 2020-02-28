@@ -1,4 +1,4 @@
-# Data Metamodel
+# Data metamodel
 ---
 
 All data from devices are ingested and stored in three primary repositories, and combined through joins with static datasets in two secondary repositories. 
