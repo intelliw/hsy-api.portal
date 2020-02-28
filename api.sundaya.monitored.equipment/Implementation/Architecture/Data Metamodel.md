@@ -16,8 +16,8 @@ The following table enumerates datasets with their storage and data stereotypes 
 Dataset | Storage | Data
 --- | --- | --- 
 [monitoring.pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/pms) | `streaming`, `analytics` | `telemetry`, `status`
-_monitoring.inverter_ | `streaming`, `analytics` | `telemetry`, `status`
-_monitoring.mppt_ | `streaming`, `analytics` | `telemetry`, `status`
+[monitoring.inverter](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/inverter) | `streaming`, `analytics` | `telemetry`, `status`
+[monitoring.mppt](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/mppt) | `streaming`, `analytics` | `telemetry`, `status`
 _reporting.monitoring_ | `reporting` | `period`
 
 ---
