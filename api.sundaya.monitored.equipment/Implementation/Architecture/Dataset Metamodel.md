@@ -1,63 +1,82 @@
 # Dataset Metamodel
 ---
 
-Trackable devices are assocaited with four datasets, described below. 
+Data from devices are ingested and stored in three primary datasets, and combined through joins with other datasets based on the metamodel below.
 
+Primary Datasets | Secondary Datasets | Data Scope
+--- | --- | --- 
+`streaming`, `analytics`, `period` | `reference`, `system` | `telemetry`, `status`, `event` |
 
-Data for a _trackable_ item is used to track device performance in real-time, and to trace problems and trends, including predictions.
+The lifecycle and intended use of each dataset is described below.
  
 ![Devices metamodel](/images/dataset-metamodel.png)
-### Dataset Stereoptypes
+### Ingestion & Storage
 
-- **streaming** - the dataset includes _telemetry_ and _status_ data streaming in from field devices. 
+- **streaming** - the _streaming_ dataset is for `monitoring` field devices in real time. 
 
-    The dataset is infinite and unordered. Typically this dataset is streamed through a device controller (BBC) or a device gateway (EHub) in near-real-time. 
+    Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time. 
 
-    However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. 
+    Once received at the endpoint the raw data is logged and held in the logging subsystem, and is available for monitoring devices in the `OI dashboard`.
+    
+    The data is produced by a rolling appender and purged after about 6 weeks. 
 
-    Data rows are append-only and never modified. This dataset is used mainly for anaytics (OLAP) in operational dashboards. The data is stored in a relational format and can be accessed through SQL queries.
+- **analytics** - the _analytics_ dataset is to track device performance over time, and to trace problems and trends, including predictions.
 
-- **analytics** - the `alignment` dataset contains aggregates of time-series data, aligned to data windows such as 'periods': for example energy data totals for a week. 
+    Data is consumed from the streaming queue and stored in a relational format, which may be accessed through SQL queries for anaytics (OLAP) in the `BI dashboard`.
+    
+    Data rows are append-only and never modified. 
+
+    
+- **period** - the _analytics_ dataset contains aggregates of time-series data, aligned to data windows: for example energy data totals for a week.
 
     This dataset is produced by parallel stream processors for low latency and high throughput. 
 
-    The data is stored in a denormalised column-database for fast access by API services and transactional systems (OLTP).
+    However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. The stream processors are able to align late-arriving data with previous data windows to provide consistent aggregates.
 
-- **reference** - the `reference` dataset contains _master_ data for customers, suppliers, personnel, sites, products and services. 
+    The data is stored in a denormalised wide-column database for fast access by `API` services and transactional systems (OLTP).
 
-    Typically this dataset changes very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from a stand-alone system, such as the ERP system. 
     
-    The reference data is stored as sheets or JSON in a document database. 
+- **reference** - the _reference_ dataset contains _master_ data for customers, suppliers, personnel, sites, products and services. 
+
+    This dataset is expected to change very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from stand-alone systems, such as the ERP system. 
+    
+    The reference data is stored as sheets or JSON in a document database.
 
 - **system** - the `system` dataset contains configuration data for the data management platform, including data needed for security, traceability, and data provenance. 
 
     It includes scripts and data for provisioning and commissioning devices.
 
-### Trackable Devices (devices, components, assemblies)
+### Device Data (telemetry, status, events)
 
-Trackable devices are composites made of the following types:
+- **telemetry** - this is the sensor data sent from devices to applications about the monitored environment. This data is read-only and is sent in one of the following methods.
 
-- **component** - a device component which needs to identified and tracked is considered to be a trackable item. This includes device controllers and MOSFET boards. 
+    1. As a complete dataset sent at a frequent interval, including unchanged data.
 
-- **device** - a device is an item which provides core functionality in the energy management domain. These include inverters, batteries and appliances. 
+    2. As `change-data-capture` where data is transmitted only when a change is detected. The changed data is sent as part of its data cluster to a dedicated API endpoint. The API consumer overlays changes onto the previous dataset and stores a complete data record.   
+    
+    A `heartbeat` message containing the full dataset should also be sent at a recurring interval with this method. This is to ensure that device availabilty can be affirmed (when there are no data changes), and to provide a checkpoint for the underlying dataset to be merged, in case a change-data message was dropped.
 
-- **assembly** - an assembly can contain devices, components, and sub-assemblies. These items are typically assembled or logically configured before shipment. They include battery cases and cabinets. 
+    This method drasticallty reduces trasmit volumes but to be effective it requires a dedicated endpoint for each data cluster.  
+
+- **status** - status information describes the state of the data collection equipment, not the business-functional environment. This information can be read/write and can also be updated, but usually not frequently.
+ 
+- **events** - events are produced from telemetry and status data at the edge, based on rules or predictions. Rule-based events select variables from the data according to configurable parameters. Predicted events are based on features in the data which are applied to downloaded ML models. 
 
 ---
 
 ### Partitioning and Clustering
 
-All `timeseries` dataset Tables are partitioned based on the `time_event` field, into daily segments, to reduce cost and improve performance. 
+All `monitoring` dataset Tables are partitioned based on the `time_event` field, into daily segments, to reduce cost and improve performance. 
 
 Queries require a mandatory predicate filter (a WHERE clause) for the `time_event` attribute to limit the number of partitions scanned, as shown in this example.
 
 ```sql
 SELECT 	pms_id, pack.id, cell.vcl, cell.vch, cell.dvcl
-FROM `sundaya.timeseries.pms`
+FROM `sundaya.monitoring.pms`
 WHERE time_event BETWEEN '2020-02-08' AND '2019-02-12'
 AND pms_id IN ('PMS-01-002', 'PMS-01-002')
 ```
 
-`timeseries` dataset tables are further clustered based on the contents of the primary key column (`pms_id`, `mppt_id`, `inverter_id`).
+`monitoring` dataset tables are further clustered based on the contents of the primary key column (`pms_id`, `mppt_id`, `inverter_id`).
 
 To optimize performance and cost queries should use an expression that filters on the clustered key column, as shown in the above SQL example.

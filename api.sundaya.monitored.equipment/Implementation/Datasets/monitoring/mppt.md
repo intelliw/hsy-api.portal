@@ -1,17 +1,17 @@
-# timeseries.mppt
+# monitoring.mppt
 ---
 
-### API Consumer message ('timeseries.mppt')
+### API Consumer message ('monitoring.mppt')
 
 Each dataset item in the the `dataset/mppt` POST message body 'datasets' array, is transformed into a separate JSON message as shown below. 
 
-The consumer process transforms messages into JSON structure shown in the following sample.
+The consumer process transforms messsages into JSON structure shown in the following sample.
 
-This consumer sends this message to the `timeseries.mppt` dataset table in the datawarehouse as an audit log, and to the `timeseries.mppt.dataset` message broker topic for further stream processing.
+This consumer sends this message to the `monitoring.mppt` dataset table in the datawarehouse as an audit log, and to the `monitoring.mppt.dataset` message broker topic for further stream processing.
 
 ```
 *** MESSAGE ***
-topic: timeseries.mppt
+topic: monitoring.mppt
 key: IT6415AD-01-001
 value:	
 ```

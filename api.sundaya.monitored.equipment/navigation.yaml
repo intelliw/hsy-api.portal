@@ -84,21 +84,21 @@ folders:
 
       Datasets:
         ordering:
-        - timeseries
-        - alignment
+        - monitoring
+        - period
         - reference
         - system
 
         folders:
-          timeseries:
+          monitoring:
             ordering:
             - pms
             - mppt
             - inverter
 
-          alignment:
+          period:
             ordering:
-            - period
+            - monitoring
 
           reference:
             ordering:

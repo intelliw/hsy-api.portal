@@ -1,7 +1,7 @@
-# timeseries.pms
+# monitoring.pms
 ---
 
-### API Consumer message ('timeseries.pms')
+### API Consumer message ('monitoring.pms')
 
 Each dataset item in the the `dataset/pms` POST message body 'datasets' array, is transformed into a separate JSON message as shown below. 
 
@@ -9,11 +9,11 @@ The consumer process transforms messages into JSON structure shown in the follow
 
 Typically there will be 14 data items in each `pms` dataset, one for each pack.
 
-This consumer sends this message to the `timeseries.pms` dataset table in the datawarehouse as an audit log, and to the `timeseries.pms.dataset` message broker topic for further stream processing.
+This consumer sends this message to the `monitoring.pms` dataset table in the datawarehouse as an audit log, and to the `monitoring.pms.dataset` message broker topic for further stream processing.
 
 ```
 *** MESSAGE ***
-topic: timeseries.pms
+topic: monitoring.pms
 key: PMS-01-001
 value:	
 ```
@@ -115,22 +115,22 @@ Each Busbar docks 4-12 **Cases**.
 
 A Case contains 14 **Cell Blocks**, 1 **Fet Board**, and 1 **Acqu. Board**. 
 
-PMS data consists of two distinct datasets, _Timeseries_ data and _Transaction/Master_ data, which are joined through a relationship as shown in the model below:
+PMS data consists of two distinct datasets, _monitoring_ data and _Transaction/Master_ data, which are joined through a relationship as shown in the model below:
 
 ![PMS System](/images/PMSComposite.png)
 
-### Timeseries data
+### monitoring data
 
-PMS timeseries data streams in as a time-series unbounded dataset. The data is schedule-driven (e.g. every 5 seconds) and is append-only.
+PMS monitoring data streams in as a time-series unbounded dataset. The data is schedule-driven (e.g. every 5 seconds) and is append-only.
 
-Timeseries data is collected from:
+monitoring data is collected from:
 - 4-48 **Packs**
 - 14 **Cells** per Pack
 - 2 **Fets** per Pack
 
 The dataset is collected through a recurring schedule and appended to a time-series log. 
 
-The Timeseries Dataset links to Master data through a shared key in **PMS id** and **Case Id** respectively. 
+The monitoring Dataset links to Master data through a shared key in **PMS id** and **Case Id** respectively. 
 
 ![PMS Data](/images/PMSData.png)
 
