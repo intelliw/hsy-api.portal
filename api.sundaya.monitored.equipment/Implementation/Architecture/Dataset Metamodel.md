@@ -6,7 +6,7 @@ Trackable devices are assocaited with four datasets, described below.
 
 Data for a _trackable_ item is used to track device performance in real-time, and to trace problems and trends, including predictions.
  
-![Devices metamodel](/images/DevicesMetamodel.png)
+![Devices metamodel](/images/dataset-metamodel.png)
 ### Dataset Stereoptypes
 
 - **streaming** - the dataset includes _telemetry_ and _status_ data streaming in from field devices. 
