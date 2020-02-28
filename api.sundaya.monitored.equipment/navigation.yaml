@@ -81,7 +81,6 @@ folders:
         - Dataset Metamodel
         - Message Broker
         - Logger
-        - Roadmap
 
       Datasets:
         ordering:
