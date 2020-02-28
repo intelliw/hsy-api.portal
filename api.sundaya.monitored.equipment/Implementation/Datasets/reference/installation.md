@@ -5,7 +5,7 @@ This dataset provides data for installation-related processes.
 
 ---
 
-# Dataset Structure 
+# Dataset structure 
 
 The following `reference.installation` attributes are joined with `monitoring` data to lookup site-specific data for KPI metrics and dashboard views. 
 
