@@ -1,10 +1,16 @@
 # Dataset Metamodel
 ---
 
-Data from devices are ingested and stored in three primary datasets, and combined through joins with other datasets based on the metamodel below.
+All data from devices are ingested and stored in three primary repositories, and combined through joins with static datasets two other repositories based on the metamodel described below.
 
-Primary Datasets | Secondary Datasets | Data Scope
+Dataset | Repository / Data Stereotype | Data Scope
 --- | --- | --- 
+`monitoring.pms` | <<streaming>>, <<analytics>> | `telemetry`, `status`
+`monitoring.pms` | <<streaming>>, <<analytics>> | `telemetry`, `status`
+`monitoring.pms` | <<streaming>>, <<analytics>> | `telemetry`, `status`
+`monitoring.pms` | <<streaming>>, <<analytics>> | `telemetry`, `status`
+
+
 `streaming`, `analytics`, `period` | `reference`, `system` | `telemetry`, `status`, `event` |
 
 The lifecycle and intended use of each dataset is described below.
@@ -27,14 +33,13 @@ The lifecycle and intended use of each dataset is described below.
     Data rows are append-only and never modified. 
 
     
-- **period** - the _analytics_ dataset contains aggregates of time-series data, aligned to data windows: for example energy data totals for a week.
+- **reporting** - the _reporting_ dataset contains aggregates of data aligned to time windows: for example energy data totals for a week.
 
-    This dataset is produced by parallel stream processors for low latency and high throughput. 
+    This dataset is produced from the streaming queue by parallel processors for low latency and high throughput. 
 
-    However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. The stream processors are able to align late-arriving data with previous data windows to provide consistent aggregates.
+    However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. The stream processors are able to align these late-arriving data with previously processed time windows.
 
     The data is stored in a denormalised wide-column database for fast access by `API` services and transactional systems (OLTP).
-
     
 - **reference** - the _reference_ dataset contains _master_ data for customers, suppliers, personnel, sites, products and services. 
 
