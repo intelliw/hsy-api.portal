@@ -103,9 +103,9 @@ folders:
           reference:
             ordering:
             - site
-            - pms_pack
             - installation
 
           system:
             ordering:
+            - pms_pack
             - source
