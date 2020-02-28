@@ -9,6 +9,19 @@ The metamodel below describes:
 
 ![Devices metamodel](/images/dataset-metamodel.png)
 
+### Datasets 
+
+The following table enumerates datasets with their storage and data stereotypes according to the above model.
+
+Dataset | Storage | Data
+--- | --- | --- 
+[monitoring.pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/pms) | `streaming`, `analytics` | `telemetry`, `status`
+_monitoring.inverter_ | `streaming`, `analytics` | `telemetry`, `status`
+_monitoring.mppt_ | `streaming`, `analytics` | `telemetry`, `status`
+_reporting.monitoring_ | `reporting` | `period`
+
+---
+
 ### Primary repositories 
 
 - **streaming** - the _streaming_ dataset is for `monitoring` field devices in real time. 
@@ -46,7 +59,7 @@ The metamodel below describes:
 
     It includes script parameters and configuration data for provisioning and commissioning devices.
 
-### Device Data
+### Device data
 
 - **telemetry** - this is the sensor data sent from devices to applications about the monitored environment. This data is read-only and is sent in one of the following methods.
 
@@ -66,22 +79,9 @@ The metamodel below describes:
 
 - **period** - period data is aligned with the epoch (starting millisecond) of categorical periods such as 'month', 'week', 'dayt' and 'timeofday'. The canonical periods are specified in the [energy API](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/API%20Overview/Energy%20API).
 
-
-### Datasets 
-
-The following table enumerates the datasets with their storage and data stereotypes according to the above model. 
-
-Dataset | Storage | Data
---- | --- | --- 
-_monitoring.pms_ | `<<streaming>>`, `analytics` | `telemetry`, `status`
-_monitoring.inverter_ | <<streaming>>, <<analytics>> | `telemetry`, `status`
-_monitoring.mppt_ | <<streaming>>, <<analytics>> | `telemetry`, `status`
-_reporting.monitoring_ | <<reporting>> | `telemetry`, `status`
-
-
 ---
 
-### Data Partitioning
+### Data partitioning
 
 All `monitoring` dataset tables are partitioned based on the `time_event` field, into daily segments, to reduce cost and improve performance. 
 

@@ -85,7 +85,7 @@ folders:
       Datasets:
         ordering:
         - monitoring
-        - period
+        - reporting
         - reference
         - system
 
@@ -96,7 +96,7 @@ folders:
             - mppt
             - inverter
 
-          period:
+          reporting:
             ordering:
             - monitoring
 
