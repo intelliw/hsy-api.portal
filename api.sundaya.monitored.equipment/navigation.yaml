@@ -78,7 +78,7 @@ folders:
       Architecture:
         ordering:
         - Platform Overview
-        - Dataset Metamodel
+        - Data Metamodel
         - Message Broker
         - Logger
 

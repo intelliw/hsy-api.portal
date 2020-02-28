@@ -1,22 +1,15 @@
-# Dataset Metamodel
+# Data Metamodel
 ---
 
-All data from devices are ingested and stored in three primary repositories, and combined through joins with static datasets two other repositories based on the metamodel described below.
+All data from devices are ingested and stored in three primary repositories, and combined through joins with static datasets in two secondary repositories. 
 
-Dataset | Storage | Scope
---- | --- | --- 
-`monitoring.pms` | <<streaming>>, <<analytics>> | `telemetry`, `status`
-`monitoring.inverter` | <<streaming>>, <<analytics>> | `telemetry`, `status`
-`monitoring.mppt` | <<streaming>>, <<analytics>> | `telemetry`, `status`
-`reporting.monitoring` | <<streaming>>, <<analytics>> | `telemetry`, `status`
+The metamodel below describes:
+- Storage and data stereotypes and their relationships. 
+- The lifecycle and intended use of each dataset.
 
-
-`streaming`, `analytics`, `period` | `reference`, `system` | `telemetry`, `status`, `event` |
-
-The lifecycle and intended use of each dataset is described below.
- 
 ![Devices metamodel](/images/dataset-metamodel.png)
-### Ingestion & Storage
+
+### Primary repositories 
 
 - **streaming** - the _streaming_ dataset is for `monitoring` field devices in real time. 
 
@@ -41,6 +34,8 @@ The lifecycle and intended use of each dataset is described below.
 
     The data is stored in a denormalised wide-column database for fast access by `API` services and transactional systems (OLTP).
     
+### Secondary repositories 
+
 - **reference** - the _reference_ dataset contains _master_ data for customers, suppliers, personnel, sites, products and services. 
 
     This dataset is expected to change very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from stand-alone systems, such as the ERP system. 
@@ -67,13 +62,28 @@ The lifecycle and intended use of each dataset is described below.
  
 - **event** - events are produced from telemetry and status data at the edge, based on rules or predictions. Rule-based events select variables from the data according to configurable parameters. Predicted events are based on features in the data which are applied to downloaded ML models. 
 
-- **period** - period data is aligned with the epoch (starting millisecond) of categorical periods such as 'month', 'week', 'dayt' and 'timeofday'. The canonical periods are specified in the [energy API](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/pms).
+### Period Data
+
+- **period** - period data is aligned with the epoch (starting millisecond) of categorical periods such as 'month', 'week', 'dayt' and 'timeofday'. The canonical periods are specified in the [energy API](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/API%20Overview/Energy%20API).
+
+
+### Datasets 
+
+The following table enumerates the datasets with their storage and data stereotypes according to the above model. 
+
+Dataset | Storage | Data
+--- | --- | --- 
+_monitoring.pms_ | `<<streaming>>`, `analytics` | `telemetry`, `status`
+_monitoring.inverter_ | <<streaming>>, <<analytics>> | `telemetry`, `status`
+_monitoring.mppt_ | <<streaming>>, <<analytics>> | `telemetry`, `status`
+_reporting.monitoring_ | <<reporting>> | `telemetry`, `status`
+
 
 ---
 
-### Partitioning and Clustering
+### Data Partitioning
 
-All `monitoring` dataset Tables are partitioned based on the `time_event` field, into daily segments, to reduce cost and improve performance. 
+All `monitoring` dataset tables are partitioned based on the `time_event` field, into daily segments, to reduce cost and improve performance. 
 
 Queries require a mandatory predicate filter (a WHERE clause) for the `time_event` attribute to limit the number of partitions scanned, as shown in this example.
 
