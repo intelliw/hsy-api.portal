@@ -1,24 +1,27 @@
 # Data metamodel
 ---
 
-All data from devices are ingested and stored in three primary repositories (`streaming` `analytics` `reporting`), and combined through joins with more static datasets in two secondary repositories (`reference` `system`). 
+The data metamodel below reflects the relationship between storage technologies and the content model:
 
-The metamodel below describes:
-- Storage and data stereotypes and their relationships. 
-- The lifecycle and intended use of each dataset.
+- __Storage__ - The best storage solution for each dataset depends on characteristics such as cost, mutability, scale, and velocity. 
+
+- __Content__ - The content model separates data elements to leverage storage technologies, and to produce and retrieve data for intended applications with high cohesion and low coupling.
+
+Accordingly all data from devices are ingested and stored in three technologically differentiated repositories (`streaming` `analytics` `reporting`), and combined through joins with more static datasets in two secondary repositories (`reference` `system`). 
+
 
 ![Devices metamodel](/images/dataset-metamodel.png)
 
 ### Datasets 
 
-The following table enumerates datasets with their storage and data stereotypes according to the above model.
+The following table enumerates datasets and shows the repository and data content stereotypes according to the above model.
 
-Dataset | Storage | Data
+Dataset | Repository | Content
 --- | --- | --- 
 [monitoring.pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/pms) | `streaming`, `analytics` | `telemetry`, `status`
 [monitoring.inverter](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/inverter) | `streaming`, `analytics` | `telemetry`, `status`
 [monitoring.mppt](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/mppt) | `streaming`, `analytics` | `telemetry`, `status`
-[reporting.monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/monitoring) | `reporting` | `period`
+[reporting.device_period](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/monitoring) | `reporting` | `period`
 [reference.site](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/site) | `reference` | `customer`, `device`
 [reference.installation](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/installation) | `reference` | `customer`, `device`
 [system.pms_pack](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack) | `reference` | `engineering`, `device`
@@ -28,7 +31,7 @@ Dataset | Storage | Data
 
 ### Primary repositories 
 
-- **streaming** - the _streaming_ dataset is for `monitoring` field devices in real time. 
+- `**streaming**` - the _streaming_ dataset is for `monitoring` field devices in real time. 
 
     Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time. 
 
