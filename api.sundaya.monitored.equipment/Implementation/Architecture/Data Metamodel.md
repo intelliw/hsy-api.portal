@@ -31,7 +31,7 @@ Dataset | Repository | Content
 
 ### Primary repositories 
 
-- **`streaming`** - the _streaming_ dataset is for `monitoring` field devices in real time. 
+- `streaming` - the _streaming_ dataset is for monitoring field devices in real time. 
 
     Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time. 
 
@@ -39,14 +39,14 @@ Dataset | Repository | Content
     
     The data is produced by a rolling appender and purged after about 6 weeks. 
 
-- **analytics** - the _analytics_ dataset is to track device performance over time, and to trace problems and trends, including predictions.
+- `analytics` - the _analytics_ dataset is to track device performance over time, and to trace problems and trends, including predictions.
 
-    Data is consumed from the streaming queue and stored in a relational format. The data may be joined with other datasets and accessed through SQL queries for anaytics (OLAP) in the `BI dashboard`.
+    Data is consumed from the streaming queue and stored in a relational format. The data may be joined with other datasets and accessed through SQL queries for anaytics (OLAP) in the **BI dashboard**.
     
     Data rows are append-only and never modified. 
 
     
-- **reporting** - the _reporting_ dataset contains aggregates of data aligned to time windows: for example energy data totals for a week.
+- `reporting` - the _reporting_ dataset contains aggregates of data aligned to time windows: for example energy data totals for a week.
 
     This dataset is produced from the streaming queue by parallel processors for low latency and high throughput. 
 
@@ -56,19 +56,19 @@ Dataset | Repository | Content
     
 ### Secondary repositories 
 
-- **reference** - the _reference_ dataset contains _master_ data for customers, suppliers, personnel, sites, products and services. 
+- `reference` - the _reference_ dataset contains _master_ data for customers, suppliers, personnel, sites, products and services. 
 
     This dataset is expected to change very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from stand-alone systems, such as the ERP system. 
     
     The reference data is stored as sheets or JSON in a document database.
 
-- **system** - the `system` dataset contains configuration data for the data management platform, including data needed for security, traceability, and data provenance. 
+- `system` - the `system` dataset contains configuration data for the data management platform, including data needed for security, traceability, and data provenance. 
 
     It includes script parameters and configuration data for provisioning and commissioning devices.
 
 ### Device data
 
-- **telemetry** - this is the sensor data sent from devices to applications about the monitored environment. This data is read-only and is sent in one of the following methods.
+- `telemetry` - this is the sensor data sent from devices to applications about the monitored environment. This data is read-only and is sent in one of the following methods.
 
     1. As a complete dataset sent at a frequent interval, including unchanged data.
 
@@ -78,11 +78,11 @@ Dataset | Repository | Content
 
     This method drasticallty reduces trasmit volumes but to be effective it requires a dedicated endpoint for each data cluster.  
 
-- **status** - status information describes the state of the data collection equipment, not the business-functional environment. This information can be read/write and can also be updated, but usually not frequently.
+- `status` - status information describes the state of the data collection equipment, not the business-functional environment. This information can be read/write and can also be updated, but usually not frequently.
  
-- **event** - events are produced from telemetry and status data at the edge, based on rules or predictions. Rule-based events select variables from the data according to configurable parameters. Predicted events are based on features in the data which are applied to downloaded ML models. 
+- `event` - events are produced from telemetry and status data at the edge, based on rules or predictions. Rule-based events select variables from the data according to configurable parameters. Predicted events are based on features in the data which are applied to downloaded ML models. 
 
-- **period** - period data is aligned with the epoch (starting millisecond) of categorical periods such as 'month', 'week', 'dayt' and 'timeofday'. The canonical periods are specified in the [energy API](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/API%20Overview/Energy%20API).
+- `period` - period data is aligned with the epoch (starting millisecond) of categorical periods such as 'month', 'week', 'dayt' and 'timeofday'. The canonical periods are specified in the [energy API](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/API%20Overview/Energy%20API).
 
 ---
 
