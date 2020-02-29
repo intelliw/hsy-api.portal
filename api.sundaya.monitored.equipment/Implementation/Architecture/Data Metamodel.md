@@ -31,7 +31,7 @@ Dataset | Repository | Content
 
 ### Primary repositories 
 
-- `**streaming**` - the _streaming_ dataset is for `monitoring` field devices in real time. 
+- **`streaming`** - the _streaming_ dataset is for `monitoring` field devices in real time. 
 
     Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time. 
 
