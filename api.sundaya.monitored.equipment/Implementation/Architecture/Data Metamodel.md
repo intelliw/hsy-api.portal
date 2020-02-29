@@ -3,22 +3,22 @@
 
 The data metamodel below reflects the relationship between storage technologies and the content model:
 
-- __Storage__ - The best storage solution for each dataset depends on characteristics such as cost, mutability, scale, and velocity. 
+- __Repository__ - The best storage solution for each dataset depends on characteristics such as cost, mutability, scale, and velocity. 
 
 - __Content__ - The content model separates data elements to leverage storage technologies, and to produce and retrieve data for intended applications with high cohesion and low coupling.
 
-Accordingly all data from devices are ingested and stored in three technologically differentiated repositories (`streaming` `analytics` `reporting`), and combined through joins with more static datasets in two secondary repositories (`reference` `system`). 
+Accordingly all data from devices are ingested and stored in three technologically differentiated repositories (_streaming_, _analytics_, _reporting_), and combined through joins with more static datasets in two secondary repositories (_reference_, _system_). 
 
 
 ![Devices metamodel](/images/dataset-metamodel.png)
 
 ### Datasets 
 
-The following table enumerates datasets and shows the repository and data content stereotypes according to the above model.
+The following table enumerates datasets and intended appications according to stereotypes from the above metamodel.
 
-Dataset | Repository | Content
+Dataset | Repository | Content 
 --- | --- | --- 
-[monitoring.pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/pms) | `streaming`, `analytics` | `telemetry`, `status`
+[monitoring.pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/pms) | `streaming`, `analytics` | `telemetry`, `status` 
 [monitoring.inverter](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/inverter) | `streaming`, `analytics` | `telemetry`, `status`
 [monitoring.mppt](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/mppt) | `streaming`, `analytics` | `telemetry`, `status`
 [reporting.device_period](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/monitoring) | `reporting` | `period`
@@ -52,7 +52,7 @@ Dataset | Repository | Content
 
     However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. The stream processors are able to align these late-arriving data with previously processed time windows.
 
-    The data is stored in a denormalised wide-column database for fast access by `API` services and transactional systems (OLTP).
+    The data is stored in a denormalised wide-column database for fast access by **API** services and transactional systems (OLTP).
     
 ### Secondary repositories 
 
