@@ -20,7 +20,7 @@ Dataset | Repository | Content | Application
 --- | --- | --- | ---
 [streaming.device]() | `streaming` | `telemetry`, `status` | `OI dashboard`
 [monitoring.pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/pms), [monitoring.inverter](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/inverter), [monitoring.mppt](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/mppt) | `analytics` | `telemetry`, `status` | `BI dashboard`
-[reporting.device_period](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/monitoring) | `reporting` | `period` |
+[reporting.device_period](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/monitoring) | `reporting` | `period` | `API producer`
 [reference.site](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/site), [reference.installation](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/installation) | `reference` | `customer`, `device` |
 [system.pms_pack](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack), [system.source](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/source) | `system` | `engineering`, `device` |
 
@@ -32,13 +32,13 @@ Dataset | Repository | Content | Application
 
     Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time. 
 
-    Once received at the endpoint the raw data is logged and held in the logging subsystem, and is available for monitoring devices in the `OI dashboard`.
+    Once received at the endpoint the raw data is logged and held in the logging subsystem, and is available for monitoring devices in the **OI dashboard**.
     
     The data is produced by a rolling appender and purged after about 6 weeks. 
 
 - **analytics** - datasets in the _analytics_ repository track device performance over time, and enable problem tracing and trend analysis, including predictions.
 
-    Data is consumed from the streaming queue and stored in a relational format. The data may be joined with other datasets and accessed through SQL queries for anaytics (OLAP) in the `BI dashboard`.
+    Data is consumed from the streaming queue and stored in a relational format. The data may be joined with other datasets and accessed through SQL queries for anaytics (OLAP) in the **BI dashboard**.
     
     Data rows are append-only and never modified. 
 
@@ -49,7 +49,7 @@ Dataset | Repository | Content | Application
 
     However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. The stream processors are able to align these late-arriving data with previously processed time windows.
 
-    The data is stored in a denormalised wide-column database for fast access by `API` services and transactional systems (OLTP).
+    The data is stored in a denormalised wide-column database for fast access by **API producer** services and transactional systems (OLTP).
     
 ### Secondary repositories 
 
@@ -79,7 +79,7 @@ Dataset | Repository | Content | Application
  
 - **event** - events are produced from telemetry and status data at the edge, based on rules or predictions. Rule-based events select variables from the data according to configurable parameters. Predicted events are based on features in the data which are applied to downloaded ML models. 
 
-- **period** - period data is aligned with the epoch (starting millisecond) of categorical periods such as 'month', 'week', 'dayt' and 'timeofday'. The canonical periods are specified in the [energy API](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/API%20Overview/Energy%20API).
+- **period** - period data is aligned with the epoch (starting millisecond) of categorical periods such as 'month', 'week', 'dayt' and 'timeofday'. Canonical periods are described in the [energy API](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/API%20Overview/Energy%20API) overview page.
 
 ---
 
