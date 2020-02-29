@@ -1,7 +1,7 @@
 # Data metamodel
 ---
 
-All data from devices are ingested and stored in three primary repositories, and combined through joins with static datasets in two secondary repositories. 
+All data from devices are ingested and stored in three primary repositories (`streaming` `analytics` `reporting`), and combined through joins with more static datasets in two secondary repositories (`reference` `system`). 
 
 The metamodel below describes:
 - Storage and data stereotypes and their relationships. 
