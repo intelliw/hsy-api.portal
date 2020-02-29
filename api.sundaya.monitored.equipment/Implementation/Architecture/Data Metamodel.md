@@ -32,7 +32,7 @@ Dataset | Repository | Content | Application
 
 ### Primary repositories 
 
-- **streaming** - the _streaming_ dataset is for monitoring field devices in real time. 
+- **streaming** - the _streaming_ repository stores transient data for monitoring field devices in real time. 
 
     Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time. 
 
@@ -40,7 +40,7 @@ Dataset | Repository | Content | Application
     
     The data is produced by a rolling appender and purged after about 6 weeks. 
 
-- **analytics** - the _analytics_ dataset is to track device performance over time, and to trace problems and trends, including predictions.
+- **analytics** - datasets in the _analytics_ repository track device performance over time, and enable problem tracing and trend analysis, including predictions.
 
     Data is consumed from the streaming queue and stored in a relational format. The data may be joined with other datasets and accessed through SQL queries for anaytics (OLAP) in the `BI dashboard`.
     
