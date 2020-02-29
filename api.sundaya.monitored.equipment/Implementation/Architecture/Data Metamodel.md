@@ -7,7 +7,7 @@ The data metamodel below reflects the relationship between storage technologies 
 
 - __Content__ - The content model separates data elements to leverage storage technologies, and to produce and retrieve data for intended applications with high cohesion and low coupling.
 
-Accordingly all data from devices are ingested and stored in three technologically differentiated repositories (_streaming_, _analytics_, _reporting_), and combined through joins with more static datasets in two secondary repositories (_reference_, _system_). 
+Accordingly all data from devices are ingested and stored in three technologically differentiated repositories (**streaming**, **analytics**, **reporting**), and combined through joins with more static datasets in two secondary repositories (**reference**, **system**). 
 
 
 ![Devices metamodel](/images/dataset-metamodel.png)
@@ -16,22 +16,23 @@ Accordingly all data from devices are ingested and stored in three technological
 
 The following table enumerates datasets and intended appications according to stereotypes from the above metamodel.
 
-Dataset | Repository | Content 
---- | --- | --- 
-[monitoring.pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/pms) | `streaming`, `analytics` | `telemetry`, `status` 
-[monitoring.inverter](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/inverter) | `streaming`, `analytics` | `telemetry`, `status`
-[monitoring.mppt](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/mppt) | `streaming`, `analytics` | `telemetry`, `status`
-[reporting.device_period](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/monitoring) | `reporting` | `period`
-[reference.site](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/site) | `reference` | `customer`, `device`
-[reference.installation](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/installation) | `reference` | `customer`, `device`
-[system.pms_pack](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack) | `reference` | `engineering`, `device`
-[system.source](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/source) | `system` | `engineering`, `device`
+Dataset | Repository | Content | Application
+--- | --- | --- | ---
+[streaming.device] | `streaming` | `telemetry`, `status` | `OI dashboard`
+[monitoring.pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/pms),
+[monitoring.inverter](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/inverter), 
+[monitoring.mppt](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/mppt) | `analytics` | `telemetry`, `status` | `BI dashboard`
+[reporting.device_period](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/monitoring) | `reporting` | `period` |
+[reference.site](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/site) | `reference` | `customer`, `device` |
+[reference.installation](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/installation) | `reference` | `customer`, `device` |
+[system.pms_pack](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack) | `reference` | `engineering`, `device` |
+[system.source](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/source) | `system` | `engineering`, `device` |
 
 ---
 
 ### Primary repositories 
 
-- `streaming` - the _streaming_ dataset is for monitoring field devices in real time. 
+- **streaming** - the _streaming_ dataset is for monitoring field devices in real time. 
 
     Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time. 
 
@@ -39,36 +40,36 @@ Dataset | Repository | Content
     
     The data is produced by a rolling appender and purged after about 6 weeks. 
 
-- `analytics` - the _analytics_ dataset is to track device performance over time, and to trace problems and trends, including predictions.
+- **analytics** - the _analytics_ dataset is to track device performance over time, and to trace problems and trends, including predictions.
 
-    Data is consumed from the streaming queue and stored in a relational format. The data may be joined with other datasets and accessed through SQL queries for anaytics (OLAP) in the **BI dashboard**.
+    Data is consumed from the streaming queue and stored in a relational format. The data may be joined with other datasets and accessed through SQL queries for anaytics (OLAP) in the `BI dashboard`.
     
     Data rows are append-only and never modified. 
 
     
-- `reporting` - the _reporting_ dataset contains aggregates of data aligned to time windows: for example energy data totals for a week.
+- **reporting** - the _reporting_ dataset contains aggregates of data aligned to time windows: for example energy data totals for a week.
 
     This dataset is produced from the streaming queue by parallel processors for low latency and high throughput. 
 
     However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. The stream processors are able to align these late-arriving data with previously processed time windows.
 
-    The data is stored in a denormalised wide-column database for fast access by **API** services and transactional systems (OLTP).
+    The data is stored in a denormalised wide-column database for fast access by `API` services and transactional systems (OLTP).
     
 ### Secondary repositories 
 
-- `reference` - the _reference_ dataset contains _master_ data for customers, suppliers, personnel, sites, products and services. 
+- **reference** - the _reference_ dataset contains _master_ data for customers, suppliers, personnel, sites, products and services. 
 
     This dataset is expected to change very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from stand-alone systems, such as the ERP system. 
     
     The reference data is stored as sheets or JSON in a document database.
 
-- `system` - the `system` dataset contains configuration data for the data management platform, including data needed for security, traceability, and data provenance. 
+- **system** - the _system_ dataset contains configuration data for the data management platform, including data needed for security, traceability, and data provenance. 
 
     It includes script parameters and configuration data for provisioning and commissioning devices.
 
 ### Device data
 
-- `telemetry` - this is the sensor data sent from devices to applications about the monitored environment. This data is read-only and is sent in one of the following methods.
+- **telemetry** - this is the sensor data sent from devices to applications about the monitored environment. This data is read-only and is sent in one of the following methods.
 
     1. As a complete dataset sent at a frequent interval, including unchanged data.
 
@@ -78,11 +79,11 @@ Dataset | Repository | Content
 
     This method drasticallty reduces trasmit volumes but to be effective it requires a dedicated endpoint for each data cluster.  
 
-- `status` - status information describes the state of the data collection equipment, not the business-functional environment. This information can be read/write and can also be updated, but usually not frequently.
+- **status** - status information describes the state of the data collection equipment, not the business-functional environment. This information can be read/write and can also be updated, but usually not frequently.
  
-- `event` - events are produced from telemetry and status data at the edge, based on rules or predictions. Rule-based events select variables from the data according to configurable parameters. Predicted events are based on features in the data which are applied to downloaded ML models. 
+- **event** - events are produced from telemetry and status data at the edge, based on rules or predictions. Rule-based events select variables from the data according to configurable parameters. Predicted events are based on features in the data which are applied to downloaded ML models. 
 
-- `period` - period data is aligned with the epoch (starting millisecond) of categorical periods such as 'month', 'week', 'dayt' and 'timeofday'. The canonical periods are specified in the [energy API](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/API%20Overview/Energy%20API).
+- **period** - period data is aligned with the epoch (starting millisecond) of categorical periods such as 'month', 'week', 'dayt' and 'timeofday'. The canonical periods are specified in the [energy API](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/API%20Overview/Energy%20API).
 
 ---
 
