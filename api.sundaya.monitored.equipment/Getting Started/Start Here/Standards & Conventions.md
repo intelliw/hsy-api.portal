@@ -134,6 +134,6 @@ Element | Convention | Example
 `row id` | uppercase, **hash** allowed |_PMS#P00123#1425330757685_
 
 
-note: `field name` refers to fields in API messages and JSON document data.
+Note: `field name` refers to fields in API messages and JSON document data.
 
 ---

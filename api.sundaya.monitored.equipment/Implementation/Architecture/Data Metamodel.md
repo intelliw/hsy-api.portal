@@ -62,9 +62,9 @@ Repository | Dataset | Content | Application
 
 - **graph** - the _graph_ dataset contains graph-like information about _customer_ and _operations_ entities and their relationships, such as the sales and service network.
 
-    The dataset is materialised from content and links held in sheets. 
+    The dataset is materialised from content and links held in sheets. The data is stored in the same wide-column database cluster used for **reporting** data
 
-    The data is stored in the same wide-column database as **reporting**, and is intended for access with graph queries in the **Sales portal** services and transactional systems (OLTP).
+    _graph_ data is retrieved using graph query language in the **Sales portal** implementation.
 
 ### Content
 
