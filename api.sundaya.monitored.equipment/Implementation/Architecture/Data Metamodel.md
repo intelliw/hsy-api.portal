@@ -16,15 +16,14 @@ Accordingly all data from devices are ingested and stored in three technological
 
 The following table enumerates datasets, their intended appications, and primary content, according to stereotypes from the above metamodel.
 
-Dataset | Repository | Content | Application
+Repository | Dataset | Content | Application
 --- | --- | --- | ---
-[streaming.device_monitoring]((https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/streaming/device_monitoring)) | `streaming` | `telemetry` | `OI dashboard`
-[monitoring.pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring), [monitoring.inverter](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring), [monitoring.mppt](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring) | `analytics` | `telemetry` | `BI dashboard`
-[reporting.device_period](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/monitoring) | `reporting` | `period` | `API producer`
-[graph.customer_service]() | `graph` | `customer`, `operations` | `API producer`
-[reference.site](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/site), [reference.installation](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/installation) | `reference` | `customer` |
-[reference.pms_pack](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack) | `reference` | `customer` |
-[system.source](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/source) | `system` | `operations` |
+`streaming` | [device_monitoring]((https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/streaming/device_monitoring)) | `telemetry` | `OI dashboard`
+[pms_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring), [inverter_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.`analytics` | equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring), [mppt_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring) | `telemetry` | `BI dashboard`
+`reporting` | [device_period](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/monitoring) | `period` | `API producer`
+`graph` | [customer_service]() | `customer`, `operations` | `API producer`
+`reference` | [site](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/site), [installation](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/installation), [pms_pack](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack) | `customer` |
+ | [source](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/source) | `system` |
 
 ---
 

@@ -87,8 +87,8 @@ folders:
         - streaming
         - analytics
         - reporting
-        - reference
         - graph
+        - reference
 
         folders:
           streaming:
@@ -105,6 +105,10 @@ folders:
             ordering:
             - device_period
 
+          graph:
+            ordering:
+              - customer_service
+              
           reference:
             ordering:
             - site
@@ -112,7 +116,4 @@ folders:
             - pms_pack
             - source
           
-          graph:
-            ordering:
-              - customer_service
           
