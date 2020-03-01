@@ -18,10 +18,10 @@ The following table enumerates datasets, their intended appications, and primary
 
 Repository | Dataset | Content | Application
 --- | --- | --- | ---
-`streaming` | [device_monitoring]((https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/streaming/device_monitoring)) | `telemetry` | `OI dashboard`
-`analytics` | [pms_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring), [inverter_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring), [mppt_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring) | `telemetry` | `BI dashboard`
-`reporting` | [device_period](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/monitoring) | `period` | `API producer`
-`graph` | [customer_service]() | `customer`, `operations` | `API producer`
+`streaming` | [device_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/streaming/device_monitoring) | `telemetry` | `OI dashboard`
+`analytics` | [pms_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring), [mppt_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring), [inverter_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) | `telemetry` | `BI dashboard`
+`reporting` | [device_period](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/device_period) | `period` | `API producer`
+`graph` | [customer_service](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/graph/customer_service) | `customer`, `operations` | `API producer`
 `reference` | [site](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/site), [installation](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/installation), [pms_pack](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack) | `customer` |
  | [source](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/source) | `system` |
 
