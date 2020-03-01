@@ -21,9 +21,10 @@ Dataset | Repository | Content | Application
 [streaming.device]() | `streaming` | `telemetry` | `OI dashboard`
 [monitoring.pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/pms), [monitoring.inverter](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/inverter), [monitoring.mppt](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/mppt) | `analytics` | `telemetry` | `BI dashboard`
 [reporting.device_period](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/monitoring) | `reporting` | `period` | `API producer`
-[reporting.service]() | `reporting` | `customer`, `operations` | `API producer`
+[graph.customer_service]() | `graph` | `customer`, `operations` | `API producer`
 [reference.site](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/site), [reference.installation](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/installation) | `reference` | `customer` |
-[system.pms_pack](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack), [system.source](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/source) | `system` | `operations` |
+[reference.pms_pack](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack) | `reference` | `customer` |
+[system.source](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/source) | `system` | `operations` |
 
 ---
 
@@ -52,12 +53,6 @@ Dataset | Repository | Content | Application
 
     The data is stored in a denormalised wide-column database for fast access by **API producer** services and transactional systems (OLTP).
 
-- **graph** - the _graph_ dataset contains graph-like information about _customer_ and _operations_ entities and their relationships, such as the sales and service network.
-
-    The dataset is materialised from content and links held in sheets. 
-
-    The data is stored in the same wide-column database as **reporting**, and is intended for access by **API producer** services and transactional systems (OLTP).
-
 ### Secondary repositories 
 
 - **reference** - the _reference_ dataset contains _master_ data for customers, suppliers, personnel, sites, products and services. 
@@ -66,9 +61,11 @@ Dataset | Repository | Content | Application
     
     The reference data is stored as sheets or JSON in a document database.
 
-- **system** - the _system_ dataset contains configuration data for the data management platform, including data needed for security, traceability, and data provenance. 
+- **graph** - the _graph_ dataset contains graph-like information about _customer_ and _operations_ entities and their relationships, such as the sales and service network.
 
-    It includes script parameters and configuration data for provisioning and commissioning devices.
+    The dataset is materialised from content and links held in sheets. 
+
+    The data is stored in the same wide-column database as **reporting**, and is intended for access by **API producer** services and transactional systems (OLTP).
 
 ### Device data
 
@@ -87,6 +84,10 @@ Dataset | Repository | Content | Application
 - **event** - events are produced from telemetry and status data at the edge, based on rules or predictions. Rule-based events select variables from the data according to configurable parameters. Predicted events are based on features in the data which are applied to downloaded ML models. 
 
 - **period** - period data is aligned with the epoch (starting millisecond) of categorical periods such as 'month', 'week', 'dayt' and 'timeofday'. Canonical periods are described in the [energy API](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/API%20Overview/Energy%20API) overview page.
+
+- **system** - the _system_ dataset contains configuration data for the data management platform, including data needed for security, traceability, and data provenance. 
+
+    It includes script parameters and configuration data for provisioning and commissioning devices.
 
 ---
 

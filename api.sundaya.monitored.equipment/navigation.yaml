@@ -87,7 +87,7 @@ folders:
         - monitoring
         - reporting
         - reference
-        - system
+        - graph
 
         folders:
           monitoring:
@@ -98,14 +98,16 @@ folders:
 
           reporting:
             ordering:
-            - monitoring
+            - device_period
 
           reference:
             ordering:
             - site
             - installation
-
-          system:
-            ordering:
             - pms_pack
             - source
+          
+          graph:
+            ordering:
+              - service
+            
