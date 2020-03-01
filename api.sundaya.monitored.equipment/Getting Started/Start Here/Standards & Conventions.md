@@ -127,10 +127,13 @@ The following general conventions apply in all element-specific conventions.
 
 Element | Convention | Example
 --- | --- | ---
-`table names` | lowercase letters, hyphens allowed | _device-period_
-`column qualifiers` | uppercase letters, underscores allowed | _ENERGY_PERIOD_
-`column names` |  lowercase letters, underscores allowed | _timeofdayhour_
-`field names` (in messages and document data) | mixedcase letters, underscores allowed | _time_event_
-`row ids` | uppercase letters, underscores and hash allowed |_PMS#P00123#1425330757685_
+`table name` | lowercase letters, hyphens allowed | _device-period_
+`column qualifier` | uppercase letters, underscores allowed | _ENERGY_PERIOD_
+`column name` |  lowercase letters, underscores allowed | _timeofdayhour_
+`field name` | mixedcase letters, underscores allowed | _time_event_
+`row id` | uppercase letters, underscores and hash allowed |_PMS#P00123#1425330757685_
+
+
+note: `field name` refers to fields in API messages and JSON document data.
 
 ---
