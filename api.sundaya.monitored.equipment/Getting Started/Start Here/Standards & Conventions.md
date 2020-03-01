@@ -116,21 +116,21 @@ Code | Status | Definition
 `500` | Internal Server Error | The server encountered an unexpected condition.
 
 ## Data naming conventions
-Datasets should be named according to the following general and element-specific conventions.
+Datasets should be named according to the following conventions.
 
+The following general conventions apply in all element-specific conventions.
 - no plurals  
 - spaces removed
 - periods and commas not allowed
 - names short but meaningful
+- numbers allowed
 
 Element | Convention | Example
 --- | --- | ---
-`table names` | lowercase letters, numbers, and hyphens allowed | _device-period_
-`column qualifiers` | uppercase letters, numbers, and underscores allowed | _ENERGY_PERIOD_
-`column names` |  lowercase letters, numbers, and underscores allowed | _timeofdayhour_
-`field names` (in messages and document data) | mixedcase letters, numbers and underscores allowed | _time_event_
-`row ids` | uppercase letters, numbers, underscores, and hash allowed |_PMS#P00123#1425330757685_
-
-
+`table names` | lowercase letters, hyphens allowed | _device-period_
+`column qualifiers` | uppercase letters, underscores allowed | _ENERGY_PERIOD_
+`column names` |  lowercase letters, underscores allowed | _timeofdayhour_
+`field names` (in messages and document data) | mixedcase letters, underscores allowed | _time_event_
+`row ids` | uppercase letters, underscores and hash allowed |_PMS#P00123#1425330757685_
 
 ---
