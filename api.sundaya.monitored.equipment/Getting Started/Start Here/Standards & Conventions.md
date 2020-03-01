@@ -116,37 +116,21 @@ Code | Status | Definition
 `500` | Internal Server Error | The server encountered an unexpected condition.
 
 ## Data naming conventions
-Datasets should be named according to the following conventions.
+Datasets should be named according to the following general and element-specific conventions.
 
+- no plurals  
+- spaces removed
+- periods and commas not allowed
+- names short but meaningful
+
+Element | Convention | Example
 --- | --- | ---
-`200` | OK | Data created, or queued for later processing.
-`201` | Created | Resource created.
-`400` | Bad Request | The client specified an invalid argument. 
-`401` | Unauthorized | The client does not have sufficient permission. 
+`table names` | lowercase letters, numbers, and hyphens allowed | _device-period_
+`column qualifiers` | uppercase letters, numbers, and underscores allowed | _ENERGY_PERIOD_
+`column names` |  lowercase letters, numbers, and underscores allowed | _timeofdayhour_
+`field names` (in messages and document data) | mixedcase letters, numbers and underscores allowed | _time_event_
+`row ids` | uppercase letters, numbers, underscores, and hash allowed |_PMS#P00123#1425330757685_
 
 
-_lowercase letters, numbers, and hyphens allowed_
-
-instance id: reporting
-table name:  device_period
-
-
-
-column names                                    _lowercase letters, numbers, and underscores allowed_
-     timeofdayhour    
-column qualifiers                               _uppercase letters, numbers, and underscores allowed_
-     ENERGY_PERIOD
-field names (in messages and document data)     _mixedcase letters, numbers and underscores allowed_ 
-     time_event
-row ids                                         _uppercase letters, numbers, underscores, and hash allowed_
-    PMS#P00123#1425330757685
-
-table names                                     _lowercase letters, numbers, and hyphens allowed_
-    device-period
-
-no plurals  
-spaces removed
-periods and commas not allowed
-names short but meaningful
 
 ---
