@@ -118,6 +118,7 @@ Code | Status | Definition
 ## Data naming conventions
 Datasets should be named according to the following conventions.
 
+--- | --- | ---
 `200` | OK | Data created, or queued for later processing.
 `201` | Created | Resource created.
 `400` | Bad Request | The client specified an invalid argument. 
