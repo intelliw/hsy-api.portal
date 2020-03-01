@@ -84,17 +84,17 @@ folders:
 
       Datasets:
         ordering:
-        - monitoring
+        - analytics
         - reporting
         - reference
         - graph
 
         folders:
-          monitoring:
+          analytics:
             ordering:
-            - pms
-            - mppt
-            - inverter
+            - pms_monitoring
+            - mppt_monitoring
+            - inverter_monitoring
 
           reporting:
             ordering:
