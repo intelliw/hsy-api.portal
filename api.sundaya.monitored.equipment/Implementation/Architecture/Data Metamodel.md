@@ -14,15 +14,16 @@ Accordingly all data from devices are ingested and stored in three technological
 
 ### Datasets 
 
-The following table enumerates datasets and intended appications according to stereotypes from the above metamodel.
+The following table enumerates datasets, their intended appications, and primary content, according to stereotypes from the above metamodel.
 
 Dataset | Repository | Content | Application
 --- | --- | --- | ---
-[streaming.device]() | `streaming` | `telemetry`, `status` | `OI dashboard`
-[monitoring.pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/pms), [monitoring.inverter](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/inverter), [monitoring.mppt](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/mppt) | `analytics` | `telemetry`, `status` | `BI dashboard`
+[streaming.device]() | `streaming` | `telemetry` | `OI dashboard`
+[monitoring.pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/pms), [monitoring.inverter](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/inverter), [monitoring.mppt](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/mppt) | `analytics` | `telemetry` | `BI dashboard`
 [reporting.device_period](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/monitoring) | `reporting` | `period` | `API producer`
-[reference.site](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/site), [reference.installation](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/installation) | `reference` | `customer`, `device` |
-[system.pms_pack](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack), [system.source](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/source) | `system` | `engineering`, `device` |
+[reporting.service]() | `reporting` | `customer`, `operations` | `API producer`
+[reference.site](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/site), [reference.installation](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/installation) | `reference` | `customer` |
+[system.pms_pack](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack), [system.source](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/source) | `system` | `operations` |
 
 ---
 
@@ -50,7 +51,13 @@ Dataset | Repository | Content | Application
     However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. The stream processors are able to align these late-arriving data with previously processed time windows.
 
     The data is stored in a denormalised wide-column database for fast access by **API producer** services and transactional systems (OLTP).
-    
+
+- **graph** - the _graph_ dataset contains graph-like information about _customer_ and _operations_ entities and their relationships, such as the sales and service network.
+
+    The dataset is materialised from content and links held in sheets. 
+
+    The data is stored in the same wide-column database as **reporting**, and is intended for access by **API producer** services and transactional systems (OLTP).
+
 ### Secondary repositories 
 
 - **reference** - the _reference_ dataset contains _master_ data for customers, suppliers, personnel, sites, products and services. 
