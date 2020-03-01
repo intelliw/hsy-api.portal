@@ -78,31 +78,42 @@ folders:
       Architecture:
         ordering:
         - Platform Overview
-        - Dataset Metamodel
+        - Data Metamodel
         - Message Broker
-        - Roadmap
+        - Logger
 
       Datasets:
         ordering:
-        - monitoring
-        - master
-        - system
-        - transaction
+        - streaming
+        - analytics
+        - reporting
+        - graph
+        - reference
 
         folders:
-          monitoring:
+          streaming:
             ordering:
-            - pms
-            - mppt
-            - inverter
-          master:
-            ordering:
-            - pms
-            - site
-          system:
-            ordering:
-            - source
-          transaction:
-            ordering:
-            - installation
+              - device_monitoring
 
+          analytics:
+            ordering:
+            - pms_monitoring
+            - mppt_monitoring
+            - inverter_monitoring
+
+          reporting:
+            ordering:
+            - device_period
+
+          graph:
+            ordering:
+              - customer_service
+              
+          reference:
+            ordering:
+            - site
+            - installation
+            - pms_pack
+            - source
+          
+          

@@ -1,0 +1,19 @@
+{
+    "inverter_id": "SPI-B2-01-002",
+    "pv": [
+        {"volts": 48, "amps": 6, "watts": 288 },
+        {"volts": 48, "amps": 6, "watts": 288 } ],
+    "battery": {"volts": 55.1, "amps": 0.0, "watts": 0 },
+    "load": [
+        { "volts": 48, "amps": 1.2, "watts": 57.6 },
+        { "volts": 48, "amps": 1.2, "watts": 57.6 } ],
+    "grid": [
+        {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
+        {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 },
+        {"volts": 48, "amps": 1.2, "pf": 0.92, "watts": 91.785 } ],
+    "status": { "bus_connect": true },    
+    "sender": "S000",
+    "time_event":"2020-02-08 08:00:17.0220",
+    "time_zone":"+07:00",
+    "time_processing":"2019-09-10 04:11:09.2930"
+}

@@ -1,21 +1,21 @@
-# inverter POST
+# inverter POST example
 ---
 
-### Request message structure
+### API Request message ('/devices/dataset/inverter')
 
-The following snippet shows the structure of an `inverter` request:
+The following snippet shows the structure of the `inverter` message expected in the request body:
 
 ```json
 {
   "datasets": [
-    { "inverter": { "id": "SPI-B2-01-001" }, 
+    { "inverter_id": "SPI-B2-01-001", 
+      "status": { "code": "0001" }, 
       "data": [
         { "time_local": "20190209T150006.032+0700",
           "pv": { "volts": [48.000, 48.000], "amps": [6.0, 6.0] },
           "battery": { "volts" : 55.1, "amps": 0.0 }, 
           "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2] }, 
-          "grid": { "volts": [48.000, 48.000, 48.000], "amps": [1.2, 1.2, 1.2], "pf": [0.92, 0.92, 0.92] },
-          "status": "0001"
+          "grid": { "volts": [48.000, 48.000, 48.000], "amps": [1.2, 1.2, 1.2], "pf": [0.92, 0.92, 0.92] }
         },
 ```
 
@@ -25,7 +25,8 @@ The inverter request message attributes are specified below.
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
-`inverter.id` | - | string | - | Id of the Inverter charge controller. *(__Note__: a site can have any number of Inverter controllers, and each controller can have multiple PV strings and Loads)*.
+`inverter_id` | - | string | - | Id of the Inverter charge controller. *(__Note__: a site can have any number of Inverter controllers, and each controller can have multiple PV strings and Loads)*.
+`status.code` | - | string | *maxLength 4, minLength 4* | A 4-character, hex-encoded string value corresponding to a bitmap of status fields; described in the __Equipment status__ section below.
 `time_local` | - | datetime | *RFC 3339* | The local time of the event which produced this data sample, represented with a mandatory `+/-` offset from UTC for the device's location, in compressed `ISO 8601/RFC3339` (YYYYMMDDThhmmss±hhmm).
 `pv.volts` | volts | float *(array)* | *array size 1-4, + only* | An ordered set of Voltage readings for PV strings connected to this Inverter. Each value in the data array applies to a numbered PV string based on its position in the array. For example the 2nd value in the data array is the data for the 2nd PV string. The array size depends on the number of PV strings. Presently upto 4 PV strings per controller are supported. In future each string will have its own dedicated controller.
 `pv.amps` | amps | float *(array)* | *array size 1-4, + only* | An ordered set of Current readings for PV strings (corresponding to voltage readings in `pv.volts`).  
@@ -33,10 +34,10 @@ Attribute | Metric | Data | Constraint | Description
 `battery.amps` | amps | float | *+/-* | The current for the connected Battery. The value is positive for charge current and negative when discharging.
 `load.volts` | volts | float *(array)* | *array size 1-2, + only* | An ordered set of Voltage readings for connected Loads. Each value in the data array applies to a Load number based on its position in the array. For example the 2nd value in the data array is the data for the 2nd Load. The array size depends on the number of loads. Each load and its ordinal position must be declared in this API documentation.
 `load.amps` | amps | float *(array)* | *array size 1-2, + only* | An ordered set of Current readings for connected Loads (corresponding to values in `load.volts`).  
-`grid.volts` | volts | float *(array)* | *array size 1-3, + only* | An ordered set of up to 3 Voltage readings for each phase of the connected grid supply. The array size depends on the number of phases in the supply. If the supply is single-phase there will be only one element in the array.
-`grid.amps` | amps | float *(array)* | *array size 1-2, +/-* | An ordered set of Current readings for for each phase of the connected grid supply (corresponding to values in `grid.volts` and `grid.pf`).  
-`grid.pf` | - | float *(array)* | *array size 1-2, maximum 1.0* | An ordered set of Power Factor readings for each phase of the connected grid supply (corresponding to values in `grid.volts` and `grid.amps`). 
-`status` | - | string | *maxLength 4, minLength 4* | A 4-character, hex-encoded string value corresponding to a bitmap of status fields; described in the __Equipment status__ section below.
+`grid.volts` | volts | float *(array)* | *array size 1-3, + only* | An ordered set of up to 3 Voltage readings for each phase of the connected grid supply. This values are assumed to be line-to-line volage for a 3-phase supply. The array size depends on the number of phases in the supply. If the supply is single-phase there will be only one element in the array.
+`grid.amps` | amps | float *(array)* | *array size 1-3, +/-* | An ordered set of Current readings for for each phase of the connected grid supply (corresponding to values in `grid.volts` and `grid.pf`).  
+`grid.pf` | - | float *(array)* | *array size 1-3, maximum 1.0* | An ordered set of Power Factor readings for each phase of the connected grid supply (corresponding to values in `grid.volts` and `grid.amps`). 
+
 
 
 ### Equipment status
@@ -61,7 +62,7 @@ Bit   | Status                        | Field Name        | Value | ..
 
 ### POST /dataset/inverter request
 
-[/devices/dataset/inverter](https:/test.sundaya.monitored.equipment/devices/dataset/mppt)
+[/devices/dataset/inverter](https:/api.sundaya.monitored.equipment/devices/dataset/mppt)
 
 The request example below shows datasets collected at a BTS site with 2 Kehua SPI-B2 Inverter / Charge Controllers ('SPI-B2-01-001' and 'SPI-B2-01-002').
 
@@ -75,13 +76,13 @@ In this example each Inverter controller has :
 
 - 2 AC Loads as shown by `load.volts` / `load.amps`.  
 
-The size of each Inverter dataset is 367 bytes including whitespace, or 248 bytes if whitespace is stripped (using JSON.stringify).
+The size of each Inverter dataset is approximately 367 bytes including whitespace, or 248 bytes if whitespace is stripped (using JSON.stringify).
 
 
 ```
 *** REQUEST ***	
 POST /devices/dataset/inverter HTTPS/1.1	
-Host: test.sundaya.monitored.equipment
+Host: api.sundaya.monitored.equipment
 Accept: application/json
 Content-Type: application/json
     
@@ -90,39 +91,37 @@ Content-Type: application/json
 ```json
 {
   "datasets": [
-    { "inverter": { "id": "SPI-B2-01-001" }, 
+    { "inverter_id": "SPI-B2-01-001", 
+      "status": { "code": "0001" },
       "data": [
         { "time_local": "20200209T150006.032+0700",
           "pv": { "volts": [48.000, 48.000], "amps": [6.0, 6.0] },
           "battery": { "volts" : 55.1, "amps": 0.0 }, 
           "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2] }, 
-          "grid": { "volts": [48.000, 48.000, 48.000], "amps": [1.2, 1.2, 1.2], "pf": [0.92, 0.92, 0.92] },
-          "status": "0001"
+          "grid": { "volts": [48.000, 48.000, 48.000], "amps": [1.2, 1.2, 1.2], "pf": [0.92, 0.92, 0.92] }
         },
         { "time_local": "20200209T150016.022+0700",
           "pv": { "volts": [48.000, 48.000], "amps": [6.0, 6.0] },
           "battery": { "volts" : 55.1, "amps": 0.0 }, 
           "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2] },
-          "grid": { "volts": [48.000, 48.000, 48.000], "amps": [1.2, 1.2, 1.2], "pf": [0.92, 0.92, 0.92] },
-          "status": "0001"
+          "grid": { "volts": [48.000, 48.000, 48.000], "amps": [1.2, 1.2, 1.2], "pf": [0.92, 0.92, 0.92] }
         }
       ]
     },
-    { "inverter": { "id": "SPI-B2-01-002" }, 
+    { "inverter_id": "SPI-B2-01-002" , 
+      "status": { "code": "0001" },
       "data": [
         { "time_local": "20200209T150007.032+0700",
           "pv": { "volts": [48.000, 48.000], "amps": [6.0, 6.0] },
           "battery": { "volts" : 55.1, "amps": 0.0 }, 
           "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2] },
-          "grid": { "volts": [48.000, 48.000, 48.000], "amps": [1.2, 1.2, 1.2], "pf": [0.92, 0.92, 0.92] },
-          "status": "0001"
+          "grid": { "volts": [48.000, 48.000, 48.000], "amps": [1.2, 1.2, 1.2], "pf": [0.92, 0.92, 0.92] }
         },
         { "time_local": "20200209T150017.022+0700",
           "pv": { "volts": [48.000, 48.000], "amps": [6.0, 6.0] },
           "battery": { "volts" : 55.1, "amps": 0.0 }, 
           "load": { "volts": [48.000, 48.000], "amps": [1.2, 1.2] },
-          "grid": { "volts": [48.000, 48.000, 48.000], "amps": [1.2, 1.2, 1.2], "pf": [0.92, 0.92, 0.92] },
-          "status": "0001"
+          "grid": { "volts": [48.000, 48.000, 48.000], "amps": [1.2, 1.2, 1.2], "pf": [0.92, 0.92, 0.92] }
         }
       ]
     }
@@ -160,8 +159,8 @@ If the request is processed synchronously a 201 Response will be returned as fol
 ```
 *** RESPONSE ***	
 201 Created HTTPS/1.1	
-Location: https:/test.sundaya.monitored.equipment/device/SPI-B2-01-001/dataset/inverter/period/minute/20190209T1500+0700/1
-Location: https:/test.sundaya.monitored.equipment/device/SPI-B2-01-002/dataset/inverter/period/minute/20190209T1500+0700/1
+Location: https:/api.sundaya.monitored.equipment/device/SPI-B2-01-001/dataset/inverter/period/minute/20190209T1500+0700/1
+Location: https:/api.sundaya.monitored.equipment/device/SPI-B2-01-002/dataset/inverter/period/minute/20190209T1500+0700/1
 Content-Type: application/json
 Content-Length: 1171	
 

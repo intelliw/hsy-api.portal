@@ -1,3 +1,3 @@
-# Sundaya API Sandbox
+# Sundaya Developer Portal
 
-Welcome to our Developer Services portal. Browse our APIs or click an API to view its documentation. Browse the [`Harvest, Store, Yield`](/docs/api.endpoints.sundaya.cloud.goog/0/c/Getting%20Started/Harvest,%20Store,%20Yield) section to see examples of what you can do with this API and how to use it. You can use the **Try this API** tool on the right side of an API method page to generate a sample request.
+Welcome to our Developer portal. Browse our APIs or click an API to view its documentation. Browse the [`/energy`](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/routes/energy/%7Benergy%7D/period/%7Bperiod%7D/%7Bepoch%7D/%7Bduration%7D/get) section to see examples of what you can do with this API and how to use it. You can use the **Try this API** tool on the API page to generate a sample request.
