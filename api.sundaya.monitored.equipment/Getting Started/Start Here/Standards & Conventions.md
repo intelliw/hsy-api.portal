@@ -115,4 +115,37 @@ Code | Status | Definition
 `415` | Unsupported Media Type | The requested Accept header type is not supported.
 `500` | Internal Server Error | The server encountered an unexpected condition.
 
+## Data naming conventions
+Datasets should be named according to the following conventions.
+
+`200` | OK | Data created, or queued for later processing.
+`201` | Created | Resource created.
+`400` | Bad Request | The client specified an invalid argument. 
+`401` | Unauthorized | The client does not have sufficient permission. 
+
+
+_lowercase letters, numbers, and hyphens allowed_
+
+instance id: reporting
+table name:  device_period
+
+
+
+column names                                    _lowercase letters, numbers, and underscores allowed_
+     timeofdayhour    
+column qualifiers                               _uppercase letters, numbers, and underscores allowed_
+     ENERGY_PERIOD
+field names (in messages and document data)     _mixedcase letters, numbers and underscores allowed_ 
+     time_event
+row ids                                         _uppercase letters, numbers, underscores, and hash allowed_
+    PMS#P00123#1425330757685
+
+table names                                     _lowercase letters, numbers, and hyphens allowed_
+    device-period
+
+no plurals  
+spaces removed
+periods and commas not allowed
+names short but meaningful
+
 ---
