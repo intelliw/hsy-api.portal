@@ -109,5 +109,5 @@ folders:
           
           graph:
             ordering:
-              - service
+              - customer_service
             
