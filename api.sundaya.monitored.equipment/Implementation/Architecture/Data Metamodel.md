@@ -21,13 +21,13 @@ Repository | Dataset | Content | Application
 `streaming` | [device_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/streaming/device_monitoring) | `telemetry` | `OI dashboard`
 `analytics` | [pms_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring), [mppt_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring), [inverter_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) | `telemetry` | `BI dashboard`
 `reporting` | [device_period](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/device_period) | `period` | `API producer`
-`graph` | [customer_service](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/graph/customer_service) | `customer`, `operations` | `API producer`
+`graph` | [customer_service](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/graph/customer_service) | `customer`, `operations` | `Sales portal`
 `reference` | [site](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/site), [installation](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/installation), [pms_pack](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack) | `customer` |
-'' | [source](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/source) | `system` |
+`reference` | [source](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/source) | `system` |
 
 ---
 
-### Primary repositories 
+### Time-series data repositories 
 
 - **streaming** - the _streaming_ repository stores transient data for monitoring field devices in real time. 
 
@@ -52,7 +52,7 @@ Repository | Dataset | Content | Application
 
     The data is stored in a denormalised wide-column database for fast access by **API producer** services and transactional systems (OLTP).
 
-### Secondary repositories 
+### Static data repositories 
 
 - **reference** - the _reference_ dataset contains _master_ data for customers, suppliers, personnel, sites, products and services. 
 
@@ -64,7 +64,7 @@ Repository | Dataset | Content | Application
 
     The dataset is materialised from content and links held in sheets. 
 
-    The data is stored in the same wide-column database as **reporting**, and is intended for access by **API producer** services and transactional systems (OLTP).
+    The data is stored in the same wide-column database as **reporting**, and is intended for access with graph queries in the **Sales portal** services and transactional systems (OLTP).
 
 ### Device data
 
