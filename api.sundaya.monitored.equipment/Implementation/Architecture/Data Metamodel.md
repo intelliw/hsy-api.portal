@@ -16,7 +16,7 @@ Accordingly all data from devices are ingested and stored in three technological
 
 The following table enumerates datasets, their intended appications, and primary content, according to stereotypes from the above metamodel.
 
-Repository | Dataset | Content | Application
+Repository | Table/Entity | Content | Application
 --- | --- | --- | ---
 `streaming` | [device_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/streaming/device_monitoring) | `telemetry` | `OI dashboard`
 `analytics` | [pms_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring), [mppt_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring), [inverter_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) | `telemetry` | `BI dashboard`
