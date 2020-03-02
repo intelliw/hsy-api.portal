@@ -17,17 +17,9 @@ Accordingly all data from devices are ingested and stored in three technological
 The following table enumerates datasets, their intended appications, and primary content, according to stereotypes from the above metamodel.
 
 <table>
-    <thead>
-        <tr>
-            <th>Repository</th><th>Table/Entity</th><th>Content</th><th>Application</th>
-        </tr>
-    </thead>
+    <thead><tr><th>Repository</th><th>Table/Entity</th><th>Content</th><th>Application</th></tr></thead>
     <tbody>
-        <tr>
-            <td rowspan=4>L1 Name</td>
-            <td rowspan=2>L2 Name A</td>
-            <td>L3 Name A</td>
-        </tr>
+        <tr><td>`streaming`</td><td>[device_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/streaming/device_monitoring)</td><td>`telemetry`</td><td>`OI dashboard`<td></tr>
         <tr>
             <td>L3 Name B</td>
         </tr>
