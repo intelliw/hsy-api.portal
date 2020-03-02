@@ -21,7 +21,7 @@ row id                  | ancestry          | _`<device_type>#<device_id>#<YYYYM
 column qualifier        | property          | _see below_
 
 
-### DEVICE_MONITORING Column qualifier/ Property
+### DEVICE_MONITORING Column qualifiers
 
 Column qualifiers / properties for the `DEVICE_MONITORING` column family / kind are shown below, based on each <device_type>: 
 
@@ -29,17 +29,19 @@ PMS             | MPPT              | Inverter
 ---             | ---               | ---   
 `pms_id`<br>`pack_id`<br>`pack`  _{..}_<br>`cell`  _[ {..} ]_<br>`fet`  _[ {..} ]_<br>`status{}`<br><br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing` | `mppt_id`<br>`pv`  _[ {..} ]_<br>`battery`  _{..}_<br>`load`  _[ {..} ]_<br>`status`  _{..}_<br><br><br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing` | `inverter_id`<br>`pv`  _{..}_<br>`battery`  _{..}_<br>`load`  _[ {..} ]_<br>`grid`  _[ {..} ]_<br>`status`<br><br>`sender`<br>`time_event`<br>`time_zone`<br>`time_processing`
  
-### ENERGY_PERIOD Column qualifier/ Property 
+### ENERGY_PERIOD Column qualifiers
 
-Column qualifiers / properties for the `ENERGY_PERIOD` column family / kind are shown below: 
+Column qualifiers / properties for the `ENERGY_PERIOD` column family / kind are shown below.
 
-Each row / entity will have a period entry depending on the row / entity id: 
+These period columns will provide the data for the energy API, in a format which is closely matched to the [API response](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Examples/GET/energy%20GET%20example).
 
-A particular period column will be present in the row only if the timestamp component in the row / entity id (`HHmm`) coincides with a period epoch.
+Each row / entity will have a particular period column depending on the row / entity id: 
 
-- For example a row / entity with an id of `PMS-01-006#202002091500` will have period data for `hour`,`hourminute`, and `hourqtrhour` as the timestamp component in the id (`1500`) coiicides with the epoch (start) of an hour period.
+A period column will be present in the row only if the timestamp component in the row / entity id (`HHmm`) coincides with a period epoch.
 
-- Similarly a row / entity with an id of `PMS-01-006#202002090000` will have period data for `day`,`dayhour`,`daytimeofday` as well as `hour`,`hourminute`,`hourqtrhour`, as the timestamp component in the id (`090000`) coincides with the start of a day and hour period.
+- For example a row / entity with an id of **PMS-01-006#202002091500** will have period data for `hour`,`hourminute`, and `hourqtrhour` as the date-time in the id (**1500**) coincides with the epoch (start) of an hour period.
+
+- Similarly a row / entity with an id of **PMS-01-006#202002090000** will have period data for `day`,`dayhour`,`daytimeofday` as well as `hour`,`hourminute`,`hourqtrhour`, as the date-time in the id (**090000**) coincides with the start of a day and hour period.
 
 At least one `minute` entry will be present in every row.
 
