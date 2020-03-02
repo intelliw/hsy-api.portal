@@ -117,13 +117,15 @@ __permission__  - feature restricts access to certain users
 ## class hierarchy
 `Logger` class associates with a `Statement`, which provides a supertype for each statement type.
 
-        Logger -> 
-            Statement -> 
-                MessagingStatement
-                DataStatement
-                ExceptionStatement
-                ErrorStatement
-                TraceStatement
+![Logger class hierarchy](/images/logger.png)
+
+---
+    MessagingStatement
+    DataStatement
+    ExceptionStatement
+    ErrorStatement
+    TraceStatement
+---
 
 The `Logger` class provides helper methods for clients to invoke each statement type.
 
