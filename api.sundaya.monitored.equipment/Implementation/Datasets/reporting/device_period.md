@@ -9,7 +9,7 @@ Bigtable            | Datastore         | Value
 instance id         |                   | `reporting`
 table name          |                   | `device_period`
 column family       | kind              | `ENERGY_PERIOD`<br>`DEVICE_MONITORING`
-row id              | ancestry          | _`<device_type>#<device_id>#<YYYYMMDDHHMM>`_
+row id              | ancestry          | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_
 <i></i>             | entity id         | _`<device_id>#<YYYYMMDDHHMM>`_
 column qualifier    | property          | _(shown below)_
 
@@ -20,7 +20,7 @@ Column qualifiers / properties for the `DEVICE_MONITORING` column family / kind 
 
 PMS             | MPPT              | Inverter       
 ---             | ---               | ---   
-`pms_id`<br>`pack_id`<br>`pack`{ }<br>`cell`  [ { } ]<br>`fet`  [ { } ]<br>`status{}`<br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing` | `mppt_id`<br>`pv`  [ { } ]<br>`battery{}`<br>`load`  [ { } ]<br>`status{}`<br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing`<br> | `inverter_id`<br>`pv{}`<br>`battery{}`<br>`load`  [ { } ]<br>`grid`  [ { } ]<br>`status`<br>`sender`<br>`time_event`<br>`time_zone`<br>`time_processing`
+`pms_id`<br>`pack_id`<br>`pack`  _{..}_<br>`cell`  _[ {..} ]_<br>`fet`  _[ {..} ]_<br>`status{}`<br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing` | `mppt_id`<br>`pv`  _[ {..} ]_<br>`battery`    _{..}_<br>`load`  _[ {..} ]_<br>`status`    _{..}_<br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing`<br> | `inverter_id`<br>`pv`    _{..}_<br>`battery`    _{..}_<br>`load`  _[ {..} ]_<br>`grid`  _[ {..} ]_<br>`status`<br>`sender`<br>`time_event`<br>`time_zone`<br>`time_processing`
  
 ### ENERGY_PERIOD Column qualifier/ Property 
 
@@ -28,7 +28,7 @@ Column qualifiers / properties for the `ENERGY_PERIOD` column family / kind are 
 
 Each row / entity will have a period entry depending on the row / entity id: 
 
-A particular period column will be present in the row only if the timestamp component in the row / entity id (`HHMM`) coincides with a period epoch.
+A particular period column will be present in the row only if the timestamp component in the row / entity id (`HHmm`) coincides with a period epoch.
 
 - For example a row / entity with an id of `PMS-01-006#202002091500` will have period data for `hour`,`hourminute`, and `hourqtrhour` as the timestamp component in the id (`1500`) coiicides with the epoch (start) of an hour period.
 
