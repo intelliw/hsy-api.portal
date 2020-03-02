@@ -4,14 +4,14 @@
 
 # Schema
 
-The schema may be implemented in:
+The schema for the `device_period` dataset may be implemented in:
 
 - a Wide-column key-value repository for very high scale and performance.
 - a Document database for low cost.
 
 The equivalent schema elements and recommended values for each repository type are shown below.
 
-Wide-column key-value   | Document       | Value     
+Wide-column repo.       | Document db.      | Recommended Value
 ---                     | ---               | ---
 instance id             |                   | `reporting`
 table name              |                   | `device_period`
