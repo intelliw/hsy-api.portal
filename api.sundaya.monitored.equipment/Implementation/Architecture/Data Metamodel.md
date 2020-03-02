@@ -105,4 +105,4 @@ AND pms_id IN ('PMS-01-002', 'PMS-01-002')
 
 `monitoring` dataset tables are further clustered based on the contents of the primary key column (`pms_id`, `mppt_id`, `inverter_id`).
 
-To optimize performance and cost queries should use an expression that filters on the clustered key column, as shown in the above SQL example.
+Queries should filter on the clustered key column as shown in the above SQL example as this improves performance and reduces cost.

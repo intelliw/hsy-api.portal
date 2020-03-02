@@ -4,14 +4,21 @@
 
 # Schema
 
-Bigtable            | Datastore         | Value     
----                 | ---               | ---
-instance id         |                   | `reporting`
-table name          |                   | `device_period`
-column family       | kind              | `ENERGY_PERIOD`<br>`DEVICE_MONITORING`
-row id              | ancestry          | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_
-<i></i>             | entity id         | _`<device_id>#<YYYYMMDDHHmm>`_
-column qualifier    | property          | _(shown below)_
+The schema may be implemented in:
+
+- a Wide-column key-value repository for very high scale and performance.
+- a Document database for low cost.
+
+The equivalent schema elements and recommended values for each repository type are shown below.
+
+Wide-column key-value   | Document       | Value     
+---                     | ---               | ---
+instance id             |                   | `reporting`
+table name              |                   | `device_period`
+column family           | kind              | `ENERGY_PERIOD`<br>`DEVICE_MONITORING`
+row id                  | ancestry          | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_
+<i></i>                 | entity id         | _`<device_id>#<YYYYMMDDHHmm>`_
+column qualifier        | property          | _see below_
 
 
 ### DEVICE_MONITORING Column qualifier/ Property
