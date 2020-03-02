@@ -19,9 +19,7 @@ The following table enumerates datasets, their intended appications, and primary
 <table>
     <thead>
         <tr>
-            <th>Layer 1</th>
-            <th>Layer 2</th>
-            <th>Layer 3</th>
+            <th>Repository</th><th>Table/Entity</th><th>Content</th><th>Application</th>
         </tr>
     </thead>
     <tbody>
