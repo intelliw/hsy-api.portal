@@ -10,7 +10,7 @@ instance id         |                   | `reporting`
 table name          |                   | `device_period`
 column family       | kind              | `ENERGY_PERIOD`<br>`DEVICE_MONITORING`
 row id              | ancestry          | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_
-<i></i>             | entity id         | _`<device_id>#<YYYYMMDDHHMM>`_
+<i></i>             | entity id         | _`<device_id>#<YYYYMMDDHHmm>`_
 column qualifier    | property          | _(shown below)_
 
 
@@ -20,7 +20,7 @@ Column qualifiers / properties for the `DEVICE_MONITORING` column family / kind 
 
 PMS             | MPPT              | Inverter       
 ---             | ---               | ---   
-`pms_id`<br>`pack_id`<br>`pack`  _{..}_<br>`cell`  _[ {..} ]_<br>`fet`  _[ {..} ]_<br>`status{}`<br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing` | `mppt_id`<br>`pv`  _[ {..} ]_<br>`battery`    _{..}_<br>`load`  _[ {..} ]_<br>`status`    _{..}_<br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing`<br> | `inverter_id`<br>`pv`    _{..}_<br>`battery`    _{..}_<br>`load`  _[ {..} ]_<br>`grid`  _[ {..} ]_<br>`status`<br>`sender`<br>`time_event`<br>`time_zone`<br>`time_processing`
+`pms_id`<br>`pack_id`<br>`pack`  _{..}_<br>`cell`  _[ {..} ]_<br>`fet`  _[ {..} ]_<br>`status{}`<br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing` | `mppt_id`<br>`pv`  _[ {..} ]_<br>`battery`  _{..}_<br>`load`  _[ {..} ]_<br>`status`  _{..}_<br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing`<br> | `inverter_id`<br>`pv`  _{..}_<br>`battery`  _{..}_<br>`load`  _[ {..} ]_<br>`grid`  _[ {..} ]_<br>`status`<br>`sender`<br>`time_event`<br>`time_zone`<br>`time_processing`
  
 ### ENERGY_PERIOD Column qualifier/ Property 
 
