@@ -5,7 +5,7 @@ The data metamodel below reflects the relationship between storage technologies 
 
 - __Repository__ - The best storage solution for each dataset depends on characteristics such as cost, mutability, scale, and velocity. 
 
-- __Content__ - The content model separates data elements to leverage storage technologies, and to produce and retrieve data for intended applications with high cohesion and low coupling.
+- __Content__ - The content model (schema and data element separation) should be tailored to the storage technology, and the data access requirements of the intended applications.
 
 Accordingly all data from devices are ingested and stored in three technologically differentiated repositories (**streaming**, **analytics**, **reporting**), and combined through joins with more static datasets in two secondary repositories (**reference**, **system**). 
 
@@ -16,26 +16,13 @@ Accordingly all data from devices are ingested and stored in three technological
 
 The following table enumerates datasets, their intended appications, and primary content, according to stereotypes from the above metamodel.
 
-<table>
-    <thead>
-        <tr>
-            <th>Repository</th><th>Table/Entity</th><th>Content</th><th>Application</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>`streaming`</td><td></td><td></td><td></td>
-        </tr>
-    </tbody>
-</table>
-
 Repository | Table/Entity | Content | Application
 --- | --- | --- | ---
 `streaming` | [device_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/streaming/device_monitoring) | `telemetry` | `OI dashboard`
 `analytics` | [pms_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[mppt_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[inverter_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) | `telemetry` | `BI dashboard`
 `reporting` | [device_period](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/device_period) | `period` | `API producer`
 `graph` | [customer_service](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/graph/customer_service) | `customer`, `operations` | `Sales portal`
-`reference` | [site](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/site)<br>[installation](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/installation)<br>[pms_pack](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack) | `customer` |
+<td rowspan=4>`reference`</td> | [site](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/site)<br>[installation](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/installation)<br>[pms_pack](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack) | `customer` |
  <br> | [source](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/source) | `system` |
 
 ---
