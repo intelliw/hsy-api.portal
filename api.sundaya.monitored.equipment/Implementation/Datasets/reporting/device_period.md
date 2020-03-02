@@ -4,7 +4,7 @@
 
 # Schema
 
-Bigtable            | Datastore         | Value / Example         
+Bigtable            | Datastore         | Value     
 ---                 | ---               | ---
 instance id         |                   | `reporting`
 table name          |                   | `device_period`
@@ -21,9 +21,7 @@ Column qualifiers / properties for the `DEVICE_MONITORING` column family / kind 
 
 PMS             | MPPT              | Inverter       
 ---             | ---               | ---   
-`pms_id`<br>`pack_id`<br>`pack{}`<br>`cell[{}]`<br>`fet[{}]`<br>`status{}`<br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing` |
-`mppt_id`<br>`pv[{}]`<br>`battery{}`<br>`load[{}]`<br>`status{}`<br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing` | 
-`inverter_id`<br>`pv{}`<br>`battery{}`<br>`load[{}]`<br>`grid[{}]`<br>`status`<br>`sender`<br>`time_event`<br>`time_zone`<br>`time_processing`
+`pms_id`<br>`pack_id`<br>`pack{}`<br>`cell[{}]`<br>`fet[{}]`<br>`status{}`<br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing` | `mppt_id`<br>`pv[{}]`<br>`battery{}`<br>`load[{}]`<br>`status{}`<br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing` | `inverter_id`<br>`pv{}`<br>`battery{}`<br>`load[{}]`<br>`grid[{}]`<br>`status`<br>`sender`<br>`time_event`<br>`time_zone`<br>`time_processing`
 
 ### ENERGY_PERIOD 
 
@@ -31,7 +29,7 @@ Column qualifiers / properties for the `ENERGY_PERIOD` column family / kind are 
 
 Each row / entity will have a period entry depending on the row / entity id: 
 
-The period column will be present in the row only if the timestamp in the row / entity id coincides with a period epoch.
+A particular period column will be present in the row only if the timestamp component in the row / entity id (`HHMM`) coincides with a period epoch.
 
 - For example a row / entity with an id of `PMS-01-006#202002091500` will have period data for `hour`,`hourminute`, and `hourqtrhour` as the timestamp component in the id (`1500`) coiicides with the epoch (start) of an hour period.
 
