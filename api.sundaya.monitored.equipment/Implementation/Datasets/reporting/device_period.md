@@ -20,7 +20,7 @@ Column qualifiers / properties for the `DEVICE_MONITORING` column family / kind 
 
 PMS             | MPPT              | Inverter       
 ---             | ---               | ---   
-`pms_id`<br>`pack_id`<br>`pack{}`<br>`cell[{}]`<br>`fet[{}]`<br>`status{}`<br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing` | `mppt_id`<br>`pv[{}]`<br>`battery{}`<br>`load[{}]`<br>`status{}`<br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing` | `inverter_id`<br>`pv{}`<br>`battery{}`<br>`load[{}]`<br>`grid[{}]`<br>`status`<br>`sender`<br>`time_event`<br>`time_zone`<br>`time_processing`
+`pms_id`<br>`pack_id`<br>`pack`{}<br>`cell[{}]`<br>`fet[{}]`<br>`status{}`<br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing` | `mppt_id`<br>`pv[{}]`<br>`battery{}`<br>`load[{}]`<br>`status{}`<br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing` | `inverter_id`<br>`pv{}`<br>`battery{}`<br>`load[{}]`<br>`grid[{}]`<br>`status`<br>`sender`<br>`time_event`<br>`time_zone`<br>`time_processing`
  
 ### ENERGY_PERIOD Column qualifier/ Property 
 
