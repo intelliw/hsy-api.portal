@@ -9,8 +9,8 @@ Bigtable            | Datastore         | Value
 instance id         |                   | `reporting`
 table name          |                   | `device_period`
 column family       | kind              | `ENERGY_PERIOD`<br>`DEVICE_MONITORING`
-row id              | ancestry          | `<device_type>#<device_id>#<YYYYMMDDHHMM>`
-<i></i>             | entity id         | `<device_id>#<YYYYMMDDHHMM>`
+row id              | ancestry          | _`<device_type>#<device_id>#<YYYYMMDDHHMM>`_
+<i></i>             | entity id         | _`<device_id>#<YYYYMMDDHHMM>`_
 column qualifier    | property          | _(shown below)_
 
 
