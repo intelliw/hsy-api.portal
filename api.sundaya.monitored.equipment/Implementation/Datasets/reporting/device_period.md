@@ -14,16 +14,15 @@ row id              | ancestry          | `<device_type>#<device_id>#<YYYYMMDDHH
 column qualifier    | property          | _(shown below)_
 
 
-# Column qualifier/ Property
-### DEVICE_MONITORING 
+### DEVICE_MONITORING Column qualifier/ Property
 
 Column qualifiers / properties for the `DEVICE_MONITORING` column family / kind are shown below, based on each <device_type>: 
 
 PMS             | MPPT              | Inverter       
 ---             | ---               | ---   
 `pms_id`<br>`pack_id`<br>`pack{}`<br>`cell[{}]`<br>`fet[{}]`<br>`status{}`<br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing` | `mppt_id`<br>`pv[{}]`<br>`battery{}`<br>`load[{}]`<br>`status{}`<br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing` | `inverter_id`<br>`pv{}`<br>`battery{}`<br>`load[{}]`<br>`grid[{}]`<br>`status`<br>`sender`<br>`time_event`<br>`time_zone`<br>`time_processing`
-
-### ENERGY_PERIOD 
+ 
+### ENERGY_PERIOD Column qualifier/ Property 
 
 Column qualifiers / properties for the `ENERGY_PERIOD` column family / kind are shown below: 
 
