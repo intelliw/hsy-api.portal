@@ -27,7 +27,7 @@ Repository | Table/Entity | Content | Application
 
 ---
 
-### Time-series data repositories 
+### Time-series data
 
 - **streaming** - the _streaming_ repository stores transient data for monitoring field devices in real time. 
 
@@ -52,7 +52,7 @@ Repository | Table/Entity | Content | Application
 
     The data is stored in a denormalised wide-column database for fast access by **API producer** services and transactional systems (OLTP).
 
-### Static data repositories 
+### Static data
 
 - **reference** - the _reference_ dataset contains _master_ data for customers, suppliers, personnel, sites, products and services. 
 

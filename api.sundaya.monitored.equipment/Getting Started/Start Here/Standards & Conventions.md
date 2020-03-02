@@ -132,8 +132,8 @@ Element | Convention | Example
 `master instance` | cluster name and suffix with <hyphen><'m'><ordinal> | _kafka-c1-m1_
 `worker instance` | cluster name and suffix with <hyphen><'w'><ordinal> | _kafka-c1-w1_
 `table name` | lowercase, **hyphens** allowed | _device-period_
-`column qualifier` | uppercase, **underscores** allowed | _ENERGY_PERIOD_
-`column name` |  lowercase, **underscores** allowed | _timeofdayhour_, _pack_id_
+`column family` | uppercase, **underscores** allowed | _ENERGY_PERIOD_
+`column qualifier` |  lowercase, **underscores** allowed | _timeofdayhour_, _pack_id_
 `field name` | lowercase and **underscores**, or mixedcase | _time_event_, _productCategory_
 `row id` | uppercase, **hash** allowed |_PMS#P00123#1425330757685_
 
