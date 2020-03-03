@@ -72,12 +72,8 @@ Repository | Table | Content | Application
 
     1. As a complete dataset sent at a frequent interval, including unchanged data.
 
-    2. As `change-data-capture` where data is transmitted only when a change is detected. The changed data is sent as part of its data cluster to a dedicated API endpoint. The API consumer overlays changes onto the previous dataset and stores a complete data record.   
+    2. As `change-data-capture` where data is transmitted only when a change is detected.  This uses [write coalescing](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Write%20Coalescing) to compresses and reduce write traffic from edge to cloud.
     
-    A `heartbeat` message containing the full dataset should also be sent at a recurring interval with this method. This is to ensure that device availabilty can be affirmed (when there are no data changes), and to provide a checkpoint for the underlying dataset to be merged, in case a change-data message was dropped.
-
-    This method drasticallty reduces trasmit volumes but to be effective it requires a dedicated endpoint for each data cluster.  
-
 - **status** - status information describes the state of the data collection equipment, not the business-functional environment. This information can be read/write and can also be updated, but usually not frequently.
  
 - **event** - events are produced from telemetry and status data at the edge, based on rules or predictions. Rule-based events select variables from the data according to configurable parameters. Predicted events are based on features in the data which are applied to downloaded ML models. 
