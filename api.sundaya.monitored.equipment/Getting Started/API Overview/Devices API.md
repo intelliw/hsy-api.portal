@@ -1,6 +1,6 @@
 # Devices API
 
-The `/devices` path is for receiving monitoring data from trackable devices such as _[pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Device%20Datasets/pms%20Dataset)_, _[mppt](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Device%20Datasets/mppt%20Dataset)_, and _[inverters](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Device%20Datasets/inverter%20Dataset)_.
+The `/devices` path is for receiving monitoring data from trackable devices such as _[pms](/docs/api.sundaya.monitored.equipment/0/c/Examples/POST/pms%20POST%20example)_, _[mppt](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Examples/POST/mppt%20POST%20example)_, and _[inverters](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Device%20Datasets/inverter%20Dataset)_.
 
 These devices continuously produce monitoring data which is then collected and uploaded by device controllers (e.g. Bus Bar Controller) and gateways (e.g. EHub Gateway) through the `/devices` API path.
 
