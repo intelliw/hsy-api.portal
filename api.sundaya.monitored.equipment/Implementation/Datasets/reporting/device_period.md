@@ -33,7 +33,7 @@ PMS             | MPPT              | Inverter
 
 Column qualifiers / properties for the `ENERGY_PERIOD` column family / kind are shown below.
 
-These period columns will provide the data for the energy API, in a format which is closely matched to the [API response](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Examples/GET/energy%20GET%20example).
+These period columns will provide the data for the energy API, in a format which is closely matched to the [API response](/docs/api.sundaya.monitored.equipment/0/c/Examples/GET/energy%20GET%20example).
 
 Each row / entity will have a particular period column depending on the row / entity id: 
 

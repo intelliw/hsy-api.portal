@@ -1,3 +1,3 @@
 # Sundaya Developer Portal
 
-Welcome to our Developer portal. Browse our APIs or click an API to view its documentation. Browse the [`/energy`](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/routes/energy/%7Benergy%7D/period/%7Bperiod%7D/%7Bepoch%7D/%7Bduration%7D/get) section to see examples of what you can do with this API and how to use it. You can use the **Try this API** tool on the API page to generate a sample request.
+Welcome to our Developer portal. Browse our APIs or click an API to view its documentation. Browse the [`/energy`](/docs/api.sundaya.monitored.equipment/0/routes/energy/%7Benergy%7D/period/%7Bperiod%7D/%7Bepoch%7D/%7Bduration%7D/get) section to see examples of what you can do with this API and how to use it. You can use the **Try this API** tool on the API page to generate a sample request.
