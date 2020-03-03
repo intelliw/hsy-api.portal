@@ -108,7 +108,7 @@ folders:
 
           graph:
             ordering:
-              - customer_service
+              - agent_operations
               
           reference:
             ordering:
