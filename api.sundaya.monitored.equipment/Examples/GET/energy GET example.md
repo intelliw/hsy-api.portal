@@ -119,7 +119,7 @@ Content-Length: 3495
                             "duration": 28
                         }
                     },
-                    "href": "https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/API%20Overview/Energy%20API"
+                    "href": "/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/API%20Overview/Energy%20API"
                 }
             ],
             "items": [

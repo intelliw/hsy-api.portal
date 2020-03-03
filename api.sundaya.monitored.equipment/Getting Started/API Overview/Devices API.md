@@ -1,6 +1,6 @@
 # Devices API
 
-The `/devices` path is for receiving monitoring data from trackable devices such as _[pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Device%20Datasets/pms%20Dataset)_, _[mppt](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Device%20Datasets/mppt%20Dataset)_, and _[inverters](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Device%20Datasets/inverter%20Dataset)_.
+The `/devices` path is for receiving monitoring data from trackable devices such as _[pms](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Device%20Datasets/pms%20Dataset)_, _[mppt](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Device%20Datasets/mppt%20Dataset)_, and _[inverters](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Device%20Datasets/inverter%20Dataset)_.
 
 These devices continuously produce monitoring data which is then collected and uploaded by device controllers (e.g. Bus Bar Controller) and gateways (e.g. EHub Gateway) through the `/devices` API path.
 
@@ -22,9 +22,9 @@ The following dataset table names may be used for the `{dataset}` parameter.
 
 {dataset} | Description
 --- | --- 
-[pms](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/pms) | Data from pack management systems (PMS) for cabinets, including monitored epacks, cells, and mosfets.
-[mppt](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/mppt) | Data from Maximum Power Point Tracking (MPPTcontrollers, including connected PV strings, batteries, and DC loads.
-[inverter](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/inverter) | Data from Inverter charge controllers, including connected pv strings, batteries, and AC loads.
+[pms](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/pms) | Data from pack management systems (PMS) for cabinets, including monitored epacks, cells, and mosfets.
+[mppt](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/mppt) | Data from Maximum Power Point Tracking (MPPTcontrollers, including connected PV strings, batteries, and DC loads.
+[inverter](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/monitoring/inverter) | Data from Inverter charge controllers, including connected pv strings, batteries, and AC loads.
 
 
 # /device/dataset GET
