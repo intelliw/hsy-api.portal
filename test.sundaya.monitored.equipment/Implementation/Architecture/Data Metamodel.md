@@ -72,7 +72,7 @@ Repository | Dataset | Content | Application
 
     1. As a complete dataset sent at a frequent interval, including unchanged data.
 
-    2. As `change-data-capture` where data is transmitted only when a change is detected. The changed data is sent as part of its data cluster to a dedicated API endpoint. The API consumer overlays changes onto the previous dataset and stores a complete data record.   
+    2. As _'change data capture'_ where data is transmitted only when a change is detected. This uses [write coalescing](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Write%20Coalescing) to compresses and reduce write traffic from edge to cloud.
     
     A `heartbeat` message containing the full dataset should also be sent at a recurring interval with this method. This is to ensure that device availabilty can be affirmed (when there are no data changes), and to provide a checkpoint for the underlying dataset to be merged, in case a change-data message was dropped.
 

@@ -80,6 +80,7 @@ folders:
         - Platform Overview
         - Data Metamodel
         - Message Broker
+        - Write Coalescing
         - Logger
 
       Datasets:
