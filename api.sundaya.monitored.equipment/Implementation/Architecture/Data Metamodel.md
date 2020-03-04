@@ -16,11 +16,11 @@ Accordingly all data from devices are ingested and stored in three technological
 
 The following table enumerates datasets, their intended appications, and primary content, according to stereotypes from the above metamodel.
 
-Repository | Table | Content | Application
+Repository | Dataset | Content | Application
 --- | --- | --- | ---
 `streaming` | [device_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/streaming/device_monitoring) | `telemetry` | `OI dashboard`
 `analytics` | [pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) | `telemetry` | `BI dashboard`
-`reporting` | [device_period](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/device_period) | `period` | `API producer`
+`reporting` | [energy_period](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/energy_period)<br>[device_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/device_monitoring) | `period` | `API producer`
 `graph` | [customer_service](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/graph/customer_service) | `customer`, `operations` | `Sales portal`
 `reference` | [site](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/site)<br>[installation](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/installation)<br>[pms_pack](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack) | `customer` |
  <i></i> | [source](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/source) | `system` |
@@ -86,9 +86,9 @@ Repository | Table | Content | Application
 
 ---
 
-### Data partitioning
+### Analytics dataset partitioning
 
-All `monitoring` dataset tables are partitioned based on the `time_event` field, into daily segments, to reduce cost and improve performance. 
+All `analytics` dataset tables are partitioned based on the `time_event` field, into daily segments, to reduce cost and improve performance. 
 
 Queries require a mandatory predicate filter (a WHERE clause) for the `time_event` attribute to limit the number of partitions scanned, as shown in this example.
 
@@ -102,3 +102,25 @@ AND pms_id IN ('PMS-01-002', 'PMS-01-002')
 `monitoring` dataset tables are further clustered based on the contents of the primary key column (`pms_id`, `mppt_id`, `inverter_id`).
 
 Queries should filter on the clustered key column as shown in the above SQL example as this improves performance and reduces cost.
+
+---
+
+# Reporting dataset implementation
+
+The schema for the `reporting` datasets may be implemented in:
+
+- a Wide-column key-value repository for very high scale and performance.
+- a Document database for low cost.
+
+The equivalent schema elements and recommended values for each repository type are shown below.
+
+Wide-column repo.       | Document db.      | Recommended Value
+---                     | ---               | ---
+instance id             |                   | `reporting`
+table name              |                   | `device_period`
+column family           | kind              | `ENERGY_PERIOD`<br>`DEVICE_MONITORING`
+row id                  | ancestry          | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_
+<i></i>                 | entity id         | _`<device_id>#<YYYYMMDDHHmm>`_
+column qualifier        | property          | _see [energy_period](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/energy_period), and [device_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/device_monitoring)
+
+--- 

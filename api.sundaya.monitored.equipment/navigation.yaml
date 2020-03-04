@@ -104,7 +104,8 @@ folders:
 
           reporting:
             ordering:
-            - device_period
+            - energy_period 
+            - device_monitoring
 
           graph:
             ordering:
