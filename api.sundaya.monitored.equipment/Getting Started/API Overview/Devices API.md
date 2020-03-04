@@ -20,7 +20,7 @@ The `/devices/{dataset}` path is for vendors and systems integrators to POST dev
 
 The following canonical dataset types may be used in the `{dataset}` parameter.
 
-{dataset} | Description
+/{dataset} | Description
 --- | --- 
 [pms](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring) | Data from pack management systems (PMS) for cabinets, including monitored epacks, cells, and mosfets.
 [mppt](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring) | Data from Maximum Power Point Tracking (MPPTcontrollers, including connected PV strings, batteries, and DC loads.
