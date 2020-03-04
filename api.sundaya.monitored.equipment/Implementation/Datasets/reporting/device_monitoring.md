@@ -17,7 +17,7 @@ column family       | `DEVICE_MONITORING`
 row id              | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_
 column qualifier    | _see below_
 
-# Column qualifiers
+### Column qualifiers
 
 Column qualifiers / properties for the `DEVICE_MONITORING` column family / kind are shown below, based on each <device_type>: 
 
