@@ -14,7 +14,6 @@ instance id         | `reporting`
 table name          | `period`
 column family       | `ENERGY_PERIOD`
 row id              | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_
-column qualifier    | _see below_
 
 
 ### Column qualifiers
@@ -37,11 +36,11 @@ Period              | Child Periods
 ---                 | ---            
 `minute`            | 
 `qtrhour`           | `qtrhourminute`
-`hour`              | `hourminute`<br>`hourqtrhour`
+`hour`              | `hourminute`, `hourqtrhour`
 `timeofday`         | `timeofdayhour`
-`day`               | `dayhour`<br>`daytimeofday`
+`day`               | `dayhour`, `daytimeofday`
 `week`              | `weekday`
-`month`             | `monthday`<br>`monthweek`
+`month`             | `monthday`, `monthweek`
 `quarter`           | `quartermonth`
-`year`              | `yearmonth`<br>`yearquarter`
+`year`              | `yearmonth`, `yearquarter`
 `fiveyear`          | `fiveyearyear`

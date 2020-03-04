@@ -105,7 +105,7 @@ Queries should filter on the clustered key column as shown in the above SQL exam
 
 ---
 
-# Reporting dataset implementation
+### Reporting dataset implementation
 
 The schema for the `reporting` datasets may be implemented in:
 

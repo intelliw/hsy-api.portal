@@ -15,7 +15,7 @@ instance id         | `reporting`
 table name          | `period`
 column family       | `DEVICE_MONITORING`
 row id              | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_
-column qualifier    | _see below_
+
 
 ### Column qualifiers
 
@@ -23,7 +23,7 @@ Column qualifiers / properties for the `DEVICE_MONITORING` column family / kind 
 
 PMS             | MPPT              | Inverter       
 ---             | ---               | ---   
-`pms_id`<br>`pack_id`<br>`pack_volts`<br>`pack_amps`<br>`pack_watts`<br>`pack_vcl`<br>`pack_vch`<br>`pack_dock`<br>`pack_temp_top`<br>`pack_temp_mid`<br>`pack_temp_bottom`<br><br>`sender`<br>`time_event`<br>`time_zone`<br>`time_processing` | `mppt_id`<br>`pv`  _[ {..} ]_<br>`battery`  _{..}_<br>`load`  _[ {..} ]_<br>`status`  _{..}_<br><br><br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing` | `inverter_id`<br>`pv`  _{..}_<br>`battery`  _{..}_<br>`load`  _[ {..} ]_<br>`grid`  _[ {..} ]_<br>`status`<br><br>`sender`<br>`time_event`<br>`time_zone`<br>`time_processing`
+`pms_id`<br>`pack_id`<br>`pack_volts`<br>`pack_amps`<br>`pack_watts`<br>`pack_vcl`<br>`pack_vch`<br>`pack_dock`<br>`pack_temp_top`<br>`pack_temp_mid`<br>`pack_temp_bottom`<br><br>`sender`<br>`time_zone`<br>`time_processing`<br><br>`dataitem` | `mppt_id`<br>`pv`  _[ {..} ]_<br>`battery`  _{..}_<br>`load`  _[ {..} ]_<br>`status`  _{..}_<br><br><br>`sender`<br> `time_event`<br>`time_zone`<br>`time_processing`<br><br>`dataitem` | `inverter_id`<br>`pv`  _{..}_<br>`battery`  _{..}_<br>`load`  _[ {..} ]_<br>`grid`  _[ {..} ]_<br>`status`<br><br>`sender`<br>`time_event`<br>`time_zone`<br>`time_processing`<br><br>`dataitem`
 
 `time_event` is stored for each data element in the cell _timestamp_ property.  
 
@@ -32,6 +32,3 @@ The `dataitem` column contains a complete monitoring message including the cell 
 - _[pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)_
 - _[mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)_
 - _[inverters_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring)_
-
-
- 
