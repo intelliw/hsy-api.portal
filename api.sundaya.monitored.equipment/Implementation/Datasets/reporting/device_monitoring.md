@@ -23,7 +23,9 @@ Column qualifiers / properties for the `DEVICE_MONITORING` column family / kind 
 
 PMS             | MPPT              | Inverter       
 ---             | ---               | ---   
-`pms_id`<br>`pack_id`<br>`pack_volts`<br>`pack_amps`<br>`pack_watts`<br>`pack_vcl`<br>`pack_vch`<br>`pack_dock`<br>`pack_temp_top`<br>`pack_temp_mid`<br>`pack_temp_bottom`<br><br>`sender`<br>`time_zone`<br>`time_processing`<br><br>`dataitem` | `mppt_id`<br><br><br><br><br>`sender`<br>`time_zone`<br>`time_processing`<br><br>`dataitem` | `inverter_id`<br><br><br><br><br>`sender`<br>`time_zone`<br>`time_processing`<br><br>`dataitem`
+`pms_id`<br>`pack_id`<br>`pack_volts`<br>`pack_amps`<br>`pack_watts`<br>`pack_vcl`<br>`pack_vch`<br>`pack_dock`<br>`pack_temp_top`<br>`pack_temp_mid`<br>`pack_temp_bottom` | `mppt_id` | `inverter_id`
+`sender`<br>`time_zone`<br>`time_processing` | `sender`<br>`time_zone`<br>`time_processing` | `sender`<br>`time_zone`<br>`time_processing`
+`dataitem` | `dataitem` | `dataitem`
 
 `time_event` is stored for each data element in the cell _timestamp_ property.  
 
