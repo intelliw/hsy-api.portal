@@ -38,9 +38,9 @@ Period              | Child Periods
 `qtrhour`           | `qtrhourminute`
 `hour`              | `hourminute`, `hourqtrhour`
 `timeofday`         | `timeofdayhour`
-`day`               | `dayhour`, `daytimeofday`
+`day`               | `dayhour`,`daytimeofday`
 `week`              | `weekday`
-`month`             | `monthday`, `monthweek`
+`month`             | `monthday`,`monthweek`
 `quarter`           | `quartermonth`
-`year`              | `yearmonth`, `yearquarter`
+`year`              | `yearmonth`,`yearquarter`
 `fiveyear`          | `fiveyearyear`
