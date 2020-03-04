@@ -1,8 +1,6 @@
 # reporting.device_monitoring
 ---
 
-# DEVICE_MONITORING 
-
 ### Schema
 
 The `DEVICE_MONITORING` dataset is stored as a column family in the `reporting.period` table. 

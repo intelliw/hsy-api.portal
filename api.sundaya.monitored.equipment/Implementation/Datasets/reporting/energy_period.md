@@ -2,9 +2,6 @@
 
 ---
 
-# ENERGY_PERIOD
-
-
 ### Schema
 
 The `ENERGY_PERIOD` dataset is stored as a column family in the `reporting.period` table. 
@@ -15,7 +12,7 @@ Element             | Recommended Value
 ---                 | ---
 instance id         | `reporting`
 table name          | `period`
-column family       | `ENERGY_MONITORING`
+column family       | `ENERGY_PERIOD`
 row id              | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_
 column qualifier    | _see below_
 
