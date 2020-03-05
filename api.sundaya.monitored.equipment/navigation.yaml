@@ -85,17 +85,12 @@ folders:
 
       Datasets:
         ordering:
-        - streaming
         - analytics
         - reporting
         - graph
         - reference
 
         folders:
-          streaming:
-            ordering:
-              - device_monitoring
-
           analytics:
             ordering:
             - pms_monitoring
