@@ -62,7 +62,7 @@ Attribute | Metric | Data | Constraint | Description
 `load[nn].amps` | amps | float | - | The value corresponding to nn in the request `load.amps` array.
 `load[nn].watts` | watts | float | - | The product of `load.volts` and `load.amps`.
 `status` | - | status | - | A set of status fields in a complex type which is described in __Equipment status__ section below.
-`sender` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
+`sender` | - | string | - | The identifier of the data sender, based on the API key sent in the request header.<br>The value is a foreign key to the `system.source` dataset table.
 `time_event` | - | datetime | - | The UTC time of the event which produced this data sample.
 `time_zone` | - | string | _+/-HH:MM_ | The time offset in the time zone of the event which produced this data sample.
 `time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.

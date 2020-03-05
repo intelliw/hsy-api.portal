@@ -82,7 +82,7 @@ Attribute | Metric | Data | Constraint | Description
 `fet[nn].temp` | degC | float | - | `fet[nn].temp`will be _true_ if the request `fet.temp` field contains the value `nn`.
 `status.temp` | degC | float | - | The Ehub's self-monitored temperature.
 `status.bus_connect` | - | boolean | - | One of the status fields described in __Equipment status__ section below.
-`sender` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table, which provides traceability, and data provenance for data received through the API endpoint.
+`sender` | - | string | - | The identifier of the data sender, based on the API key sent in the request header. The value is a foreign key to the `system.source` dataset table.
 `time_event` | - | datetime | - | The UTC time of the event which produced this data sample.
 `time_zone` | - | string | _+/-HH:MM_ | The time offset in the time zone of the event which produced this data sample.
 `time_processing` | - | datetime | - | The UTC time when the request was received and *processed* on the API host.
