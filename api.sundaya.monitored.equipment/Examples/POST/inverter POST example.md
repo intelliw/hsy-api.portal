@@ -35,7 +35,7 @@ Attribute | Metric | Data | Constraint | Description
 `load.volts` | volts | float *(array)* | *array size 1-2, + only* | An ordered set of Voltage readings for connected Loads. Each value in the data array applies to a Load number based on its position in the array. For example the 2nd value in the data array is the data for the 2nd Load. The array size depends on the number of loads. Each load and its ordinal position must be declared in this API documentation.
 `load.amps` | amps | float *(array)* | *array size 1-2, + only* | An ordered set of Current readings for connected Loads (corresponding to values in `load.volts`).  
 `grid.volts` | volts | float *(array)* | *array size 1-3, + only* | An ordered set of up to 3 Voltage readings for each phase of the connected grid supply. This values are assumed to be line-to-line volage for a 3-phase supply. The array size depends on the number of phases in the supply. If the supply is single-phase there will be only one element in the array.
-`grid.amps` | amps | float *(array)* | *array size 1-3, +/-* | An ordered set of Current readings for for each phase of the connected grid supply (corresponding to values in `grid.volts` and `grid.pf`).  
+`grid.amps` | amps | float *(array)* | *array size 1-3, +/-* | An ordered set of Current readings for for each phase of the connected grid supply (corresponding to values in `grid.volts` and `grid.pf`)<br>The value is positive for feeds into the grid (`sell`) and negative for feeds out of the  grid (`sell`).  
 `grid.pf` | - | float *(array)* | *array size 1-3, maximum 1.0* | An ordered set of Power Factor readings for each phase of the connected grid supply (corresponding to values in `grid.volts` and `grid.amps`). 
 
 
