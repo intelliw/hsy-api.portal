@@ -64,8 +64,8 @@ In particular the arrays in the request message structure are flattened and tran
 
 Attribute | Metric | Data | Constraint | Description
 --- | --- | --- | --- | ---
-`pms_id` | - | string | - | Id of the PMS system, as displayed on the cabinet. This attribute replaces `pms.id` in the request message.
-`pack_id` | - | string | - | Id of the `pack` associated with this data record. This attribute is used in place of `pack.id` as a top-level attribute, so that it can be included in the data clustering specification.
+`pms_id` | - | string | - | Id of the PMS system, as displayed on the cabinet.<br>This attribute replaces `pms.id` in the request message.
+`pack_id` | - | string | - | Id of the `pack` associated with this data record.<br>This attribute is used in place of `pack.id` as a top-level attribute, so that it can be included in the data clustering specification.
 `pack.volts` | volts | float | - | The cellblocks are connected in series so the pack voltage is the sum of all 14 cell voltages (`cell.volts[1-14]`).
 `pack.amps` | amps | float | - | _(no change from request message)_.
 `pack.watts` | watts | float | - | The product of `pack.volts` and `pack.amps`.
