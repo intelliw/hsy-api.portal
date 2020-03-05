@@ -15,7 +15,7 @@ Wide-column repo.       | Document db.      | Recommended Value
 ---                     | ---               | ---
 instance id             |                   | `reporting`
 table name              |                   | `device_period`
-column families         | kind              | `<period>_ENERGY`<br>`<device_type>_MONITORING`
+column families         | kind              | `<period>`<br>`MONITORING`
 row id                  | ancestry          | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_
 <i></i>                 | entity id         | _`<device_id>#<YYYYMMDDHHmm>`_
 column qualifier        | property          | _see below_
