@@ -85,7 +85,7 @@ Repository | Dataset | Content | Application
 
 ---
 
-### Analytics dataset partitioning
+### Analytics datasets partitioning
 
 All `analytics` dataset tables are partitioned based on the `time_event` field, into daily segments, to reduce cost and improve performance. 
 
@@ -104,22 +104,3 @@ Queries should filter on the clustered key column as shown in the above SQL exam
 
 ---
 
-### Reporting dataset implementation
-
-The schema for the `reporting` datasets may be implemented in:
-
-- a Wide-column key-value repository for very high scale and performance.
-- a Document database for low cost.
-
-The equivalent schema elements and recommended values for each repository type are shown below.
-
-Wide-column repo.       | Document db.      | Recommended Value
----                     | ---               | ---
-instance id             |                   | `reporting`
-table name              |                   | `device_period`
-column family           | kind              | `ENERGY_PERIOD`<br>`DEVICE_MONITORING`
-row id                  | ancestry          | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_
-<i></i>                 | entity id         | _`<device_id>#<YYYYMMDDHHmm>`_
-column qualifier        | property          | _see [energy_period](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/energy_period), and [device_monitoring](https://docs.sundaya.monitored.equipment/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/device_monitoring)
-
---- 
