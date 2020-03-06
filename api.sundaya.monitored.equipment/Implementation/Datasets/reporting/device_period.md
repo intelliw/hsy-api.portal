@@ -45,7 +45,7 @@ A particular period _column family_ will be present in a row only if the date-ti
 
 - A `MINUTE` _column family_ will be present as every row is scoped to 1 minute.
 
-_column families_ are summarised in the table below.
+ENERGY _column families_ are summarised in the table below.
 
 ENERGY families   
 ---               
@@ -58,7 +58,7 @@ ENERGY _column qualifiers_ are closely aligned to the [Energy API response](/doc
 
 The _columnn qualifiers_ are different for each `<device_type>` (in the row id) but are the same across all ENERGY _column families_. 
 
-_column qualifiers_ are summarised in the table below.
+_column qualifiers_ for each `<device_type>` are summarised in the table below.
 
 
 PMS qualifiers  | MPPT qualifiers   | Inverter qualifiers
