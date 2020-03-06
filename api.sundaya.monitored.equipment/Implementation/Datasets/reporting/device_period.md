@@ -43,13 +43,13 @@ A particular period _column family_ will be present in a row only if the date-ti
 
 - Similarly a row / entity with an id of **PMS-01-006#202002090000** will have _column families_ for `DAY`, `HOUR`, and `TIMEOFDAY` as the date-time in the id (**090000**) coincides with the start of all three periods.
 
-- A `MINUTE` _column family_ will be present as every row is scoped to 1 minute.
+- A `MINUTE` _column family_ will always be present as every row is scoped to 1 minute.
 
 ENERGY _column families_ are summarised in the table below.
 
-ENERGY families   
----               
-`MINUTE_ENERGY`<br>`QTRHOUR_ENERGY`<br>`HOUR_ENERGY`<br>`TIMEOFDAY_ENERGY`<br>`DAY_ENERGY`<br>`WEEK_ENERGY`<br>`MONTH_ENERGY`<br>`QUARTER_ENERGY`<br>`YEAR_ENERGY`<br>`FIVEYEAR_ENERGY`
+ENERGY families |   
+---             | 
+`MINUTE_ENERGY`<br>`QTRHOUR_ENERGY`<br>`HOUR_ENERGY`<br>`TIMEOFDAY_ENERGY`<br>`DAY_ENERGY`<br>`WEEK_ENERGY`<br>`MONTH_ENERGY`<br>`QUARTER_ENERGY`<br>`YEAR_ENERGY`<br>`FIVEYEAR_ENERGY` | 
 
 
 ### Column qualifiers
