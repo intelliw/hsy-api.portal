@@ -2,20 +2,26 @@
 # reporting.device_period 
 ---
 
-#### reporting.device_period implementation
+The `device_period` dataset contains period-aligned tranformations of streaming monitoring data received through the _devices/datasets_ POST API.
 
-The `device_period` dataset may be implemented in:
+The dataset consists of the following content:
+
+- **ENERGY** - period-aligned energy data aggregates.
+
+- **MONITORING** - raw monitoring data - the same data as in the `analytics` repository, but replicated here in `reporting` repository for fast OLTP access.
+
+The dataset storage may be provided by:
 
 - a Wide-column key-value repository for very high scale and performance.
 - a Document database for low cost.
 
-The equivalent schema elements and recommended values for each repository type are shown below.
+The equivalent schema elements and recommended values for each of the above repository types, are shown below.
 
 Wide-column repo.       | Document db.      | Recommended Value
 ---                     | ---               | ---
 instance id             |                   | `reporting`
 table name              |                   | `device_period`
-column families         | kind              | `<period>`<br>`MONITORING`
+column families         | kind              | `<period>_ENERGY`<br>`MONITORING`
 row id                  | ancestry          | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_
 <i></i>                 | entity id         | _`<device_id>#<YYYYMMDDHHmm>`_
 column qualifier        | property          | _see below_
@@ -24,7 +30,6 @@ column qualifier        | property          | _see below_
 
 # ENERGY Column families 
 
-The `<period>_ENERGY` columns families store period-aligned energy data aggregated from monitoring data received through the _devices/datasets_ POST API.
 
 ### ENERGY Column qualifiers
 
