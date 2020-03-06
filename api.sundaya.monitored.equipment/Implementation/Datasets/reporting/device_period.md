@@ -21,44 +21,44 @@ Wide-column repo.       | Document db.      | Recommended Value
 ---                     | ---               | ---
 Instance ID             |                   | `reporting`
 Table name              |                   | `device_period`
-Column Families         | Kind              | _`<period>`__`ENERGY`<br>`MONITORING`
+Column Families         | Kind              | _`<period>_ENERGY`<br>`MONITORING`_
 Row Id                  | Ancestry          | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_
 <i></i>                 | Entity ID         | _`<device_id>#<YYYYMMDDHHmm>`_
 Column Qualifier        | Property          | _see below_
 
+
 ---
 
-# ENERGY Column families 
+# ENERGY data
+
+### Column families
+
+**ENERGY** _column families_ are named according to the format `<period>_ENERGY`, where the `<period>` prefix refers to a canonical period name.
+
+For example: `HOUR_ENERGY`.
+
+A particular period _column family_ will be present in a row only if the date-time component of the row / entity id (_YYYYMMDDHHmm_) coincides with a period epoch (the start of the period).
+
+- For example a row / entity with an id of **PMS-01-006#202002091500** will have _column families_ for `HOUR` and `MINUTE` as the date-time in the id (**1500**) coincides with the epoch (start) of an hour and minute period.
+
+- Similarly a row / entity with an id of **PMS-01-006#202002090000** will have _column families_ for `DAY`, `HOUR`, and `TIMEOFDAY` as the date-time in the id (**090000**) coincides with the start of all three periods.
+
+- A `MINUTE` _column family_ will be present as every row is scoped to 1 minute.
+
+### Column qualifiers
+
+**ENERGY** _column qualifiers_ are closely aligned to the [Energy API response](/docs/api.sundaya.monitored.equipment/0/c/Examples/GET/energy%20GET%20example).
+
+The _column qualifiers_ change for each `<device_type>` in the row id, but are the same across all **ENERGY** _column families_.
+
+The _column families_ and _column qualifiers_ are summarised below.
 
 
-### ENERGY Column qualifiers
 
-Column qualifiers / properties for the `<period>_ENERGY` column families / kinds are shown below.
-
-These period columns will provide the data for the Energy API, in a format which is closely matched to the [API response](/docs/api.sundaya.monitored.equipment/0/c/Examples/GET/energy%20GET%20example).
-
-Each row / entity will have a particular period column depending on the `<device_type>` in the row id: 
-
-A period column will be present in the row only if the timestamp component in the row / entity id (`HHmm`) coincides with a period epoch.
-
-- For example a row / entity with an id of **PMS-01-006#202002091500** will have period data for `hour`,`hourminute`, and `hourqtrhour` as the date-time in the id (**1500**) coincides with the epoch (start) of an hour period.
-
-- Similarly a row / entity with an id of **PMS-01-006#202002090000** will have period data for `day`,`dayhour`,`daytimeofday` as well as `hour`,`hourminute`,`hourqtrhour`, as the date-time in the id (**090000**) coincides with the start of a day and hour period.
-
-At least one `minute` entry will be present in every row.
-
-Period              | Child Periods
----                 | ---            
-`minute`            | 
-`qtrhour`           | `qtrhourminute`
-`hour`              | `hourminute`, `hourqtrhour`
-`timeofday`         | `timeofdayhour`
-`day`               | `dayhour`,`daytimeofday`
-`week`              | `weekday`
-`month`             | `monthday`,`monthweek`
-`quarter`           | `quartermonth`
-`year`              | `yearmonth`,`yearquarter`
-`fiveyear`          | `fiveyearyear`
+Column families   | PMS qualifiers  | MPPT qualifiers   | Inverter qualifiers
+---               | ---             | ---               | ---            
+`MINUTE_ENERGY`<br>`QTRHOUR_ENERGY`<br>`HOUR_ENERGY`<br>`TIMEOFDAY_ENERGY`<br>`DAY_ENERGY`<br>`WEEK_ENERGY`<br>`MONTH_ENERGY`<br>`QUARTER_ENERGY`<br>`YEAR_ENERGY`<br>
+`FIVEYEAR_ENERGY` | `pack_in_joules`<br>`pack_out_joules` | `pv_<4>_joules`<br>`load_<2>_joules`
 
 ---
 
@@ -82,7 +82,7 @@ row id              | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_
 
 Column qualifiers / properties for the `DEVICE_MONITORING` column family / kind are shown below, based on each <device_type>: 
 
-PMS             | MPPT              | Inverter       
+PMS qualifiers  | MPPT qualifiers   | Inverter qualifiers
 ---             | ---               | ---   
 `pms_id`<br>`pack_id`<br>`pack_volts`<br>`pack_amps`<br>`pack_watts`<br>`pack_vcl`<br>`pack_vch`<br>`pack_dock`<br>`pack_temp_top`<br>`pack_temp_mid`<br>`pack_temp_bottom`<br><br>`sender`<br>`time_zone`<br>`time_processing`<br><br>`dataitem` | `mppt_id`<br><br><br><br><br><br><br><br><br><br><br><br><br>`sender`<br>`time_zone`<br>`time_processing`<br><br>`dataitem` | `inverter_id`<br><br><br><br><br><br><br><br><br><br><br><br><br>`sender`<br>`time_zone`<br>`time_processing`<br><br>`dataitem`
 
