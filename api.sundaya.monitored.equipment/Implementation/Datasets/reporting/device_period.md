@@ -33,7 +33,7 @@ Column Qualifier        | Property          | _see below_
 
 ### Column families
 
-**ENERGY** _column families_ are named according to the format `<period>_ENERGY`, where the `<period>` prefix refers to a canonical period name.
+ENERGY _column families_ are named according to the format `<period>_ENERGY`, where the `<period>` prefix refers to a canonical period name.
 
 For example: `HOUR_ENERGY`.
 
@@ -47,9 +47,9 @@ A particular period _column family_ will be present in a row only if the date-ti
 
 ### Column qualifiers
 
-**ENERGY** _column qualifiers_ are closely aligned to the [Energy API response](/docs/api.sundaya.monitored.equipment/0/c/Examples/GET/energy%20GET%20example).
+ENERGY _column qualifiers_ are closely aligned to the [Energy API response](/docs/api.sundaya.monitored.equipment/0/c/Examples/GET/energy%20GET%20example).
 
-The _column qualifiers_ change for each `<device_type>` in the row id, but are the same across all **ENERGY** _column families_.
+e _coln qualifiers_ change for each `<device_type>` in the row id, but are the same across all ENERGY _column families_.
 
 The _column families_ and _column qualifiers_ are summarised below.
 
@@ -58,7 +58,7 @@ The _column families_ and _column qualifiers_ are summarised below.
 Column families   | PMS qualifiers  | MPPT qualifiers   | Inverter qualifiers
 ---               | ---             | ---               | ---            
 `MINUTE_ENERGY`<br>`QTRHOUR_ENERGY`<br>`HOUR_ENERGY`<br>`TIMEOFDAY_ENERGY`<br>`DAY_ENERGY`<br>`WEEK_ENERGY`<br>`MONTH_ENERGY`<br>`QUARTER_ENERGY`<br>`YEAR_ENERGY`<br>
-`FIVEYEAR_ENERGY` | `pack_in_joules`<br>`pack_out_joules` | `pv_<4>_joules`<br>`load_<2>_joules`
+`FIVEYEAR_ENERGY` | `pack_in_joules`<br>`pack_out_joules` | `pv_<4>_joules`<br>`load_<2>_joules` | `pv_<4>_joules`<br>`load_<2>_joules`
 
 ---
 
