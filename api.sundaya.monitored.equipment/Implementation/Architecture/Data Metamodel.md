@@ -45,7 +45,7 @@ Repository | Dataset | Content | Application
     
 - **reporting** - the _reporting_ dataset contains aggregates of data aligned to time windows: for example energy data totals for a week.
 
-    This dataset is produced from the streaming queue by parallel processors for low latency and high throughput. 
+    This dataset is produced with low latency and high throughput from the streaming queue, by parallel processors. 
 
     However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. The stream processors are able to align these late-arriving data with previously processed time windows.
 

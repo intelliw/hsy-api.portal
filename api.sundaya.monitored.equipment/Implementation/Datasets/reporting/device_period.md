@@ -45,18 +45,25 @@ A particular period _column family_ will be present in a row only if the date-ti
 
 - A `MINUTE` _column family_ will be present as every row is scoped to 1 minute.
 
+_column families_ are summarised in the table below.
+
+ENERGY families   
+---               
+`MINUTE_ENERGY`<br>`QTRHOUR_ENERGY`<br>`HOUR_ENERGY`<br>`TIMEOFDAY_ENERGY`<br>`DAY_ENERGY`<br>`WEEK_ENERGY`<br>`MONTH_ENERGY`<br>`QUARTER_ENERGY`<br>`YEAR_ENERGY`<br>`FIVEYEAR_ENERGY`
+
+
 ### Column qualifiers
 
 ENERGY _column qualifiers_ are closely aligned to the [Energy API response](/docs/api.sundaya.monitored.equipment/0/c/Examples/GET/energy%20GET%20example).
 
 The _columnn qualifiers_ are different for each `<device_type>` (in the row id) but are the same across all ENERGY _column families_. 
 
-_column families_ and _column qualifiers_ are summarised in the table below.
+_column qualifiers_ are summarised in the table below.
 
 
-Column families   | PMS qualifiers  | MPPT qualifiers   | Inverter qualifiers
----               | ---             | ---               | ---
-`MINUTE_ENERGY`<br>`QTRHOUR_ENERGY`<br>`HOUR_ENERGY`<br>`TIMEOFDAY_ENERGY`<br>`DAY_ENERGY`<br>`WEEK_ENERGY`<br>`MONTH_ENERGY`<br>`QUARTER_ENERGY`<br>`YEAR_ENERGY`<br>`FIVEYEAR_ENERGY`<br><br><br><br><br>               | `pack_in_joules`<br>`pack_out_joules`<br><br><br><br><br><br><br><br><br><br><br><br><br>            | `pv_1_joules`<br>`pv_2_joules`<br>`pv_3_joules`<br>`pv_4_joules`<br>`load_1_joules`<br>`load_2_joules`<br>`battery_in_joules`<br>`battery_out_joules`<br><br><br><br><br><br><br>               | `pv_1_joules`<br>`pv_2_joules`<br>`pv_3_joules`<br>`pv_4_joules`<br>`load_1_joules`<br>`load_2_joules`<br>`battery_in_joules`<br>`battery_out_joules`<br>`grid_1_in_joules`<br>`grid_1_out_joules`<br>`grid_2_in_joules`<br>`grid_2_out_joules`<br>`grid_3_in_joules`<br>`grid_3_out_joules`
+PMS qualifiers  | MPPT qualifiers   | Inverter qualifiers
+---             | ---               | ---
+`pack_in_joules`<br>`pack_out_joules`<br><br><br><br><br><br><br><br><br><br><br><br><br>            | `pv_1_joules`<br>`pv_2_joules`<br>`pv_3_joules`<br>`pv_4_joules`<br>`load_1_joules`<br>`load_2_joules`<br>`battery_in_joules`<br>`battery_out_joules`<br><br><br><br><br><br><br>               | `pv_1_joules`<br>`pv_2_joules`<br>`pv_3_joules`<br>`pv_4_joules`<br>`load_1_joules`<br>`load_2_joules`<br>`battery_in_joules`<br>`battery_out_joules`<br>`grid_1_in_joules`<br>`grid_1_out_joules`<br>`grid_2_in_joules`<br>`grid_2_out_joules`<br>`grid_3_in_joules`<br>`grid_3_out_joules`
 
 ---
 
