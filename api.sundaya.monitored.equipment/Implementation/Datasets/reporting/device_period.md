@@ -2,7 +2,7 @@
 # reporting.device_period 
 ---
 
-The `device_period` dataset contains period-aligned tranformations of streaming monitoring data received through the _devices/datasets_ POST API.
+The **device_period** dataset contains period-aligned tranformations of streaming monitoring data received through the _devices/datasets_ POST API.
 
 The dataset consists of the following content:
 
@@ -10,21 +10,21 @@ The dataset consists of the following content:
 
 - **MONITORING** - raw monitoring data - the same data as in the `analytics` repository, but replicated here in `reporting` repository for fast OLTP access.
 
-The dataset storage may be provided by:
+Storage for this dataset may be provided by either of the following technologies:
 
 - a Wide-column key-value repository for very high scale and performance.
 - a Document database for low cost.
 
-The equivalent schema elements and recommended values for each of the above repository types, are shown below.
+The equivalent schema elements and recommended value for the above repository types are shown below.
 
 Wide-column repo.       | Document db.      | Recommended Value
 ---                     | ---               | ---
-instance id             |                   | `reporting`
-table name              |                   | `device_period`
-column families         | kind              | `<period>_ENERGY`<br>`MONITORING`
-row id                  | ancestry          | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_
-<i></i>                 | entity id         | _`<device_id>#<YYYYMMDDHHmm>`_
-column qualifier        | property          | _see below_
+Instance ID             |                   | `reporting`
+Table name              |                   | `device_period`
+Column Families         | Kind              | _`<period>`__`ENERGY`<br>`MONITORING`
+Row Id                  | Ancestry          | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_
+<i></i>                 | Entity ID         | _`<device_id>#<YYYYMMDDHHmm>`_
+Column Qualifier        | Property          | _see below_
 
 ---
 
