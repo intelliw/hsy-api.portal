@@ -31,6 +31,7 @@ Column Qualifier        | Property          | _see below_
 
 # ENERGY data
 
+
 ### Column families
 
 ENERGY _column families_ are named according to the format `<period>_ENERGY`, where the `<period>` prefix refers to a canonical period name.
@@ -52,6 +53,7 @@ ENERGY families |
 `MINUTE_ENERGY`<br>`QTRHOUR_ENERGY`<br>`HOUR_ENERGY`<br>`TIMEOFDAY_ENERGY`<br>`DAY_ENERGY`<br>`WEEK_ENERGY`<br>`MONTH_ENERGY`<br>`QUARTER_ENERGY`<br>`YEAR_ENERGY`<br>`FIVEYEAR_ENERGY` | 
 
 
+
 ### Column qualifiers
 
 ENERGY _column qualifiers_ are closely aligned to the [Energy API response](/docs/api.sundaya.monitored.equipment/0/c/Examples/GET/energy%20GET%20example).
@@ -65,27 +67,23 @@ PMS qualifiers  | MPPT qualifiers   | Inverter qualifiers
 ---             | ---               | ---
 `pack_in_joules`<br>`pack_out_joules`<br><br><br><br><br><br><br><br><br><br><br><br><br>            | `pv_1_joules`<br>`pv_2_joules`<br>`pv_3_joules`<br>`pv_4_joules`<br>`load_1_joules`<br>`load_2_joules`<br>`battery_in_joules`<br>`battery_out_joules`<br><br><br><br><br><br><br>               | `pv_1_joules`<br>`pv_2_joules`<br>`pv_3_joules`<br>`pv_4_joules`<br>`load_1_joules`<br>`load_2_joules`<br>`battery_in_joules`<br>`battery_out_joules`<br>`grid_1_in_joules`<br>`grid_1_out_joules`<br>`grid_2_in_joules`<br>`grid_2_out_joules`<br>`grid_3_in_joules`<br>`grid_3_out_joules`
 
+
+
 ---
 
-# MONITORING Column families 
+# MONITORING data
 
-The `MONITORING` columns families contain replicas of data stored in the `analytics` repository, which is the raw monitoring data received through the _devices/datasets_ POST API. 
 
-The data is stored as a column family in the `reporting.period` table.
+### Column families
 
-Schema elements and recommended values are shown below.
 
-Element             | Recommended Value
----                 | ---
-instance id         | `reporting`
-table name          | `period`
-column family       | `DEVICE_MONITORING`
-row id              | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_
+MONITORING data has a single _column family_: `MONITORING`. 
+
 
 
 ### Column qualifiers
 
-Column qualifiers / properties for the `DEVICE_MONITORING` column family / kind are shown below, based on each <device_type>: 
+MONITORING _column qualifiers_ are different for each `<device_type>` (in the row id) as shwon in the table below.
 
 PMS qualifiers  | MPPT qualifiers   | Inverter qualifiers
 ---             | ---               | ---   
