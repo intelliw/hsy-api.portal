@@ -56,7 +56,7 @@ _column families_ and _column qualifiers_ are summarised in the table below.
 
 Column families   | PMS qualifiers  | MPPT qualifiers   | Inverter qualifiers
 ---               | ---             | ---               | ---
-`MINUTE_ENERGY`<br>`QTRHOUR_ENERGY`<br>`HOUR_ENERGY`<br>`TIMEOFDAY_ENERGY`<br>`DAY_ENERGY`<br>`WEEK_ENERGY`<br>`MONTH_ENERGY`<br>`QUARTER_ENERGY`<br>`YEAR_ENERGY`<br>`FIVEYEAR_ENERGY`               | `pack_in_joules`<br>`pack_out_joules`            | `pv_<4>_joules`<br>`load_<2>_joules`               | `pv_<4>_joules`<br>`load_<2>_joules`
+`MINUTE_ENERGY`<br>`QTRHOUR_ENERGY`<br>`HOUR_ENERGY`<br>`TIMEOFDAY_ENERGY`<br>`DAY_ENERGY`<br>`WEEK_ENERGY`<br>`MONTH_ENERGY`<br>`QUARTER_ENERGY`<br>`YEAR_ENERGY`<br>`FIVEYEAR_ENERGY`               | `pack_in_joules`<br>`pack_out_joules`            | `pv_1_joules`<br>`pv_2_joules`<br>`pv_3_joules`<br>`pv_4_joules`<br>`load_1_joules`<br>`load_2_joules`               | `pv_1_joules`<br>`pv_2_joules`<br>`pv_3_joules`<br>`pv_4_joules`<br>`load_1_joules`<br>`load_2_joules`
 
 ---
 
