@@ -49,14 +49,14 @@ A particular period _column family_ will be present in a row only if the date-ti
 
 ENERGY _column qualifiers_ are closely aligned to the [Energy API response](/docs/api.sundaya.monitored.equipment/0/c/Examples/GET/energy%20GET%20example).
 
-e _coln qualifiers_ change for each `<device_type>` in the row id, but are the same across all ENERGY _column families_.
+The _columnn qualifiers_ are different for each `<device_type>` (in the row id) but are the same across all ENERGY _column families_. 
 
-The _column families_ and _column qualifiers_ are summarised below.
-
+_column families_ and _column qualifiers_ are summarised in the table below.
 
 
 Column families   | PMS qualifiers  | MPPT qualifiers   | Inverter qualifiers
----               | ---             | ---               | ---            
+---               | ---             | ---               | ---
+1               | 2             | 3               | 4
 `MINUTE_ENERGY`<br>`QTRHOUR_ENERGY`<br>`HOUR_ENERGY`<br>`TIMEOFDAY_ENERGY`<br>`DAY_ENERGY`<br>`WEEK_ENERGY`<br>`MONTH_ENERGY`<br>`QUARTER_ENERGY`<br>`YEAR_ENERGY`<br>
 `FIVEYEAR_ENERGY` | `pack_in_joules`<br>`pack_out_joules` | `pv_<4>_joules`<br>`load_<2>_joules` | `pv_<4>_joules`<br>`load_<2>_joules`
 
