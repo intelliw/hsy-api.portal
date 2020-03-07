@@ -149,11 +149,11 @@ The following examples describe the allowed use of abbreviations.
 
 Abbreviation    | Expanded              | Example
 ---             | ---                   | ---
-`v`             | volts                 | _pack_v_, _v_
-`a`             | amps                  | _pack_a_, _a_
-`w`             | watts                 | _pack_w_, _w_
-`mj`            | volts                 | _pack_mj_, _mj_
-`t`             | temperature<br>time   | _t_zone_, _fet_t_
+`v`             | volts                 | _pack_v_
+`a`             | amps                  | _pack_a_
+`w`             | watts                 | _pack_w_
+`j`, `mj`       | joules<br>megajoules  | _pack_mj_
+`t`             | temperature<br>time   | _fet_t_<br>_t_zone_, 
 
 `t` may refer to _temperature_ or _time_ but where the semantics of the field name do not remove ambiguity, _time_ should be assumed as the default. In the above examples _t_zone_ refers to _time_ and _fet_t_ refers to   _temperature_.
 
