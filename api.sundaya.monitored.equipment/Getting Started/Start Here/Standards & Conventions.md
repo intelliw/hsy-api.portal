@@ -140,22 +140,26 @@ Element | Convention | Example
 Note: `field name` refers to fields in API messages and JSON documents.
 
 
-## Abbreviatins
+## Abbreviations
 Field names may contain the following canonical abbreviations to shorten the number of bytes needed.
 
 An abbreviation may only be used as itself, or as a prefix or suffix of a field name. 
 
 The following examples describe the allowed use of abbreviations.
 
-Abbreviation    | Expanded              | Example
+Abbreviation    | Meaning               | Example
 ---             | ---                   | ---
-`v`             | volts                 | _pack_v_
-`a`             | amps                  | _pack_a_
-`w`             | watts                 | _pack_w_
+`v`             | volts                 | _pv_v_
+`a`             | amps                  | _pv_a_
+`w`             | watts                 | _pv_w_
 `j`, `mj`       | joules<br>megajoules  | _pack_mj_
 `t`             | temperature<br>time   | _fet_t_<br>_t_zone_, 
 
-`t` may refer to _temperature_ or _time_ but where the semantics of the field name do not remove ambiguity, _time_ should be assumed as the default. In the above examples _t_zone_ refers to _time_ and _fet_t_ refers to   _temperature_.
+`t` may refer to _temperature_ or _time_: in the above examples _t_zone_ refers to '_time zone_' and _fet_t_ refers to '_fet temperature_'.
+
+if the semantics of the field name do not remove ambiguity _time_ should be assumed as the default.
+
+
 
 
 
