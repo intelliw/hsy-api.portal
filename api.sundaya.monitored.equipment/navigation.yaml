@@ -99,7 +99,7 @@ folders:
 
           reporting:
             ordering:
-            - device_period 
+            - periods 
 
           graph:
             ordering:

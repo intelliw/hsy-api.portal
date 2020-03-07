@@ -85,7 +85,7 @@ Repository | Dataset | Content | Application
 
 ---
 
-### Analytics datasets partitioning
+### Analytics dataset partitioning
 
 All `analytics` dataset tables are partitioned based on the `time_event` field, into daily segments, to reduce cost and improve performance. 
 

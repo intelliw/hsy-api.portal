@@ -119,7 +119,7 @@ Code | Status | Definition
 Datasets should be named according to the following conventions.
 
 The following general conventions apply in all element-specific conventions.
-- no plurals except: dataset names, API paths, API field names.
+- no plurals except in dataset names, API paths, and API field names.
 - spaces removed
 - periods and commas not allowed
 - names short but meaningful
@@ -141,7 +141,7 @@ Note: `field name` refers to fields in API messages and JSON documents.
 
 
 ## Abbreviations
-Field names may contain the following canonical abbreviations to shorten the number of bytes needed.
+Field names may contain the following canonical abbreviations to shorten the number of bytes needed to transmit or store the field.
 
 An abbreviation may only be used as itself, or as a prefix or suffix of a field name. 
 
