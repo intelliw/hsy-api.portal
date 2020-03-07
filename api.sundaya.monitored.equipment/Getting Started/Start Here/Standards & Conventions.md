@@ -119,7 +119,7 @@ Code | Status | Definition
 Datasets should be named according to the following conventions.
 
 The following general conventions apply in all element-specific conventions.
-- no plurals  
+- no plurals except: dataset names, API paths, API field names.
 - spaces removed
 - periods and commas not allowed
 - names short but meaningful
@@ -134,9 +134,29 @@ Element | Convention | Example
 `table name` | lowercase, **underscores** allowed | _device_period_
 `column family` | uppercase, **underscores** allowed | _ENERGY_PERIOD_
 `column qualifier` |  lowercase, **underscores** allowed | _timeofdayhour_, _pack_id_
-`field name` | lowercase and **underscores**, or mixedcase | _time_event_, _productCategory_
+`field name` | lowercase and **underscores**, or mixedcase | _time_event_, _volts_, _productCategory_
 `row id` | uppercase, **hash** allowed |_PMS#P00123#1425330757685_
 
 Note: `field name` refers to fields in API messages and JSON documents.
+
+
+## Abbreviatins
+Field names may contain the following canonical abbreviations to shorten the number of bytes needed.
+
+An abbreviation may only be used as itself, or as a prefix or suffix of a field name. 
+
+The following examples describe the allowed use of abbreviations.
+
+Abbreviation    | Expanded              | Example
+---             | ---                   | ---
+`v`             | volts                 | _pack_v_, _v_
+`a`             | amps                  | _pack_a_, _a_
+`w`             | watts                 | _pack_w_, _w_
+`mj`            | volts                 | _pack_mj_, _mj_
+`t`             | temperature<br>time   | _t_zone_, _fet_t_
+
+`t` may refer to _temperature_ or _time_ but where the semantics of the field name do not remove ambiguity, _time_ should be assumed as the default. In the above examples _t_zone_ refers to _time_ and _fet_t_ refers to   _temperature_.
+
+
 
 ---
