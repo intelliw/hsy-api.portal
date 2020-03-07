@@ -48,17 +48,17 @@ Column family   | Data
 
 Every row has an `INSTANT` _column family_ which contains **monitoring** data. 
 
-- As shown all column families other than `INSTANT` contain **energy** data aggregates.
+All column families other than `INSTANT` contain **energy** data.
 
-Every row has a `MINUTE` _column family_ as each row is scoped to 1 minute. 
+Every row has a `MINUTE` _column family_ as each row is exclusively scoped to 1 minute. 
 
 - The `MINUTE` column family contains **energy** data aggregates for the minute indicated by the row id (_YYYYMMDDHHmm_).
 
-The rest of the _column families_ will be present in a row only if the date-time component of the row id (_YYYYMMDDHHmm_) coincides with the period epoch (the start of the period). 
+The rest of the _column families_ will be present in a row only if the date-time component of the row id (_YYYYMMDDHHmm_) coincides with the period epoch (the start) of the period. 
 
-- For example a row / entity with an id of **PMS-01-006#202002091500** will have _column families_ for `HOUR` and `MINUTE` as the date-time in the id (**1500**) coincides with the epoch (start) of an hour and minute period.
+- For example a row with an id of **PMS-01-006#202002091500** will have _column families_ for `HOUR` and `MINUTE` as the date-time in the id (**1500**) coincides with the epoch (start) of an hour and minute period.
 
-- Similarly a row / entity with an id of **PMS-01-006#202002090000** will have _column families_ for `DAY`, `HOUR`, and `TIMEOFDAY` as the date-time in the id (**090000**) coincides with the start of all three periods.
+- Similarly a row with an id of **PMS-01-006#202002090000** will have _column families_ for `DAY`, `HOUR`, and `TIMEOFDAY` as the date-time in the id (**090000**) coincides with the start of all three periods.
 
 
 
