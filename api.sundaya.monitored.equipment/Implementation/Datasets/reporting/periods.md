@@ -2,29 +2,33 @@
 # reporting.periods
 ---
 
-The **periods** dataset contains period-aligned tranformations of monitoring data received through the _devices/datasets_ POST API.
+The **periods** dataset contains period-aligned tranforms of monitoring data received through the _devices/datasets_ POST API.
 
-The dataset consists of the following data:
+The dataset contains the following data:
 
 - **Energy data** - period-aligned energy data aggregates.
 
 - **Monitoring data** - raw monitoring data, the same data is stored in the `analytics` OLAP repository, but replicated here in `reporting` for fast OLTP access.
 
-Storage for this dataset may be provided by either of the following technologies:
+
+
+### Repository types
+
+Storage for this dataset may be provided by either of the following repository technologies:
 
 - a Wide-column key-value repository for very high scale and performance.
 - a Document database for low cost.
 
 The equivalent schema elements and recommended value for the above repository types are shown below.
 
-Wide-column repo.       | Document db.      | Recommended Value
----                     | ---               | ---
-Instance ID             |                   | `reporting`
-Table name              |                   | `periods`
-Column Families         | Kind              | _`<period_name>`_
-Row Id                  | Ancestry          | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_
-<i></i>                 | Entity ID         | _`<device_id>#<YYYYMMDDHHmm>`_
-Column Qualifier        | Property          | _see below_
+Wide-column repo.       | Document db.              | Recommended Value
+---                     | ---                       | ---
+Instance ID             |                           | `reporting`
+Table name              |                           | `periods`
+Column Families         | Kind                      | _`<period_name>`_
+Row Id                  | Ancestry<br>Entity ID     | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_<br>_`<device_id>#<YYYYMMDDHHmm>`_
+Column Qualifier        | Property                  | _see below_
+
 
 
 ### Column families
