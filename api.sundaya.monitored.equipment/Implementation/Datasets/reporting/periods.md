@@ -72,7 +72,7 @@ Monitoring data is stored in the `INSTANT` _column family_.
 Monitoring _column qualifiers_ are different for each device type (based on `<device_type>` in the row id) as shown in the table below.
 
 
-PMS qualifiers  | MPPT qualifiers   | Inverter qualifiers
+PMS columns     | MPPT columns      | Inverter columns
 ---             | ---               | ---   
 `pms_id`<br>`sender`<br>`time_zone`<br>`time_processing`<br>`dataitem`<br>`pack_id`<br>`pack_volts`<br>`pack_amps`<br>`pack_watts`<br>`pack_vcl`<br>`pack_vch`<br>`pack_dock`<br>`pack_temp_top`<br>`pack_temp_mid`<br>`pack_temp_bottom` | `mppt_id`<br>`sender`<br>`time_zone`<br>`time_processing`<br>`dataitem`<br><br><br><br><br><br><br><br><br><br><br> | `inverter_id`<br>`sender`<br>`time_zone`<br>`time_processing`<br>`dataitem`<br><br><br><br><br><br><br><br><br><br><br>
 
@@ -93,10 +93,10 @@ The `dataitem` column contains a complete monitoring message including the cell 
 
 Energy _column qualifiers_ are closely aligned to the [Energy API response](/docs/api.sundaya.monitored.equipment/0/c/Examples/GET/energy%20GET%20example).
 
-The _columnn qualifiers_ are different for each device type (based on `<device_type>` in the row id) as shown in the table below. 
+The _columns_ are different for each device type (based on `<device_type>` in the row id) as shown in the table below. 
 
 
-PMS qualifiers  | MPPT qualifiers   | Inverter qualifiers
+PMS columns     | MPPT columns      | Inverter columns
 ---             | ---               | ---
 `pack_in_joules`<br>`pack_out_joules`<br><br><br><br><br><br><br><br><br><br><br><br><br>            | `battery_in_joules`<br>`battery_out_joules`<br>`pv_1_joules`<br>`pv_2_joules`<br>`pv_3_joules`<br>`pv_4_joules`<br>`load_1_joules`<br>`load_2_joules`<br><br><br><br><br><br><br>               | `battery_in_joules`<br>`battery_out_joules`<br>`pv_1_joules`<br>`pv_2_joules`<br>`pv_3_joules`<br>`pv_4_joules`<br>`load_1_joules`<br>`load_2_joules`<br>`grid_1_in_joules`<br>`grid_1_out_joules`<br>`grid_2_in_joules`<br>`grid_2_out_joules`<br>`grid_3_in_joules`<br>`grid_3_out_joules`
 
