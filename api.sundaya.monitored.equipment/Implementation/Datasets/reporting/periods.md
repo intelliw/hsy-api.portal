@@ -44,7 +44,7 @@ This is because the smallest aggregation period for a row is a 1 minute.
 Column family   | Data
 ---             | ---| 
 `INSTANT`       | **monitoring**
-`MINUTE`<br>`QTRHOUR`<br>`HOUR`<br>`TIMEOFDAY`<br>`DAY`<br>`WEEK`<br>`MONTH`<br>`QUARTER`<br>`YEAR`<br>`FIVEYEAR` | **energy**<br><br><br><br><br><br><br><br><br><br><br>
+`MINUTE`<br>`QTRHOUR`<br>`HOUR`<br>`TIMEOFDAY`<br>`DAY`<br>`WEEK`<br>`MONTH`<br>`QUARTER`<br>`YEAR`<br>`FIVEYEAR` | **energy**<br><br><br><br><br><br><br><br><br><br>
 
 Every row has an `INSTANT` _column family_ which contains **monitoring** data. 
 
@@ -74,7 +74,7 @@ Monitoring _column qualifiers_ are different for each device type (based on `<de
 
 PMS qualifiers  | MPPT qualifiers   | Inverter qualifiers
 ---             | ---               | ---   
-`pms_id`<br>`sender`<br>`time_zone`<br>`time_processing`<br>`dataitem`<br>`pack_id`<br>`pack_volts`<br>`pack_amps`<br>`pack_watts`<br>`pack_vcl`<br>`pack_vch`<br>`pack_dock`<br>`pack_temp_top`<br>`pack_temp_mid`<br>`pack_temp_bottom` | `mppt_id`<br>`sender`<br>`time_zone`<br>`time_processing`<br>`dataitem`<br><br><br><br><br><br><br><br><br><br> | `inverter_id`<br>`sender`<br>`time_zone`<br>`time_processing`<br>`dataitem`<br><br><br><br><br><br><br><br><br><br>
+`pms_id`<br>`sender`<br>`time_zone`<br>`time_processing`<br>`dataitem`<br>`pack_id`<br>`pack_volts`<br>`pack_amps`<br>`pack_watts`<br>`pack_vcl`<br>`pack_vch`<br>`pack_dock`<br>`pack_temp_top`<br>`pack_temp_mid`<br>`pack_temp_bottom` | `mppt_id`<br>`sender`<br>`time_zone`<br>`time_processing`<br>`dataitem`<br><br><br><br><br><br><br><br><br><br><br> | `inverter_id`<br>`sender`<br>`time_zone`<br>`time_processing`<br>`dataitem`<br><br><br><br><br><br><br><br><br><br><br>
 
 `time_event` is stored for each data element in the cell _timestamp_ property.  
 
