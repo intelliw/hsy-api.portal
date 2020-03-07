@@ -6,13 +6,13 @@ The **periods** dataset contains period-aligned tranforms of monitoring data rec
 
 The dataset contains the following data:
 
-- **Energy data** - period-aligned energy data aggregates.
+- **energy** - period-aligned energy data aggregates.
 
-- **Monitoring data** - raw monitoring data, the same data is stored in the `analytics` OLAP repository, but replicated here in `reporting` for fast OLTP access.
+- **monitoring** - raw monitoring data, the same data stored in the `analytics` OLAP repository, but replicated here in `reporting` for fast OLTP access.
 
 
 
-### Repository types
+### Repository
 
 Storage for this dataset may be provided by either of the following repository technologies:
 
