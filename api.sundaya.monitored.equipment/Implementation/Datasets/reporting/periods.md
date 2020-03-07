@@ -56,9 +56,9 @@ Every row has a `MINUTE` _column family_ as each row is exclusively scoped to 1 
 
 The rest of the _column families_ will be present in a row only if the date-time component of the row id (_YYYYMMDDHHmm_) coincides with the period epoch (the start) of the period. 
 
-- For example a row with an id of **PMS-01-006#202002091500** will have _column families_ for `HOUR` and `MINUTE` as the date-time in the id (**1500**) coincides with the epoch (start) of an hour and minute period.
+- For example a row with an id of _PMS-01-006#202002091500_ will have _column families_ for `HOUR` and `MINUTE` as the date-time in the id (**1500**) coincides with the epoch (start) of an hour and minute period.
 
-- Similarly a row with an id of **PMS-01-006#202002090000** will have _column families_ for `DAY`, `HOUR`, and `TIMEOFDAY` as the date-time in the id (**090000**) coincides with the start of all three periods.
+- Similarly a row with an id of _PMS-01-006#202002090000_ will have _column families_ for `DAY`, `HOUR`, and `TIMEOFDAY` as the date-time in the id (**090000**) coincides with the start of all three periods.
 
 
 
