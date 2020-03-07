@@ -74,7 +74,7 @@ Monitoring _column qualifiers_ are different for each device type (based on `<de
 
 PMS columns     | MPPT columns      | Inverter columns
 ---             | ---               | ---   
-`pms_id`<br>`sender`<br>`time_zone`<br>`time_processing`<br>`dataitem`<br>`pack_id`<br>`pack_volts`<br>`pack_amps`<br>`pack_watts`<br>`pack_vcl`<br>`pack_vch`<br>`pack_dock`<br>`pack_temp_top`<br>`pack_temp_mid`<br>`pack_temp_bottom` | `mppt_id`<br>`sender`<br>`time_zone`<br>`time_processing`<br>`dataitem`<br><br><br><br><br><br><br><br><br><br><br> | `inverter_id`<br>`sender`<br>`time_zone`<br>`time_processing`<br>`dataitem`<br><br><br><br><br><br><br><br><br><br><br>
+`pms_id`<br>`sender`<br>`time_zone`<br>`time_processing`<br>`dataitem`<br>`pack_id`<br>`pack_volts`<br>`pack_amps`<br>`pack_watts`<br>`pack_vcl`<br>`pack_vch`<br>`pack_dock`<br>`pack_temp_top`<br>`pack_temp_mid`<br>`pack_temp_bottom` | `mppt_id`<br>`sender`<br>`time_zone`<br>`time_processing`<br>`dataitem`<br><br><br><br><br><br><br><br><br><br><br><br> | `inverter_id`<br>`sender`<br>`time_zone`<br>`time_processing`<br>`dataitem`<br><br><br><br><br><br><br><br><br><br><br><br> | 
 
 `time_event` is stored for each data element in the cell _timestamp_ property.  
 
