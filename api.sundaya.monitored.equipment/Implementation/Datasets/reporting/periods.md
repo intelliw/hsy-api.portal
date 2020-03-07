@@ -12,6 +12,7 @@ The dataset contains the following data:
 
 
 
+
 ### Repository
 
 Storage for this dataset may be provided by either of the following repository technologies:
@@ -28,6 +29,7 @@ Table name              |                           | `periods`
 Column Families         | Kind                      | _`<period_name>`_
 Row Id<br><br>          | Ancestry<br>Entity ID     | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_<br>_`<device_id>#<YYYYMMDDHHmm>`_
 Column Qualifier        | Property                  | _see below_
+
 
 
 
@@ -65,7 +67,8 @@ The rest of the _column families_ will be present in a row only if the date-time
 
 ---
 
-### Monitoring columns
+
+### Monitoring data
 
 Monitoring data is stored in the `INSTANT` _column family_.
 
@@ -89,9 +92,10 @@ The `dataitem` column contains a complete monitoring message including the cell 
 
 ---
 
-### Energy columns
 
-Energy _column qualifiers_ are closely aligned to the [Energy API response](/docs/api.sundaya.monitored.equipment/0/c/Examples/GET/energy%20GET%20example).
+### Energy data
+
+Energy _column qualifiers_ are closely aligned to the Energy API [response](/docs/api.sundaya.monitored.equipment/0/c/Examples/GET/energy%20GET%20example).
 
 The _columns_ are different for each device type (based on `<device_type>` in the row id) as shown in the table below. 
 
