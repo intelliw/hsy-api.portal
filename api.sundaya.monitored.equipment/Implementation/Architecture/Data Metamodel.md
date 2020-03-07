@@ -26,7 +26,7 @@ Dataset | Repository | Content | Application
 
 ---
 
-### Telemetry & Status (time-series) data
+### Telemetry & Status data
 
 - **streaming** - the _streaming_ repository stores transient data for monitoring field devices in real time. 
 

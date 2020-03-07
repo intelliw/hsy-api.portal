@@ -44,9 +44,9 @@ This is because the smallest aggregation period for a row is a 1 minute.
 Column family   | Data
 ---             | ---| 
 `INSTANT`       | **monitoring**
-`MINUTE`<br>`QTRHOUR`<br>`HOUR`<br>`TIMEOFDAY`<br>`DAY`<br>`WEEK`<br>`MONTH`<br>`QUARTER`<br>`YEAR`<br>`FIVEYEAR` | **energy**
+`MINUTE`<br>`QTRHOUR`<br>`HOUR`<br>`TIMEOFDAY`<br>`DAY`<br>`WEEK`<br>`MONTH`<br>`QUARTER`<br>`YEAR`<br>`FIVEYEAR` | **energy**<br><br><br><br><br><br><br><br>
 
-Every row has an `INSTANT` _column family_ which has only **monitoring** data _columns_. 
+Every row has an `INSTANT` _column family_ which contains **monitoring** data. 
 
 - As shown all column families other than `INSTANT` contain **energy** data aggregates.
 
