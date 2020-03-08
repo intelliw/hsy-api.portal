@@ -3,13 +3,7 @@
 
 The messsaging platform implements multiple broker technologies and a common message flow framework implemented in all platform services in the cloud and on the edge. 
 
-A particular message broker can be made exclusively active through a service configuration change (and corresponding deployment of the broker). 
-
-The choice of broker will depend on cost and message volume requirements, and is expected to change for each environment as the platform evolves and more devices are brought online.
-
----
-
-### Topics
+The topics and targets are summarised below.
 
 Topic                   | Source                   | Subscription          | Description 
 ---                     | ---                      | ---                   | --- 
@@ -21,7 +15,11 @@ Topic                   | Source                   | Subscription          | Des
 
 ### Brokers and repositories
 
-The messaging framework targets the following brokers and storage repositories for the cloud and edge gateway.
+A particular message broker can be made exclusively active through a service configuration change (and corresponding deployment of the broker). 
+
+The choice of broker and repository will depend mostly on its hosting cost and message volumes, and is expected to change in each environment as the platform evolves and more devices are brought online.
+
+The messaging framework targets the following brokers and storage repositories for the cloud and edge.
 
 Class                         | Cloud                          | Edge                  | Description 
 ---                           | ---                            | ---                   | --- 
