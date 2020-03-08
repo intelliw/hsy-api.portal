@@ -27,7 +27,7 @@ The content types are also listed and described below.
 
 Dataset | Repository | Content | Application
 --- | --- | --- | ---
-[pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) | `streaming`<br>`analytics` | `telemetry`, `status` | `OI dashboard`<br>`BI dashboard`
+[pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) | `streaming`,<br>`analytics` | `telemetry`, `status` | `OI dashboard`<br>`BI dashboard`
 [device_period](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/device_period) | `reporting` | `period` | `Energy API`
 [agent_operations](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/graph/agent_operations) | `graph` | `customer`, `operations` | `Agent portal`
 [site](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/site)<br>[installation](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/installation)<br>[pms_pack](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack)<br>[source](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/source) | `reference` | `customer`, `system` |
@@ -37,7 +37,7 @@ Dataset | Repository | Content | Application
 
     1. As a complete dataset sent at a frequent interval, including unchanged data.
 
-    2. As `change-data-capture` where data is transmitted only when a change is detected.  This uses [write coalescing](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Write%20Coalescing) to compresses and reduce write traffic from edge to cloud.
+    2. As `change-data-capture` where data is transmitted only when a change is detected.  This uses [write coalescing](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Edge%20Cloud) to compresses and reduce write traffic from edge to cloud.
     
 - **status** - status information describes the state of the data collection equipment, not the business-functional environment. This information can be read/write and can also be updated, but usually not frequently.
  
