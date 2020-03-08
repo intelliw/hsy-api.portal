@@ -1,4 +1,4 @@
-# Repositories
+# Storage
 ---
 
 The platform provides multiple cloud-native repositories to support heterogenous requirements which vary for each dataset.
