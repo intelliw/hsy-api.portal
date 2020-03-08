@@ -5,7 +5,7 @@ The messsaging platform implements multiple broker technologies and a common mes
 
 The topics and targets are summarised below.
 
-Topic                   | Source                   | Subscription          | Description 
+Topic                   | Source                   | Subscription/ Target          | Description 
 ---                     | ---                      | ---                   | --- 
 `monitoring.pms`<br>`monitoring.mppt`<br>`monitoring.inverter` | [dataset/pms](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[dataset/mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[dataset/inverter](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | [analytics.pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[analytics.mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[analytics.inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) | streams monitoring data into `analytics` repository. 
 `system.feature`        | [api/features](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) | `env.active.features` | propogates feature toggle changes to each service.
@@ -23,9 +23,9 @@ The messaging framework targets the following brokers and storage repositories f
 
 Class                         | Cloud                          | Edge                  | Description 
 ---                           | ---                            | ---                   | --- 
-`Publisher`<br>`Subscriber`   | `NATS`, `PubSub`<br>`Kafka`  | `KubeMQ`<br>`Redis`   | Class wrappers for each different Message Broker. 
-`Storage`                     | `BigQuery`, `GCS`<br>`Bigtable`, `Datastore` | `Redis`<br>`Bitsy` | Class wrapper for each different Repository.
-`Producer`<br>`Consumer`      | [Pms](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post), [Mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[Inverter](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post), [Feature](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) |  | Class wrappers for each different Dataset.
+`Publisher`<br>`Subscriber`   | `NATS`, `PubSub`<br>`Kafka`  | `KubeMQ`<br>`Redis`   | Class wrappers for each different **Message Broker**. 
+`Storage`                     | `BigQuery`, `GCS`<br>`Bigtable`, `Datastore` | `Redis`<br>`Bitsy` | Class wrapper for each different **Repository**.
+`Producer`<br>`Consumer`      | [Pms](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post), [Mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[Inverter](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post), [Feature](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) |  | Class wrappers for each different **Dataset**.
 
 
 ---
