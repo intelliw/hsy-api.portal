@@ -1,9 +1,9 @@
 # Storage
 ---
 
-The platform provides multiple cloud-native repositories to support heterogenous requirements which vary for each dataset.
+The platform provides multiple cloud-native repositories to support heterogenous requirements for each dataset.
 
-The best storage solution for each dataset depends on characteristics such as cost, mutability, scale, and velocity. 
+The best storage solution depends on characteristics such as cost, mutability, scale, and velocity, and these vary for each dataset. 
 
 Similarly the content model (schema and data separability) is defined by the storage technology and the data access requirements of the intended application.
 
