@@ -78,7 +78,7 @@ folders:
       Architecture:
         ordering:
         - Platform Overview
-        - Repositories
+        - Storage
         - Messaging
         - Edge Cloud
         - Logs
