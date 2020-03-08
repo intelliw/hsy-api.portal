@@ -7,11 +7,11 @@ It provides the following features:
 
 - High availaiblity and load balancing in a small-footprint single-board compute cluster.
 
-- Rolling updates and managed CI/CD from cloud to all edge devices (_Kubernetes/K3s_).
+- Rolling updates and managed CI/CD from cloud to all edge devices (using _Kubernetes/K3s_).
 
 - Cloud services can be redeployed at the edge based on HTTPS/gRPC endpoints and lightweight message broker (see below, compared to [Cloud messaging] 
 
-- Service-mesh traffic management, certificate management, and monitoring (_Traefik_/_Containous_).
+- Service-mesh traffic management, certificate management, and monitoring (using _Traefik_/_Containous_).
 
 - Optional high-volume data collection by field staff through mobile App over BLE.
 
@@ -23,7 +23,7 @@ It provides the following features:
 
 - VPN connectivity to cloud through a secure IPSec VPN gateway.
 
-- In-memory graph database and in-memory stream processing for ML event generation (_Bitsy_/_Hazelcast_) 
+- In-memory graph database and in-memory stream processing for generating ML prediction events (using _Bitsy_/_Hazelcast_) 
 
 
 ![Edge cloud](/images/edge-cloud.png)
@@ -31,9 +31,9 @@ It provides the following features:
 
 ## Write Coalescing
 
-Write coalescing is implemented in the edge-cloud using compression techniques to simplify device logic and to reduce write traffic in the bandwidth-constrained route from edge to cloud.
+The edge-cloud implements write coalescing with compression techniques, to simplify device logic and to reduce write traffic in the bandwidth-constrained route from edge to cloud.
 
-The following describes the implementation by **devices**, **edge-cloud gateway**, and **cloud API endpoint**.
+The following describes the write coalescing implementation by **devices**, **edge-cloud gateway**, and **cloud API endpoint**.
 
 - **devices** - Devices will sample and transmit single datapoints to the edge cloud through a simple recurring schedule. 
 
