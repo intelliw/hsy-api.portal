@@ -75,13 +75,7 @@ folders:
     - Datasets
 
     folders:
-      Architecture:
-        ordering:
-        - Platform Overview
-        - Data metamodel
-        - Message Brokers
-        - Edge Cloud
-        - Logs
+
 
       Datasets:
         ordering:
