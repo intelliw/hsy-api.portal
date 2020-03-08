@@ -1,5 +1,7 @@
-# Logger Framework 
-Logger provides a wrapper over _Stackdriver_'s multiple APIs (`Logging`, `Error Reporting`, `Tracing`)
+# Logs
+---
+
+Logs are produced through the Logger framework which provides a wrapper over _Stackdriver_'s multiple APIs (`Logging`, `Error Reporting`, `Tracing`)
 
 It decouples the parts which make up the logging process and makes these independently configurable and extensible.
 - Output (`appenders`)

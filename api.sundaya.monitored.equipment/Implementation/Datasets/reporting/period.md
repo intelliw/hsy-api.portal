@@ -1,8 +1,8 @@
 
-# reporting.periods
+# reporting.period
 ---
 
-The **periods** dataset contains period-aligned tranforms of monitoring data received through the _devices/datasets_ POST API.
+The **period** dataset contains period-aligned tranforms of monitoring data received through the _devices/datasets_ POST API.
 
 The dataset contains the following data:
 

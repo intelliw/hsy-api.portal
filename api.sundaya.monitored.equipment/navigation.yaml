@@ -78,10 +78,10 @@ folders:
       Architecture:
         ordering:
         - Platform Overview
-        - Data Metamodel
-        - Message Broker
-        - Write Coalescing
-        - Logger
+        - Data metamodel
+        - Message Brokers
+        - Edge Cloud
+        - Logs
 
       Datasets:
         ordering:

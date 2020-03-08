@@ -1,20 +1,25 @@
 # Data metamodel
 ---
 
-The data metamodel below reflects the relationship between storage technologies and the content model:
+The platform provides multiple cloud-native repositories to support heterogenous requirements which vary for each dataset.
 
-- __Repository__ - The best storage solution for each dataset depends on characteristics such as cost, mutability, scale, and velocity. 
+The best storage solution for each dataset depends on characteristics such as cost, mutability, scale, and velocity. 
 
-- __Content__ - The content model (schema and data element separation) should be tailored to the storage technology, and the data access requirements of the intended applications.
+Similarly the content model (schema and data separability) is defined by the storage technology and the data access requirements of the intended application.
 
-Accordingly all data from devices are ingested and stored in three technologically differentiated repositories (**streaming**, **analytics**, **reporting**), and combined through joins with more static datasets in two secondary repositories (**reference**, **system**). 
+The data metamodel below reflects the high-level relationship between repository technologies and the content model.
+
+![Data metamodel](/images/dataset-metamodel.png)
 
 
-![Devices metamodel](/images/dataset-metamodel.png)
+---
 
-### Datasets 
 
-The following table enumerates datasets, their intended appications, and primary content, according to stereotypes from the above metamodel.
+### Content 
+
+The following table enumerates all datasets present in the solution according to stereotypes in the above metamodel, and their primary application. 
+
+The content types are also listed and described below.
 
 Dataset | Repository | Content | Application
 --- | --- | --- | ---
@@ -24,9 +29,31 @@ Dataset | Repository | Content | Application
 [site](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/site)<br>[installation](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/installation)<br>[pms_pack](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack)<br>[source](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/source) | `reference` | `customer`, `system` |
 
 
+- **telemetry** - this is the sensor data sent from devices to applications about the monitored environment. This data is read-only and is sent in one of the following methods.
+
+    1. As a complete dataset sent at a frequent interval, including unchanged data.
+
+    2. As `change-data-capture` where data is transmitted only when a change is detected.  This uses [write coalescing](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Write%20Coalescing) to compresses and reduce write traffic from edge to cloud.
+    
+- **status** - status information describes the state of the data collection equipment, not the business-functional environment. This information can be read/write and can also be updated, but usually not frequently.
+ 
+- **event** - events are produced from telemetry and status data at the edge, based on rules or predictions. Rule-based events select variables from the data according to configurable parameters. Predicted events are based on features in the data which are applied to downloaded ML models. 
+
+- **period** - period data is aligned with the epoch (starting millisecond) of categorical periods such as 'month', 'week', 'dayt' and 'timeofday'. Canonical periods are described in the [energy API](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/API%20Overview/Energy%20API) overview page.
+
+- **system** - the _system_ dataset contains configuration data for the data management platform, including data needed for security, traceability, and data provenance. 
+
+    It includes script parameters and configuration data for provisioning and commissioning devices.
+
+
 ---
 
-### Telemetry & Status data
+
+### Repositories
+
+Data from devices are ingested and stored in three technologically differentiated repositories (**streaming**, **analytics**, **reporting**), and combined through joins with relatively static (master) datasets in two secondary repositories (**reference**, **system**). 
+
+These were depicted in the model above and are described in more detail below.
 
 - **streaming** - the _streaming_ repository stores transient data for monitoring field devices in real time. 
 
@@ -51,7 +78,6 @@ Dataset | Repository | Content | Application
 
     The data is stored in a denormalised wide-column database for fast access by **API producer** services and transactional systems (OLTP).
 
-### Master (static) data
 
 - **reference** - the _reference_ dataset contains _master_ data for customers, suppliers, personnel, sites, products and services. 
 
@@ -65,23 +91,6 @@ Dataset | Repository | Content | Application
 
     _graph_ data is retrieved using graph query language in the **Sales portal** implementation.
 
-### Content
-
-- **telemetry** - this is the sensor data sent from devices to applications about the monitored environment. This data is read-only and is sent in one of the following methods.
-
-    1. As a complete dataset sent at a frequent interval, including unchanged data.
-
-    2. As `change-data-capture` where data is transmitted only when a change is detected.  This uses [write coalescing](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Write%20Coalescing) to compresses and reduce write traffic from edge to cloud.
-    
-- **status** - status information describes the state of the data collection equipment, not the business-functional environment. This information can be read/write and can also be updated, but usually not frequently.
- 
-- **event** - events are produced from telemetry and status data at the edge, based on rules or predictions. Rule-based events select variables from the data according to configurable parameters. Predicted events are based on features in the data which are applied to downloaded ML models. 
-
-- **period** - period data is aligned with the epoch (starting millisecond) of categorical periods such as 'month', 'week', 'dayt' and 'timeofday'. Canonical periods are described in the [energy API](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/API%20Overview/Energy%20API) overview page.
-
-- **system** - the _system_ dataset contains configuration data for the data management platform, including data needed for security, traceability, and data provenance. 
-
-    It includes script parameters and configuration data for provisioning and commissioning devices.
 
 ---
 
