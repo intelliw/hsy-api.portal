@@ -12,15 +12,15 @@ The choice of broker will depend on requirements such as cost and message volume
 
 ### Message flow framework
 
-The message flow framework is implemented by all paltform services, in the cloud and on the edge. 
+The message flow framework is implemented in all platform services in the cloud and on the edge. 
  
 It consists of the following classes and implementing technologies:
 
 Class wrapper                 | Cloud                    | Edge Cloud         | Description 
 ---                           | ---                      | ---                | --- 
-`Publisher`<br>`Subscriber`   | `NATS`,`PubSub`,`Kafka`  | `KubeMQ`,`Redis`  | class wrappers for each different Message Broker. 
-`Storage`                     | `BigQuery`,`Bigtable`,`Datastore`,`JanusGraph`,`GCS` | `Redis`,`Bitsy` | class wrapper for each different Repository.
-`Producer`<br>`Consumer`      | [Pms](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post), [Mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post), [Inverter](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post), [Feature](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) |  | class wrappers for each different Dataset.
+`Publisher`<br>`Subscriber`   | `NATS`<br>`PubSub`<br>`Kafka`  | `KubeMQ`<br>`Redis`  | class wrappers for each different Message Broker. 
+`Storage`                     | `BigQuery`<br>`Bigtable`<br>`Datastore`<br>`GCS` | `Redis`<br>`Bitsy` | class wrapper for each different Repository.
+`Producer`<br>`Consumer`      | [Pms](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[Mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[Inverter](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post)<br>[Feature](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) |  | class wrappers for each different Dataset.
 
 
 Messages are processed through framework based on the following sequence of interactions. 
