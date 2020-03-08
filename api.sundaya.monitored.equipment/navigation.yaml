@@ -99,7 +99,7 @@ folders:
 
           reporting:
             ordering:
-            - periods 
+            - period 
 
           graph:
             ordering:
