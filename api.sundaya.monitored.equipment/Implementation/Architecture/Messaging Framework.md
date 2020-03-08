@@ -10,6 +10,18 @@ The choice of broker will depend on requirements such as cost and message volume
 
 ---
 
+### Topics
+
+The 
+
+Topic                   | Source                   | Subscription          | Description 
+---                     | ---                      | ---                   | --- 
+`monitoring.pms`<br>`monitoring.mppt`<br>`monitoring.inverter` | [pms POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[mppt POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[inverter POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | [analytics.pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[analytics.mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[analytics.inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) | streams monitoring data into `analytics` repository. 
+`system.feature`        | [features GET](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) | `env.active.features` | propogates live feature toggle configuration changes from API host to each service.
+
+
+---
+
 ### Class model
 
 The message flow framework is implemented in all platform services in the cloud and on the edge. 
@@ -40,21 +52,6 @@ Messages are processed by the framework based on the following sequence of inter
 4. **producer** - will _transform_ the message into the application specified format for the target queue, then calls the _publish_ method on the **producer**
 
 5. **publisher** - will normalise the message into the broker specified format, then use a client library to deliver it to the Message Broker.
-
-
----
-
-
-### Topics
-
-The 
-
-Topic                   | Source                   | Subscription / Target          | Description 
----                     | ---                      | ---                   | --- 
-`monitoring.pms`        | [pms POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post) | [analytics.pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring) | streams monitoring data into `analytics` repository 
-`monitoring.mppt`       | [mppt POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post) | [analytics.mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring) | streams monitoring data into `analytics` repository 
-`monitoring.inverter`   | [inverter POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | [analytics.inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) | streams monitoring data into `analytics` repository 
-`system.feature`        | [features GET](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) | `env.active.features` | propogates live feature toggle configuration changes from API host to services through message broker.
 
 
 ---
