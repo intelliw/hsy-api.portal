@@ -79,7 +79,7 @@ folders:
         ordering:
         - Platform Overview
         - Data Metamodel
-        - Message Brokers
+        - Messaging Framework
         - Edge Cloud
         - Logs
 

@@ -1,4 +1,4 @@
-# Messaging framework
+# Messaging Framework
 ---
 
 The messsaging platform implements multiple broker technologies and a common message flow framework implemented in all services.
