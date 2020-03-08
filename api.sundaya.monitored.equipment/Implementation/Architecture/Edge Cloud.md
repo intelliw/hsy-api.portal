@@ -1,7 +1,7 @@
 # Edge Cloud
 ---
 
-The Edge cloud provides gateway for edge devices to connect and publish data to the cloud, and for managed services to be provided at the edge.
+The Edge cloud gateway allows edge devices to connect and publish data to the cloud, and for managed services to be provided at the edge.
 
 It provides the following features:
 
@@ -11,7 +11,7 @@ It provides the following features:
 
 - Cloud services can be redeployed at the edge based on HTTPS/gRPC endpoints and lightweight message broker (see below, compared to [Cloud messaging] 
 
-- Service-mesh traffic management, certificate management, and monitoring (using _Traefik_/_Containous_).
+- Service-mesh orchestratioon and traffic management, certificate management, and monitoring (using _Traefik_/_Containous_).
 
 - Optional high-volume data collection by field staff through mobile App over BLE.
 
@@ -23,7 +23,7 @@ It provides the following features:
 
 - VPN connectivity to cloud through a secure IPSec VPN gateway.
 
-- In-memory graph database and in-memory stream processing for generating ML prediction events (using _Bitsy_/_Hazelcast_) 
+- In-memory graph database and in-memory stream processing, for ML prediction events (using _Bitsy_/_Hazelcast_) 
 
 
 ![Edge cloud](/images/edge-cloud.png)
