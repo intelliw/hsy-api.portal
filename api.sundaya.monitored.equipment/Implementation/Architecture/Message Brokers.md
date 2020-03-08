@@ -10,33 +10,38 @@ The choice of broker will depend on requirements such as cost and message volume
 ![Message brokers](/images/message-broker.png)
 
 
+---
+
+
 ### Message flow framework
 
 The message flow framework is implemented in all platform services in the cloud and on the edge. 
- 
-It consists of the following classes and implementing technologies:
-
-Class wrapper                 | Cloud                    | Edge Cloud         | Description 
----                           | ---                      | ---                | --- 
-`Publisher`<br>`Subscriber`   | `NATS`<br>`PubSub`<br>`Kafka`  | `KubeMQ`<br>`Redis`  | class wrappers for each different Message Broker. 
-`Storage`                     | `BigQuery`<br>`Bigtable`<br>`Datastore`<br>`GCS` | `Redis`<br>`Bitsy` | class wrapper for each different Repository.
-`Producer`<br>`Consumer`      | [Pms](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[Mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[Inverter](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post)<br>[Feature](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) |  | class wrappers for each different Dataset.
-
 
 Messages are processed through framework based on the following sequence of interactions. 
 
-- **consumer** - instantiates a **subscriber** and provides a _listen_ endpoint for it to callback whenever there is an event.
+1. **consumer** - instantiates a **subscriber** and provides a _listen_ endpoint for it to callback whenever there is an event.
 
-- **subscriber** - receives messaging events through the Message Broker queue or API and invokes the **consumer** callback _listen_ endpoint. 
+2. **subscriber** - receives messaging events through the Message Broker queue or API and invokes the **consumer** callback _listen_ endpoint. 
 
-- **consumer** - will _validate_ and _analyse_ the incoming message, then invoke the _produce_ method on the **producer**.
+3. **consumer** - will _validate_ and _analyse_ the incoming message, then invoke the _produce_ method on the **producer**.
 
-- **producer** - will _transform_ the message into the application specified format for the target queue, then calls the _publish_ method on the **producer**
+4. **producer** - will _transform_ the message into the application specified format for the target queue, then calls the _publish_ method on the **producer**
 
-- **publisher** - will normalise the message into the broker specified format, then use a client library to deliver it to the Message Broker.
+5. **publisher** - will normalise the message into the broker specified format, then use a client library to deliver it to the Message Broker.
 
 
---- 
+
+The framwork consists of the following class wrappers for implementing technologies in the cloud and edge:
+
+Class                         | Cloud                          | Edge                  | Description 
+---                           | ---                            | ---                   | --- 
+`Publisher`<br>`Subscriber`   | `NATS`, `PubSub`<br>`Kafka`  | `KubeMQ`<br>`Redis`   | Class wrappers for each different Message Broker. 
+`Storage`                     | `BigQuery`, `GCS`<br>`Bigtable`, `Datastore` | `Redis`<br>`Bitsy` | Class wrapper for each different Repository.
+`Producer`<br>`Consumer`      | [Pms](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post), [Mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[Inverter](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post), [Feature](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) |  | Class wrappers for each different Dataset.
+
+
+---
+
 
 ### Topics
 
@@ -51,6 +56,7 @@ Topic                   | Source                   | Subscription / Target      
 
 
 ---
+
 
 ### Brokers
 
@@ -72,7 +78,7 @@ The __default__ configuration has 3 partitions and 2 replicas per topic.
 
 The following __topics__ are created at startup.
 
-  `monitoring.pms:3:2`, `monitoring.mppt:3:2`, `monitoring.inverter:3:2`
+      `monitoring.pms:3:2`, `monitoring.mppt:3:2`, `monitoring.inverter:3:2`
 
 - **kafka publishers** - With Kafka as the message broker the platform's publishers are Kafka producers. These are implemented with KafkaJS. 
 
@@ -82,11 +88,11 @@ The following __topics__ are created at startup.
 
    Each node in the producer cluster is given a unique __client id__, suffixed with a 4 digit random number:
 
-      e.g. `producer.<nnnn>`.
+      e.g. `producer.<nnnn>`
 
    The message key, which determines the partition, is the dataset id. 
 
-      e.g. `pms.id`, `mppt.id` or `inverter.id`.   
+      e.g. `pms.id`, `mppt.id` or `inverter.id`
 
 - **kafka subscribers** With Kafka as the message broker the platform's Subscribers are actually Kafka consumers. These are implemented by KafkaJS. 
 
@@ -94,7 +100,7 @@ The following __topics__ are created at startup.
 
    Each node in the consumer cluster is given a unique __client id__, suffixed with a 4 digit random number.
 
-      e.g. `consumer.<nnnn>`.
+      e.g. `consumer.<nnnn>`
 
    Each node has multiple consumer listeners, one for each of the folowing monitoring __topics__.
 
