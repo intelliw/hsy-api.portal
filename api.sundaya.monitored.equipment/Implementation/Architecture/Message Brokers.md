@@ -1,4 +1,4 @@
-# Message Brokers
+# Messaging framework
 ---
 
 The messsaging platform implements multiple broker technologies and a common message flow framework implemented in all services.
@@ -7,17 +7,29 @@ A particular message broker can be made active through a service configuration c
 
 The choice of broker will depend on requirements such as cost and message volumes, and will change for each environment as the platform evolves and more devices are brought online.
 
-![Message brokers](/images/message-broker.png)
+
+---
+
+### Class model
+
+The message flow framework is implemented in all platform services in the cloud and on the edge. 
+
+The framework consists of the following classes and message brokers in the cloud and edge:
+
+Class                         | Cloud                          | Edge                  | Description 
+---                           | ---                            | ---                   | --- 
+`Publisher`<br>`Subscriber`   | `NATS`, `PubSub`<br>`Kafka`  | `KubeMQ`<br>`Redis`   | Class wrappers for each different Message Broker. 
+`Storage`                     | `BigQuery`, `GCS`<br>`Bigtable`, `Datastore` | `Redis`<br>`Bitsy` | Class wrapper for each different Repository.
+`Producer`<br>`Consumer`      | [Pms](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post), [Mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[Inverter](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post), [Feature](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) |  | Class wrappers for each different Dataset.
 
 
 ---
 
+### Message flow
 
-### Message flow framework
+![Message brokers](/images/message-broker.png)
 
-The message flow framework is implemented in all platform services in the cloud and on the edge. 
-
-Messages are processed through framework based on the following sequence of interactions. 
+Messages are processed by the framework based on the following sequence of interactions.
 
 1. **consumer** - instantiates a **subscriber** and provides a _listen_ endpoint for it to callback whenever there is an event.
 
@@ -28,16 +40,6 @@ Messages are processed through framework based on the following sequence of inte
 4. **producer** - will _transform_ the message into the application specified format for the target queue, then calls the _publish_ method on the **producer**
 
 5. **publisher** - will normalise the message into the broker specified format, then use a client library to deliver it to the Message Broker.
-
-
-
-The framwork consists of the following class wrappers for implementing technologies in the cloud and edge:
-
-Class                         | Cloud                          | Edge                  | Description 
----                           | ---                            | ---                   | --- 
-`Publisher`<br>`Subscriber`   | `NATS`, `PubSub`<br>`Kafka`  | `KubeMQ`<br>`Redis`   | Class wrappers for each different Message Broker. 
-`Storage`                     | `BigQuery`, `GCS`<br>`Bigtable`, `Datastore` | `Redis`<br>`Bitsy` | Class wrapper for each different Repository.
-`Producer`<br>`Consumer`      | [Pms](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post), [Mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[Inverter](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post), [Feature](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) |  | Class wrappers for each different Dataset.
 
 
 ---
