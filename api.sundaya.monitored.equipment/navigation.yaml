@@ -78,7 +78,7 @@ folders:
       Architecture:
         ordering:
         - Platform Overview
-        - Data metamodel
+        - Data Metamodel
         - Message Brokers
         - Edge Cloud
         - Logs
