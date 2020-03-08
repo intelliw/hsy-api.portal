@@ -31,7 +31,7 @@ It provides the following features:
 
 ## Write Coalescing
 
-The edge-cloud implements write coalescing with compression techniques, to simplify device logic and to reduce write traffic in the bandwidth-constrained route from edge to cloud.
+The edge-cloud implements write coalescing with compression techniques, to simplify device logic and to reduce bytes transmitted in the bandwidth-constrained route from edge to cloud.
 
 The following describes the write coalescing implementation by **devices**, **edge-cloud gateway**, and **cloud API endpoint**.
 
