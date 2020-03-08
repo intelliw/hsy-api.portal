@@ -1,14 +1,14 @@
 # Logs
 ---
 
-Logs are produced through the Logger framework which provides a wrapper over _Stackdriver_'s multiple APIs (`Logging`, `Error Reporting`, `Tracing`)
+Logs are produced through the Logger framework which provides a wrapper over _Stackdriver_'s multiple APIs: `Logging`, `Error Reporting`, `Tracing`.
 
 It decouples the parts which make up the logging process and makes these independently configurable and extensible.
 - Output (`appenders`)
 - Content (`verbosity`)
 - Coverage (`statements`)
 
-The Logger is aware of which environment it is running in, and looks up configurations for the environment at startup.
+The Logger is aware of which environment it is running in, and at startup looks up configuration details for the environment in which it is running.
 
 ## configurables
 Logger configurations are stored in these artefacts:
