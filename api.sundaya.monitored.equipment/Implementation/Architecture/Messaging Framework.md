@@ -13,8 +13,8 @@ The choice of broker will depend on cost and message volume requirements, and is
 
 Topic                   | Source                   | Subscription          | Description 
 ---                     | ---                      | ---                   | --- 
-`monitoring.pms`<br>`monitoring.mppt`<br>`monitoring.inverter` | [pms-POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[mppt POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[inverter-POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | [analytics.pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[analytics.mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[analytics.inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) | streams monitoring data into `analytics` repository. 
-`system.feature`        | [features GET](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) | `env.active.features` | propogates feature toggle changes to each service.
+`monitoring.pms`<br>`monitoring.mppt`<br>`monitoring.inverter` | [dataset/pms](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[dataset/mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[dataset/inverter](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | [analytics.pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[analytics.mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[analytics.inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) | streams monitoring data into `analytics` repository. 
+`system.feature`        | [api/features](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) | `env.active.features` | propogates feature toggle changes to each service.
 
 
 ---
