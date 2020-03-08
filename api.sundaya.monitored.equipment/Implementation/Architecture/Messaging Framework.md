@@ -1,32 +1,27 @@
 # Messaging Framework
 ---
 
-The messsaging platform implements multiple broker technologies and a common message flow framework implemented in all services.
+The messsaging platform implements multiple broker technologies and a common message flow framework implemented in all platform services in the cloud and on the edge. 
 
-A particular message broker can be made active through a service configuration change (and corresponding deployment of the broker). 
+A particular message broker can be made exclusively active through a service configuration change (and corresponding deployment of the broker). 
 
-The choice of broker will depend on requirements such as cost and message volumes, and will change for each environment as the platform evolves and more devices are brought online.
-
+The choice of broker will depend on cost and message volume requirements, and is expected to change for each environment as the platform evolves and more devices are brought online.
 
 ---
 
 ### Topics
 
-The 
-
 Topic                   | Source                   | Subscription          | Description 
 ---                     | ---                      | ---                   | --- 
-`monitoring.pms`<br>`monitoring.mppt`<br>`monitoring.inverter` | [pms POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[mppt POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[inverter POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | [analytics.pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[analytics.mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[analytics.inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) | streams monitoring data into `analytics` repository. 
-`system.feature`        | [features GET](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) | `env.active.features` | propogates live feature toggle configuration changes from API host to each service.
+`monitoring.pms`<br>`monitoring.mppt`<br>`monitoring.inverter` | [pms-POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[mppt POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[inverter-POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | [analytics.pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[analytics.mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[analytics.inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) | streams monitoring data into `analytics` repository. 
+`system.feature`        | [features GET](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) | `env.active.features` | propogates feature toggle changes to each service.
 
 
 ---
 
-### Class model
+### Brokers and repositories
 
-The message flow framework is implemented in all platform services in the cloud and on the edge. 
-
-The framework consists of the following classes and message brokers in the cloud and edge:
+The messaging framework targets the following brokers and storage repositories for the cloud and edge gateway.
 
 Class                         | Cloud                          | Edge                  | Description 
 ---                           | ---                            | ---                   | --- 
