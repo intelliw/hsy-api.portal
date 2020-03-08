@@ -49,10 +49,10 @@ The
 
 Topic                   | Source                   | Subscription / Target          | Description 
 ---                     | ---                      | ---                   | --- 
-`monitoring.pms`        | [dataset/pms POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post) | [analytics.pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring) | streams monitoring data into `analytics` repository 
-`monitoring.mppt`       | [dataset/mppt POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post) | [analytics.mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring) | streams monitoring data into `analytics` repository 
-`monitoring.inverter`   | [dataset/inverter POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) [analytics.inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) | streams monitoring data into `analytics` repository 
-`system.feature`        | [api/features GET](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) env.active.features | propogates live feature toggle configuration changes from API host to services through message broker.
+`monitoring.pms`        | [pms POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post) | [analytics.pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring) | streams monitoring data into `analytics` repository 
+`monitoring.mppt`       | [mppt POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post) | [analytics.mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring) | streams monitoring data into `analytics` repository 
+`monitoring.inverter`   | [inverter POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | [analytics.inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) | streams monitoring data into `analytics` repository 
+`system.feature`        | [features GET](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) | `env.active.features` | propogates live feature toggle configuration changes from API host to services through message broker.
 
 
 ---
