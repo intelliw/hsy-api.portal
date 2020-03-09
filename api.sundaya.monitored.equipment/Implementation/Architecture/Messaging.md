@@ -1,7 +1,7 @@
 # Messaging
 ---
 
-The messsaging platform implements multiple broker technologies and a common message flow framework implemented by all platform services, both in the cloud and the edge.
+The messsaging platform leverages a message flow framework which is implemented by all platform services, and provides access to multiple broker technologies both in the cloud and the edge.
 
 ---
 
@@ -39,7 +39,7 @@ The topics and targets are summarised below. Please refer to the '**Messaging fr
 
 Class             | Source                   | Topic                 | Subscription 
 ---               | ---                      | ---                   | --- 
-`Producer`        | [dataset/pms](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[dataset/mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[dataset/inverter](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | `monitoring.pms`<br>`monitoring.mppt`<br>`monitoring.inverter` | 
+`Producer`        | [dataset/pms&nbsp;POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[dataset/mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[dataset/inverter](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | `monitoring.pms`<br>`monitoring.mppt`<br>`monitoring.inverter` | 
 `Consumer`        | [Pms](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post), [Mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[Inverter](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | <i></i> | [analytics.pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[analytics.mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[analytics.inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) |
 `Producer`        | [api/features](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) | `system.feature` | 
 `Consumer`        | [Feature](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) | <i></i> | `env.active.features`
