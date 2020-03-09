@@ -139,12 +139,14 @@ Element | Convention | Example
 
 Note: `field name` refers to fields in API messages and JSON documents.
 
+
 ## Message Broker naming conventions
 Messaging components should be named according to the following general conventions.
 - topics should be prefixed with `pub-` 
 - subscription names should be prefixed with `sub-` 
 - subscriptions for services which target storage should be named according to the target dataset.
     e.g. _sub-analytics.pms_monitoring_
+
 
 ## Abbreviations
 Field names may contain the following canonical abbreviations to shorten the number of bytes needed to transmit or store the field.
