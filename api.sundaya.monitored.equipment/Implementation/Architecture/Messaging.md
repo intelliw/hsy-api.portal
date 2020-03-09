@@ -33,15 +33,15 @@ The topics and targets are summarised below.
 
 - `Producer` and `Consumer` classes provide wrappers for each different **Dataset**.
 
-- Feature messages propogate 'feature flag' changes to each configurable service.
+- **Features** propogate 'feature flag' changes to each configurable service.
 
-- Monitoring messages stream device monitoring data into the `analytics` repository. 
+- **Monitoring** streams device monitoring messages through the API host to the `analytics` repository.
 
 
 Service                    | Source                   | Topic           | Subscription  
 ---                        | ---                      | ---             | ---
-**Monitoring Dataset**     | [dataset/pms&nbsp;POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[dataset/mppt&nbsp;POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[dataset/inverter&nbsp;POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | `monitoring.pms`<br>`monitoring.mppt`<br>`monitoring.inverter` | [analytics.pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[analytics.mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[analytics.inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) 
-**Feature Toggle**         | [api/features&nbsp;GET](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) | `system.feature` | `env.active.features` 
+**Monitoring**     | [dataset/pms&nbsp;POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[dataset/mppt&nbsp;POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[dataset/inverter&nbsp;POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | `monitoring.pms`<br>`monitoring.mppt`<br>`monitoring.inverter` | [analytics.pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[analytics.mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[analytics.inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) 
+**Features**         | [api/features&nbsp;GET](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) | `system.feature` | `env.active.features` 
 
 
 #### Publishers/Subscribers

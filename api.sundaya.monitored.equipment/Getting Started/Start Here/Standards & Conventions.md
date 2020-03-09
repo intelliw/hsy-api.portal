@@ -116,9 +116,9 @@ Code | Status | Definition
 `500` | Internal Server Error | The server encountered an unexpected condition.
 
 ## Data naming conventions
-Datasets should be named according to the following conventions.
+Dataset and repository elements should be named according to the following conventions.
 
-The following general conventions apply in all element-specific conventions.
+These general conventions apply in addition to the element-specific conventions.
 - no plurals except in dataset table names, API paths, and API field names.
 - spaces removed
 - periods and commas not allowed
@@ -139,6 +139,12 @@ Element | Convention | Example
 
 Note: `field name` refers to fields in API messages and JSON documents.
 
+## Message Broker naming conventions
+Messaging components should be named according to the following general conventions.
+- topics should be prefixed with `pub-` 
+- subscription names should be prefixed with `sub-` 
+- subscriptions for services which target storage should be named according to the target dataset.
+    e.g. _sub-analytics.pms_monitoring_
 
 ## Abbreviations
 Field names may contain the following canonical abbreviations to shorten the number of bytes needed to transmit or store the field.
