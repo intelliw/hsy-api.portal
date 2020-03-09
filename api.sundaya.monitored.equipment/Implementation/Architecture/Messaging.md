@@ -40,8 +40,8 @@ The topics and targets are summarised below.
 
 Service                    | Source                   | Topic           | Subscription  
 ---                        | ---                      | ---             | ---
-**Monitoring**     | [/pms&nbsp;POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[/mppt&nbsp;POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[/inverter&nbsp;POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | `pub-monitoring.pms`<br>`pub-monitoring.mppt`<br>`pub-monitoring.inverter` | [sub-analytics.pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[sub-analytics.mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[sub-analytics.inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) 
-**Features**         | [api/features&nbsp;GET](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) | `system.feature` | `sub-env.active.features` 
+**Monitoring**     | [/pms](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[/mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[/inverter](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | `pub-monitoring.pms`<br>`pub-monitoring.mppt`<br>`pub-monitoring.inverter` | [sub-analytics.pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[sub-analytics.mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[sub-analytics.inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) 
+**Features [api/features](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) | `system.feature` | `sub-env.active.features` 
 
 
 #### Publishers/Subscribers
