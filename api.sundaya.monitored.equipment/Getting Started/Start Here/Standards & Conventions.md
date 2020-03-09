@@ -133,7 +133,7 @@ Element | Convention | Example
 `worker instance` | cluster name and suffix with <hyphen><'w'><ordinal> | _kafka-c1-w1_
 `table name` | lowercase, **underscores** allowed | _device_period_
 `column family` | uppercase, **underscores** allowed | _ENERGY_PERIOD_
-`column&nbsp;qualifier` |  lowercase, **underscores** allowed | _timeofdayhour_, _pack_id_
+<code>column&nbsp;qualifier</code> |  lowercase, **underscores** allowed | _timeofdayhour_, _pack_id_
 `field name` | lowercase and **underscores**, or mixedcase | _time_event_, _volts_, _productCategory_
 `row id` | uppercase, **hash** allowed |_PMS#P00123#1425330757685_
 
