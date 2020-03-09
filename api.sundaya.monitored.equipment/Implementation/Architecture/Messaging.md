@@ -5,8 +5,6 @@ The messsaging platform leverages a message flow framework which is implemented 
 
 ---
 
-### Messaging framework
-
 ![Message brokers](/images/message-broker.png)
 
 Message flows are processed through the following sequence of interactions.
@@ -33,9 +31,9 @@ The topics and targets are summarised below.
 
 - `Producer` and `Consumer` classes provide wrappers for each different **Dataset**.
 
-- **Features** propogate 'feature flag' changes to each configurable service.
+- _Feature_ messages propogate 'feature flag' changes to each configurable service.
 
-- **Monitoring** streams device monitoring messages through the API host to the `analytics` repository.
+- _Monitoring__ messages stream device data through the API host to the `analytics` repository.
 
 
 Service                    | Source                   | Topic           | Subscription  
