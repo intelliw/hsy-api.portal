@@ -119,7 +119,7 @@ Code | Status | Definition
 Datasets should be named according to the following conventions.
 
 The following general conventions apply in all element-specific conventions.
-- no plurals except in dataset names, API paths, and API field names.
+- no plurals except in dataset table names, API paths, and API field names.
 - spaces removed
 - periods and commas not allowed
 - names short but meaningful
@@ -133,7 +133,7 @@ Element | Convention | Example
 `worker instance` | cluster name and suffix with <hyphen><'w'><ordinal> | _kafka-c1-w1_
 `table name` | lowercase, **underscores** allowed | _device_period_
 `column family` | uppercase, **underscores** allowed | _ENERGY_PERIOD_
-`column qualifier` |  lowercase, **underscores** allowed | _timeofdayhour_, _pack_id_
+`column`&nbsp`qualifier` |  lowercase, **underscores** allowed | _timeofdayhour_, _pack_id_
 `field name` | lowercase and **underscores**, or mixedcase | _time_event_, _volts_, _productCategory_
 `row id` | uppercase, **hash** allowed |_PMS#P00123#1425330757685_
 
@@ -147,13 +147,13 @@ An abbreviation may only be used as itself, or as a prefix or suffix of a field 
 
 The following examples describe the allowed use of abbreviations.
 
-Abbreviation    | Meaning               | Example
----             | ---                   | ---
-`v`             | volts                 | _pv_v_
-`a`             | amps                  | _pv_a_
-`w`             | watts                 | _pv_w_
-`j`, `mj`       | joules<br>megajoules  | _pack_mj_
-`t`             | temperature<br>time   | _fet_t_<br>_t_zone_, 
+Term                 | Abbreviation    | Example
+---                  | ---             | ---
+volts                | `v`             | _pv_v_
+amps                 | `a`             | _pv_a_
+watts                | `w`             | _pv_w_
+joules,<br>megajoules | `j`, `mj`       | _pack_mj_
+temperature<br>time  | `t`             | _fet_t_<br>_t_zone_, 
 
 `t` may refer to _temperature_ or _time_: in the above examples _t_zone_ refers to '_time zone_' and _fet_t_ refers to '_fet temperature_'.
 
