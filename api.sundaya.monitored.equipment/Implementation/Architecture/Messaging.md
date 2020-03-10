@@ -9,17 +9,17 @@ The messsaging platform leverages a message flow framework which is implemented 
 
 Message flows are processed through the following sequence of interactions.
 
-1. **Consumer** - instantiates a **Subscriber** and provides a _listen_ endpoint for it to callback whenever there is an event.
+1. **Consumer** - instantiates a _Subscriber_ and provides a _listen_ endpoint for it to callback whenever there is an event.
 
-2. **Subscriber** - receives messaging events through the Message Broker queue or API and invokes the **Consumer** callback _listen_ endpoint. 
+2. **Subscriber** - receives messaging events through the Message Broker queue or API and invokes the _Consumer_ callback _listen_ endpoint. 
 
-3. **Consumer** - will _validate_ and _analyse_ the incoming message, then invoke the _produce_ method on the **Producer**.
+3. **Consumer** - will _validate_ and _analyse_ the incoming message, then invoke the _produce_ method on the _Producer_.
 
-4. **Producer** - will _transform_ the message into the application-specified format for the target queue, then it calls the _write_ method on the **Storage** class. Optionally it can also call _publish_ to forward the transformed message to a new **Publisher**.
+4. **Producer** - will _transform_ the message into the application-specified format for the target queue, then it calls the _write_ method on the _Storage_ class. Optionally it can also call _publish_ to forward the transformed message to a new _Publisher_ topic.
 
-5. **Storage** - will normalise the message into the format required by the repository, and use its repository's client library to persist it in the Repository. 
+5. **Storage** - will normalise the message into the format required by the repository, and call its repository's client library to persist it in the Repository. 
 
-6. **Publisher** - if the **Producer**  had optionally re-published the mesage (in step 4) the **Publisher** will similarly use its broker's client library to deliver the transformed message to a new topic in the Message Broker.
+6. **Publisher** - if the _Producer_  had optionally re-published the mesage (in step 4) the _Publisher_ will call its broker's client library to deliver the transformed message to a new topic in the Message Broker.
 
 ---
 
