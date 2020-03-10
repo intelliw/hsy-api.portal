@@ -1,24 +1,65 @@
 # Logs
 ---
 
-Logs are produced through the Logger framework which provides a wrapper over _Stackdriver_'s multiple APIs: `Logging`, `Error Reporting`, `Tracing`.
+Logs are produced through a framework which provides statement wrappers over _Stackdriver_'s multiple APIs: `Logging`, `Error Reporting`, `Tracing`.
 
 It decouples the parts which make up the logging process and makes these independently configurable and extensible.
+
 - Output (`appenders`)
 - Content (`verbosity`)
 - Coverage (`statements`)
 
-The Logger is aware of which environment it is running in, and at startup looks up configuration details for the environment in which it is running.
+The `Logger` class associates with `Statement` classes for each statement.
+
+- Messaging
+- Data
+- Exception
+- Error
+- Trace
+
+![Logger class hierarchy](/images/logging.png)
 
 ## configurables
-Logger configurations are stored in these artefacts:
+
+The `Logger` class provides a public interface with the following helper methods for each statement type.
+
+
+```javascript
+
+        log.messaging (topic, id, messages, quantity, sender)
+
+        log.data (dataset, table, id, rows) 
+
+        log.exception (label, message, event) 
+
+        log.error (label, stacktrace) {                                 
+
+        log.trace (label, value, payload) 
+
+```
+
+
+## configurables
+
+The Logger is aware of which environment it is running in. 
+
+- At startup it looks up configuration details for the environment in which it is running.
+
+- logging configurations can be changed through [api\logging](/docs/api.sundaya.monitored.equipment/0/routes/api/logging/get)) 
+
+- configuration changes are propogated to downstream services through a [Features](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Messaging) message. 
+
+Logger configurations are held in these artefacts:
 
 - _enums.js_   -   enumerations for   `logging`, `features`
 - _env.js_     -   configurations per environment for  `logging`, `features`, `stackdriver` 
 
-The configuration groups are listerd and described below.
+The configuration groups are listed and described int he following sections.
+
+
 
 ### env.LOGGING configuration
+
 ```json
     env._LOGGING: {
             "statements": [ enums.logging.statements ],
@@ -114,20 +155,6 @@ __operational__ - feature is intended for operational use (not business logic)
 __experiment__  - feature is experimental and may be restricted by time and scope
 
 __permission__  - feature restricts access to certain users
-
-
-## class hierarchy
-`Logger` class associates with a `Statement`, which provides a supertype for each statement.
-
-The `Logger` class provides helper methods for clients to invoke each statement type.
-
-- Messaging
-- Data
-- Exception
-- Error
-- Trace
-
-![Logger class hierarchy](/images/logger.png)
 
 
 ## logging configuration

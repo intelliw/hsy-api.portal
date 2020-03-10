@@ -17,9 +17,9 @@ Message flows are processed through the following sequence of interactions.
 
 4. **Producer** - will _transform_ the message into the application-specified format for the target queue, then it calls the _write_ method on the **Storage** class. Optionally it can also call _publish_ to forward the transformed message to a new **Publisher**.
 
-5. **Storage** - will normalise the message into the format required by the repository, and call a client library to deliver it to the Repository. 
+5. **Storage** - will normalise the message into the format required by the repository, and use its repository's client library to persist it in the Repository. 
 
-6. **Publisher** - if the **Producer**  had optionally published the mesage (in step 4) the **Publisher** will similarly use its client library to deliver the transformed message to a new topic in the Message Broker.
+6. **Publisher** - if the **Producer**  had optionally re-published the mesage (in step 4) the **Publisher** will similarly use its broker's client library to deliver the transformed message to a new topic in the Message Broker.
 
 ---
 
@@ -39,7 +39,7 @@ The topics and targets are summarised below.
 Service                    | Source                   | Topic           | Subscription  
 ---                        | ---                      | ---             | ---
 **Monitoring**     | [/pms](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[/mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[/inverter](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | `pub-monitoring.pms`<br>`pub-monitoring.mppt`<br>`pub-monitoring.inverter` | [sub-analytics.pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[sub-analytics.mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[sub-analytics.inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) 
-**Features**         | [api/features](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) | `system.feature` | `sub-env.active.features` 
+**Features**         | [api/features](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get)<br>[api/logging](/docs/api.sundaya.monitored.equipment/0/routes/api/logging/get) | `system.feature` | `sub-env.active.features` 
 
 
 #### Publishers/Subscribers

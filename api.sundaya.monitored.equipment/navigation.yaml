@@ -81,7 +81,7 @@ folders:
         - Storage
         - Messaging
         - Edge Cloud
-        - Logs
+        - Logging
 
       Datasets:
         ordering:
