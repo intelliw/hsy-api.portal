@@ -31,7 +31,7 @@ The topics and targets are summarised below.
 
 - `Producer` and `Consumer` classes provide wrappers for each different **Dataset**.
 
-- _Feature_ messages propogate 'feature flag' changes to each configurable service.
+- _Feature_ messages propogate 'feature toggle' changes to each configurable service.
 
 - _Monitoring__ messages stream device data through the API host to the `analytics` repository.
 
