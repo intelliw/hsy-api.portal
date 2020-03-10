@@ -25,16 +25,21 @@ Message flows are processed through the following sequence of interactions.
 
 ### Producers/Consumers
 
-The messaging framework provides a bridge for datasets to be produced or consumed through multiple brokers and storage repositories.
+The messaging framework provides a bridge for datasets to be produced or consumed by multiple brokers and storage repositories. 
 
-The topics and targets are summarised below. 
+- `Producer` and `Consumer` classes provide wrappers for each **Dataset** 
 
-- `Producer` and `Consumer` classes provide wrappers for each different **Dataset**.
+- they invoke `Publisher` and `Subscriber` classes to initiate and complete message deliverY 
 
-- _Feature_ messages propogate 'feature toggle' changes to each configurable service.
+The source and target topics and subscriptions are summarised below:
 
-- _Monitoring__ messages stream device data through the API host to the `analytics` repository.
+- `Producer` classes pull messages from **Source** topics and deliver these to **Target** topics
 
+- `Consuemr` classes pull messages from **Target** subscriptions which originate in the **Source** topic.
+
+- **Monitoring** services stream device data through the API host to the `analytics` repository.
+
+- **Feature** services provide message flows which propogate 'feature toggle' changes to each configurable service.
 
 Service                    | Class                          | Source  Topic / Subscription  | Target Topic / Subscription  
 ---                        | ---                            | ---                         | ---    
