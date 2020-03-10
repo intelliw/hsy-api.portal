@@ -36,7 +36,7 @@ The topics and targets are summarised below.
 - _Monitoring__ messages stream device data through the API host to the `analytics` repository.
 
 
-Service                    | Class                          | Source  Topic/Subscription  | Target Topic/Subscription  
+Service                    | Class                          | Source  Topic / Subscription  | Target Topic / Subscription  
 ---                        | ---                            | ---                         | ---    
 **Monitoring**             | `Producer` | [/dataset/pms POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[/dataset/mppt POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[/dataset/inverter POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | `pub-monitoring.pms`<br>`pub-monitoring.mppt`<br>`pub-monitoring.inverter` | 
 <i></i>                    | `Consumer` | `pub-monitoring.pms`<br>`pub-monitoring.mppt`<br>`pub-monitoring.inverter` | [sub-analytics.pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[sub-analytics.mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[sub-analytics.inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring)
