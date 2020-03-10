@@ -1,4 +1,4 @@
-# Logs
+# Logging
 ---
 
 Logs are produced through a framework which provides statement wrappers over _Stackdriver_'s multiple APIs: `Logging`, `Error Reporting`, `Tracing`.
