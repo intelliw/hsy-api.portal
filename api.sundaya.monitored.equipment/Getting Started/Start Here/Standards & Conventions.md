@@ -128,9 +128,9 @@ These general conventions apply in addition to the element-specific conventions.
 Element | Convention | Example
 --- | --- | ---
 `instance id` | lowercase, **hyphens** allowed | _reporting_, _sales-portal_ 
-`cluster` | lowercase, **hyphens** allowed, suffix made with 'c-<n> | _kafka-c1_
-`master instance` | cluster name and suffix made with 'm-<n> | _kafka-c1-m1_
-`worker instance` | cluster name and suffix made with 'w-<n> | _kafka-c1-w1_
+`cluster` | lowercase, **hyphens** allowed, suffixed with '**c-**_n_' | _kafka-c1_
+`master instance` | cluster name and suffixed with '**m-**_n_' | _kafka-c1-m1_
+`worker instance` | cluster name and suffixed with '**w-**_n_' | _kafka-c1-w1_
 `table name` | lowercase, **underscores** allowed | _device_period_
 `column family` | uppercase, **underscores** allowed | _ENERGY_PERIOD_
 <code>column&nbsp;qualifier</code> |  lowercase, **underscores** allowed | _timeofdayhour_, _pack_id_
