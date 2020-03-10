@@ -115,7 +115,7 @@ Code | Status | Definition
 `415` | Unsupported Media Type | The requested Accept header type is not supported.
 `500` | Internal Server Error | The server encountered an unexpected condition.
 
-## Data naming conventions
+## Data naming
 Dataset and repository elements should be named according to the following conventions.
 
 These general conventions apply in addition to the element-specific conventions.
@@ -140,12 +140,12 @@ Element | Convention | Example
 Note: `field name` refers to fields in API messages and JSON documents.
 
 
-## Message Broker naming conventions
+## Message Broker naming
 Messaging components should be named according to the following general conventions.
-- topics should be prefixed with `pub-` 
-- subscription names should be prefixed with `sub-` 
-- subscriptions for services which target storage should be named according to the target dataset.
-    e.g. _sub-analytics.pms_monitoring_
+- topics prefixed with `pub-` 
+- subscription names prefixed with `sub-` 
+- subscriptions for storage services named after the target dataset.
+    e.g. _sub-analytics.pms_monitoring_ 
 
 
 ## Abbreviations
