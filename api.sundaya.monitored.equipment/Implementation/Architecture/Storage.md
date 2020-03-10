@@ -1,11 +1,11 @@
 # Storage
 ---
 
-Storage is provided by multiple cloud-native repositories based on the the principle of [polyglot persistance](https://martinfowler.com/bliki/PolyglotPersistence.html) and heterogenous requirements for each dataset.
+Storage is provided by multiple cloud-native repositories based on the the principle of [polyglot persistance](https://martinfowler.com/bliki/PolyglotPersistence.html) and heterogenous data mnanagement requirements for each dataset.
 
-- The best storage solution for each dataset should be based on trade-off analysis of characteristics such as cost, mutability, scale, and velocity, which vary significantly in each case. 
+- **Repository** - The best storage solution for each dataset should be based on trade-off analysis of characteristics such as cost, mutability, scale, and velocity, which vary significantly in each case. 
 
-- Similarly the content model (schema and data separability) is defined by the storage technology and its constraints on the critical data access requirements of the intended application.
+- **Contant** - Similarly the content model (schema and data separability) is defined by the storage technology and its constraints on critical data access requirements of intended applications.
 
 ---
 
