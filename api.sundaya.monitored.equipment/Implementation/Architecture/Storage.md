@@ -23,7 +23,6 @@ The data metamodel below reflects the high-level relationship between repository
 
 The following table enumerates all datasets present in the solution according to stereotypes in the above metamodel, and their primary application. 
 
-The content types are also listed and described below.
 
 Dataset | Repository | Content | Application
 --- | --- | --- | ---
@@ -31,6 +30,10 @@ Dataset | Repository | Content | Application
 [period](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/period) | `reporting` | `period` | `Energy API`
 [agent_operations](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/graph/agent_operations) | `graph` | `customer`, `operations` | `Agent portal`
 [site](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/site)<br>[installation](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/installation)<br>[pms_pack](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack)<br>[source](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/source) | `reference` | `customer`, `system` |
+
+
+
+The **Content** types are listed and described below.
 
 
 - **telemetry** - this is the sensor data sent from devices to applications about the monitored environment. This data is read-only and is sent in one of the following methods.
@@ -59,7 +62,7 @@ Data from devices are ingested and stored in three technologically differentiate
 
 These were depicted in the model above and are described in more detail below.
 
-- **monitoring** - the _streaming_ repository stores transient data for monitoring field devices in real time. 
+- **monitoring** - the _monitoring_ repository is a transient data store for streaming device data, and is used to monitor field devices in real time. 
 
     Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time. 
 
