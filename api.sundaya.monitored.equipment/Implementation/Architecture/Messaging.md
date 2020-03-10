@@ -36,10 +36,12 @@ The topics and targets are summarised below.
 - _Monitoring__ messages stream device data through the API host to the `analytics` repository.
 
 
-Service                    | Source                   | Topic           | Subscription  
----                        | ---                      | ---             | ---
-**Monitoring**     | [/pms](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[/mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[/inverter](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | `pub-monitoring.pms`<br>`pub-monitoring.mppt`<br>`pub-monitoring.inverter` | [sub-analytics.pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[sub-analytics.mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[sub-analytics.inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) 
-**Features**         | [api/features](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get)<br>[api/logging](/docs/api.sundaya.monitored.equipment/0/routes/api/logging/get) | `system.feature` | `sub-env.active.features` 
+Service                    | Class                          | Source                   | Topic / Subscription  
+---                        | ---                            | ---                      | ---    
+**Monitoring**             | `Producer` | [/pms](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[/mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[/inverter](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | `pub-monitoring.pms`<br>`pub-monitoring.mppt`<br>`pub-monitoring.inverter` | 
+<i></i>                    | `Consumer` | `pub-monitoring.pms`<br>`pub-monitoring.mppt`<br>`pub-monitoring.inverter` | [sub-analytics.pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[sub-analytics.mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[sub-analytics.inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring)
+**Features**               | `Producer` | [api/features](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get)<br>[api/logging](/docs/api.sundaya.monitored.equipment/0/routes/api/logging/get) | `system.feature` 
+<i></i>                    | `Consumer` | `system.feature` | `sub-env.active.features` 
 
 
 #### Publishers/Subscribers
