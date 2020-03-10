@@ -9,7 +9,7 @@ It decouples the parts which make up the logging process and makes these indepen
 - Content (`verbosity`)
 - Coverage (`statements`)
 
-The `Logger` class associates with `Statement` classes for each statement.
+The `Logger` class aggregates 5 `Statement` classes for each statement type, and provides these to clients through a singleton. 
 
 - Messaging
 - Data

@@ -15,10 +15,10 @@ The dataset contains the following data:
 
 ### Repository
 
-Storage for this dataset may be provided by either of the following repository technologies:
+Storage for the **Reporting** repository may be provided by one of the following technologies:
 
-- a Wide-column key-value repository for very high scale and performance.
-- a Document database for low cost.
+- Wide-column key-value repository for high scale and performance.
+- Document database for low cost.
 
 The equivalent schema elements and recommended value for the above repository types are shown below.
 
