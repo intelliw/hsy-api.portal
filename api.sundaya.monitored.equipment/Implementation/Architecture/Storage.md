@@ -27,7 +27,7 @@ The following table enumerates all datasets present in the solution according to
 Dataset | Repository | Content | Application
 --- | --- | --- | ---
 [pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring) | `monitoring`, <br>`analytics` | `telemetry`, `status` | `OI dashboard`<br>`BI dashboard`
-[period](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/period) | `reporting` | `period` | `Energy API`
+[period](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/period) | `reporting` | `telemetry`, `period` | `Energy API`
 [agent_operations](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/graph/agent_operations) | `graph` | `customer`, `operations` | `Agent portal`
 [site](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/site)<br>[installation](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/installation)<br>[pms_pack](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack)<br>[source](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/source) | `reference` | `customer`, `system` |
 
@@ -77,16 +77,16 @@ These were depicted in the model above and are described in more detail below.
     Data rows are append-only and never modified. 
 
     
-- **reporting** - the _reporting_ dataset contains aggregates of data aligned to time windows: for example energy data totals for a week.
+- **reporting** - the _reporting_ repository contains periodic aggregates of data aligned to time windows: for example energy data totals for a week.
 
-    This dataset is produced with low latency and high throughput from the streaming queue, by parallel processors. 
+    The datasets are produced with low latency and high throughput from the streaming queue, by parallel processors. 
 
     However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. The stream processors are able to align these late-arriving data with previously processed time windows.
 
     The data is stored in a denormalised wide-column database for fast access by **API producer** services and transactional systems (OLTP).
 
 
-- **reference** - the _reference_ dataset contains _master_ data for customers, suppliers, personnel, sites, products and services. 
+- **filesystem** - the _filesystem_ repository contains _rerference_ data for customers, suppliers, personnel, sites, products and services. 
 
     This dataset is expected to change very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from stand-alone systems, such as the ERP system. 
     

@@ -53,7 +53,7 @@ The choice of broker and repository will usually depend on hosting costs and mes
 Service              | Class                         | Cloud                          | Edge                  
 ---                  | ---                           | ---                            | ---                   
 **Message Broker**   | `Publisher`,<br>`Subscriber`   | `NATS`, `PubSub`,<br>`Kafka`  | `KubeMQ`,<br>`Redis`  
-**Repository**       | `Storage`                     | `BigQuery`, `GCS`,<br>`Bigtable`, `Datastore` | `Redis`,<br>`Bitsy` | 
+**Repository**       | `Storage`                     | `BigQuery`, `GCS`,<br>`Bigtable`, `Stackdriver` | `Redis`,<br>`Bitsy` | 
 
 ---
 
