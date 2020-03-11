@@ -24,7 +24,7 @@ Data is stored in five technologically differentiated repositories as depicted i
 Data is ingested and initially stored in three repositories (**monitoring**, **analytics**, **reporting**), and combined through joins with relatively static (master) data in two secondary repositories (**reference**, **system**). 
 
 The _Repository_ archetypes and their abbreviations (used in naming conventions) are listed below:
-Repository      | abbreviation  |
+Repository      | Abbreviation  | Description
 ---             | ---           | ---
 `monitoring`    | `mon`         | the _monitoring_ repository is a transient data store for streaming device data, and is used to monitor field devices in real time.<br><br>
     Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time.<br><br>
