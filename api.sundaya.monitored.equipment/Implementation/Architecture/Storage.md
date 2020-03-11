@@ -23,45 +23,14 @@ Data is stored in five technologically differentiated repositories as depicted i
 
 Data is ingested and initially stored in three repositories (**monitoring**, **analytics**, **reporting**), and combined through joins with relatively static (master) data in two secondary repositories (**reference**, **system**). 
 
-The _Repository_ archetypes and their abbreviations (used in naming conventions) are listed below:
+_Repository_ archetypes and their abbreviations (used in naming conventions) are listed below:
 Repository      | Abbreviation  | Description
 ---             | ---           | ---
 **monitoring**    | `mon`         | The _monitoring_ repository is a transient data store for streaming device data, and is used to monitor field devices in real time.<br><br>Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time.<br><br>Once received at the endpoint the raw data is logged and held in the logging subsystem, and is available for monitoring devices in the **OI dashboard**.<br><br>The data is produced by a rolling appender and purged after about 6 weeks.<br><br>
-`analytics`     | `anl`         | 
-`reporting`     | `rpt`         | 
-`nearline`      | `nl`          | 
-`graph`         | `gr`          | 
-
-
-
-- **analytics** - datasets in the _analytics_ repository track device performance over time, and enable problem tracing and trend analysis, including predictions.
-
-    Data is consumed from the streaming queue and stored in a relational format. The data may be joined with other datasets and accessed through SQL queries for anaytics (OLAP) in the **BI dashboard**.
-    
-    Data rows are append-only and never modified. 
-
-    
-- **reporting** - the _reporting_ repository contains periodic aggregates of data aligned to time windows: for example energy data totals for a week.
-
-    The datasets are produced with low latency and high throughput from the streaming queue, by parallel processors. 
-
-    However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. The stream processors are able to align these late-arriving data with previously processed time windows.
-
-    The data is stored in a denormalised wide-column database for fast access by **API producer** services and transactional systems (OLTP).
-
-
-- **nearline** - the _nearline_ repository is typically in cloud storage or a file system, and contains _rerference_ data for customers, suppliers, personnel, sites, products and services.
-
-    This dataset is expected to change very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from stand-alone systems, such as the ERP system. 
-    
-    The reference data is stored as sheets or JSON documents.
-
-- **graph** - the _graph_ dataset contains graph-like information about _customer_ and _operations_ entities and their relationships, such as the sales and service network.
-
-    The dataset is materialised from content and links held in sheets. The data is stored in the same wide-column database cluster used for **reporting** data
-
-    _graph_ data is retrieved using graph query language in the **Sales portal** implementation.
-
+`analytics`     | `anl`         | Datasets in the _analytics_ repository track device performance over time, and enable problem tracing and trend analysis, including predictions.<br><br>Data is consumed from the streaming queue and stored in a relational format. The data may be joined with other datasets and accessed through SQL queries for anaytics (OLAP) in the **BI dashboard**.<br><br>Data rows are append-only and never modified.
+`reporting`     | `rpt`         | The _reporting_ repository contains periodic aggregates of data aligned to time windows: for example energy data totals for a week.<br><br>The datasets are produced with low latency and high throughput from the streaming queue, by parallel processors.<br><br>However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. The stream processors are able to align these late-arriving data with previously processed time windows.<br><br>The data is stored in a denormalised wide-column database for fast access by **API producer** services and transactional systems (OLTP).
+`nearline`      | `nl`          | The _nearline_ repository is typically in cloud storage or a file system, and contains _rerference_ data for customers, suppliers, personnel, sites, products and services.<br><br>This dataset is expected to change very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from stand-alone systems, such as the ERP system.<br><br>The reference data is stored as sheets or JSON documents.
+`graph`         | `gr`          | The _graph_ dataset contains graph-like information about _customer_ and _operations_ entities and their relationships, such as the sales and service network.<br><br>The dataset is materialised from content and links held in sheets. The data is stored in the same wide-column database cluster used for **reporting** data.<br><br> _graph_ data is retrieved using graph query language in the **Sales portal** implementation.
 
 ---
 
