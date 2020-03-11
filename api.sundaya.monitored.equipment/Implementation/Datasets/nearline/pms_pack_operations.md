@@ -1,7 +1,7 @@
 # pms_pack_operations
 ---
 
-This dataset provides reference data for pack management systems.
+This dataset provides assembly data for packs.
 
 ---
 

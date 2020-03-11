@@ -26,8 +26,8 @@ Data is ingested and initially stored into three repositories (_monitoring_, _an
 
 _Repository_ archetypes and their abbreviated mnemonics and qualifiers (which are used in [naming conventions](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions)) are listed below:
 
-Repository          | Mnemonic                  | Qualifier     | Qualifier Name
----                 | ---                       | ---           | ---
+Repository          | Mnemonic              | Qualifiers    | Qualifier Names
+---                 | ---                   | ---           | ---
 monitoring      | `mon`                     | `std`         | _Stackdriver_
 analytics       | `any`                     | `bq`          | _BigQuery_
 reporting       | `rpt`                     | `bt`<br>`ds`  | _Bigtable_<br>_Datastore_   
@@ -50,27 +50,30 @@ _Repository_ archetypes are described in more detail below:
 
 # Content 
 
-_Content_ types and their abbreviated mnemonics and qualifiers are listed below:
+_Content_ types and their abbreviated mnemonics and qualifiers (which are used in [naming conventions](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions)) are listed below: 
 
-Content             | Menmonic          | Qualifier                     | Qualifier Name
----                 | ---               | ---                           | ---
-telemetry       | `tel`             | `pms`<br>`mppt`<br>`inv`      | _Pack Management System_<br>_Maximum Power Point Tracker_<br>_Inverter_ 
-status          | `sts`             | `dev`                         | _Device_
-event           | `evt`             | `kpi`                         | _Key Performance Indicator_
-energy          | `eng`             |                               |     
-system          | `sys`             |                               |    
+Content         | Menmonic          | Qualifiers                    | Dataset Names                 | Qualifier Names
+---             | ---               | ---                           | ---                           | ---
+telemetry       | `tel`             | `pms`<br>`mppt`<br>`inv`      | `pms_tel`<br>`mppt_tel`<br>`inv_tel`  | _Pack Management System_<br>_Maximum Power Point Tracker_<br>_Inverter_ 
+status          | `sts`             |                               |                       | _Device_
+event           | `evt`             | `kpi`                         |                       | _Key Performance Indicator_
+energy          | `eng`             | `period`                      | `period_eng`          | _Energy Period_    
+device          | `dev`             |                               |                       | 
+system          | `sys`             | `data_src`<br>`env_config`    | `sys_data_src`<br>`sys_env_config`    | _Data Source_<br>_Environment Configurations_ 
+operations      | `ops`             | `install`<br>`pack_assebly`<br>`agent`   | `ops_install`<br>`ops_pack_assebly`<br>`ops_agent`   | _Installations_<br>_Pack Assembly<br>_Agent Operations_
+customer        | `cust`            | `site`<br>                    | `cust_site`           | _Customer Site_<br> 
 
 _Content_ types are described in more detail below:
 
-- **telemetry** - _telemetry_ data consists of sensor data about the monitored devices and environment. The data is read-only/ append-only. The data is sent in one of the following methods<br><br>1. As a complete dataset sent at a frequent interval, including unchanged data.<br>2. As a partial dataset for _change-data-capture_, and data transmission only when a change is detected.<br><br>_telemetry_ data is processed using [write coalescing](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Edge%20Cloud) to compresses and reduce write traffic from edge to cloud.<br>
+- **telemetry** - consists of sensor data about the monitored devices and environment. The data is read-only/ append-only. The data is sent in one of the following methods<br><br>1. As a complete dataset sent at a frequent interval, including unchanged data.<br>2. As a partial dataset for _change-data-capture_, and data transmission only when a change is detected.<br><br>_telemetry_ data is processed using [write coalescing](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Edge%20Cloud) to compresses and reduce write traffic from edge to cloud.<br>
 
-- **status** - _status_ data describes the state of the monitoring equipment, not the business-functional data and environment. The data is read-only /append-only.<br>
+- **status** - describes the state of the monitoring equipment, not the business-functional data and environment.<br><br>The data is read-only /append-only.<br>
 
-- **event** - _event_ data is produced from telemetry and status data at the edge or in the cloud, based on rules and ML predictions.<br><br>Updateable configurations are used to select variables (features) which are impacted during data collection by rules to generate events.<br>
+- **event** - _event_ data is produced from _telemetry_ and _status_ data at the edge or in the cloud, based on rules and ML predictions.<br><br>Updateable configurations are sent to edge devices to select variables (features) and provide trained models, which are then impacted during data collection to generate events.<br>
 
-- **energy** - _energy_ data contains _telemetry_ energy aggregates which are aligned with an epoch (starting millisecond) of a categorical period such as 'month', 'week', 'day' and 'timeofday'.<br><br>Canonical periods are described in the [energy API](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/API%20Overview/Energy%20API) overview page.<br>
+- **energy** - consists of energy aggregates for _telemetry_ data.<br><br>The data is aligned with an epoch (starting millisecond) of a categorical period such as 'month', 'week', 'day' and 'timeofday'.<br><br>Canonical periods are described in the [energy API](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/API%20Overview/Energy%20API) overview page.<br>
 
-- **system** - The _system_ dataset contains configuration data for the platform, including parameters needed for security, traceability, and data provenance. It includes script parameters and configuration data for provisioning and commissioning devices.
+- **system** - contains configuration data for the platform, including parameters needed for security, traceability, and data provenance. It includes script parameters and configuration data for provisioning and commissioning devices.
 
 ---
 
@@ -83,7 +86,7 @@ Dataset | Repository | Content | Application
 [pms_telemetry](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_telemetry)<br>[mppt_telemetry](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_telemetry)<br>[inverter_telemetry](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_telemetry) | `monitoring`, <br>`analytics` | `telemetry`, `status` | `OI dashboard`<br>`BI dashboard`
 [period](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/period) | `reporting` | `energy`, `telemetry` | `Energy API`
 [agent_operations](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/graph/agent_operations) | `graph` | `customer`, `operations` | `Agent portal`
-[site](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/site)<br>[installation](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/installation)<br>[pms_pack](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/system/pms_pack)<br>[source](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reference/source) | `reference` | `customer`, `system` |
+[site_customer](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/nearline/site_customer)<br>[installation_operations](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/nearline/installation_operations)<br>[pms_pack_](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/nearline/pms_pack)<br>[source](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/nearline/source) | `reference` | `customer`, `system` |
 
 ---
 
