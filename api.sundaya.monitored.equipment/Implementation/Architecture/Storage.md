@@ -26,7 +26,7 @@ Data is ingested and initially stored into three repositories (_monitoring_, _an
 
 _Repository_ archetypes and their abbreviated menmonics and qualifiers (which are used in [naming conventions](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions)) are listed below:
 
-Repository          | Mnemonic      | Qualifier     | Description
+Repository          | Mnemonic      | Qualifier     | Qualifier Name
 ---                 | ---           | ---           | ---
 _monitoring_        | `mon`         | `std`         | _Stackdriver_
 _analytics_         | `any`         | `bq`          | _BigQuery_
@@ -51,12 +51,12 @@ _graph_             | `gr`          | `jg`<br>`fs`  | _JanusGraph_<br>_Firestore
 
 _Content_ types and their abbreviated menmonics and qualifiers are listed below:
 
-Content type        | Mnemonic      | Qualifier                     | Description
+Content type        | Mnemonic      | Qualifier                     | Qualifier Name
 ---                 | ---           | ---                           | ---
-_telemetry_         | `tel`         | `pms`<br>`mppt`<br>`inverter` |
-_status_            | `sts`         | `dev`                         |
-_event_             | `evt`         | `kpi`                         |
-_energy_            | `eng`         |                               |    
+_telemetry_         | `tel`         | `pms`<br>`mppt`<br>`inv`      | _Pack Management System_<br>_Maximum Power Point Tracker_<br>_Inverter_ 
+_status_            | `sts`         | `dev`                         | _Device_
+_event_             | `evt`         | `kpi`                         | _Key Performance Indicator_
+_energy_            | `eng`         |                               |     
 _system_            | `sys`         |                               |    
 
 
