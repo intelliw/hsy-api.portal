@@ -1,19 +1,69 @@
 # Storage
----
+
 
 Storage is provided by multiple cloud-native repositories based on the the principle of [polyglot persistance](https://martinfowler.com/bliki/PolyglotPersistence.html) and heterogenous data mnanagement requirements for each dataset.
 
+---
+
+#### Data metamodel
+
+The data metamodel defines high-level relationships between repository technologies and the content model.
+
+![Data metamodel](/images/dataset-metamodel.png)
+
 - **Repository** - The best storage solution for each dataset should be based on trade-offs in characteristics such as cost, mutability, scale, and velocity, which vary significantly in each case. 
 
-- **Contant** - Similarly the content model (schema and data separability) is defined by the storage technology and its constraints on critical data access requirements of intended applications.
+- **Content** - Similarly the content model (schema and data separability) is defined by the storage technology and its constraints on critical data access requirements of intended applications.
 
 ---
 
-### Data metamodel
+# Repositories
 
-The data metamodel below reflects the high-level relationship between repository technologies and the content model.
+Data is stored in five technologically differentiated repositories as depicted in the model above.
 
-![Data metamodel](/images/dataset-metamodel.png)
+Data is ingested and initially stored in three repositories (**monitoring**, **analytics**, **reporting**), and combined through joins with relatively static (master) data in two secondary repositories (**reference**, **system**). 
+
+The _Repository_ archetypes and their abbreviations (used in naming conventions) are listed below:
+Repository      | abbreviation  |
+---             | ---           | ---
+`monitoring`    | `mon`         | the _monitoring_ repository is a transient data store for streaming device data, and is used to monitor field devices in real time.<br><br>
+    Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time.<br><br>
+    Once received at the endpoint the raw data is logged and held in the logging subsystem, and is available for monitoring devices in the **OI dashboard**.<br><br>    
+    The data is produced by a rolling appender and purged after about 6 weeks.<br><br>
+`analytics`     | `anl`         | 
+`reporting`     | `rpt`         | 
+`nearline`      | `nl`          | 
+`graph`         | `gr`          | 
+
+
+
+- **analytics** - datasets in the _analytics_ repository track device performance over time, and enable problem tracing and trend analysis, including predictions.
+
+    Data is consumed from the streaming queue and stored in a relational format. The data may be joined with other datasets and accessed through SQL queries for anaytics (OLAP) in the **BI dashboard**.
+    
+    Data rows are append-only and never modified. 
+
+    
+- **reporting** - the _reporting_ repository contains periodic aggregates of data aligned to time windows: for example energy data totals for a week.
+
+    The datasets are produced with low latency and high throughput from the streaming queue, by parallel processors. 
+
+    However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. The stream processors are able to align these late-arriving data with previously processed time windows.
+
+    The data is stored in a denormalised wide-column database for fast access by **API producer** services and transactional systems (OLTP).
+
+
+- **nearline** - the _nearline_ repository is typically in cloud storage or a file system, and contains _rerference_ data for customers, suppliers, personnel, sites, products and services.
+
+    This dataset is expected to change very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from stand-alone systems, such as the ERP system. 
+    
+    The reference data is stored as sheets or JSON documents.
+
+- **graph** - the _graph_ dataset contains graph-like information about _customer_ and _operations_ entities and their relationships, such as the sales and service network.
+
+    The dataset is materialised from content and links held in sheets. The data is stored in the same wide-column database cluster used for **reporting** data
+
+    _graph_ data is retrieved using graph query language in the **Sales portal** implementation.
 
 
 ---
@@ -56,47 +106,6 @@ The **Content** types are listed and described below.
 ---
 
 
-### Repositories
-
-Data from devices are ingested and stored in three technologically differentiated repositories (**monitoring**, **analytics**, **reporting**), and combined through joins with relatively static (master) datasets in two secondary repositories (**reference**, **system**). 
-
-These were depicted in the model above and are described in more detail below.
-
-- **monitoring** - the _monitoring_ repository is a transient data store for streaming device data, and is used to monitor field devices in real time. 
-
-    Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time. 
-
-    Once received at the endpoint the raw data is logged and held in the logging subsystem, and is available for monitoring devices in the **OI dashboard**.
-    
-    The data is produced by a rolling appender and purged after about 6 weeks. 
-
-- **analytics** - datasets in the _analytics_ repository track device performance over time, and enable problem tracing and trend analysis, including predictions.
-
-    Data is consumed from the streaming queue and stored in a relational format. The data may be joined with other datasets and accessed through SQL queries for anaytics (OLAP) in the **BI dashboard**.
-    
-    Data rows are append-only and never modified. 
-
-    
-- **reporting** - the _reporting_ repository contains periodic aggregates of data aligned to time windows: for example energy data totals for a week.
-
-    The datasets are produced with low latency and high throughput from the streaming queue, by parallel processors. 
-
-    However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. The stream processors are able to align these late-arriving data with previously processed time windows.
-
-    The data is stored in a denormalised wide-column database for fast access by **API producer** services and transactional systems (OLTP).
-
-
-- **filesystem** - the _filesystem_ repository contains _rerference_ data for customers, suppliers, personnel, sites, products and services. 
-
-    This dataset is expected to change very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from stand-alone systems, such as the ERP system. 
-    
-    The reference data is stored as sheets or JSON in a document database.
-
-- **graph** - the _graph_ dataset contains graph-like information about _customer_ and _operations_ entities and their relationships, such as the sales and service network.
-
-    The dataset is materialised from content and links held in sheets. The data is stored in the same wide-column database cluster used for **reporting** data
-
-    _graph_ data is retrieved using graph query language in the **Sales portal** implementation.
 
 
 ---
