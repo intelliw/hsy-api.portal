@@ -1,4 +1,4 @@
-# analytics.pms_telemetry
+# pms_telemetry
 ---
 
 ### API Consumer message ('monitoring.pms')

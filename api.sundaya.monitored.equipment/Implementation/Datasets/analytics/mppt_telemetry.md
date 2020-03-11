@@ -1,4 +1,4 @@
-# analytics.mppt_telemetry
+# mppt_telemetry
 ---
 
 ### API Consumer message ('monitoring.mppt')
