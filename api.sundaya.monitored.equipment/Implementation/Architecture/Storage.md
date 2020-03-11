@@ -26,7 +26,7 @@ Data is ingested and initially stored into three repositories (_monitoring_, _an
 
 _Repository_ archetypes and their abbreviated menmonics and qualifiers (which are used in [naming conventions](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions)) are listed below:
 
-Repository          | Mnemonic      | Qualifier     | Qualifier Name
+Repository-         | -Mnemonic      | Qualifier-     | -Name
 ---                 | ---           | ---           | ---
 **monitoring**      | `mon`         | `std`         | _Stackdriver_
 **analytics**       | `any`         | `bq`          | _BigQuery_
