@@ -27,7 +27,6 @@ Data is ingested and initially stored into three repositories (_monitoring_, _an
 _Repository_ archetypes and their abbreviations (which are used in [naming conventions](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions)) are listed below:
 
 Repository          | Abbreviation  | Description
-
 ---                 | ---           | ---
 _monitoring_        | `mon`         | The _monitoring_ repository is a transient data store for streaming device data, and is used to monitor field devices in real time.<br><br>Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time.<br><br>Once received at the endpoint the raw data is logged and held in the logging subsystem, and is available for monitoring devices in the **OI dashboard**.<br><br>The data is produced by a rolling appender and purged after about 6 weeks.<br><br>
 _analytics_         | `any`         | Datasets in the _analytics_ repository track device performance over time, and enable problem tracing and trend analysis, including predictions.<br><br>Data is consumed from the streaming queue and stored in a relational format. The data may be joined with other datasets and accessed through SQL queries for anaytics (OLAP) in the **BI dashboard**.<br><br>Data rows are append-only and never modified.
@@ -44,7 +43,6 @@ _Content_ types and their abbreviations are listed below:
 
 
 Content         | Abbreviation  | Description
-
 ---             | ---           | ---
 _telemetry_     | `tel`         | _telemetry_ consists of sensor data about monitored environment sent from devices to applications. The data is read-only /append-only. The data is sent in one of the following methods<br><br>1. As a complete dataset sent at a frequent interval, including unchanged data.<br><br>2. As a partial dataset for _change-data-capture_, and data transmission only when a change is detected.<br><br>_telementry_ data is processed using [write coalescing](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Edge%20Cloud) to compresses and reduce write traffic from edge to cloud.    
 _status_        | `sts`         | _status_ data describes the state of the monitoring equipment, not the business-functional data and environment.<br><br>The data is read-only /append-only.
