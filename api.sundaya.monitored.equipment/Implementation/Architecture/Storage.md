@@ -24,32 +24,41 @@ Data is stored in five technologically differentiated repositories as depicted i
 
 Data is ingested and initially stored into three repositories (_monitoring_, _analytics_, _reporting_), and combined through joins with relatively static (master) data in two secondary repositories (_reference_, _system_). 
 
-_Repository_ archetypes and their abbreviations (which are used in [naming conventions](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions)) are listed below:
+_Repository_ archetypes and their abbreviated menmonics and qualifiers (which are used in [naming conventions](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions)) are listed below:
 
-Repository          | Abbreviation  | Description
----                 | ---           | ---
-_monitoring_        | `mon`         | The _monitoring_ repository is a transient data store for streaming device data, and is used to monitor field devices in real time.<br><br>Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time.<br><br>Once received at the endpoint the raw data is logged and held in the logging subsystem, and is available for monitoring devices in the **OI dashboard**.<br><br>The data is produced by a rolling appender and purged after about 6 weeks.<br><br>
-_analytics_         | `any`         | Datasets in the _analytics_ repository track device performance over time, and enable problem tracing and trend analysis, including predictions.<br><br>Data is consumed from the streaming queue and stored in a relational format. The data may be joined with other datasets and accessed through SQL queries for anaytics (OLAP) in the **BI dashboard**.<br><br>Data rows are append-only and never modified.
-_reporting_         | `rpt`         | The _reporting_ repository contains periodic aggregates of data aligned to time windows: for example energy data totals for a week.<br><br>The datasets are produced with low latency and high throughput from the streaming queue, by parallel processors.<br><br>However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. The stream processors are able to align these late-arriving data with previously processed time windows.<br><br>The data is stored in a denormalised wide-column database for fast access by **API** and other application services and transactional systems (OLTP).
-_nearline_          | `nl`          | The _nearline_ data is typically held in cloud storage or other file system, and contains _rerference_ data for customers, suppliers, personnel, sites, products and services.<br><br>This dataset is expected to change very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from stand-alone systems, such as the ERP system.<br><br>The reference data is stored as sheets or JSON documents.
-_graph_             | `gr`          | The _graph_ dataset contains graph-like information about _customer_ and _operations_ entities and their relationships, such as the sales and service network.<br><br>The dataset is materialised from content and links held in sheets. The data is stored in the same wide-column database cluster used for _reporting_ data.<br><br> _graph_ data is retrieved using graph query language in the **Sales portal** implementation.
+Repository          | Mnemonic      | Qualifier     | Description
+---                 | ---           | ---           | ---
+_monitoring_        | `mon`         | `std`         | _Stackdriver_
+_analytics_         | `any`         | `bq`          | _BigQuery_
+_reporting_         | `rpt`         | `bt`<br>`ds`  | _Bigtable_<br>_Datastore_   
+_nearline_          | `nl`          | `gcs`         | _Google Cloud Storage_
+_graph_             | `gr`          | `jg`<br>`fs`  | _JanusGraph_<br>_Firestore_
 
+- _monitoring_ - The _monitoring_ repository is a transient data store for streaming device data, and is used to monitor field devices in real time.<br><br>Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time.<br><br>Once received at the endpoint the raw data is logged and held in the logging subsystem, and is available for monitoring devices in the **OI dashboard**.<br><br>The data is produced by a rolling appender and purged after about 6 weeks.<br><br>
+_analytics_ - Datasets in the _analytics_ repository track device performance over time, and enable problem tracing and trend analysis, including predictions.<br><br>Data is consumed from the streaming queue and stored in a relational format. The data may be joined with other datasets and accessed through SQL queries for anaytics (OLAP) in the **BI dashboard**.<br><br>Data rows are append-only and never modified.
+_reporting_ - The _reporting_ repository contains periodic aggregates of data aligned to time windows: for example energy data totals for a week.<br><br>The datasets are produced with low latency and high throughput from the streaming queue, by parallel processors.<br><br>However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. The stream processors are able to align these late-arriving data with previously processed time windows.<br><br>The data is stored in a denormalised wide-column database for fast access by **API** and other application services and transactional systems (OLTP).
+_nearline_ - The _nearline_ data is typically held in cloud storage or other file system, and contains _rerference_ data for customers, suppliers, personnel, sites, products and services.<br><br>This dataset is expected to change very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from stand-alone systems, such as the ERP system.<br><br>The reference data is stored as sheets or JSON documents.
+_graph_ - The _graph_ dataset contains graph-like information about _customer_ and _operations_ entities and their relationships, such as the sales and service network.<br><br>The dataset is materialised from content and links held in sheets. The data is stored in the same wide-column database cluster used for _reporting_ data.<br><br> _graph_ data is retrieved using graph query language in the **Sales portal** implementation.
 
 ---
 
 # Content 
 
-_Content_ types and their abbreviations are listed below:
+_Content_ types and their abbreviated menmonics and qualifiers are listed below:
 
+Content type        | Mnemonic      | Qualifier                     | Description
+---                 | ---           | ---                           | ---
+_telemetry_         | `tel`         | `pms`<br>`mppt`<br>`inverter` |
+_status_            | `sts`         | `dev`                         |
+_event_             | `evt`         | `kpi`                         |
+_energy_            | `eng`         |                               |    
+_system_            | `sys`         |                               |    
 
-Content         | Abbreviation  | Description
----             | ---           | ---
-_telemetry_     | `tel`         | _telemetry_ consists of sensor data about monitored environment sent from devices to applications. The data is read-only /append-only. The data is sent in one of the following methods<br><br>1. As a complete dataset sent at a frequent interval, including unchanged data.<br><br>2. As a partial dataset for _change-data-capture_, and data transmission only when a change is detected.<br><br>_telementry_ data is processed using [write coalescing](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Edge%20Cloud) to compresses and reduce write traffic from edge to cloud.    
-_status_        | `sts`         | _status_ data describes the state of the monitoring equipment, not the business-functional data and environment.<br><br>The data is read-only /append-only.
-_event_         | `evt`         | _event_ data is produced from telemetry and status data at the edge or in the cloud, based on rules and ML predictions.<br><br>Updateable configurations are used to select variables (features) which are impacted during data collection by rules to generate events.
-_energy_        | `egy`         | _energy_ data contains _telemetry_ energy aggregates which are aligned with an epoch (starting millisecond) of a categorical period such as 'month', 'week', 'day' and 'timeofday'.<br><br>Canonical periods are described in the [energy API](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/API%20Overview/Energy%20API) overview page.
-_system_        | `sys`         | The _system_ dataset contains configuration data for the platform, including paramters needed for security, traceability, and data provenance.<br><br>It includes script parameters and configuration data for provisioning and commissioning devices.
-
+- _telemetry_ - _telemetry_ data consists of sensor data about the monitored devices and environment. The data is read-only/ append-only. The data is sent in one of the following methods<br><br>1. As a complete dataset sent at a frequent interval, including unchanged data.<br><br>2. As a partial dataset for _change-data-capture_, and data transmission only when a change is detected.<br><br>_telementry_ data is processed using [write coalescing](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Edge%20Cloud) to compresses and reduce write traffic from edge to cloud.    
+- _status_ - _status_ data describes the state of the monitoring equipment, not the business-functional data and environment.<br><br>The data is read-only /append-only.
+- _event_ - _event_ data is produced from telemetry and status data at the edge or in the cloud, based on rules and ML predictions.<br><br>Updateable configurations are used to select variables (features) which are impacted during data collection by rules to generate events.
+- _energy_ - _energy_ data contains _telemetry_ energy aggregates which are aligned with an epoch (starting millisecond) of a categorical period such as 'month', 'week', 'day' and 'timeofday'.<br><br>Canonical periods are described in the [energy API](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/API%20Overview/Energy%20API) overview page.
+- _system_ - The _system_ dataset contains configuration data for the platform, including paramters needed for security, traceability, and data provenance.<br><br>It includes script parameters and configuration data for provisioning and commissioning devices.
 ---
 
 # Datasets 
