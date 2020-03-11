@@ -17,7 +17,7 @@ Messages are processed by the following sequence of interactions.
 
 4. **Producer** - will _transform_ the message into the application-specified format for the target queue, then it calls the _write_ method on the _Storage_ class. Optionally it can also call _publish_ to forward the transformed message to a new _Publisher_ topic.
 
-5. **Writer** - will normalise the message into the format required by the repository, and call its repository's client library to persist it in the Repository. 
+5. **Writer** - will normalise the message into the repository syntax and call the client library to store it in the Repository. 
 
 6. **Publisher** - if the _Producer_  had optionally re-published the mesage (in step 4) the _Publisher_ will call its broker's client library to deliver the transformed message to a new topic in the Message Broker.
 
@@ -35,7 +35,7 @@ The source and target topics and subscriptions are summarised below:
 
 - `Producer` classes pull messages from **Source** topics and deliver these to **Target** topics
 
-- `Consuemr` classes pull messages from **Target** subscriptions which originate in the **Source** topic.
+- `Consumer` classes pull messages from **Target** subscriptions which originate in the **Source** topic.
 
 - **Monitoring** services stream device data through the API host to the `analytics` repository.
 
@@ -55,10 +55,10 @@ A particular message broker can be made exclusively active through a service con
 
 The choice of broker and repository will usually depend on hosting costs and messaging volumes. As expected these requirements and the choice of broker will change in each environment as the platform evolves and the number of connected devices increases.
 
-Service              | Class                         | Cloud                          | Edge                  
+<i></i>              | Class                         | Cloud                          | Edge                  
 ---                  | ---                           | ---                            | ---                   
-**Message Broker**   | `Publisher`,<br>`Subscriber`   | `NATS`, `PubSub`,<br>`Kafka`  | `KubeMQ`,<br>`Redis`  
-**Repository**       | `Writer`                     | `BigQuery`, `GCS`,<br>`Bigtable`, `Stackdriver` | `Redis`,<br>`Bitsy` | 
+**Message Brokers**  | `Publisher`,<br>`Subscriber`   | `NATS`, `PubSub`,<br>`Kafka`  | `KubeMQ`,<br>`Redis`  
+**Repositories**     | `Writer`                     | `BigQuery`, `GCS`,<br>`Bigtable`, `Stackdriver` | `Redis`,<br>`Bitsy` | 
 
 ---
 

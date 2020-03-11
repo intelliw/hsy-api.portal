@@ -14,6 +14,9 @@ Other projects share the configuration data through symlinks to the `api-host` p
 
 This sections describes configuration details for [Logging](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Logging). 
 
+
+#### enumerations
+
 Configurable values for Logging are constrained by the folowing Enumerations for logging and error reporting in `enums.js`.
 
 ```json
@@ -116,9 +119,11 @@ This minimises the cost to performance from disabled statements (the 'cost of no
 
 ---
 
-## Features
+# Features
 
 This sections describes configuration details for [Features](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Messaging) message. 
+
+#### enumerations
 
 Configurable flags for Features are constrained by the folowing Enumerations for feature toggles in `enums.js`.
 
