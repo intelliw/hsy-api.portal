@@ -26,10 +26,7 @@ Data is ingested and initially stored in three repositories (**monitoring**, **a
 The _Repository_ archetypes and their abbreviations (used in naming conventions) are listed below:
 Repository      | Abbreviation  | Description
 ---             | ---           | ---
-`monitoring`    | `mon`         | the _monitoring_ repository is a transient data store for streaming device data, and is used to monitor field devices in real time.<br><br>
-    Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time.<br><br>
-    Once received at the endpoint the raw data is logged and held in the logging subsystem, and is available for monitoring devices in the **OI dashboard**.<br><br>    
-    The data is produced by a rolling appender and purged after about 6 weeks.<br><br>
+**monitoring**    | `mon`         | The _monitoring_ repository is a transient data store for streaming device data, and is used to monitor field devices in real time.<br><br>Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time.<br><br>Once received at the endpoint the raw data is logged and held in the logging subsystem, and is available for monitoring devices in the **OI dashboard**.<br><br>The data is produced by a rolling appender and purged after about 6 weeks.<br><br>
 `analytics`     | `anl`         | 
 `reporting`     | `rpt`         | 
 `nearline`      | `nl`          | 
