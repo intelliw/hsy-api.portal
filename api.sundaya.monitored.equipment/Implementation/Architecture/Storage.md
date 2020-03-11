@@ -20,9 +20,11 @@ The data metamodel defines high-level relationships between _Repository_ technol
 
 # Repositories
 
-Data is stored in five technologically differentiated repositories as depicted in the metamodel above.
+Data is stored in five technologically differentiated repositories which (depicted in the metamodel above).
 
-Data is ingested and initially stored into three repositories (_monitoring_, _analytics_, _reporting_), and combined through joins with relatively static (master) data in two secondary repositories (_reference_, _system_). 
+- The primary datasets are ingested, transformed, and stored in four repositories (_monitoring_, _analytics_, _reporting_, _graph_).
+
+- Secondary datasets provide relatively static (master) data and are stored in the _nearline_ repository, for combining as external tables through joins.
 
 _Repository_ archetypes and their abbreviated mnemonics and qualifiers are used to name storage **Services**, according to [naming conventions](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions). These are listed below:
 
@@ -52,7 +54,7 @@ _Repository_ archetypes are described in more detail below:
 
 _Content_ types and their abbreviated mnemonics are used to name **Datasets**, according to [naming conventions](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions). These are listed below: 
 
-Content         | Menmonic          | Datasets                      | Dataset Names
+Content         | Mnemonic          | Datasets                      | Dataset Names
 ---             | ---               | ---                           | ---
 telemetry       | `tel`             | `tel_pms`<br>`tel_mppt`<br>`tel_inv`  | _PMS Telemetry_<br>_MPPT Telemetry_<br>_Inverter Telemetry_ 
 status          | `sts`             |                               | 
@@ -61,7 +63,7 @@ energy          | `eng`             | `eng_period`                  | _Energy Pe
 device          | `dev`             |                               | 
 system          | `sys`             | `sys_data_src`<br>`sys_env_config`    | _Data Sources_<br>_Environment Configurations_ 
 operations      | `ops`             | `ops_install`<br>`ops_pack_assembly`<br>`ops_agent`   | _Installations_<br>_Pack Assemblies_<br>_Agent Operations_
-customer        | `cust`            | `cust_site`                   | _Customer Site_<br> 
+customer        | `cust`            | `cust_site`                   | _Customer Sites_<br> 
 
 _Content_ types are described in more detail below:
 
@@ -79,7 +81,7 @@ _Content_ types are described in more detail below:
 
 # Datasets 
 
-The following table enumerates all datasets present in the solution according to stereotypes in the above metamodel, and their primary application. 
+The following table enumerates all datasets present in the solution according to the mnemonics in the above metamodel, and the primary application of the dataset. 
 
 Dataset | Repository | Content | Application
 --- | --- | --- | ---
@@ -99,7 +101,7 @@ Queries require a mandatory predicate filter (a WHERE clause) for the `time_even
 
 ```sql
 SELECT 	pms_id, pack.id, cell.vcl, cell.vch, cell.dvcl
-FROM `sundaya.analytics.pms_telemetry`
+FROM `sundaya.analytics.tel_pms`
 WHERE time_event BETWEEN '2020-02-08' AND '2019-02-12'
 AND pms_id IN ('PMS-01-002', 'PMS-01-002')
 ```

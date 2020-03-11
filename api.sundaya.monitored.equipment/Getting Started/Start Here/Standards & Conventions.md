@@ -115,7 +115,7 @@ Code | Status | Definition
 `415` | Unsupported Media Type | The requested Accept header type is not supported.
 `500` | Internal Server Error | The server encountered an unexpected condition.
 
-## Data naming
+## Data element names
 Dataset and repository elements should be named according to the following conventions.
 
 These general conventions apply in addition to the element-specific conventions.
@@ -139,13 +139,58 @@ Element | Convention | Example
 
 Note: `field name` refers to fields in API messages and JSON documents.
 
+## Dataset names
 
-## Message Broker naming
-Messaging components should be named according to the following general conventions.
-- topics prefixed with `pub-` 
-- subscription names prefixed with `sub-` 
-- subscriptions for storage services named after the target dataset.
-    e.g. _sub-analytics.pms_monitoring_ 
+An abbreviated _Content_ type mnemonic should **prefix** _Dataset_ names.
+
+- The list of _Content_ mnemonics is provide in the [Storage](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section.
+
+The Dataset naming convention is therefore: 
+    \<content-mnemonic>_\<descriptive-qualifier>
+    
+    e.g. `tel_pms` 
+
+    - is the name of the _PMS Telemetry_ dataset.
+    - `tel` is the <content-mnemonic> for the **telemetry** _Content_ type.
+    - the fully-qualified dataset name includes the repository name: `analytics.tel_pms` 
+
+## Service names
+
+An abbreviated _Messaging_ class mnemonic should **prefix** all _Service_ names.
+
+- The list of _Messaging_ mnemonics is provide in the [Messaging](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Messaging) section.
+
+An abbreviated _Repository_ mnemonic and qualifier should **suffix** the name if it is a `Storage` _Service_.
+
+- A `Storage` _Service_  is either a _Writer_ or _Reader_ of a _Repository_.  
+
+- The list of _Repository_ mnemonics is provide in the [Storage](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section.
+
+The `Storage` _Service_ naming convention is therefore: 
+    \<messaging-class-mnemonic>.\<dataset-name>.\<repository-mnemonic>_<repository-qualifier>
+    
+    e.g. `wri.tel_pms.any_bq` 
+
+    - is the name of the _Writer_ for _PMS Telemetry_ to the analytics repository in _BigQuery_.
+    - `tel` is the <content-mnemonic> for the **telemetry** _Content_ type.
+    - the fully-qualified dataset name includes the repository name: `analytics.tel_pms` 
+
+
+All other _Service_ names (_Producers_ and _Consumers_) should **suffix** the name with a topic or subscription name.
+
+
+    \<messaging-class-mnemonic>.\<dataset-name>[.\<topic_name>]
+
+    e.g. `prd.tel_pms` 
+
+    - is the name of the _Producer_ service for _PMS Telemetry_ (which calls a _Storage_ or _Publisher_ service as described in [Messaging](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Messaging)).
+    - the \<descriptive-qualifier> is optional
+
+
+## Messaging topic names
+Messaging system topics and subscriptions should be named according to these general conventions.
+- topics prefixed with `pub_` 
+- subscription names are prefixed with `sub_` 
 
 
 ## Abbreviations
