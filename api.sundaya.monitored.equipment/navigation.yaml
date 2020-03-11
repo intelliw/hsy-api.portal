@@ -93,24 +93,24 @@ folders:
         folders:
           analytics:
             ordering:
-            - pms_telemetry
-            - mppt_telemetry
-            - inverter_telemetry
+            - tel_pms
+            - tel_mppt
+            - tel_inv
 
           reporting:
             ordering:
-            - period 
+            - eng_period 
 
           graph:
             ordering:
-              - agent_operations
+            - ops_agent
               
           nearline:
             ordering:
-            - site_customer
-            - installation_operations
-            - pms_pack_operations
-            - source_system
-            - env_system
+            - cust_site
+            - ops_install
+            - ops_pack_assembly
+            - sys_data_src
+            - sys_env_config
           
           

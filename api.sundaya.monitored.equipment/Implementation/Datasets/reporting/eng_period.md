@@ -1,14 +1,14 @@
 
-# reporting.period
+# Energy Periods (eng_period)
 ---
 
-The **period** dataset contains period-aligned tranforms of monitoring data received through the _devices/datasets_ POST API.
+This **eng_period** dataset contains period-aligned tranforms of monitoring data received through the _devices/datasets_ POST API.
 
 The dataset contains the following data:
 
-- **energy** - period-aligned energy data aggregates.
+- **energy** - period-aligned energy data aggregates. 
 
-- **monitoring** - raw monitoring data, the same data stored in the `analytics` OLAP repository, but replicated here in `reporting` for fast OLTP access.
+- **monitoring** - raw monitoring data, the same data stored in the `analytics` OLAP repository, but replicated here in `reporting` for fast OLTP access. Rows in this data subset is aligned to the _instant_ period.
 
 
 

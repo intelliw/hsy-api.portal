@@ -1,4 +1,4 @@
-# env_system
+# Environment Configurations (sys_env_config)
 ---
 
 The `env_system` dataset contains environment configurations and is stored as a JSSON document in _src/environment/env.js_. 

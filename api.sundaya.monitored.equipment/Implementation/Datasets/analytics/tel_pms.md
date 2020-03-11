@@ -1,4 +1,4 @@
-# pms_telemetry
+# PMS Telemetry (tel_pms)
 ---
 
 ### API Consumer message ('monitoring.pms')

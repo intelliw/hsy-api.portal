@@ -1,4 +1,4 @@
-# inverter_telemetry
+# Inverter Telemetry (tel_inv)
 ---
 
 ### API Consumer message ('monitoring.inverter')

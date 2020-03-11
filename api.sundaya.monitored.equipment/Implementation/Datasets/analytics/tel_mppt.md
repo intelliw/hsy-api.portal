@@ -1,4 +1,4 @@
-# mppt_telemetry
+# MPPT Telemetry (tel_mppt)
 ---
 
 ### API Consumer message ('monitoring.mppt')

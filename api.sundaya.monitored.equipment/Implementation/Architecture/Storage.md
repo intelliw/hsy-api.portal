@@ -24,10 +24,10 @@ Data is stored in five technologically differentiated repositories as depicted i
 
 Data is ingested and initially stored into three repositories (_monitoring_, _analytics_, _reporting_), and combined through joins with relatively static (master) data in two secondary repositories (_reference_, _system_). 
 
-_Repository_ archetypes and their abbreviated mnemonics and qualifiers (which are used in [naming conventions](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions)) are listed below:
+_Repository_ archetypes and their abbreviated mnemonics and qualifiers are used to name storage **Services**, according to [naming conventions](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions). These are listed below:
 
-Repository          | Mnemonic              | Qualifiers    | Qualifier Names
----                 | ---                   | ---           | ---
+Repository      | Mnemonic                  | Qualifiers    | Qualifier Names
+---             | ---                       | ---           | ---
 monitoring      | `mon`                     | `std`         | _Stackdriver_
 analytics       | `any`                     | `bq`          | _BigQuery_
 reporting       | `rpt`                     | `bt`<br>`ds`  | _Bigtable_<br>_Datastore_   
@@ -50,18 +50,18 @@ _Repository_ archetypes are described in more detail below:
 
 # Content 
 
-_Content_ types and their abbreviated mnemonics and qualifiers (which are used in [naming conventions](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions)) are listed below: 
+_Content_ types and their abbreviated mnemonics are used to name **Datasets**, according to [naming conventions](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions). These are listed below: 
 
-Content         | Menmonic          | Qualifiers                    | Dataset Names                 | Qualifier Names
----             | ---               | ---                           | ---                           | ---
-telemetry       | `tel`             | `pms`<br>`mppt`<br>`inv`      | `pms_tel`<br>`mppt_tel`<br>`inv_tel`  | _Pack Management System_<br>_Maximum Power Point Tracker_<br>_Inverter_ 
-status          | `sts`             |                               |                       | _Device_
-event           | `evt`             | `kpi`                         |                       | _Key Performance Indicator_
-energy          | `eng`             | `period`                      | `period_eng`          | _Energy Period_    
-device          | `dev`             |                               |                       | 
-system          | `sys`             | `data_src`<br>`env_config`    | `sys_data_src`<br>`sys_env_config`    | _Data Source_<br>_Environment Configurations_ 
-operations      | `ops`             | `install`<br>`pack_assebly`<br>`agent`   | `ops_install`<br>`ops_pack_assebly`<br>`ops_agent`   | _Installations_<br>_Pack Assembly<br>_Agent Operations_
-customer        | `cust`            | `site`<br>                    | `cust_site`           | _Customer Site_<br> 
+Content         | Menmonic          | Datasets                      | Dataset Names
+---             | ---               | ---                           | ---
+telemetry       | `tel`             | `tel_pms`<br>`tel_mppt`<br>`tel_inv`  | _PMS Telemetry_<br>_MPPT Telemetry_<br>_Inverter Telemetry_ 
+status          | `sts`             |                               | 
+event           | `evt`             |                               | 
+energy          | `eng`             | `eng_period`                  | _Energy Periods_    
+device          | `dev`             |                               | 
+system          | `sys`             | `sys_data_src`<br>`sys_env_config`    | _Data Sources_<br>_Environment Configurations_ 
+operations      | `ops`             | `ops_install`<br>`ops_pack_assembly`<br>`ops_agent`   | _Installations_<br>_Pack Assemblies_<br>_Agent Operations_
+customer        | `cust`            | `cust_site`                   | _Customer Site_<br> 
 
 _Content_ types are described in more detail below:
 
