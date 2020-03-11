@@ -7,7 +7,7 @@ The messsaging platform leverages a message flow framework which is implemented 
 
 ![Message brokers](/images/message-broker.png)
 
-Message flows are processed through the following sequence of interactions.
+Messages are processed by the following sequence of interactions.
 
 1. **Consumer** - instantiates a _Subscriber_ and provides a _listen_ endpoint for it to callback whenever there is an event.
 
@@ -17,7 +17,7 @@ Message flows are processed through the following sequence of interactions.
 
 4. **Producer** - will _transform_ the message into the application-specified format for the target queue, then it calls the _write_ method on the _Storage_ class. Optionally it can also call _publish_ to forward the transformed message to a new _Publisher_ topic.
 
-5. **Storage** - will normalise the message into the format required by the repository, and call its repository's client library to persist it in the Repository. 
+5. **Writer** - will normalise the message into the format required by the repository, and call its repository's client library to persist it in the Repository. 
 
 6. **Publisher** - if the _Producer_  had optionally re-published the mesage (in step 4) the _Publisher_ will call its broker's client library to deliver the transformed message to a new topic in the Message Broker.
 
@@ -25,7 +25,7 @@ Message flows are processed through the following sequence of interactions.
 
 ### Producers/Consumers
 
-The messaging framework provides a bridge for datasets to be produced or consumed by multiple brokers and storage repositories. 
+The messaging framework provides a bridge for datasets to be produced or consumed by multiple brokers and writer repositories. 
 
 - `Producer` and `Consumer` classes provide wrappers for each **Dataset** 
 
@@ -41,17 +41,15 @@ The source and target topics and subscriptions are summarised below:
 
 - **Feature** services provide message flows which propogate 'feature toggle' changes to each configurable service.
 
-Service                    | Class                          | Source  Topic / Subscription  | Target Topic / Subscription  
+Producer                   | Topic                          | Subscription                | Dataset / New Topic
 ---                        | ---                            | ---                         | ---    
-**Monitoring**             | `Producer` | [/dataset/pms POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[/dataset/mppt POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[/dataset/inverter POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | `pub-monitoring.pms`<br>`pub-monitoring.mppt`<br>`pub-monitoring.inverter` | 
-<i></i>                    | `Consumer` | `pub-monitoring.pms`<br>`pub-monitoring.mppt`<br>`pub-monitoring.inverter` | [sub-analytics.pms_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_monitoring)<br>[sub-analytics.mppt_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_monitoring)<br>[sub-analytics.inverter_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_monitoring)
-**Features**               | `Producer` | [/api/features GET](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get)<br>[/api/logging GET](/docs/api.sundaya.monitored.equipment/0/routes/api/logging/get) | `system.feature` 
-<i></i>                    | `Consumer` | `system.feature` | `sub-env.active.features` 
+[/dataset/pms POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[/dataset/mppt POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[/dataset/inverter POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | `pub-monitoring.pms`<br>`pub-monitoring.mppt`<br>`pub-monitoring.inverter` |  [sub-analytics.pms_telemetry](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_telemetry)<br>[sub-analytics.mppt_telemetry](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_telemetry)<br>[sub-analytics.inverter_telemetry](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_telemetry) | `analytics.pms_telemetry`<br>`analytics.mppt_telemetry`<br>`analytics.inverter_telemetry`
+[/api/features GET](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get)<br>[/api/logging GET](/docs/api.sundaya.monitored.equipment/0/routes/api/logging/get) | `system.feature` | `system.feature` | `sub-env.active.features` | `env_system`
 
 
 #### Publishers/Subscribers
 
-The messaging framework supports multiple brokers and storage repositories for the cloud and edge as shown in the following table.
+The messaging framework supports multiple brokers and writer repositories for the cloud and edge as shown in the following table.
 
 A particular message broker can be made exclusively active through a service configuration change (and corresponding deployment of the broker). 
 
@@ -60,7 +58,7 @@ The choice of broker and repository will usually depend on hosting costs and mes
 Service              | Class                         | Cloud                          | Edge                  
 ---                  | ---                           | ---                            | ---                   
 **Message Broker**   | `Publisher`,<br>`Subscriber`   | `NATS`, `PubSub`,<br>`Kafka`  | `KubeMQ`,<br>`Redis`  
-**Repository**       | `Storage`                     | `BigQuery`, `GCS`,<br>`Bigtable`, `Stackdriver` | `Redis`,<br>`Bitsy` | 
+**Repository**       | `Writer`                     | `BigQuery`, `GCS`,<br>`Bigtable`, `Stackdriver` | `Redis`,<br>`Bitsy` | 
 
 ---
 

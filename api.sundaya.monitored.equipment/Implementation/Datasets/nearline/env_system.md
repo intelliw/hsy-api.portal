@@ -1,64 +1,50 @@
-# Logging
+# env_system
 ---
 
-Logs are produced through a framework which provides statement wrappers over _Stackdriver_'s multiple APIs: `Logging`, `Error Reporting`, `Tracing`.
+The `env_system` dataset contains environment configurations and is stored as a JSSON document in _src/environment/env.js_. 
 
-It decouples the parts which make up the logging process and makes these independently configurable and extensible.
+The data is mastered by the `api-host` service and the master copy is stored in its source code repository. 
 
-- Output (`appenders`)
-- Content (`verbosity`)
-- Coverage (`statements`)
+Other projects share the configuration data through symlinks to the `api-host` project tree.
 
-The `Logger` class aggregates 5 `Statement` classes for each statement type, and provides these to clients through a singleton. 
-
-- Messaging
-- Data
-- Exception
-- Error
-- Trace
-
-![Logger class hierarchy](/images/logging.png)
-
-## configurables
-
-The `Logger` class provides a public interface with the following helper methods for each statement type.
+---
 
 
-```javascript
+# Logging
 
-    - log.messaging (topic, id, messages, quantity, sender)
+This sections describes configuration details for [Logging](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Logging). 
 
-    - log.data (dataset, table, id, rows) 
+Configurable values for Logging are constrained by the folowing Enumerations for logging and error reporting in `enums.js`.
 
-    - log.exception (label, message, event) 
-
-    - log.error (label, stacktrace) {                                 
-
-    - log.trace (label, value, payload) 
-
+```json
+    enums.logging: {
+        "statements": {
+            "data": "data",
+            "error": "error",
+            "exception": "exception",
+            "messaging": "messaging",
+            "trace": "trace"
+        },
+        "verbosity": {
+            "none": "none",
+            "info": "info",
+            "debug": "debug"
+        },
+        "appenders": {   
+            "console": "console",
+            "stackdriver": "stackdriver"
+        }
+    }
 ```
+__statements__  - determines which log statements will produce log output.
+
+__verbosity__   - log levels for error reporting and logged events.
+
+__appenders__   - output options for logging and error reporting.
 
 
-## configurables
+#### env.LOGGING 
 
-The Logger is aware of which environment it is running in. 
-
-- At startup it looks up configuration details for the environment in which it is running.
-
-- logging configurations can be changed through [api\logging](/docs/api.sundaya.monitored.equipment/0/routes/api/logging/get)) 
-
-- configuration changes are propogated to downstream services through a [Features](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Messaging) message. 
-
-Logger configurations are held in these artefacts:
-
-- _enums.js_   -   enumerations for   `logging`, `features`
-- _env.js_     -   configurations per environment for  `logging`, `features`, `stackdriver` 
-
-The configuration groups are listed and described int he following sections.
-
-
-
-### env.LOGGING configuration
 
 ```json
     env._LOGGING: {
@@ -84,7 +70,7 @@ If a `statement`, `verbosity`, or `appender` option is excluded the correspondin
 This minimises the cost to performance from disabled statements (the 'cost of not logging') until they are needed.
 
 
-### env._SHARED.STACKDRIVER configuration
+#### env._SHARED.STACKDRIVER 
 ```json
     env._SHARED.STACKDRIVER: {
         "logging": { "logName": "monitoring_prod", "resourceType": "gce_instance" },  
@@ -128,7 +114,33 @@ This minimises the cost to performance from disabled statements (the 'cost of no
     ignoreMethods is configured to ignore requests with OPTIONS & PUT methods (case-insensitive).
 
 
-### env.FEATURES configuration
+---
+
+## Features
+
+This sections describes configuration details for [Features](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Messaging) message. 
+
+Configurable flags for Features are constrained by the folowing Enumerations for feature toggles in `enums.js`.
+
+```json
+    enums.features = {
+        "release": { "none": "none" },
+        "operational": {
+            "none": "none",
+            "logging": "logging",                             
+            "validation": "validation"                        
+        },
+        "experiment": { "none": "none" },
+        "permission": { "none": "none" }
+    }
+```
+__validation__  - whether or not to to perform in-depth input validation for post requests.
+
+__logging__     - logging reconfiguration feature.
+
+
+#### env.FEATURES 
+
 ```json
     env._FEATURES: {
         "release": [ enums.features.release ],
@@ -157,55 +169,4 @@ __experiment__  - feature is experimental and may be restricted by time and scop
 __permission__  - feature restricts access to certain users
 
 
-## logging configuration
-
-Enumerations for logging and error reporting configuration.
-
-```json
-    enums.logging: {
-        "statements": {
-            "data": "data",
-            "error": "error",
-            "exception": "exception",
-            "messaging": "messaging",
-            "trace": "trace"
-        },
-        "verbosity": {
-            "none": "none",
-            "info": "info",
-            "debug": "debug"
-        },
-        "appenders": {   
-            "console": "console",
-            "stackdriver": "stackdriver"
-        }
-    }
-```
-__statements__  - determines which log statements will produce log output.
-
-__verbosity__   - log levels for error reporting and logged events.
-
-__appenders__   - output options for logging and error reporting.
-
-
-
-## feature configuration
-
-Flags for feature toogles.
-
-```json
-    enums.features = {
-        "release": { "none": "none" },
-        "operational": {
-            "none": "none",
-            "logging": "logging",                             
-            "validation": "validation"                        
-        },
-        "experiment": { "none": "none" },
-        "permission": { "none": "none" }
-    }
-```
-__validation__  - whether or not to to perform in-depth input validation for post requests.
-
-__logging__     - logging reconfiguration feature.
-
+---

@@ -1,4 +1,4 @@
-# reference.source
+# source_system
 ---
 
 This dataset provides reference data for platform services and the data management system, including data needed for security, traceability, and data provenance. It includes configuration data needed for provisioning and commissioning monitored devices and systems.

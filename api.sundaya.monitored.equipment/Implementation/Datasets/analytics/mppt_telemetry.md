@@ -1,4 +1,4 @@
-# analytics.mppt_monitoring
+# analytics.mppt_telemetry
 ---
 
 ### API Consumer message ('monitoring.mppt')
@@ -7,7 +7,7 @@ Each dataset item in the the `dataset/mppt` POST message body 'datasets' array, 
 
 The consumer process transforms messsages into JSON structure shown in the following sample.
 
-This consumer sends this message to the `analytics.mppt_monitoring` dataset table in the datawarehouse as an audit log, and to the `monitoring.mppt.dataset` message broker topic for further stream processing.
+This consumer sends this message to the `analytics.mppt_telemetry` dataset table in the datawarehouse as an audit log, and to the `monitoring.mppt.dataset` message broker topic for further stream processing.
 
 ```
 *** MESSAGE ***

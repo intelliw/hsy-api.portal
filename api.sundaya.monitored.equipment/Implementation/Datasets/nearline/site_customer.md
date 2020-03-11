@@ -1,4 +1,4 @@
-# reference.site
+# customer_site
 ---
 
 This dataset provides reference data for sites.

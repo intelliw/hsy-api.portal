@@ -1,4 +1,4 @@
-# analytics.pms_monitoring
+# analytics.pms_telemetry
 ---
 
 ### API Consumer message ('monitoring.pms')
@@ -9,7 +9,7 @@ The consumer process transforms messages into JSON structure shown in the follow
 
 Typically there will be 14 data items in each `pms` dataset, one for each pack.
 
-This consumer sends this message to the `analytics.pms_monitoring` dataset table in the datawarehouse as an audit log, and to the `monitoring.pms.dataset` message broker topic for further stream processing.
+This consumer sends this message to the `analytics.pms_telemetry` dataset table in the datawarehouse as an audit log, and to the `monitoring.pms.dataset` message broker topic for further stream processing.
 
 ```
 *** MESSAGE ***

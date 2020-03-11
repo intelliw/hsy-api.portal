@@ -1,4 +1,4 @@
-# reference.pms
+# pms_pack_operations
 ---
 
 This dataset provides reference data for pack management systems.
@@ -7,7 +7,7 @@ This dataset provides reference data for pack management systems.
 
 # Dataset Structure 
 
-The following `reference.pms_pack` attributes are relationally joined with the `analytics.pms_monitoring` dataset. 
+The following `nearline.pms_pack_operations` attributes are relationally joined with the `analytics.pms_telemetry` dataset. 
 
 Attribute       | Data      | Description
 ---             | ---       | ---

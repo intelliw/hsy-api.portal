@@ -93,9 +93,9 @@ folders:
         folders:
           analytics:
             ordering:
-            - pms_monitoring
-            - mppt_monitoring
-            - inverter_monitoring
+            - pms_telemetry
+            - mppt_telemetry
+            - inverter_telemetry
 
           reporting:
             ordering:
@@ -105,11 +105,12 @@ folders:
             ordering:
               - agent_operations
               
-          reference:
+          nearline:
             ordering:
-            - site
-            - installation
-            - pms_pack
-            - source
+            - site_customer
+            - installation_operations
+            - pms_pack_operations
+            - source_system
+            - env_system
           
           

@@ -1,4 +1,4 @@
-# reference.installation
+# operations_installation
 ---
 
 This dataset provides data for installation-related processes.
