@@ -28,13 +28,13 @@ _Repository_ archetypes and their abbreviated mnemonics and qualifiers (which ar
 
 Repository          | Mnemonic                  | Qualifier     | Qualifier Name
 ---                 | ---                       | ---           | ---
-**monitoring**      | `mon`                     | `std`         | _Stackdriver_
-**analytics**       | `any`                     | `bq`          | _BigQuery_
-**reporting**       | `rpt`                     | `bt`<br>`ds`  | _Bigtable_<br>_Datastore_   
-**nearline**        | `nl`                      | `gcs`         | _Google Cloud Storage_
-**graph**           | `gr`                      | `jg`<br>`fs`  | _JanusGraph_<br>_Firestore_
+monitoring      | `mon`                     | `std`         | _Stackdriver_
+analytics       | `any`                     | `bq`          | _BigQuery_
+reporting       | `rpt`                     | `bt`<br>`ds`  | _Bigtable_<br>_Datastore_   
+nearline        | `nl`                      | `gcs`         | _Google Cloud Storage_
+graph           | `gr`                      | `jg`<br>`fs`  | _JanusGraph_<br>_Firestore_
 
-<br>
+_Repository_ archetypes are described in more detail below:
 
 - **monitoring** - The _monitoring_ repository is a transient store for streaming device data. The data is used to monitor field devices in real time.<br><br>Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time. Once received at the endpoint the raw data is logged and held in the logging subsystem, and is available for monitoring devices in the **OI dashboard**.<br><br>The data is produced by a rolling appender and purged after about 6 weeks.<br>
 
@@ -54,13 +54,13 @@ _Content_ types and their abbreviated mnemonics and qualifiers are listed below:
 
 Content             | Menmonic          | Qualifier                     | Qualifier Name
 ---                 | ---               | ---                           | ---
-**telemetry**       | `tel`             | `pms`<br>`mppt`<br>`inv`      | _Pack Management System_<br>_Maximum Power Point Tracker_<br>_Inverter_ 
-**status**          | `sts`             | `dev`                         | _Device_
-**event**           | `evt`             | `kpi`                         | _Key Performance Indicator_
-**energy**          | `eng`             |                               |     
-**system**          | `sys`             |                               |    
+telemetry       | `tel`             | `pms`<br>`mppt`<br>`inv`      | _Pack Management System_<br>_Maximum Power Point Tracker_<br>_Inverter_ 
+status          | `sts`             | `dev`                         | _Device_
+event           | `evt`             | `kpi`                         | _Key Performance Indicator_
+energy          | `eng`             |                               |     
+system          | `sys`             |                               |    
 
-<br>
+_Content_ types are described in more detail below:
 
 - **telemetry** - _telemetry_ data consists of sensor data about the monitored devices and environment. The data is read-only/ append-only. The data is sent in one of the following methods<br><br>1. As a complete dataset sent at a frequent interval, including unchanged data.<br>2. As a partial dataset for _change-data-capture_, and data transmission only when a change is detected.<br><br>_telemetry_ data is processed using [write coalescing](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Edge%20Cloud) to compresses and reduce write traffic from edge to cloud.<br>
 
@@ -87,11 +87,6 @@ Dataset | Repository | Content | Application
 
 ---
 
-
-
-
-
----
 
 ### Analytics dataset partitioning
 
