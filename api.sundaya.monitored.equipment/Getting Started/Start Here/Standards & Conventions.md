@@ -155,9 +155,9 @@ extended        | `ex`
 graph           | `gr`   
 
 The Dataset naming convention is therefore:
- 
-    \<content-mnemonic>_\<descriptive-qualifier>
-    
+ ---xml
+    <content-mnemonic>_<descriptive-qualifier
+ ---   
 e.g. `tel_pms` is the name of the _PMS Telemetry_ dataset.
 - `tel` is the \<content-mnemonic> for the **telemetry** _Content_ type.
 
