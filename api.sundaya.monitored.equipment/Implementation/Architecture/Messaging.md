@@ -1,7 +1,9 @@
 # Messaging
 ---
 
-The messsaging platform leverages a message flow framework which is implemented by all platform services, and provides access to multiple broker technologies both in the cloud and the edge.
+The messsaging platform leverages a framework which is implemented by all platform services. 
+
+It provides message flow through access to multiple broker technologies both in the cloud and the edge.
 
 ---
 
@@ -18,7 +20,7 @@ Messages are processed by the following sequence of interactions.
 4. **Producer** - will _transform_ message into an application-specified format then call _write_ on the _Storage_ class. 
    Optionally it will also call _publish_ to republish the transformed message to a new topic.
 
-5. **Storage** - normalises the message into repository syntax and calls client library to store the data in the Repository. 
+5. **Storage** - normalises the message into repository syntax and calls its client library to store the data in the Repository. 
 
 6. **Publisher** - if the _Producer_  had optionally re-published the mesage (in step 4) the _Publisher_ will call broker's client library to deliver the transformed message to a new topic in the Message Broker.
 

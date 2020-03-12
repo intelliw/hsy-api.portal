@@ -141,21 +141,11 @@ Note: `field name` refers to fields in API messages and JSON documents.
 
 ## Dataset names
 
-A _Content_ type mnemonic should **prefix** _Dataset_ names.
+_Dataset_ names are based on their _Repository_ archetype and their _Content_ type. 
 
-- The list of _Content_ mnemonics is provided below and described in the [Storage/Content](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section.
+1. A _Content_ type mnemonic should **prefix** the _Dataset_ name.
 
-Content         | Mnemonic
----             | ---     
-telemetry       | `tel` 
-status          | `sts` 
-event           | `evt` 
-energy          | `eng` 
-device          | `dev` 
-system          | `sys` 
-operations      | `ops` 
-customer        | `cust`
-
+2. A general descriptor should follow after the prefix.
 
 The Dataset naming convention is therefore:
  ```xml
@@ -164,37 +154,28 @@ The Dataset naming convention is therefore:
 e.g. `tel_pms` is the name of the _PMS Telemetry_ dataset.
 - `tel` is the \<content-mnemonic> for the **telemetry** _Content_ type.
 
+The list of _Content_ mnemonics is provided in the [Storage/Content](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section.
 
 
-## Storage Service names
+## Storage service names
 
-`Storage` _Services_ are services which **write** data to a _Repository_. 
+A `Storage` _Service_ is a service which writes data to a _Repository_.
 
-The mnemonic `sto` should **prefix**  storage _Service_ names.
+1. The mnemonic `sto` should **prefix**  a storage _Service_ name.
 
-A _Dataset_ name should follow after the prefix.
+2. A _Dataset_ name or the descriptor of the data being written, should follow after the prefix.
 
-A _Repository_ qualifier should **suffix** the storage _Service_ name.
-
-- The list of _Repository_ qualifiers is provided below and described in the [Storage/Respositories](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section. The list of _Dataset_ names is also provided in that section.
-
-Repository      | Mnemonic  | Qualifiers                     
----             | ---       | ---                            
-monitoring      | `mon`     | `mon_std`                      
-analytics       | `any`     | `any_bq`                       
-reporting       | `rpt`     | `rpt_bt`<br>`rpt_ds`           
-collection      | `col`     | `col_rds`<br>`col_sql`         
-extended        | `ex`      | `ex_gcs`                       
-graph           | `gr`      | `gr_jg`<br>`gr_fs`<br>`gr_btsy`
-
+3. A _Repository_ qualifier should **suffix** the storage _Service_ name.
 
 The storage _Service_ naming convention is therefore:
  ```xml
-    sto.<dataset-name>.<repository-qualifier>
+    sto.<dataset-descriptor>.<repository-qualifier>
  ```   
-e.g. `sto.tel_pms.any_bq` is the name of the _Service_ for writing _PMS Telemetry_ data into the _BigQuery Analytics_ repository.
-- `tel_pms` is the name of the _PMS Telemetry_ dataset.
-- `any_bq` is the \<content-mnemonic> for the **telemetry** _Content_ type.
+e.g. `sto.tel_device.any_bq` is the name of the _Service_ for writing device _Telemetry_ to the _BigQuery Analytics_ repository.
+- `tel_device` is a general descriptor for the different device _Telemetry_ datasets.
+- `any_bq` is the the _BigQuery Analytics_ repository.
+
+The list of _Repository_ qualifiers is provided in the [Storage/Respositories](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section. The list of _Dataset_ names is also provided in that section.
 
 
 
