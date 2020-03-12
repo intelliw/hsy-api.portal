@@ -9,14 +9,14 @@ The messsaging platform leverages a message flow framework which is implemented 
 
 Messages are processed by the following sequence of interactions.
 
-1. **Consumer** - instantiates a _Subscriber_ and calls the _listen_ method with the _Consumer_'s callback reference.
+1. **Consumer** - instantiates a _Subscriber_ and calls the _listen_ method passing in the _Consumer_'s callback reference.
 
-2. **Subscriber** - receives messaging events through the Message Broker or API and invokes the _Consumer_ callback's _consume_ method. 
+2. **Subscriber** - receives messages through the Broker or API and invokes the callback _Consumer_'s _consume_ method. 
 
-3. **Consumer** - _validate_s and _analyse_s the incoming message, then invokes the _produce_ method on the _Producer_.
+3. **Consumer** - will _validate_ and _analyse_ the incoming message, then invoke the _produce_ method on the _Producer_.
 
-4. **Producer** - _transform_s the message into an application-specified format, then calls _write_ on the _Storage_ class. 
-   Optionally it can also call _publish_ to send the transformed message to a new _Publisher_ topic.
+4. **Producer** - will _transform_ message into an application-specified format then call _write_ on the _Storage_ class. 
+   Optionally it will also call _publish_ to republish the transformed message to a new topic.
 
 5. **Writer** - normalises the message into repository syntax and calls client library to store the data in the Repository. 
 
@@ -26,7 +26,7 @@ Messages are processed by the following sequence of interactions.
 
 ### Producers/Consumers
 
-The messaging framework provides a bridge for datasets to be produced or consumed by multiple brokers and writer repositories. 
+The messaging framework provides a bridge for datasets to be produced or consumed by multiple brokers and repositories. 
 
 - `Producer` and `Consumer` classes provide wrappers for each **Dataset** 
 

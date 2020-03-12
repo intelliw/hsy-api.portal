@@ -1,26 +1,24 @@
 # Storage
 
 
-Storage is provided by multiple cloud-native repositories based on the the principle of [polyglot persistance](https://martinfowler.com/bliki/PolyglotPersistence.html) and heterogenous data mnanagement requirements for each dataset.
+Storage is provided by multiple cloud-native repositories based on the the principle of [polyglot persistance](https://martinfowler.com/bliki/PolyglotPersistence.html) and heterogenous data mananagement requirements for each dataset.
+
+The storage solution for each dataset will be chosen based on trade-offs such as cost, mutability, scale, and velocity; as these vary significantly for each repository type. Similarly the content model (schema and data separability) will be shaped by the selected repository's technical constraints.
 
 ---
 
 #### Data metamodel
 
-The data metamodel defines high-level relationships between _Repository_ technologies and the _Content_ model.
+The data metamodel below defines high-level relationships between _Repository_ archetypes and the _Content_ model.
 
 ![Data metamodel](/images/dataset-metamodel.png)
-
-- **Repository** - The best storage solution for each dataset will be based on trade-offs in characteristics such as cost, mutability, scale, and velocity; which vary significantly in each case. 
-
-- **Content** - Similarly the content model (schema and data separability) is defined by the storage technology and its constraints on critical data access requirements of intended applications.
 
 
 ---
 
 # Repositories
 
-Data is stored in five technologically differentiated repositories which (depicted in the metamodel above).
+Data is stored in six technologically differentiated repositories which (depicted in the metamodel above).
 
 - The primary datasets are ingested, transformed, and stored in four repositories (_monitoring_, _analytics_, _reporting_, _graph_).
 
@@ -49,7 +47,9 @@ _Repository_ archetypes are described in more detail below:
 
 - **nearline** - The _nearline_ data is typically held in cloud storage or other file system, and contains _rerference_ data for customers, suppliers, personnel, sites, products and services.<br><br>This dataset is expected to change very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from stand-alone systems, such as the ERP system.<br><br>The reference data is stored as sheets or JSON documents.<br>
 
-- **graph** - The _graph_ dataset contains graph-like information about _customer_ and _operations_ entities and their relationships, such as the sales and service network.<br><br>The dataset is materialised from content and links held in sheets. The data is stored in the same wide-column database cluster used for _reporting_ data.<br><br> _graph_ data is retrieved using graph query language in the **Sales portal** implementation.
+- **graph** - The _graph_ repository contains traversible relationships among _customer_ and _operations_ entities, such as the sales and service network. The underlying storage for the _graph_ repository is provided by the same wide-column database cluster used for _reporting_ data.<br><br>_graph_ data is retrieved using graph query language in the **Sales portal** implementation.
+
+- **edge** - The _edge_ repository is primarily intended as a transient store for edge data collection and edge stream processing.<br><br>It also provides connection buffering by queuing and retrying messages which can not be delivered due to connectivity loss or outage at the receiving end of the connection.<br><br>A suitable repository would be an in-memory (in-process) database such as _SQLLite_ or a lightweight key-value store such as _Redis_.
 
 ---
 
