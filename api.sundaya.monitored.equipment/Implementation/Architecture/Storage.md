@@ -20,24 +20,25 @@ The data metamodel below defines high-level relationships between _Repository_ a
 
 Data is stored in six technologically differentiated repositories (depicted in the metamodel above).
 
-- The primary datasets are ingested, transformed, and stored in four repositories (_edge_, _monitoring_, _analytics_, _reporting_).
+- The primary datasets are ingested, transformed, and stored in four repositories (_collection_, _monitoring_, _analytics_, _reporting_).
 
 - Secondary datasets provide relatively static master and extended data and are stored in the _extended_ and _graph_ repositories. 
 
-    Data in the secondary repositories are combined as external tables with the primary datasets through joins.
+  Data in the secondary repositories are combined as external tables with the primary datasets through joins.
 
 _Repository_ archetypes and their abbreviated mnemonics and qualifiers are listed below. 
 
 The _Qualifiers_ are used in [Storage Service names](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions).
 
 
-Repository      | Mnemonic                  | Qualifiers            | Qualified Repository Names
----             | ---                       | ---                   | ---
-monitoring      | `mon`                     | `mon_std`             | _Stackdriver Monitoring_
-analytics       | `any`                     | `any_bq`              | _BigQuery Analytics_
-reporting       | `rpt`                     | `rpt_bt`<br>`rpt_ds`  | _Bigtable Reporting_<br>_Datastore Reporting_   
-nearline        | `nl`                      | `nl_gcs`              | _Google Cloud Storage Files_
-graph           | `gr`                      | `gr_jg`<br>`gr_fs`    | _JanusGraph Graph Data_<br>_Firestore Document Map _
+Repository      | Mnemonic                  | Qualifiers                        | Qualified Repository Names
+---             | ---                       | ---                               | ---
+collection      | `col`                     | `col_rds`<br>`col_sql`            | _Redis Data Collection_<br>_SQLLite Data Collection_
+monitoring      | `mon`                     | `mon_std`                         | _Stackdriver Monitoring_
+analytics       | `any`                     | `any_bq`                          | _BigQuery Analytics_
+reporting       | `rpt`                     | `rpt_bt`<br>`rpt_ds`              | _Bigtable Reporting_<br>_Datastore Reporting_   
+nearline        | `nl`                      | `nl_gcs`                          | _Google Cloud Storage Files_
+graph           | `gr`                      | `gr_jg`<br>`gr_fs`<br>`gr_btsy`   | _JanusGraph Graph Data_<br>_Bitsy Edge Graph_<br>_Firestore Document Map_
 
 _Repository_ archetypes are described in more detail below:
 

@@ -143,7 +143,15 @@ Note: `field name` refers to fields in API messages and JSON documents.
 
 An abbreviated _Content_ type mnemonic should **prefix** _Dataset_ names.
 
-- The list of _Content_ mnemonics is provide in the [Storage/Content](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section.
+- The list of _Content_ mnemonics is provided below and described in the [Storage/Content](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section.
+
+Repository      | Mnemonic
+---             | ---     
+monitoring      | `mon`   
+analytics       | `any`   
+reporting       | `rpt`   
+nearline        | `nl`    
+graph           | `gr`   
 
 The Dataset naming convention is therefore:
  
