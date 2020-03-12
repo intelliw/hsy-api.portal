@@ -47,14 +47,6 @@ Producer service           | Topic                          | Subscription
 
 
 
-# Brokers
-
-
-Cloud                            | Edge                  
----                              | ---                   
-`NATS`, `PubSub`,<br>`Kafka`     | `KubeMQ`,<br>`Redis`  
-
-
 ---
 
 
