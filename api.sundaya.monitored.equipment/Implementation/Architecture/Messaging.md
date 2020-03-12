@@ -9,17 +9,18 @@ The messsaging platform leverages a message flow framework which is implemented 
 
 Messages are processed by the following sequence of interactions.
 
-1. **Consumer** - instantiates a _Subscriber_ and provides a _listen_ endpoint for it to callback whenever there is an event.
+1. **Consumer** - instantiates a _Subscriber_ and calls the _listen_ method with the _Consumer_'s callback reference.
 
-2. **Subscriber** - receives messaging events through the Message Broker queue or API and invokes the _Consumer_ callback _listen_ endpoint. 
+2. **Subscriber** - receives messaging events through the Message Broker or API and invokes the _Consumer_ callback's _consume_ method. 
 
-3. **Consumer** - will _validate_ and _analyse_ the incoming message, then invoke the _produce_ method on the _Producer_.
+3. **Consumer** - _validate_s and _analyse_s the incoming message, then invokes the _produce_ method on the _Producer_.
 
-4. **Producer** - will _transform_ the message into the application-specified format for the target queue, then it calls the _write_ method on the _Storage_ class. Optionally it can also call _publish_ to forward the transformed message to a new _Publisher_ topic.
+4. **Producer** - _transform_s the message into an application-specified format, then calls _write_ on the _Storage_ class. 
+   Optionally it can also call _publish_ to send the transformed message to a new _Publisher_ topic.
 
-5. **Writer** - will normalise the message into the repository syntax and call the client library to store it in the Repository. 
+5. **Writer** - normalises the message into repository syntax and calls client library to store the data in the Repository. 
 
-6. **Publisher** - if the _Producer_  had optionally re-published the mesage (in step 4) the _Publisher_ will call its broker's client library to deliver the transformed message to a new topic in the Message Broker.
+6. **Publisher** - if the _Producer_  had optionally re-published the mesage (in step 4) the _Publisher_ will call broker's client library to deliver the transformed message to a new topic in the Message Broker.
 
 ---
 
