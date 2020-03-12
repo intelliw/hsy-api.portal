@@ -18,7 +18,7 @@ Messages are processed by the following sequence of interactions.
 4. **Producer** - will _transform_ message into an application-specified format then call _write_ on the _Storage_ class. 
    Optionally it will also call _publish_ to republish the transformed message to a new topic.
 
-5. **Writer** - normalises the message into repository syntax and calls client library to store the data in the Repository. 
+5. **Storage** - normalises the message into repository syntax and calls client library to store the data in the Repository. 
 
 6. **Publisher** - if the _Producer_  had optionally re-published the mesage (in step 4) the _Publisher_ will call broker's client library to deliver the transformed message to a new topic in the Message Broker.
 
@@ -50,7 +50,7 @@ Producer                   | Topic                          | Subscription      
 
 #### Publishers/Subscribers
 
-The messaging framework supports multiple brokers and writer repositories for the cloud and edge as shown in the following table.
+The messaging framework supports multiple brokers and storage repositories for the cloud and edge as shown in the following table.
 
 A particular message broker can be made exclusively active through a service configuration change (and corresponding deployment of the broker). 
 
@@ -59,7 +59,7 @@ The choice of broker and repository will usually depend on hosting costs and mes
 <i></i>              | Class                         | Cloud                          | Edge                  
 ---                  | ---                           | ---                            | ---                   
 **Message Brokers**  | `Publisher`,<br>`Subscriber`   | `NATS`, `PubSub`,<br>`Kafka`  | `KubeMQ`,<br>`Redis`  
-**Repositories**     | `Writer`                     | `BigQuery`, `GCS`,<br>`Bigtable`, `Stackdriver` | `Redis`,<br>`Bitsy` | 
+**Repositories**     | `Storage`                     | `BigQuery`, `GCS`,<br>`Bigtable`, `Stackdriver` | `Redis`,<br>`Bitsy` | 
 
 ---
 

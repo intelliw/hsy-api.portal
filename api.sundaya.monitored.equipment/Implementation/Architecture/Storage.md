@@ -33,10 +33,10 @@ The _Qualifiers_ are used in [Storage Service names](/docs/api.sundaya.monitored
 
 Repository      | Mnemonic                  | Qualifiers                        | Qualified Repository Names
 ---             | ---                       | ---                               | ---
-collection      | `col`                     | `col_rds`<br>`col_sql`            | _Redis Data Collection_<br>_SQLLite Data Collection_
 monitoring      | `mon`                     | `mon_std`                         | _Stackdriver Monitoring_
 analytics       | `any`                     | `any_bq`                          | _BigQuery Analytics_
 reporting       | `rpt`                     | `rpt_bt`<br>`rpt_ds`              | _Bigtable Reporting_<br>_Datastore Reporting_   
+collection      | `col`                     | `col_rds`<br>`col_sql`            | _Redis Data Collection_<br>_SQLLite Data Collection_
 extended        | `ex`                      | `ex_gcs`                          | _Google Cloud Storage Files_
 graph           | `gr`                      | `gr_jg`<br>`gr_fs`<br>`gr_btsy`   | _JanusGraph Graph Data_<br>_Bitsy Edge Graph_<br>_Firestore Document Map_
 

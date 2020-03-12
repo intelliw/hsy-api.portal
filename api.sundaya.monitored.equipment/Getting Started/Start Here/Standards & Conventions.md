@@ -141,18 +141,21 @@ Note: `field name` refers to fields in API messages and JSON documents.
 
 ## Dataset names
 
-An abbreviated _Content_ type mnemonic should **prefix** _Dataset_ names.
+A _Content_ type mnemonic should **prefix** _Dataset_ names.
 
 - The list of _Content_ mnemonics is provided below and described in the [Storage/Content](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section.
 
-Repository      | Mnemonic
+Content         | Mnemonic
 ---             | ---     
-monitoring      | `mon`   
-analytics       | `any`   
-reporting       | `rpt`  
-collection      | `col`  
-extended        | `ex`    
-graph           | `gr`   
+telemetry       | `tel` 
+status          | `sts` 
+event           | `evt` 
+energy          | `eng` 
+device          | `dev` 
+system          | `sys` 
+operations      | `ops` 
+customer        | `cust`
+
 
 The Dataset naming convention is therefore:
  ```xml
@@ -162,24 +165,38 @@ e.g. `tel_pms` is the name of the _PMS Telemetry_ dataset.
 - `tel` is the \<content-mnemonic> for the **telemetry** _Content_ type.
 
 
+
 ## Storage Service names
 
-An abbreviated _Storage_ class mnemonic should **prefix** all `Storage` _Service_ names.
+`Storage` _Services_ are services which **write** data to a _Repository_. 
 
-- A `Storage` _Service_ is either a _Writer_ or _Reader_ of a _Repository_.  
+The mnemonic `sto` should **prefix**  storage _Service_ names.
 
-- The list of _Storage_ class mnemonics is provide in the [Storage](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section.
+A _Dataset_ name should follow after the prefix.
 
-A _Repository_ qualifier should **suffix** all `Storage` _Service_ names.
+A _Repository_ qualifier should **suffix** the storage _Service_ name.
 
-- The list of _Repository_ qualifiers is provides in the [Storage\Repository](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section.
+- The list of _Repository_ qualifiers is provided below and described in the [Storage/Respositories](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section. The list of _Dataset_ names is also provided in that section.
 
-The `Storage` _Service_ naming convention is therefore: 
-    \<storage-class-mnemonic>.\<dataset-name>.\<repository-qualifier>
-    
-    e.g. `wri.tel_pms.any_bq`       XXXXXXXXXXXXXXXXX should be wri.any_bq which takes a tel_pms as an argument
+Repository      | Mnemonic  | Qualifiers                     
+---             | ---       | ---                            
+monitoring      | `mon`     | `mon_std`                      
+analytics       | `any`     | `any_bq`                       
+reporting       | `rpt`     | `rpt_bt`<br>`rpt_ds`           
+collection      | `col`     | `col_rds`<br>`col_sql`         
+extended        | `ex`      | `ex_gcs`                       
+graph           | `gr`      | `gr_jg`<br>`gr_fs`<br>`gr_btsy`
 
-    - is the name of the _Writer_ for _PMS Telemetry_ data to the _BigQuery Analytics_ repository.
+
+The storage _Service_ naming convention is therefore:
+ ```xml
+    sto.<dataset-name>.<repository-qualifier>
+ ```   
+e.g. `sto.tel_pms.any_bq` is the name of the _Service_ for writing _PMS Telemetry_ data into the _BigQuery Analytics_ repository.
+- `tel_pms` is the name of the _PMS Telemetry_ dataset.
+- `any_bq` is the \<content-mnemonic> for the **telemetry** _Content_ type.
+
+
 
 ## Messaging Service names
 
