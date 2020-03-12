@@ -18,15 +18,13 @@ The data metamodel below defines high-level relationships between _Repository_ a
 
 # Repositories
 
-Data is stored in six technologically differentiated repositories which (depicted in the metamodel above).
+Data is stored in six technologically differentiated repositories (depicted in the metamodel above).
 
-- The primary datasets are ingested, transformed, and stored in four repositories (_monitoring_, _analytics_, _reporting_, _graph_).
+- The primary datasets are ingested, transformed, and stored in four repositories (_edge_, _monitoring_, _analytics_, _reporting_).
 
-- Secondary datasets provide relatively static (master) data and are stored in the _nearline_ repository, for combining as external tables through joins.
+- Secondary datasets provide relatively static master and extended data stored in the _extended_ and _graph_ repositories. Data in these repositories are combined as external tables with primary datasets through joins.
 
-_Repository_ archetypes and their abbreviated mnemonics and qualifiers are listed below:
-
-- _Qualifiers_ are used to name storage **Services** according to [naming conventions](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions).
+_Repository_ archetypes and their abbreviated mnemonics and qualifiers are listed below. The _Qualifiers_ are used in [Storage Service names](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions).
 
 
 Repository      | Mnemonic                  | Qualifiers            | Qualified Repository Names
@@ -55,9 +53,9 @@ _Repository_ archetypes are described in more detail below:
 
 # Content 
 
-_Content_ types and their abbreviated mnemonics are used to name **Datasets**, according to [naming conventions](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions). These are listed below: 
+_Content_ types and their abbreviated mnemonics are listed below. The mnemonics are used in [Dataset names](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions) listed below based on naming conventions.
 
-Content         | Mnemonic          | Datasets                      | Dataset Names
+Content         | Mnemonic          | Dataset names                 | Dataset 
 ---             | ---               | ---                           | ---
 telemetry       | `tel`             | `tel_pms`<br>`tel_mppt`<br>`tel_inv`  | _PMS Telemetry_<br>_MPPT Telemetry_<br>_Inverter Telemetry_ 
 status          | `sts`             |                               | 
