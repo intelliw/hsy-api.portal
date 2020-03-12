@@ -148,10 +148,8 @@ An abbreviated _Content_ type mnemonic should **prefix** _Dataset_ names.
 The Dataset naming convention is therefore: 
 \<content-mnemonic>_\<descriptive-qualifier>
     
-e.g. `tel_pms` 
-
-- is the name of the _PMS Telemetry_ dataset.
-- `tel` is the <content-mnemonic> for the **telemetry** _Content_ type.
+e.g. `tel_pms` is the name of the _PMS Telemetry_ dataset.
+- `tel` is the /<content-mnemonic> for the **telemetry** _Content_ type.
 - the fully-qualified dataset name includes the repository name: `analytics.tel_pms` 
 
 ## Storage Service names

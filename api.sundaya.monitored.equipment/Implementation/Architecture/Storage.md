@@ -22,7 +22,9 @@ Data is stored in six technologically differentiated repositories (depicted in t
 
 - The primary datasets are ingested, transformed, and stored in four repositories (_edge_, _monitoring_, _analytics_, _reporting_).
 
-- Secondary datasets provide relatively static master and extended data stored in the _extended_ and _graph_ repositories. Data in these repositories are combined as external tables with primary datasets through joins.
+- Secondary datasets provide relatively static master and extended data and are stored in the _extended_ and _graph_ repositories. 
+
+    Data in the secondary repositories are combined as external tables with the primary datasets through joins.
 
 _Repository_ archetypes and their abbreviated mnemonics and qualifiers are listed below. 
 
