@@ -52,7 +52,7 @@ _Repository_ archetypes are described in more detail below:
 
 - **graph** - The _graph_ repository contains traversible relationships among _customer_ and _operations_ entities, such as the sales and service network. The underlying storage for the _graph_ repository is provided by the same wide-column database cluster used for _reporting_ data.<br><br>_graph_ data is retrieved using graph query language in the **Sales portal** implementation.
 
-- **edge** - The _edge_ repository is primarily intended as a transient store for edge data collection and edge stream processing.<br><br>It also provides connection buffering by queuing and retrying messages which can not be delivered due to connectivity loss or outage at the receiving end of the connection.<br><br>A suitable repository would be an in-memory (in-process) database such as _SQLLite_ or a lightweight key-value store such as _Redis_.
+- **collection** - The _collection_ repository is primarily intended as a transient store for edge data collection and edge stream processing.<br><br>It also provides connection buffering by queuing and retrying messages undelivered due to connectivity loss or outage at the receiving end of the connection.<br><br>Suitable repositories would be in-memory (in-process) database such as _SQLLite_ or a lightweight key-value store such as _Redis_.
 
 ---
 
