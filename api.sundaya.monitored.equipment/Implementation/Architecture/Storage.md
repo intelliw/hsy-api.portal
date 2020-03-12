@@ -18,7 +18,7 @@ The data metamodel below defines high-level relationships between _Repository_ a
 
 # Repositories
 
-Data is stored in six technologically differentiated repositories (depicted in the metamodel above).
+Data is stored in six technically differentiated repositories (depicted in the metamodel above).
 
 - The primary datasets are ingested, transformed, and stored in four repositories (_collection_, _monitoring_, _analytics_, _reporting_).
 

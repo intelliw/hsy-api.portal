@@ -7,6 +7,7 @@ The API is based on REST / Hypermedia and specified in [OpenAPI v2.0](https://gi
 API documentation is available through the *Sundaya Developer Portal* at [https://docs.sundaya.monitored.equipment](https://docs.sundaya.monitored.equipment).
 
 
+
 ## API Endpoint
 The API endpoint host is [https://api.sundaya.monitored.equipment](https://api.sundaya.monitored.equipment). 
 
@@ -15,6 +16,8 @@ All requests to the API endpoint receive the latest version of the API.
 Client applications may request an older API version by specifying the version number in the `Accept` header.
 
     Accept: application/vnd.sundaya.v1.0+yaml
+
+
 
 ## Date-time Format
 Date and time parameters must be expressed in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format and must conform to [RFC3359](https://tools.ietf.org/html/rfc3339) .
@@ -52,6 +55,8 @@ Local time without offset (and therefore location unspecified) is not supported.
 
 - API timestamp parameters in `POST` requests must be provided as `Local` time. `UTC` time is not accepted.
 
+
+
 ## Media types
 Request `Body` parameters and all response objects are sent and received in JSON. 
 
@@ -72,6 +77,7 @@ A media type can be requested by sending an `Accept` header:
 - If multiple `Accept` headers are sent the response will select the first matching media type in the list shown above, in the order shown.
 
 - If the request `Accept` headers do not contain a supported type a `415`response (*Unsupported Media Type*) will be returned.
+
 
 
 ## Headers
@@ -102,6 +108,8 @@ Operation | Definition
 `PUT` | Replace or update the resource. 
 `DELETE` | Delete the resource. 
 
+
+
 ## Response codes
 The API supports a limited set of responses for each API path, based on the following.
 
@@ -114,6 +122,9 @@ Code | Status | Definition
 `404` | Not Found | The resource was not found.
 `415` | Unsupported Media Type | The requested Accept header type is not supported.
 `500` | Internal Server Error | The server encountered an unexpected condition.
+
+
+
 
 ## Data element names
 Dataset and repository elements should be named according to the following conventions.
@@ -141,6 +152,7 @@ Note: `field name` refers to fields in API messages and JSON documents.
 
 
 
+
 ## Dataset names
 
 _Dataset_ names are based on their _Repository_ archetype and their _Content_ type. 
@@ -157,6 +169,7 @@ e.g.    `tel_pms` is the name of the _PMS Telemetry_ dataset.
         - `tel` is the \<content-mnemonic> for the **telemetry** _Content_ type.
 
 The list of _Content_ mnemonics is provided in the [Storage/Content](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section.
+
 
 
 
@@ -182,6 +195,28 @@ The list of _Repository_ qualifiers is provided in the [Storage/Respositories](/
 
 
 
+
+## Query service names
+
+A `Query` _Service_ is a service which queries data from a _Repository_.
+
+1. The mnemonic `qry` should **prefix**  a query _Service_ name.
+
+2. A _Dataset_ name or the descriptor of the data being queried, should follow after the prefix.
+
+3. A _Repository_ qualifier should **suffix** the query _Service_ name.
+
+The query _Service_ naming convention is therefore:
+ ```xml
+    qry.<dataset-descriptor>.<repository-qualifier>
+ ```   
+e.g.    `qry.eng_period.rpt_bt` is the name of the _Service_ for querying _Energy Periods_ data from the _Bigtable Reporting_ repository.
+
+The list of _Repository_ qualifiers and dataset names is provided in [Storage](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section. The list of _Dataset_ names is also provided in that section.
+
+
+
+
 ## Topic names
 
 Messaging topics are named according to the _Dataset_ or data descriptor based on the following convention.
@@ -195,6 +230,7 @@ The _Topic_ naming convention is therefore:
     pub.<dataset-descriptor>
  ```   
  e.g.   `pub.tel_pms` is the name of the _Topic_ for _PMS Telemetry_.
+
 
 
 
@@ -217,35 +253,20 @@ The _Topic_ naming convention is therefore:
 
 
 
-## Publisher Service names
+## Producer service names
 
-A `Publisher` _Service_ is a service which publishes data to a messaging _Topic_.
+A `Producer` _Service_ is a service which produces and publishes messages to an _API_ endpoint or to a messaging _Topic_.
 
-_Dataset_ names are based on their _Repository_ archetype and their _Content_ type. 
+1. The mnemonic `api` or `pub` should **prefix**  a producer _Service_ name depending on whether its production target is an _API_ or _Topic_.
 
-1. The mnemonic `sto` should **prefix**  a storage _Service_ name.
+2. A _Dataset_ name or the descriptor of the data being published, should follow after the prefix.
 
+The producer _Service_ naming convention is therefore:
+ ```xml
+    api|pub.<dataset-descriptor>
+ ```   
+e.g.    `pub.tel_device.` is the name of the producer _Service_ for publishing device _Telemetry_ to various topics.
 
-An abbreviated _Messaging_ class mnemonic should **prefix** all `Messaging` _Service_ names.
-
-- The list of _Messaging_ class mnemonics is provide in the [Messaging](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Messaging) section.
-
-A _Dataset_ qualifier should **suffix** all `Storage` _Service_ names.
-
-
-A `Messaging` _Service_ is either:
-
-- a _Producer_ or _Consumer_ of a _Dataset_
-
-- a _Publisher_ or _Consumer_ of a _Topic/ Subscription_
-
-
-    \<messaging-class-mnemonic>.\<dataset-name>[.\<topic_name>]
-
-    e.g. `prd.tel_pms` 
-
-    - is the name of the _Producer_ service for _PMS Telemetry_ (which calls a _Storage_ or _Publisher_ service as described in [Messaging](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Messaging)).
-    - the \<descriptive-qualifier> is optional
 
 
 

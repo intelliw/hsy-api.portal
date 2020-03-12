@@ -7,6 +7,8 @@ The framework encapsulates multiple broker technologies both in the cloud and th
 
 ---
 
+#### Message flow
+
 ![Message brokers](/images/message-broker.png)
 
 Messages are processed by the following sequence of interactions.
@@ -26,7 +28,11 @@ Messages are processed by the following sequence of interactions.
 
 ---
 
-### Producers/Consumers
+# Topics
+
+_Topics_ and _Subscriptions_ are listed in the table below. 
+
+
 
 The messaging framework provides a bridge for datasets to be produced or consumed by multiple brokers and repositories. 
 
