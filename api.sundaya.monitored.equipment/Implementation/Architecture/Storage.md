@@ -24,7 +24,9 @@ Data is stored in six technologically differentiated repositories (depicted in t
 
 - Secondary datasets provide relatively static master and extended data stored in the _extended_ and _graph_ repositories. Data in these repositories are combined as external tables with primary datasets through joins.
 
-_Repository_ archetypes and their abbreviated mnemonics and qualifiers are listed below. The _Qualifiers_ are used in [Storage Service names](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions).
+_Repository_ archetypes and their abbreviated mnemonics and qualifiers are listed below. 
+
+The _Qualifiers_ are used in [Storage Service names](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions).
 
 
 Repository      | Mnemonic                  | Qualifiers            | Qualified Repository Names
@@ -53,7 +55,9 @@ _Repository_ archetypes are described in more detail below:
 
 # Content 
 
-_Content_ types and their abbreviated mnemonics are listed below. The mnemonics are used in [Dataset names](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions) listed below based on naming conventions.
+_Content_ types and their abbreviated mnemonics are listed below. 
+
+The mnemonics are used in [Dataset names](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions) listed below based on naming conventions.
 
 Content         | Mnemonic          | Dataset names                 | Dataset 
 ---             | ---               | ---                           | ---
