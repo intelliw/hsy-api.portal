@@ -37,7 +37,7 @@ collection      | `col`                     | `col_rds`<br>`col_sql`            
 monitoring      | `mon`                     | `mon_std`                         | _Stackdriver Monitoring_
 analytics       | `any`                     | `any_bq`                          | _BigQuery Analytics_
 reporting       | `rpt`                     | `rpt_bt`<br>`rpt_ds`              | _Bigtable Reporting_<br>_Datastore Reporting_   
-nearline        | `nl`                      | `nl_gcs`                          | _Google Cloud Storage Files_
+extended        | `ex`                      | `ex_gcs`                          | _Google Cloud Storage Files_
 graph           | `gr`                      | `gr_jg`<br>`gr_fs`<br>`gr_btsy`   | _JanusGraph Graph Data_<br>_Bitsy Edge Graph_<br>_Firestore Document Map_
 
 _Repository_ archetypes are described in more detail below:
@@ -48,11 +48,11 @@ _Repository_ archetypes are described in more detail below:
 
 - **reporting** - The _reporting_ repository contains periodic aggregates of data aligned to time windows: for example energy data totals for a week.<br><br>The datasets are produced with low latency and high throughput from the streaming queue, by parallel processors. However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. The stream processors are able to align these late-arriving data with previously processed time windows.<br><br>The data is stored in a denormalised wide-column database for fast access by **API** and other application services and transactional systems (OLTP).<br>
 
-- **nearline** - The _nearline_ data is typically held in cloud storage or other file system, and contains _rerference_ data for customers, suppliers, personnel, sites, products and services.<br><br>This dataset is expected to change very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from stand-alone systems, such as the ERP system.<br><br>The reference data is stored as sheets or JSON documents.<br>
+- **collection** - The _collection_ repository is primarily intended as a transient store for edge data collection and edge stream processing.<br><br>It also provides connection buffering by queuing and retrying messages undelivered due to connectivity loss or outage at the receiving end of the connection.<br><br>Suitable repositories would be in-memory (in-process) database such as _SQLLite_ or a lightweight key-value store such as _Redis_.
+
+- **extended** - The _nearline_ data is typically held in cloud storage or other file system, and contains _rerference_ data for customers, suppliers, personnel, sites, products and services.<br><br>This dataset is expected to change very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from stand-alone systems, such as the ERP system.<br><br>The reference data is stored as sheets or JSON documents.<br>
 
 - **graph** - The _graph_ repository contains traversible relationships among _customer_ and _operations_ entities, such as the sales and service network. The underlying storage for the _graph_ repository is provided by the same wide-column database cluster used for _reporting_ data.<br><br>_graph_ data is retrieved using graph query language in the **Sales portal** implementation.
-
-- **collection** - The _collection_ repository is primarily intended as a transient store for edge data collection and edge stream processing.<br><br>It also provides connection buffering by queuing and retrying messages undelivered due to connectivity loss or outage at the receiving end of the connection.<br><br>Suitable repositories would be in-memory (in-process) database such as _SQLLite_ or a lightweight key-value store such as _Redis_.
 
 ---
 
@@ -96,7 +96,7 @@ Dataset | Repository | Content | Application
 [pms_telemetry](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_telemetry)<br>[mppt_telemetry](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_telemetry)<br>[inverter_telemetry](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_telemetry) | `monitoring`, <br>`analytics` | `telemetry`, `status` | `OI dashboard`<br>`BI dashboard`
 [period](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/period) | `reporting` | `energy`, `telemetry` | `Energy API`
 [agent_operations](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/graph/agent_operations) | `graph` | `customer`, `operations` | `Agent portal`
-[site_customer](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/nearline/site_customer)<br>[installation_operations](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/nearline/installation_operations)<br>[pms_pack_](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/nearline/pms_pack)<br>[source](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/nearline/source) | `reference` | `customer`, `system` |
+[site_customer](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/extended/site_customer)<br>[installation_operations](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/extended/installation_operations)<br>[pms_pack_](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/extended/pms_pack)<br>[source](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/extended/source) | `reference` | `customer`, `system` |
 
 ---
 

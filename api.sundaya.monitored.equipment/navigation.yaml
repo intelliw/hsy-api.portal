@@ -88,7 +88,7 @@ folders:
         - analytics
         - reporting
         - graph
-        - nearline
+        - extended
 
         folders:
           analytics:
@@ -105,7 +105,7 @@ folders:
             ordering:
             - ops_agent
               
-          nearline:
+          extended:
             ordering:
             - cust_site
             - ops_install

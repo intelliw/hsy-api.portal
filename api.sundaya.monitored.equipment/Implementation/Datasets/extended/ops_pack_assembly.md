@@ -7,7 +7,7 @@ This dataset provides assembly data for packs.
 
 # Dataset Structure 
 
-The following `nearline.pms_pack_operations` attributes are relationally joined with the `analytics.pms_telemetry` dataset. 
+The following `extended.pms_pack_operations` attributes are relationally joined with the `analytics.pms_telemetry` dataset. 
 
 Attribute       | Data      | Description
 ---             | ---       | ---
