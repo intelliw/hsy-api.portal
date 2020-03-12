@@ -5,6 +5,12 @@ The messsaging platform leverages a framework which is implemented by all platfo
 
 The framework encapsulates multiple broker technologies both in the cloud and the edge, and provides a standardised set of interfaces for flowing messages to brokers and repositories.
 
+- A particular message broker can be made exclusively active through a service configuration change (and corresponding deployment of the broker). 
+
+- The choice of broker and repository will usually depend on hosting costs and messaging volumes. 
+
+  The requirements and choice of broker is expected to keep changing in each environment as the platform evolves and the number of connected devices increases.
+
 ---
 
 #### Message flow
@@ -32,37 +38,17 @@ Messages are processed by the following sequence of interactions.
 
 _Topics_ and _Subscriptions_ are listed in the table below. 
 
+Producer                   | Topic                          | Subscription                
+---                        | ---                            | ---                         
+[api.tel_pms](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[api.tel_mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[api.tel_inv](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | `pub.tel_pms`<br>`pub.tel_mppt`<br>`pub.tel_inv` |  [sub.tel_pms.any_bq](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/tel_pms)<br>[sub.tel_mppt.any_bq](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/tel_mppt)<br>[sub.tel_inv.any_bq](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/tel_inv) 
+[api.sys_env_config](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) | `pub.sys_env_config` | `sub.sys_env_config.` 
 
+- The `api.sys_env_config` producer propogates 'feature toggles' and logging configuration changes to each configurable service.
 
-The messaging framework provides a bridge for datasets to be produced or consumed by multiple brokers and repositories. 
-
-- `Producer` and `Consumer` classes provide wrappers for each **Dataset** 
-
-- they invoke `Publisher` and `Subscriber` classes to initiate and complete message deliverY 
-
-The source and target topics and subscriptions are summarised below:
-
-- `Producer` classes pull messages from **Source** topics and deliver these to **Target** topics
-
-- `Consumer` classes pull messages from **Target** subscriptions which originate in the **Source** topic.
-
-- **Monitoring** services stream device data through the API host to the `analytics` repository.
-
-- **Feature** services provide message flows which propogate 'feature toggle' changes to each configurable service.
-
-Producer                   | Topic                          | Subscription                | Dataset / New Topic
----                        | ---                            | ---                         | ---    
-[/dataset/pms POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[/dataset/mppt POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[/dataset/inverter POST](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | `pub-monitoring.pms`<br>`pub-monitoring.mppt`<br>`pub-monitoring.inverter` |  [sub-analytics.pms_telemetry](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_telemetry)<br>[sub-analytics.mppt_telemetry](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_telemetry)<br>[sub-analytics.inverter_telemetry](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_telemetry) | `analytics.pms_telemetry`<br>`analytics.mppt_telemetry`<br>`analytics.inverter_telemetry`
-[/api/features GET](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get)<br>[/api/logging GET](/docs/api.sundaya.monitored.equipment/0/routes/api/logging/get) | `system.feature` | `system.feature` | `sub-env.active.features` | `env_system`
 
 
 #### Publishers/Subscribers
 
-The messaging framework supports multiple brokers and storage repositories for the cloud and edge as shown in the following table.
-
-A particular message broker can be made exclusively active through a service configuration change (and corresponding deployment of the broker). 
-
-The choice of broker and repository will usually depend on hosting costs and messaging volumes. As expected these requirements and the choice of broker will change in each environment as the platform evolves and the number of connected devices increases.
 
 <i></i>              | Class                         | Cloud                          | Edge                  
 ---                  | ---                           | ---                            | ---                   
