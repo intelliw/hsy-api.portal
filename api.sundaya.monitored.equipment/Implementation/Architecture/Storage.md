@@ -42,7 +42,7 @@ graph           | `gr`                      | `gr_jg`<br>`gr_fs`<br>`gr_btsy`   
 
 _Repository_ archetypes are described in more detail below:
 
-- **monitoring** - The _monitoring_ repository is a transient store for streaming device data. The data is used to monitor field devices in real time.<br><br>Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time. Once received at the endpoint the raw data is logged and held in the logging subsystem, and is available for monitoring devices in the **OI dashboard**.<br><br>The data is produced by a rolling appender and purged after about 6 weeks.<br>
+- **monitoring** - The _monitoring_ repository is a transient store for streaming device data. The data is used to monitor field devices in real time.<br><br>Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time. Once received at the endpoint the raw data is logged and held in the monitoring subsystem, and available for viewing in the **OI dashboard**.<br><br>The data is produced by a rolling appender and purged after about 6 weeks.<br>
 
 - **analytics** - Datasets in the _analytics_ repository track device performance over time, and enable problem tracing and trend analysis, including predictions.<br><br>Data is consumed from the streaming queue and stored in a relational format. The data may be joined with other datasets and accessed through SQL queries for anaytics (OLAP) in the **BI dashboard**.<br><br>Data rows are append-only and never modified.<br>
 
@@ -66,7 +66,7 @@ The mnemonics are used in [Dataset names](/docs/api.sundaya.monitored.equipment/
 
 Content         | Mnemonic          | Dataset names                 | Dataset 
 ---             | ---               | ---                           | ---
-telemetry       | `tel`             | `tel_pms`<br>`tel_mppt`<br>`tel_inv`  | _PMS Telemetry_<br>_MPPT Telemetry_<br>_Inverter Telemetry_ 
+telemetry       | `tel`             | [`tel_pms`](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/tel_pms)<br>[`tel_mppt`](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/tel_mppt)<br>`tel_inv`  | _PMS Telemetry_<br>_MPPT Telemetry_<br>_Inverter Telemetry_ 
 status          | `sts`             |                               | 
 event           | `evt`             |                               | 
 energy          | `eng`             | `eng_period`                  | _Energy Periods_    
