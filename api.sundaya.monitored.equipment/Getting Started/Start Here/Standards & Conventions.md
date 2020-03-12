@@ -255,7 +255,7 @@ The _Topic_ naming convention is therefore:
 
 ## Producer service names
 
-A `Producer` _Service_ is a service which produces and publishes messages to an _API_ endpoint or to a messaging _Topic_.
+A `Producer` _Service_ is a service which publishes messages to an _API_ endpoint or to a messaging _Topic_.
 
 1. The mnemonic `api` or `pub` should **prefix**  a producer _Service_ name depending on whether its production target is an _API_ or _Topic_.
 
