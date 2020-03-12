@@ -3,7 +3,7 @@
 
 The messsaging platform leverages a framework which is implemented by all platform services. 
 
-It provides message flow through access to multiple broker technologies both in the cloud and the edge.
+The framework encapsulates multiple broker technologies both in the cloud and the edge, and provides a standardised set of interfaces for flowing messages to brokers and repositories.
 
 ---
 

@@ -31,7 +31,7 @@ _Repository_ archetypes and their abbreviated mnemonics and qualifiers are liste
 The _Qualifiers_ are used in [Storage Service names](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions).
 
 
-Repository      | Mnemonic                  | Qualifiers                        | Qualified Repository Names
+Repository      | Mnemonic                  | Qualifiers                        | Qualified Name
 ---             | ---                       | ---                               | ---
 monitoring      | `mon`                     | `mon_std`                         | _Stackdriver Monitoring_
 analytics       | `any`                     | `any_bq`                          | _BigQuery Analytics_
@@ -66,14 +66,14 @@ The mnemonics are used in [Dataset names](/docs/api.sundaya.monitored.equipment/
 
 Content         | Mnemonic          | Dataset names                 | Dataset 
 ---             | ---               | ---                           | ---
-telemetry       | `tel`             | [`tel_pms`](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/tel_pms)<br>[`tel_mppt`](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/tel_mppt)<br>`tel_inv`  | _PMS Telemetry_<br>_MPPT Telemetry_<br>_Inverter Telemetry_ 
+telemetry       | `tel`             | [tel_pms](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/tel_pms)<br>[tel_mppt](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/tel_mppt)<br>[tel_inv](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/tel_inverter)  | _PMS Telemetry_<br>_MPPT Telemetry_<br>_Inverter Telemetry_ 
 status          | `sts`             |                               | 
 event           | `evt`             |                               | 
-energy          | `eng`             | `eng_period`                  | _Energy Periods_    
+energy          | `eng`             | [eng_period](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/eng_period) | _Energy Periods_    
 device          | `dev`             |                               | 
-system          | `sys`             | `sys_data_src`<br>`sys_env_config`    | _Data Sources_<br>_Environment Configurations_ 
-operations      | `ops`             | `ops_install`<br>`ops_pack_assembly`<br>`ops_agent`   | _Installations_<br>_Pack Assemblies_<br>_Agent Operations_
-customer        | `cust`            | `cust_site`                   | _Customer Sites_<br> 
+system          | `sys`             | [sys_data_src](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/extended/sys_data_src)<br>[sys_env_config](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/extended/sys_env_config)    | _Data Sources_<br>_Environment Configurations_ 
+operations      | `ops`             | [ops_install](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/extended/ops_install)<br>[ops_pack_assembly](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/extended/ops_pack_assembly)<br>[ops_agent](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/graph/ops_agent)   | _Installations_<br>_Pack Assemblies_<br>_Agent Operations_
+customer        | `cust`            | [cust_site](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/extended/cust_site)                   | _Customer Sites_<br> 
 
 _Content_ types are described in more detail below:
 

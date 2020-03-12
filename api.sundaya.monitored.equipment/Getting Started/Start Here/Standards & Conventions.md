@@ -139,6 +139,8 @@ Element | Convention | Example
 
 Note: `field name` refers to fields in API messages and JSON documents.
 
+
+
 ## Dataset names
 
 _Dataset_ names are based on their _Repository_ archetype and their _Content_ type. 
@@ -151,10 +153,11 @@ The Dataset naming convention is therefore:
  ```xml
     <content-mnemonic>_<descriptive-qualifier>
  ```   
-e.g. `tel_pms` is the name of the _PMS Telemetry_ dataset.
-- `tel` is the \<content-mnemonic> for the **telemetry** _Content_ type.
+e.g.    `tel_pms` is the name of the _PMS Telemetry_ dataset.
+        - `tel` is the \<content-mnemonic> for the **telemetry** _Content_ type.
 
 The list of _Content_ mnemonics is provided in the [Storage/Content](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section.
+
 
 
 ## Storage service names
@@ -171,15 +174,57 @@ The storage _Service_ naming convention is therefore:
  ```xml
     sto.<dataset-descriptor>.<repository-qualifier>
  ```   
-e.g. `sto.tel_device.any_bq` is the name of the _Service_ for writing device _Telemetry_ to the _BigQuery Analytics_ repository.
-- `tel_device` is a general descriptor for the different device _Telemetry_ datasets.
-- `any_bq` is the the _BigQuery Analytics_ repository.
+e.g.    `sto.tel_device.any_bq` is the name of the _Service_ for writing device _Telemetry_ to the _BigQuery Analytics_ repository.
+        - `tel_device` is a general descriptor for the different device _Telemetry_ datasets.
+        - `any_bq` is the the _BigQuery Analytics_ repository.
 
 The list of _Repository_ qualifiers is provided in the [Storage/Respositories](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section. The list of _Dataset_ names is also provided in that section.
 
 
 
-## Messaging Service names
+## Topic names
+
+Messaging topics are named according to the _Dataset_ or data descriptor based on the following convention.
+
+1. `pub` should **prefix** the _Topic_ name. 
+
+2. A _Dataset_ name or the descriptor of the data being published, should follow after the prefix.
+
+The _Topic_ naming convention is therefore:
+ ```xml
+    pub.<dataset-descriptor>
+ ```   
+ e.g.   `pub.tel_pms` is the name of the _Topic_ for _PMS Telemetry_.
+
+
+
+## Subsription names
+
+Messaging subscriptions are named according to the data descriptor, and the target _Repository_ or other descriptor, as follows.
+
+1. `sub` should **prefix** the _Subscription_ name. 
+
+2. The _Dataset_ name or the descriptor of the data in the subscribed _Topic_, should follow after the prefix.
+
+3. The _Repository_ qualifier or the general descriptor of the _Subscriber's_ production target should **suffix** the name.
+
+The _Topic_ naming convention is therefore:
+ ```xml
+    sub.<dataset-descriptor>.<target-descriptor>
+ ```   
+ e.g.   `sub.tel_pms.any_bq` is the name of the _Subscription_ for storing _PMS Telemetry_ data in the _BigQuery Analytics_ repository.
+        `sub.tel_pms.rpt_bt` is the name of the _Subscription_ for storing _PMS Telemetry_ data in the _Bigtable Reporting_ repository.
+
+
+
+## Publisher Service names
+
+A `Publisher` _Service_ is a service which publishes data to a messaging _Topic_.
+
+_Dataset_ names are based on their _Repository_ archetype and their _Content_ type. 
+
+1. The mnemonic `sto` should **prefix**  a storage _Service_ name.
+
 
 An abbreviated _Messaging_ class mnemonic should **prefix** all `Messaging` _Service_ names.
 
@@ -195,9 +240,6 @@ A `Messaging` _Service_ is either:
 - a _Publisher_ or _Consumer_ of a _Topic/ Subscription_
 
 
-
-
-
     \<messaging-class-mnemonic>.\<dataset-name>[.\<topic_name>]
 
     e.g. `prd.tel_pms` 
@@ -205,11 +247,6 @@ A `Messaging` _Service_ is either:
     - is the name of the _Producer_ service for _PMS Telemetry_ (which calls a _Storage_ or _Publisher_ service as described in [Messaging](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Messaging)).
     - the \<descriptive-qualifier> is optional
 
-
-## Messaging topic names
-Messaging system topics and subscriptions should be named according to these general conventions.
-- topics prefixed with `pub_` 
-- subscription names are prefixed with `sub_` 
 
 
 ## Abbreviations
