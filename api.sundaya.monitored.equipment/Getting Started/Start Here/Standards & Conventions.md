@@ -143,7 +143,7 @@ Note: `field name` refers to fields in API messages and JSON documents.
 
 An abbreviated _Content_ type mnemonic should **prefix** _Dataset_ names.
 
-- The list of _Content_ mnemonics is provide in the [Storage](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section.
+- The list of _Content_ mnemonics is provide in the [Storage/Content](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section.
 
 The Dataset naming convention is therefore: 
     \<content-mnemonic>_\<descriptive-qualifier>
@@ -154,29 +154,42 @@ The Dataset naming convention is therefore:
     - `tel` is the <content-mnemonic> for the **telemetry** _Content_ type.
     - the fully-qualified dataset name includes the repository name: `analytics.tel_pms` 
 
-## Service names
+## Storage Service names
 
-An abbreviated _Messaging_ class mnemonic should **prefix** all _Service_ names.
+An abbreviated _Storage_ class mnemonic should **prefix** all `Storage` _Service_ names.
 
-- The list of _Messaging_ mnemonics is provide in the [Messaging](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Messaging) section.
+- A `Storage` _Service_ is either a _Writer_ or _Reader_ of a _Repository_.  
 
-An abbreviated _Repository_ mnemonic and qualifier should **suffix** the name if it is a `Storage` _Service_.
+- The list of _Storage_ class mnemonics is provide in the [Storage](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section.
 
-- A `Storage` _Service_  is either a _Writer_ or _Reader_ of a _Repository_.  
+A _Repository_ qualifier should **suffix** all `Storage` _Service_ names.
 
-- The list of _Repository_ mnemonics is provide in the [Storage](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section.
+- The list of _Repository_ qualifiers is provides in the [Storage\Repository](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section.
 
 The `Storage` _Service_ naming convention is therefore: 
-    \<messaging-class-mnemonic>.\<dataset-name>.\<repository-mnemonic>_<repository-qualifier>
+    \<storage-class-mnemonic>.\<dataset-name>.\<repository-qualifier>
     
-    e.g. `wri.tel_pms.any_bq` 
+    e.g. `wri.tel_pms.any_bq`       XXXXXXXXXXXXXXXXX should be wri.any_bq which takes a tel_pms as an argument
 
-    - is the name of the _Writer_ for _PMS Telemetry_ to the analytics repository in _BigQuery_.
-    - `tel` is the <content-mnemonic> for the **telemetry** _Content_ type.
-    - the fully-qualified dataset name includes the repository name: `analytics.tel_pms` 
+    - is the name of the _Writer_ for _PMS Telemetry_ data to the _BigQuery Analytics_ repository.
+
+## Messaging Service names
+
+An abbreviated _Messaging_ class mnemonic should **prefix** all `Messaging` _Service_ names.
+
+- The list of _Messaging_ class mnemonics is provide in the [Messaging](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Messaging) section.
+
+A _Dataset_ qualifier should **suffix** all `Storage` _Service_ names.
 
 
-All other _Service_ names (_Producers_ and _Consumers_) should **suffix** the name with a topic or subscription name.
+A `Messaging` _Service_ is either:
+
+- a _Producer_ or _Consumer_ of a _Dataset_
+
+- a _Publisher_ or _Consumer_ of a _Topic/ Subscription_
+
+
+
 
 
     \<messaging-class-mnemonic>.\<dataset-name>[.\<topic_name>]

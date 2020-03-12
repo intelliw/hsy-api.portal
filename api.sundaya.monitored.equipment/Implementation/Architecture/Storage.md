@@ -26,15 +26,18 @@ Data is stored in five technologically differentiated repositories which (depict
 
 - Secondary datasets provide relatively static (master) data and are stored in the _nearline_ repository, for combining as external tables through joins.
 
-_Repository_ archetypes and their abbreviated mnemonics and qualifiers are used to name storage **Services**, according to [naming conventions](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions). These are listed below:
+_Repository_ archetypes and their abbreviated mnemonics and qualifiers are listed below:
 
-Repository      | Mnemonic                  | Qualifiers    | Qualifier Names
----             | ---                       | ---           | ---
-monitoring      | `mon`                     | `std`         | _Stackdriver_
-analytics       | `any`                     | `bq`          | _BigQuery_
-reporting       | `rpt`                     | `bt`<br>`ds`  | _Bigtable_<br>_Datastore_   
-nearline        | `nl`                      | `gcs`         | _Google Cloud Storage_
-graph           | `gr`                      | `jg`<br>`fs`  | _JanusGraph_<br>_Firestore_
+- _Qualifiers_ are used to name storage **Services** according to [naming conventions](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions).
+
+
+Repository      | Mnemonic                  | Qualifiers            | Qualified Repository Names
+---             | ---                       | ---                   | ---
+monitoring      | `mon`                     | `mon_std`             | _Stackdriver Monitoring_
+analytics       | `any`                     | `any_bq`              | _BigQuery Analytics_
+reporting       | `rpt`                     | `rpt_bt`<br>`rpt_ds`  | _Bigtable Reporting_<br>_Datastore Reporting_   
+nearline        | `nl`                      | `nl_gcs`              | _Google Cloud Storage Files_
+graph           | `gr`                      | `gr_jg`<br>`gr_fs`    | _JanusGraph Graph Data_<br>_Firestore Document Map _
 
 _Repository_ archetypes are described in more detail below:
 
