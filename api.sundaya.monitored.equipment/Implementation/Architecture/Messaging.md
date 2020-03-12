@@ -47,13 +47,13 @@ Producer service           | Topic                          | Subscription
 
 
 
-#### Publishers/Subscribers
+# Brokers
 
 
-<i></i>              | Class                         | Cloud                          | Edge                  
----                  | ---                           | ---                            | ---                   
-**Message Brokers**  | `Publisher`,<br>`Subscriber`   | `NATS`, `PubSub`,<br>`Kafka`  | `KubeMQ`,<br>`Redis`  
-**Repositories**     | `Storage`                     | `BigQuery`, `GCS`,<br>`Bigtable`, `Stackdriver` | `Redis`,<br>`Bitsy` | 
+Cloud                            | Edge                  
+---                              | ---                   
+`NATS`, `PubSub`,<br>`Kafka`     | `KubeMQ`,<br>`Redis`  
+
 
 ---
 
