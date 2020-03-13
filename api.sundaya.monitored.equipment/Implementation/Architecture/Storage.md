@@ -18,13 +18,13 @@ The data metamodel below defines high-level relationships between _Repository_ a
 
 # Repositories
 
-Data is stored in six technically differentiated repositories (depicted in the metamodel above).
+Data is stored in six technically differentiated types of repository (depicted in the metamodel above).
 
-- The primary datasets are ingested, transformed, and stored in four repositories (_collection_, _monitoring_, _analytics_, _reporting_).
+- Data is ingested through two transient data puddles (_edge_, _monitoring_).
 
-- Secondary datasets provide relatively static master and extended data and are stored in the _extended_ and _graph_ repositories. 
+- The primary datasets are held in two warehouses (_analytics_, _reporting_).
 
-  Data in the secondary repositories are combined as external tables with the primary datasets through joins.
+- A secondary group of datasets are relatively static, master and extended data storage solutions (_extended_, _graph__). 
 
 _Repository_ archetypes and their abbreviated mnemonics and qualifiers are listed below. 
 
@@ -36,23 +36,25 @@ Repository      | Mnemonic                  | Qualifiers                        
 monitoring      | `mon`                     | `mon_std`                         | _Stackdriver Monitoring_
 analytics       | `any`                     | `any_bq`                          | _BigQuery Analytics_
 reporting       | `rpt`                     | `rpt_bt`<br>`rpt_ds`              | _Bigtable Reporting_<br>_Datastore Reporting_   
-collection      | `col`                     | `col_rds`<br>`col_sql`            | _Redis Data Collection_<br>_SQLLite Data Collection_
+edge            | `edg`                     | `edg_rds`<br>`edg_sql`            | _Redis Edge Data_<br>_SQLLite Edge Data_
 extended        | `ex`                      | `ex_gcs`                          | _Google Cloud Storage Files_
 graph           | `gr`                      | `gr_jg`<br>`gr_fs`<br>`gr_btsy`   | _JanusGraph Graph Data_<br>_Bitsy Edge Graph_<br>_Firestore Document Map_
 
 _Repository_ archetypes are described in more detail below:
 
+- **edge** - The _edge_ repository is a transient store for data collection and edge stream processing.<br><br>It also provides connection buffering by queuing and retrying messages undelivered due to connectivity loss or outage at the receiving end of the connection.<br><br>Suitable repositories would be in-memory (in-process) database such as _SQLLite_ or a lightweight key-value store such as _Redis_.
+
 - **monitoring** - The _monitoring_ repository is a transient store for streaming device data. The data is used to monitor field devices in real time.<br><br>Data is streamed into an API endpoint by device controllers (BBC) or a device gateways (EHub) in near-real-time. Once received at the endpoint the raw data is logged and held in the monitoring subsystem, and available for viewing in the **OI dashboard**.<br><br>The data is produced by a rolling appender and purged after about 6 weeks.<br>
+
+<br>
 
 - **analytics** - Datasets in the _analytics_ repository track device performance over time, and enable problem tracing and trend analysis, including predictions.<br><br>Data is consumed from the streaming queue and stored in a relational format. The data may be joined with other datasets and accessed through SQL queries for anaytics (OLAP) in the **BI dashboard**.<br><br>Data rows are append-only and never modified.<br>
 
 - **reporting** - The _reporting_ repository contains periodic aggregates of data aligned to time windows: for example energy data totals for a week.<br><br>The datasets are produced with low latency and high throughput from the streaming queue, by parallel processors. However some data may arrive late, often due to poor connectivity seen in remote locations, or when a data backlog is sent after the system is offline due to maintenance etc. The stream processors are able to align these late-arriving data with previously processed time windows.<br><br>The data is stored in a denormalised wide-column database for fast access by **API** and other application services and transactional systems (OLTP).<br>
 
-- **collection** - The _collection_ repository is primarily intended as a transient store for edge data collection and edge stream processing.<br><br>It also provides connection buffering by queuing and retrying messages undelivered due to connectivity loss or outage at the receiving end of the connection.<br><br>Suitable repositories would be in-memory (in-process) database such as _SQLLite_ or a lightweight key-value store such as _Redis_.
-
 <br>
 
-- **extended** - The _nearline_ data is typically held in cloud storage or other file system, and contains _rerference_ data for customers, suppliers, personnel, sites, products and services.<br><br>This dataset is expected to change very infrequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from stand-alone systems, such as the ERP system.<br><br>The reference data is stored as sheets or JSON documents.<br>
+- **extended** - The _extended_ repository is typically implemented by cloud storage or other file systems, It contains _master_ and _reference_ data for __parties_, _places_ and _things_; such as customers, suppliers, agents, sites, products, and services.<br><br>The data in this repository is not expected to change very frequently. Data is inserted and updated through Apps and the web tier when a transaction is completed, or periodically (e.g. twice a day) through a batch data file exported from stand-alone systems, such as the ERP system.<br><br>The reference data is stored as sheets or JSON documents.<br>
 
 - **graph** - The _graph_ repository contains traversible relationships among _customer_ and _operations_ entities, such as the sales and service network. The underlying storage for the _graph_ repository is provided by the same wide-column database cluster used for _reporting_ data.<br><br>_graph_ data is retrieved using graph query language in the **Sales portal** implementation.
 
