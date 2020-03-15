@@ -1,11 +1,11 @@
 # Environment Configurations (sys_env_config)
 ---
 
-The `env_system` dataset contains environment configurations and is stored as a JSSON document in _src/environment/env.js_. 
+The `sys_env_config` dataset contains environment configurations and is stored as a JSSON document in _src/environment/env.js_. 
 
-The data is mastered by the `api-host` service and the master copy is stored in its source code repository. 
+- Data is mastered in the `api-host` project and the master copy is stored in its source code repository.
 
-Other projects share the configuration data through symlinks to the `api-host` project tree.
+- Other projects share the configuration data through symlinks to the `api-host` project tree.
 
 ---
 

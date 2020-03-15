@@ -19,7 +19,7 @@ The `Logger` class aggregates 5 `Statement` classes for each statement type, and
 
 ![Logger class hierarchy](/images/logging.png)
 
-## configurables
+## Statements
 
 The `Logger` class provides a public interface with the following helper methods for each statement type.
 
@@ -39,7 +39,7 @@ The `Logger` class provides a public interface with the following helper methods
 ```
 
 
-## configurables
+## Configurables
 
 The Logger is aware of which environment it is running in. 
 
@@ -54,6 +54,6 @@ Logger configurations are held in these artefacts:
 - _enums.js_   -   enumerations for   `logging`, `features`
 - _env.js_     -   configurations per environment for  `logging`, `features`, `stackdriver` 
 
-The configuration groups are listed and described int he following sections.
+The Logging configurations are listed and described in the [Environment Configurations (sys_env_config)](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/extended/sys_env_config) dataset page.
 
 
