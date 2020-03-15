@@ -67,7 +67,7 @@ The __default__ configuration has 3 partitions and 2 replicas per topic.
 
 The following __topics__ are created at startup.
 
-      `monitoring.pms:3:2`, `monitoring.mppt:3:2`, `monitoring.inverter:3:2`
+      `pub.tel_pms:3:2`, `pub.tel_mppt:3:2`, `pub.tel_inv:3:2`
 
 - **kafka publishers** - With Kafka as the message broker the platform's publishers are Kafka producers. These are implemented with KafkaJS. 
 
@@ -93,10 +93,12 @@ The following __topics__ are created at startup.
 
    Each node has multiple consumer listeners, one for each of the folowing monitoring __topics__.
 
-      e.g. `monitoring.pms`, `monitoring.mppt`, `monitoring.inverter`
+      e.g. `pub.tel_pms`, `pub.tel_mppt`, `pub.tel_inv`
 
-   Consumer listeners on all nodes share one of the following __group ids__, depending on which topic they listen to:
+   The _subcription name_ is assigned as the Kafka consumer group id (as there are no subscriptions in Kafka).
+   
+      - Consumer listeners on all nodes share one of the following __group ids__, depending on which topic they listen to:
 
-      e.g. `group.monitoring.pms`, `group.monitoring.mppt`, `group.monitoring.inverter`
+      e.g. `sub.tel_pms.any_bq`, `sub.tel_mppt.any_bq`, `sub.tel_inv.any_bq`
 
 ---
