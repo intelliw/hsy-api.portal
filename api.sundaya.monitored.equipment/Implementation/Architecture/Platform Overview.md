@@ -1,7 +1,13 @@
 # Platform Overview
 ---
 
-The platform consists of the following core components:
+Data by itself is not inherently valuable and, in order to realise the value of the data technologies in the platform, that data needs to be organised, conditioned, processed, and analysed in order to provide insights that drive informed decisions. 
+
+The platform focuses on producing data which is correct with respect to real-time, and delivered with extremely low latency, so that action can be taken in the moments that matter. 
+
+The platform builds on a messaging framework which standardises the way services use messaging and queuing (e.g. Kafka, NATS, PubSub).
+
+The platform tiers are summarised below:
 
 ### Edge Data Collection 
 
