@@ -97,7 +97,7 @@ The _columns_ are different for each device type (based on `<device_type>` in th
 
 PMS columns     | MPPT columns      | Inverter columns
 ---             | ---               | ---
-`pack_in_joules`<br>`pack_out_joules`<br><br><br><br><br><br><br><br><br><br><br><br><br>            | `battery_in_joules`<br>`battery_out_joules`<br>`pv_1_joules`<br>`pv_2_joules`<br>`pv_3_joules`<br>`pv_4_joules`<br>`load_1_joules`<br>`load_2_joules`<br><br><br><br><br><br><br>               | `battery_in_joules`<br>`battery_out_joules`<br>`pv_1_joules`<br>`pv_2_joules`<br>`pv_3_joules`<br>`pv_4_joules`<br>`load_1_joules`<br>`load_2_joules`<br>`grid_1_in_joules`<br>`grid_1_out_joules`<br>`grid_2_in_joules`<br>`grid_2_out_joules`<br>`grid_3_in_joules`<br>`grid_3_out_joules`
+`pack_in_mj`<br>`pack_out_mj`<br><br><br><br><br><br><br><br><br><br><br><br><br>            | `battery_in_mj`<br>`battery_out_mj`<br>`pv_1_mj`<br>`pv_2_mj`<br>`pv_3_mj`<br>`pv_4_mj`<br>`load_1_mj`<br>`load_2_mj`<br><br><br><br><br><br><br>               | `battery_in_mj`<br>`battery_out_mj`<br>`pv_1_mj`<br>`pv_2_mj`<br>`pv_3_mj`<br>`pv_4_mj`<br>`load_1_mj`<br>`load_2_mj`<br>`grid_1_in_mj`<br>`grid_1_out_mj`<br>`grid_2_in_mj`<br>`grid_2_out_mj`<br>`grid_3_in_mj`<br>`grid_3_out_mj`
 
 
 
