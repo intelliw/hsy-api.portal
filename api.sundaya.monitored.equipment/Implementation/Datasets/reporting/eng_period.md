@@ -35,35 +35,30 @@ Column Qualifier        | Property                  | _see below_
 
 ### Column families
 
-Column familes are based on categorical period_names as summarised in the table below. 
+Column familes are based on categorical periods as summarised in the table below. 
 
 The table also lists the type of data contained in each column family.  
 
-Note that the `SECOND` period is not applicable and therefore does not have a column family. 
+Note that there is no `SECOND` column family. 
 
-This is because the smallest aggregation period for a row is a 1 minute.
+- This is because the smallest aggregation period for a row is a 1 minute.
 
 Column family   | Data
 ---             | ---| 
 `INSTANT`       | monitoring
 `MINUTE`<br>`QTRHOUR`<br>`HOUR`<br>`TIMEOFDAY`<br>`DAY`<br>`WEEK`<br>`MONTH`<br>`QUARTER`<br>`YEAR`<br>`FIVEYEAR` | energy<br><br><br><br><br><br><br><br><br><br><br>
 
-Every row has an `INSTANT` _column family_ which contains **monitoring** data. 
+A row is scoped first and foremost to a minute as indicated by its _Row id_ (_YYYYMMDDHHmm_).
 
-All column families other than `INSTANT` contain **energy** data.
+- Every row has an `INSTANT` _column family_ which contains all **monitoring** data samples logged during that minute. 
 
-Every row has a `MINUTE` _column family_ as each row is exclusively scoped to 1 minute. 
-
-- The `MINUTE` column family contains **energy** data aggregates for the minute indicated by the row id (_YYYYMMDDHHmm_).
+- Every row also has a `MINUTE` column family which contains **energy** data aggregates for the minute
 
 The rest of the _column families_ will be present in a row only if the date-time component of the row id (_YYYYMMDDHHmm_) coincides with the period epoch (the start) of the period. 
 
 - For example a row with an id of _PMS-01-006#202002091500_ will have _column families_ for `HOUR` and `MINUTE` as the date-time in the id (**1500**) coincides with the epoch (start) of an hour and minute period.
 
 - Similarly a row with an id of _PMS-01-006#202002090000_ will have _column families_ for `DAY`, `HOUR`, and `TIMEOFDAY` as the date-time in the id (**090000**) coincides with the start of all three periods.
-
-
-
 
 ---
 
