@@ -33,7 +33,7 @@ Column Qualifier        | Property                  | _see below_
 
 
 
-### Column families
+### Column families and qualifiers
 
 Column familes are based on categorical periods as summarised in the table below. 
 
@@ -43,12 +43,10 @@ Note that there is no `SECOND` column family.
 
 - This is because the smallest aggregation period for a row is a 1 minute.
 
-Column family   | Column qualifiers
----             | ---| 
-<i></i>               | PMS
----             | ---| 
-`INSTANT`       | monitoring
-`MINUTE`<br>`QTRHOUR`<br>`HOUR`<br>`TIMEOFDAY`<br>`DAY`<br>`WEEK`<br>`MONTH`<br>`QUARTER`<br>`YEAR`<br>`FIVEYEAR` | energy<br><br><br><br><br><br><br><br><br><br><br>
+Column family   | PMS Column qualifiers     | MPPT Column qualifiers    | Inverter Column qualifiers
+---             | ---                       | ---                       | --- 
+`INSTANT`       |  `pms_id`<br>`sender`<br>`t_zone`<br>`t_processing`<br>`_dataitem`<br>`pack_id`<br>`pack_v`<br>`pack_i`<br>`pack_w`<br>`pack_vcl`<br>`pack_vch`<br>`pack_dock`<br>`pack_c_top`<br>`pack_c_mid`<br>`pack_c_bottom` | `mppt_id`<br>`sender`<br>`t_zone`<br>`t_processing`<br>`_dataitem`<br><br><br><br><br><br><br><br><br><br><br><br> | `inverter_id`<br>`sender`<br>`t_zone`<br>`t_processing`<br>`_dataitem`<br><br><br><br><br><br><br><br><br><br><br><br> | 
+`MINUTE`<br>`QTRHOUR`<br>`HOUR`<br>`TIMEOFDAY`<br>`DAY`<br>`WEEK`<br>`MONTH`<br>`QUARTER`<br>`YEAR`<br>`FIVEYEAR` | `pack_in_mj`<br>`pack_out_mj`<br><br><br><br><br><br><br><br><br><br><br><br><br>            | `battery_in_mj`<br>`battery_out_mj`<br>`pv_1_mj`<br>`pv_2_mj`<br>`pv_3_mj`<br>`pv_4_mj`<br>`load_1_mj`<br>`load_2_mj`<br><br><br><br><br><br><br>               | `battery_in_mj`<br>`battery_out_mj`<br>`pv_1_mj`<br>`pv_2_mj`<br>`pv_3_mj`<br>`pv_4_mj`<br>`load_1_mj`<br>`load_2_mj`<br>`grid_1_in_mj`<br>`grid_1_out_mj`<br>`grid_2_in_mj`<br>`grid_2_out_mj`<br>`grid_3_in_mj`<br>`grid_3_out_mj`
 
 A row is scoped first and foremost to a minute as indicated by its _Row id_ (_YYYYMMDDHHmm_).
 
