@@ -283,7 +283,7 @@ volts                | `v`             | _pv_v_
 amps                 | `i`             | _pv_i_
 watts                | `w`             | _pv_w_
 joules,<br>megajoules | `j`, `mj`      | _pack_mj_
-temperature           | `temp`         | _fet_temp_
+temperature          | `temp`         | _fet_temp_
 time                 | `t`             | _t_zone_
 
 In the above examples _t_zone_ refers to '_time zone_'.
