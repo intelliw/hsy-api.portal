@@ -13,7 +13,7 @@ The dataset contains the following data:
 
 
 
-### Repository
+# Repository
 
 Storage for the **Reporting** repository may be provided by one of the following technologies:
 
@@ -33,7 +33,7 @@ Column Qualifier        | Property                  | _see below_
 
 
 
-### Column families and qualifiers
+# Column families and qualifiers
 
 Column familes are based on categorical periods as summarised in the table below. 
 
