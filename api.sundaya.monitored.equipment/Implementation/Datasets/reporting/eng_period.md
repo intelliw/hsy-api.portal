@@ -43,10 +43,10 @@ Note that there is no `SECOND` column family.
 
 - This is because the smallest aggregation period for a row is a 1 minute.
 
-Column family   | PMS Column qualifiers     | MPPT Column qualifiers    | Inverter Column qualifiers
+Column family   | Column qualifiers-PMS     | Column qualifiers-MPPT    | Column qualifiers-Inverter
 ---             | ---                       | ---                       | --- 
 `INSTANT`<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  |  `pms_id`<br>`sender`<br>`t_zone`<br>`t_processing`<br><br>`_dataitem`<br><br>`pack_id`<br>`pack_v`<br>`pack_i`<br>`pack_w`<br>`pack_vcl`<br>`pack_vch`<br>`pack_dock`<br>`pack_c_top`<br>`pack_c_mid`<br>`pack_c_bottom` | `mppt_id`<br>`sender`<br>`t_zone`<br>`t_processing`<br><br>`_dataitem`<br><br><br><br><br><br><br><br><br><br><br><br> | `inverter_id`<br>`sender`<br>`t_zone`<br>`t_processing`<br><br>`_dataitem`<br><br><br><br><br><br><br><br><br><br><br><br> | 
-`MINUTE`<br>`QTRHOUR`<br>`HOUR`<br>`TIMEOFDAY`<br>`DAY`<br>`WEEK`<br>`MONTH`<br>`QUARTER`<br>`YEAR`<br>`FIVEYEAR`<br><br><br> | `pack_in_mj`<br>`pack_out_mj`<br><br><br><br><br><br><br><br><br><br><br><br><br>            | `battery_in_mj`<br>`battery_out_mj`<br>`pv_1_mj`<br>`pv_2_mj`<br>`pv_3_mj`<br>`pv_4_mj`<br>`load_1_mj`<br>`load_2_mj`<br><br><br><br><br><br><br>               | `battery_in_mj`<br>`battery_out_mj`<br>`pv_1_mj`<br>`pv_2_mj`<br>`pv_3_mj`<br>`pv_4_mj`<br>`load_1_mj`<br>`load_2_mj`<br>`grid_1_in_mj`<br>`grid_1_out_mj`<br>`grid_2_in_mj`<br>`grid_2_out_mj`<br>`grid_3_in_mj`<br>`grid_3_out_mj`
+`MINUTE`<br>`QTRHOUR`<br>`HOUR`<br>`TIMEOFDAY`<br>`DAY`<br>`WEEK`<br>`MONTH`<br>`QUARTER`<br>`YEAR`<br>`FIVEYEAR`<br><br><br><br> | `pack_in_mj`<br>`pack_out_mj`<br><br><br><br><br><br><br><br><br><br><br><br><br>            | `battery_in_mj`<br>`battery_out_mj`<br>`pv_1_mj`<br>`pv_2_mj`<br>`pv_3_mj`<br>`pv_4_mj`<br>`load_1_mj`<br>`load_2_mj`<br><br><br><br><br><br><br>               | `battery_in_mj`<br>`battery_out_mj`<br>`pv_1_mj`<br>`pv_2_mj`<br>`pv_3_mj`<br>`pv_4_mj`<br>`load_1_mj`<br>`load_2_mj`<br>`grid_1_in_mj`<br>`grid_1_out_mj`<br>`grid_2_in_mj`<br>`grid_2_out_mj`<br>`grid_3_in_mj`<br>`grid_3_out_mj`
 
 A row is scoped first and foremost to a minute as indicated by its _Row id_ (_YYYYMMDDHHmm_).
 
@@ -69,11 +69,6 @@ Monitoring data is stored in the `INSTANT` _column family_.
 
 Monitoring _column qualifiers_ are different for each device type (based on `<device_type>` in the row id) as shown in the table above.
 
-
-PMS columns     | MPPT columns      | Inverter columns
----             | ---               | ---   
-`pms_id`<br>`sender`<br>`t_zone`<br>`t_processing`<br>`_dataitem`<br>`pack_id`<br>`pack_v`<br>`pack_i`<br>`pack_w`<br>`pack_vcl`<br>`pack_vch`<br>`pack_dock`<br>`pack_c_top`<br>`pack_c_mid`<br>`pack_c_bottom` | `mppt_id`<br>`sender`<br>`t_zone`<br>`t_processing`<br>`_dataitem`<br><br><br><br><br><br><br><br><br><br><br><br> | `inverter_id`<br>`sender`<br>`t_zone`<br>`t_processing`<br>`_dataitem`<br><br><br><br><br><br><br><br><br><br><br><br> | 
-
 `t_event` is stored for each data element in the cell _timestamp_ property.  
 
 The `_dataitem` column contains a complete monitoring message including the cell _timestamp_, as described in the following `analytics` dataset pages.
@@ -83,10 +78,7 @@ The `_dataitem` column contains a complete monitoring message including the cell
 - _[inverters_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_telemetry)_
 
 
-
-
 ---
-
 
 ### Energy column qualifiers
 
@@ -95,11 +87,6 @@ Energy _column qualifiers_ are for megajoules produced or consumed during the pe
 The data is closely aligned to the Energy API [response](/docs/api.sundaya.monitored.equipment/0/c/Examples/GET/energy%20GET%20example), which presents these _column qualifiers_ as `harvest`, `yield`, `store`, and `buy`/`sell`.
 
 The _columns_ are different for each device type as shown in the table above (The `<device_type>` is in the row identifier).
-
-PMS columns     | MPPT columns      | Inverter columns
----             | ---               | ---
-`pack_in_mj`<br>`pack_out_mj`<br><br><br><br><br><br><br><br><br><br><br><br><br>            | `battery_in_mj`<br>`battery_out_mj`<br>`pv_1_mj`<br>`pv_2_mj`<br>`pv_3_mj`<br>`pv_4_mj`<br>`load_1_mj`<br>`load_2_mj`<br><br><br><br><br><br><br>               | `battery_in_mj`<br>`battery_out_mj`<br>`pv_1_mj`<br>`pv_2_mj`<br>`pv_3_mj`<br>`pv_4_mj`<br>`load_1_mj`<br>`load_2_mj`<br>`grid_1_in_mj`<br>`grid_1_out_mj`<br>`grid_2_in_mj`<br>`grid_2_out_mj`<br>`grid_3_in_mj`<br>`grid_3_out_mj`
-
 
 
 --- 
