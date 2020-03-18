@@ -271,7 +271,7 @@ e.g.    `pub.tel_device.` is the name of the producer _Service_ for publishing d
 
 
 ## Abbreviations
-Field names may contain the following canonical abbreviations to shorten the number of bytes needed to transmit or store the field.
+Field names may include canonical abbreviations to shorten the name and therefore the number of bytes needed, especially as this is of concern in the bandwidth-constrained link from the edge devices to the cloud.
 
 An abbreviation may only be used as itself, or as a prefix or suffix of a field name. 
 
@@ -280,16 +280,13 @@ The following examples describe the allowed use of abbreviations.
 Term                 | Abbreviation    | Example
 ---                  | ---             | ---
 volts                | `v`             | _pv_v_
-amps                 | `a`             | _pv_a_
+amps                 | `i`             | _pv_i_
 watts                | `w`             | _pv_w_
-joules,<br>megajoules | `j`, `mj`       | _pack_mj_
-temperature<br>time  | `t`             | _fet_t_<br>_t_zone_, 
+joules,<br>megajoules | `j`, `mj`      | _pack_mj_
+temperature           | `temp`         | _fet_temp_
+time                 | `t`             | _t_zone_
 
-`t` may refer to _temperature_ or _time_: in the above examples _t_zone_ refers to '_time zone_' and _fet_t_ refers to '_fet temperature_'.
-
-if the semantics of the field name do not remove ambiguity _time_ should be assumed as the default.
-
-
+In the above examples _t_zone_ refers to '_time zone_'.
 
 
 
