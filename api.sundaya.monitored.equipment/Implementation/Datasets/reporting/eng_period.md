@@ -44,7 +44,8 @@ Note that there is no `SECOND` column family.
 - This is because the smallest aggregation period for a row is a 1 minute.
 
 Column family   | Column qualifiers
--               | PMS
+---             | ---| 
+<i></i>               | PMS
 ---             | ---| 
 `INSTANT`       | monitoring
 `MINUTE`<br>`QTRHOUR`<br>`HOUR`<br>`TIMEOFDAY`<br>`DAY`<br>`WEEK`<br>`MONTH`<br>`QUARTER`<br>`YEAR`<br>`FIVEYEAR` | energy<br><br><br><br><br><br><br><br><br><br><br>
