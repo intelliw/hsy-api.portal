@@ -50,24 +50,24 @@ Column family   | Column qualifiers-PMS     | Column qualifiers-MPPT    | Column
 
 A row is scoped first and foremost to a minute as indicated by its _Row id_ (_YYYYMMDDHHmm_).
 
-- Every row has an `INSTANT` _tempolumn family_ which contains all **monitoring** data samples logged during that minute. 
+- Every row has an `INSTANT` _column family_ which contains all **monitoring** data samples logged during that minute. 
 
 - Every row also has a `MINUTE` column family which contains **energy** data aggregates for the minute
 
-The rest of the _tempolumn families_ will be present in a row only if the date-time component of the row id (_YYYYMMDDHHmm_) coincides with the period epoch (the start) of the period. 
+The rest of the _column families_ will be present in a row only if the date-time component of the row id (_YYYYMMDDHHmm_) coincides with the period epoch (the start) of the period. 
 
-- For example a row with an id of _PMS-01-006#202002091500_ will have _tempolumn families_ for `HOUR` and `MINUTE` as the date-time in the id (**1500**) coincides with the epoch (start) of an hour and minute period.
+- For example a row with an id of _PMS-01-006#202002091500_ will have _column families_ for `HOUR` and `MINUTE` as the date-time in the id (**1500**) coincides with the epoch (start) of an hour and minute period.
 
-- Similarly a row with an id of _PMS-01-006#202002090000_ will have _tempolumn families_ for `DAY`, `HOUR`, and `TIMEOFDAY` as the date-time in the id (**090000**) coincides with the start of all three periods.
+- Similarly a row with an id of _PMS-01-006#202002090000_ will have _column families_ for `DAY`, `HOUR`, and `TIMEOFDAY` as the date-time in the id (**090000**) coincides with the start of all three periods.
 
 ---
 
 
 ### Monitoring column qualifiers
 
-Monitoring data is stored in the `INSTANT` _tempolumn family_.
+Monitoring data is stored in the `INSTANT` _column family_.
 
-Monitoring _tempolumn qualifiers_ are different for each device type (based on `<device_type>` in the row id) as shown in the table above.
+Monitoring _column qualifiers_ are different for each device type (based on `<device_type>` in the row id) as shown in the table above.
 
 `t_event` is stored for each data element in the cell _timestamp_ property.  
 
@@ -82,11 +82,11 @@ The `_dataitem` column contains a complete monitoring message including the cell
 
 ### Energy column qualifiers
 
-Energy _tempolumn qualifiers_ are for megajoules produced or consumed during the period indicated by the column family. 
+Energy _columns  qualifiers_ are for megajoules produced or consumed during the period indicated by the column family. 
 
-The data is closely aligned to the Energy API [response](/docs/api.sundaya.monitored.equipment/0/c/Examples/GET/energy%20GET%20example), which presents these _tempolumn qualifiers_ as `harvest`, `yield`, `store`, and `buy`/`sell`.
+The data is closely aligned to the [Energy API](/docs/api.sundaya.monitored.equipment/0/c/Examples/GET/energy%20GET%20example) response, which presents these _column qualifiers_ as `harvest`, `yield`, `store`, and `buy`/`sell`.
 
-The _tempolumns_ are different for each device type as shown in the table above (The `<device_type>` is in the row identifier).
+The _columns_ are different for each device type as shown in the table above (The `<device_type>` is in the row identifier).
 
 
 --- 
