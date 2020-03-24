@@ -285,8 +285,8 @@ volts                | `V`             | _pv_V_       |
 amps                 | `A`             | _pv_A_       |
 watts                | `W`             | _pv_W_       |
 joules,<br>megajoules | `J`, `MJ`      | _pack_MJ_    | 
-watt-hour            | `J`	            |              | 3600
-kilowatt-hour        | `MJ`            |              | 3600
+watt-hour            | `J`	            |              | 3,600
+kilowatt-hour        | `J`             |              | 3,600,000
 degrees Celsius      | `Cel`           | _fet_Cel_    |
 time                 | `t`             | _t_zone_     |
 second,<br>millisecond | `s`, `ms`     |              |
