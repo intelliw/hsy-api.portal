@@ -271,20 +271,27 @@ e.g.    `pub.tel_device.` is the name of the producer _Service_ for publishing d
 
 
 ## Abbreviations
-Field names may include canonical abbreviations to shorten the name and therefore the number of bytes needed, especially as this is of concern in the bandwidth-constrained link from the edge devices to the cloud.
+Field names may include canonical abbreviations for units based on [RFC8428](https://www.iana.org/assignments/senml/senml.xhtml) standard for Sensor Measurement Lists (SenML).
 
-An abbreviation may only be used as itself, or as a prefix or suffix of a field name. 
+The abbreviations are optional and recommended as they help shorten field names (which often repeat in a dataset message) and therefore reduce transmitted bytes, especially as it this addresses bandwidth-constrained limitations in device edge to cloud links. 
 
-The following examples describe the allowed use of abbreviations.
+The abbreviations may be used as a prefix or suffix of a field name. 
 
-Term                 | Abbreviation    | Example
----                  | ---             | ---
-volts                | `v`             | _pv_v_
-amps                 | `i`             | _pv_i_
-watts                | `w`             | _pv_w_
-joules,<br>megajoules | `j`, `mj`      | _pack_mj_
-temperature          | `temp`         | _fet_temp_
-time                 | `t`             | _t_zone_
+The following list and examples describe the expected use of abbreviations.
+
+Term                 | Abbreviation    | Example      | Scale
+---                  | ---             | ---          |
+volts                | `V`             | _pv_V_       |
+amps                 | `A`             | _pv_A_       |
+watts                | `W`             | _pv_W_       |
+joules,<br>megajoules | `J`, `MJ`      | _pack_MJ_    | 
+watt-hour            | `J`	            |              | 3600
+kilowatt-hour        | `MJ`            |              | 3600
+degrees Celsius      | `Cel`           | _fet_Cel_    |
+time                 | `t`             | _t_zone_     |
+
+second,<br>millisecond | `s`, `ms`     |              |
+lumen                | `lm`            |              |
 
 In the above examples _t_zone_ refers to '_time zone_'.
 
