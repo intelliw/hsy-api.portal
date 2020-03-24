@@ -279,17 +279,17 @@ The abbreviations may be used as a prefix or suffix of a field name.
 
 The following is a list of recommended abbreviations.
 
-Term                 | Abbreviation    | Example      | Scale
----                  | ---             | ---          | ---
-volts                | `V`             | _pv_V_       |
-amps                 | `A`             | _pv_A_       |
-watts                | `W`             | _pv_W_       |
-joules,<br>megajoules | `J`,<br>`MJ`   | _pack_MJ_    | 
-watt-hour<br>kilowatt-hour  | `J`      |              | 3,600<br>3,600,000
-degrees Celsius      | `Cel`           | _fet_Cel_    |
-time                 | `t`             | _t_zone_     |
-second,<br>millisecond | `s`,<br>`ms`  |              |
-lumen                | `lm`            |              |
+Term                 | Abbreviation    | Example       | Scale
+---                  | ---             | ---           | ---
+volts                | `V`             | _pv_V_        |
+amps                 | `A`             | _pv_A_        |
+watts                | `W`             | _pv_W_        |
+joules,<br>megajoules | `J`,<br>`MJ`   | <br>_pack_MJ_ | 
+watt-hour<br>kilowatt-hour  | `J`      |               | 3,600<br>3,600,000
+degrees Celsius      | `Cel`           | _fet_Cel_     |
+time                 | `t`             | _t_zone_      |
+second,<br>millisecond | `s`,<br>`ms`  |               |
+lumen                | `lm`            |               |
 
 In the above examples _t_zone_ refers to '_time zone_'.
 
