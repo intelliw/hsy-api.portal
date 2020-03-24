@@ -291,7 +291,7 @@ time                 | `t`             | _t_zone_      |
 second,<br>millisecond | `s`,<br>`ms`  |               |
 lumen                | `lm`            |               |
 
-In the above examples _t_zone_ refers to '_time zone_'.
+In the above example _t_zone_ refers to '_time zone_'.
 
 These abbreviations are optional and may not be used in all cases such as when a field name should be descriptive to assist new developers.
 
