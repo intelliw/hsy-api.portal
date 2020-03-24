@@ -277,10 +277,10 @@ The abbreviations are optional and recommended as they help shorten field names 
 
 The abbreviations may be used as a prefix or suffix of a field name. 
 
-The following list and examples describe the expected use of abbreviations.
+The following is a list of recommended abbreviations.
 
 Term                 | Abbreviation    | Example      | Scale
----                  | ---             | ---          |
+---                  | ---             | ---          | ---
 volts                | `V`             | _pv_V_       |
 amps                 | `A`             | _pv_A_       |
 watts                | `W`             | _pv_W_       |
@@ -289,7 +289,6 @@ watt-hour            | `J`	            |              | 3600
 kilowatt-hour        | `MJ`            |              | 3600
 degrees Celsius      | `Cel`           | _fet_Cel_    |
 time                 | `t`             | _t_zone_     |
-
 second,<br>millisecond | `s`, `ms`     |              |
 lumen                | `lm`            |              |
 
