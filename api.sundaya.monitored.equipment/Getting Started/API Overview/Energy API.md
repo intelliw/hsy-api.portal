@@ -36,7 +36,7 @@ Energy                      | Description
 # /energy GET
 ---
 
-The `/energy` path returns a ‘cube’ of energy data for a specified number of periods starting at an epoch.:boom:
+The `/energy` path returns a ‘cube’ of energy data for a specified number of periods starting at an epoch.
 
 The response contains aggregated data for the requested period, and for its child period. For example a request for a *week* period will produce a response with data aggregated for the *week* and for its child period: *day*.
 
