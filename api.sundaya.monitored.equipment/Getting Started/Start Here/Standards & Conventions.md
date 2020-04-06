@@ -234,7 +234,7 @@ The _Topic_ naming convention is therefore:
 
 
 
-## Subsription names
+## Subscription names
 
 Messaging subscriptions are named according to the data descriptor, and the target _Repository_ or other descriptor, as follows.
 
@@ -281,15 +281,15 @@ The following is a list of recommended abbreviations.
 
 Term                 | Abbreviation    | Example       | Scale
 ---                  | ---             | ---           | ---
-volts                | `V`             | _pv_V_        |
-amps                 | `A`             | _pv_A_        |
-watts                | `W`             | _pv_W_        |
-joules,<br>megajoules | `J`,<br>`MJ`   | <br>_pack_MJ_ | 
+volt                 | `V`             | _pv_V_        |
+amp                  | `A`             | _pv_A_        |
+watt                 | `W`             | _pv_W_        |
+joule,<br>megajoule  | `J`,<br>`MJ`   | <br>_pack_MJ_ | 
 watt-hour<br>kilowatt-hour  | `J`      |               | 3,600<br>3,600,000
 degrees Celsius      | `Cel`           | _fet_Cel_     |
 time                 | `t`             | _t_zone_      |
 second,<br>millisecond | `s`,<br>`ms`  |               |
-lumen                | `lm`            |               |
+lumen               | `lm`            |               |
 
 In the above example _t_zone_ refers to '_time zone_'.
 
