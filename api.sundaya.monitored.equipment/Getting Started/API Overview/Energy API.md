@@ -16,7 +16,7 @@ Energy      | Assets        | Devices
 `yield`     | Appliances    | Multicore-Cable Current Sensors, Switchboard Clamp Sensors
 `buy`       | Grid          | Smart Meters, PV Grid-interactive Inverters
 
-![techtribesjs](http://www.plantuml.com/plantuml/png/0/ZLLDRziu4BthLypwKWVGsctIRe0zrOdJfAtpqKZUe2U1aiOsMuhKabGSe-X_xv3wi1HtaVN1aid7cVTctj3lZMNQLeM0aSLiOpLFqNmpe-0FBZDHvLXf0HjhI_FtTAhPThBcTbEbbK6TAMbHsaccYkazpvZErGt74iNq_EsVTu99kxnUJ0jcB6fQIiu9pxX4FIafN_0AAab72me1TeEmKaAeBPTh40G29dCOR7Djw4q1fGQXCYR4ZcAqDE4mGR2OVRrTnabyUvVCRnzkWbVDmYnAeiyNyVbLj_BmCRvA5XUN5pVp80ZkK1ibauidEsPIoLsXAfCunI6CPkq2B6bXTDI0nsozrhXc5lCEsQqyX-O5bznOpIodD2ryiDeU2Q8TbQz8pbGbSwPtu-nDsE_KX5frz2C0-lYlhWJZBQO9Aqj2Fs0Aix8Kr28NUaHBdzWZ2o4gjIltzJ_d8SIge6qudJov_PbhXN6briRL_97Z5afKfS0GwimXDFqF0H_fGGlVL4hVQBC9hBGgVDjyfy0H3Y7dP1xwvLhxCGQ3cLLUv83vF1rh54cU4ezx59up7Pepor9cqD6xtaLV5l1kygvc6r4OD0Vy_1CAB59IiU5K2ah-tJpdcx9yxU2Nt5vLAMWiLQFYWDfunGKQtn5A-u5-GDqVn-B3B3uvxj4no7Is0IvpV4BpEvbIcNy57RXHJeuJ2FwibwZaMitFu7XoF13f2tiVHTEPfPSLOcvWd0gr1g9jpP4lhjqYsiEKuwhCoO_ERSlwhVK2d3gKKII8d3Bg05HKhRpei0awh5CpfTu7GAvbOB8DvfKWqrEpkEFmipEn6oYxvRQc4DTlXEXjrxSBxTPPXfjE9X4OdRcdKnUGFmv6T6zycY7Zj5p5yLr4U8z-FgSlm7ytg_zzn9_fjdisPddJEbUmhUQkj5RvldvPJ3_DpsW4NGFXvEJrNqtkBix0TVjOps6jdNg8df6sNAFhfbMP4YwPjd1y-lhDQKCxMUxjyGBnt3dr1VRzS0F-3vtu0zoXWCDo_Lyv-wXxnrsIVrj3qrokb2xgotO_CrtP-YReGktTwQ232AcgB9HLIhSi3GJz7_dvu3Iq75-8sjhQ1ss7gJBkQgP1z-HwmzuFvRGks2wvxsxCVQbfwptAdFu8Vm40 "techtribesjs")
+
 ### Energy Flows
 
 Energy flows are based on a "double entry" format where each flow has an equal and opposite flow, such that positive and negative flows in any given time period will produce a set of data elements which sum to zero. 
