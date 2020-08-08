@@ -196,6 +196,8 @@ e.g.    `sto.tel_device.any_bq` is the name of the _Service_ for writing device 
 The list of _Repository_ qualifiers is provided in the [Storage/Respositories](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section. The list of _Dataset_ names is also provided in that section.
 
 
+
+
 A `Query` _Service_ queries data from a _Repository_.
 
 The following conventions apply to `Query` services.
