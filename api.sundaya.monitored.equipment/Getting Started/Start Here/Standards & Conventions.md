@@ -193,7 +193,7 @@ e.g.    `sto.tel_device.any_bq` is the name of the _Service_ for writing device 
         - `tel_device` is a general descriptor for the different device _Telemetry_ datasets.
         - `any_bq` is the the _BigQuery Analytics_ repository.
 
-<br><br>
+<br>
 
 A `Query` _Service_ retrieves data from a _Repository_.
 
@@ -211,10 +211,9 @@ The query _Service_ naming convention is therefore:
  ```   
 e.g.    `qry.eng_period.rpt_bt` is the name of the _Service_ for querying _Energy Periods_ data from the _Bigtable Reporting_ repository.
 
-<br><br>
+<br>
 
 _Repository_ qualifiers are listed in the [Storage/Repositories](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section. A list of _Dataset_ names is also provided in that section.
-
 
 
 
