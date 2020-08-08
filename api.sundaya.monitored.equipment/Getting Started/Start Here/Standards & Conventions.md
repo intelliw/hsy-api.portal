@@ -173,9 +173,11 @@ The list of _Content_ mnemonics is provided in the [Storage/Content](/docs/api.s
 
 
 
-## Storage service names
+## Service names
 
-A `Storage` _Service_ is a service which writes data to a _Repository_.
+A `Storage` _Service_ writes data to a _Repository_. 
+
+The following conventions apply to `Storage` services.
 
 1. The mnemonic `sto` should **prefix**  a storage _Service_ name.
 
@@ -194,11 +196,9 @@ e.g.    `sto.tel_device.any_bq` is the name of the _Service_ for writing device 
 The list of _Repository_ qualifiers is provided in the [Storage/Respositories](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section. The list of _Dataset_ names is also provided in that section.
 
 
+A `Query` _Service_ queries data from a _Repository_.
 
-
-## Query service names
-
-A `Query` _Service_ is a service which queries data from a _Repository_.
+The following conventions apply to `Query` services.
 
 1. The mnemonic `qry` should **prefix**  a query _Service_ name.
 
