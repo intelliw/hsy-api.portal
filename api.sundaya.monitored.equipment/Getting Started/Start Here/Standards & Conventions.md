@@ -175,9 +175,7 @@ The list of _Content_ mnemonics is provided in the [Storage/Content](/docs/api.s
 
 ## Service names
 
-A `Storage` _Service_ writes data to a _Repository_. 
-
-The following conventions apply to `Storage` services.
+A `Storage` _Service_ writes data to a _Repository_. The following conventions apply to `Storage` services.
 
 1. The mnemonic `sto` should **prefix**  a storage _Service_ name.
 
@@ -195,9 +193,7 @@ e.g.    `sto.tel_device.any_bq` is the name of the _Service_ for writing device 
 
 <br>
 
-A `Query` _Service_ retrieves data from a _Repository_.
-
-The following conventions apply to `Query` services.
+A `Query` _Service_ retrieves data from a _Repository_. The following conventions apply to `Query` services.
 
 1. The mnemonic `qry` should **prefix**  a query _Service_ name.
 
