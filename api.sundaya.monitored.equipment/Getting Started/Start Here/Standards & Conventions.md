@@ -24,7 +24,7 @@ Date and time parameters must be expressed in [ISO 8601](https://en.wikipedia.or
 
     https://api.sundaya.monitored.equipment/energy/{type}/{period}/{epoch}
 
-e.g. [https:/api.sundaya.monitored.equipment/energy/hsy/period/week/20190210](https://api.dev.sundaya.monitored.equipment/energy/hsy/period/week/20190210)
+e.g. [https://api.sundaya.monitored.equipment/energy/hsy/period/week/20190210](https://api.dev.sundaya.monitored.equipment/energy/hsy/period/week/20190210)
 
 The compressed version of ISO 8601 is required, without semi colons and with `T` as the time designator, as shown in examples below.
 
