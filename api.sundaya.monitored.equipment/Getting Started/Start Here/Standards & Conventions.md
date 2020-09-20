@@ -9,7 +9,7 @@ API documentation is available through the *Sundaya Developer Portal* at [https:
 
 
 ## API Endpoint
-The API endpoint host is [https://api.sundaya.monitored.equipment](https://api.sundaya.monitored.equipment). 
+The API endpoint host is [https://api.sundaya.monitored.equipment](https://api.dev.sundaya.monitored.equipment). 
 
 All requests to the API endpoint receive the latest version of the API.     
 
