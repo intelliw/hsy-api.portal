@@ -44,7 +44,7 @@ The response will also include links to navigate from the reqested period to adj
 
 - /energy/{`energy`}/period/{`period`}/{`epoch`}/{`duration`}?site={`site`}
 
-    e.g. [https://api.sundaya.monitored.equipment/energy/hsy/period/week/20150204/1?site=999](https://api.sundaya.monitored.equipment/energy/hsy/period/week/20150204/1?site=999 "energy=hsy, period=week, duration=1, site=999")
+    e.g. [https://api.sundaya.monitored.equipment/energy/hsy/period/week/20150204/1?site=999](https://api.dev.sundaya.monitored.equipment/energy/hsy/period/week/20150204/1?site=999 "energy=hsy, period=week, duration=1, site=999")
 
 ### Parameters
 
