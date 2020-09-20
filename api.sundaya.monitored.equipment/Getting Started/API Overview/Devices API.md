@@ -12,7 +12,7 @@ The collected data is then aggregated into time-windows to provide energy accoun
 
 The `/devices/{dataset}` path is for vendors and systems integrators to POST device data.
 
-[https:/api.sundaya.monitored.equipment/devices/**{dataset}**](https:/api.dev.sundaya.monitored.equipment/devices/dataset/pms)
+[https://api.dev.sundaya.monitored.equipment/devices/**{dataset}**](https:/api.dev.sundaya.monitored.equipment/devices/dataset/pms)
 
 - This route allows device **controllers** (e.g. Bus Bar Controller) and **gateways** (e.g. EHub Gateway) to accumulate and periodically send data from multiple monitored devices installed at a site.
 
@@ -32,7 +32,7 @@ The following canonical dataset types may be used in the `{dataset}` parameter.
 
 The `/device/{device-id}/dataset/{dataset}` path allows field engineers to monitor an individual device during operation.
  
- [https:/api.sundaya.monitored.equipment/device/**{device-id}**/dataset/**{dataset}**/period/week/20150204/1](https:/api.dev.sundaya.monitored.equipment/device/MPPT-01-002/dataset/mppt/period/week/20150204/1 "device=MPPT-01-002, dataset=mppt, period=week, epoch=20150204, duration=1")
+ [https://api.dev.sundaya.monitored.equipment/device/**{device-id}**/dataset/**{dataset}**/period/week/20150204/1](https:/api.dev.sundaya.monitored.equipment/device/MPPT-01-002/dataset/mppt/period/week/20150204/1 "device=MPPT-01-002, dataset=mppt, period=week, epoch=20150204, duration=1")
 
 - This path provide a dedicated endpoint to retrieve data for an individual **device** and dataset. 
 

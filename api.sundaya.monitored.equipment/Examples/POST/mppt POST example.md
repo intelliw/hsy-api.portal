@@ -85,7 +85,7 @@ Bit # | Status                        | Field Name        | Value | ..
 
 ### POST /dataset/mppt request
 
-[/devices/dataset/mppt](https:/api.sundaya.monitored.equipment/devices/dataset/mppt)
+[/devices/dataset/mppt](https://api.dev.sundaya.monitored.equipment/devices/dataset/mppt)
 
 The request example below shows datasets collected at a BTS site with 2 EPSolar MPPT Charge Controllers ('IT6415AD-01-001' and 'IT6415AD-01-002').
 
@@ -178,8 +178,8 @@ If the request is processed synchronously a 201 Response will be returned as fol
 ```
 *** RESPONSE ***	
 201 Created HTTPS/1.1	
-Location: https:/api.sundaya.monitored.equipment/device/IT6415AD-01-001/dataset/mppt/period/minute/20190209T1500+0700/1
-Location: https:/api.sundaya.monitored.equipment/device/IT6415AD-01-002/dataset/mppt/period/minute/20190209T1500+0700/1
+Location: https://api.dev.sundaya.monitored.equipment/device/IT6415AD-01-001/dataset/mppt/period/minute/20190209T1500+0700/1
+Location: https://api.dev.sundaya.monitored.equipment/device/IT6415AD-01-002/dataset/mppt/period/minute/20190209T1500+0700/1
 Content-Type: application/json
 Content-Length: 1171	
 

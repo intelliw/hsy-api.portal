@@ -83,7 +83,7 @@ pms_id,status.code,status.temp,time_local,pack.id,pack.dock,pack.amps,pack.temp.
 
 ### POST /dataset/pms request
 
-[/device/dataset/pms](https:/api.sundaya.monitored.equipment/devices/dataset/pms)
+[/device/dataset/pms](https://api.dev.sundaya.monitored.equipment/devices/dataset/pms)
 
 The request example below shows data collected for 2 PMS systems at a site ('PMS-01-001' and 'PMS-01-002') with 1 cabinet each, and 4 packs in the cabinet (the smallest PMS system configuration). 
 
@@ -279,8 +279,8 @@ If the request is processed synchronously a 201 Response will be returned as fol
 ```
 *** RESPONSE ***	
 201 Created HTTPS/1.1	
-Location: https:/api.sundaya.monitored.equipment/device/CAB-01-001/dataset/pms/period/minute/20190209T1500+0700/1
-Location: https:/api.sundaya.monitored.equipment/device/CAB-01-002/dataset/pms/period/minute/20190209T1500+0700/1
+Location: https://api.dev.sundaya.monitored.equipment/device/CAB-01-001/dataset/pms/period/minute/20190209T1500+0700/1
+Location: https://api.dev.sundaya.monitored.equipment/device/CAB-01-002/dataset/pms/period/minute/20190209T1500+0700/1
 Content-Type: application/json
 Content-Length: 8063	
 

@@ -3,7 +3,7 @@
 
 ### GET /api/versions request
 
-[/api/versions](https:/api.sundaya.monitored.equipment/api/versions)
+[/api/versions](https://api.dev.sundaya.monitored.equipment/api/versions)
 
 
 ### GET /api/versions response
