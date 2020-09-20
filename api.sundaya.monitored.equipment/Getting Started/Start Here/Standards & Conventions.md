@@ -24,7 +24,7 @@ Date and time parameters must be expressed in [ISO 8601](https://en.wikipedia.or
 
     https://api.sundaya.monitored.equipment/energy/{type}/{period}/{epoch}
 
-e.g. [https:/api.sundaya.monitored.equipment/energy/hsy/period/week/20190210](https:/api.sundaya.monitored.equipment/energy/hsy/period/week/20190210)
+e.g. [https:/api.sundaya.monitored.equipment/energy/hsy/period/week/20190210](https:/api.dev.sundaya.monitored.equipment/energy/hsy/period/week/20190210)
 
 The compressed version of ISO 8601 is required, without semi colons and with `T` as the time designator, as shown in examples below.
 
@@ -39,7 +39,7 @@ The supported timezone formats are described below with examples:
 
     example: *0930 UTC == 1630 WIB (Indonesian Western Standard Time)*
     
-    [https://api.sundaya.monitored.equipment/energy/hsy/period/hour/20190209T0930Z](https://api.sundaya.monitored.equipment/energy/hsy/period/hour/20190209T0930Z "Z signifies time zone as UTC") 
+    [https://api.sundaya.monitored.equipment/energy/hsy/period/hour/20190209T0930Z](https://api.dev.sundaya.monitored.equipment/energy/hsy/period/hour/20190209T0930Z "Z signifies time zone as UTC") 
 
 - __Local__ time with UTC offset, represented with a trailing `+/-` offset from UTC (e.g. `+0700`) 
     
@@ -47,7 +47,7 @@ The supported timezone formats are described below with examples:
 
     example: *1630 WIB == 0930 UTC*
 
-    [https://api.sundaya.monitored.equipment/energy/hsy/period/hour/20190209T1630+0700](https://api.sundaya.monitored.equipment/energy/hsy/period/hour/20190209T1630+0700 "+0700 is JKT offset from  UTC")
+    [https://api.sundaya.monitored.equipment/energy/hsy/period/hour/20190209T1630+0700](https://api.dev.sundaya.monitored.equipment/energy/hsy/period/hour/20190209T1630+0700 "+0700 is JKT offset from  UTC")
 
 Local time without offset (and therefore location unspecified) is not supported.
 
