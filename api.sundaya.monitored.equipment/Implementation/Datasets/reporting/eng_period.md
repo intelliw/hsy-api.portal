@@ -25,7 +25,7 @@ The equivalent schema elements and recommended value for the above repository ty
 Wide-column repo.       | Document db.              | Recommended Value
 ---                     | ---                       | ---
 Instance ID             |                           | `reporting`
-Table name              |                           | `periods`
+Table name              |                           | `eng_period`
 Column Families         | Kind                      | _`<period_name>`_
 Row Id<br><br>          | Ancestry<br>Entity ID     | _`<device_type>#<device_id>#<YYYYMMDDHHmm>`_<br>_`<device_id>#<YYYYMMDDHHmm>`_
 Column Qualifier        | Property                  | _see below_
