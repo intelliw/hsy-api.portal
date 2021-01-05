@@ -2,7 +2,7 @@
 # Energy Periods (eng_period)
 ---
 
-This **eng_period** dataset contains period-aligned tranforms of monitoring data received through the _devices/datasets_ POST API.
+This **eng_period** dataset refers to _Energy Periods_ and contains period-aligned tranforms of monitoring data received through the _devices/datasets_ POST API.
 
 The dataset contains the following data:
 
