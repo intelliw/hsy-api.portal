@@ -73,9 +73,9 @@ Monitoring _column qualifiers_ are different for each device type (based on `<de
 
 The `_dataitem` column contains a complete monitoring message including the cell _timestamp_, as described in the following `analytics` dataset pages.
 
-- _[pms_telemetry](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/pms_telemetry)_
-- _[mppt_telemetry](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_telemetry)_
-- _[inverters_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_telemetry)_
+- _[pms_telemetry](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/tel_pms)_
+- _[mppt_telemetry](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/tel_mppt)_
+- _[inverters_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/tel_inv)_
 
 
 ---
