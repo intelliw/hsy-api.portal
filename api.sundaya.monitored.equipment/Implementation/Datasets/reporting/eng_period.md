@@ -37,13 +37,12 @@ Column Qualifier        | Property                  | _see below_
 
 # Column families and qualifiers
 
-Column familes are based on categorical periods as summarised in the table below. 
+Column familes are based on categorical periods which are summarised in the table below. 
 
 The table also lists the type of data contained in each column family.  
 
-Note that there is no `SECOND` column family. 
+Note that there is no `SECOND` column family (the smallest aggregation period for a row is a 1 minute). 
 
-- This is because the smallest aggregation period for a row is a 1 minute.
 
 Column family   | Column qualifiers-PMS     | Column qualifiers-MPPT    | Column qualifiers-Inverter
 ---             | ---                       | ---                       | --- 
