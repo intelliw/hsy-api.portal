@@ -1,4 +1,4 @@
-# reference.site
+# extended.cust_site
 ---
 
 This dataset provides reference data for sites.
@@ -7,7 +7,7 @@ This dataset provides reference data for sites.
 
 # Dataset Structure 
 
-The following `reference.site` attributes are joined with `monitoring` and `alignment` data to provide dashboard views and KPI metrics. 
+The following `extended.cust_site` attributes are joined with `monitoring` and `alignment` data to provide dashboard views and KPI metrics. 
 
 Attribute       | Data      | Description
 ---             | ---       | ---
