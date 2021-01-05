@@ -17,8 +17,8 @@ The dataset contains the following data:
 
 Storage for the **Reporting** repository may be provided by one of the following technologies:
 
-- Wide-column key-value repository for high scale and performance.
-- Document database for low cost.
+- Wide-column key-value repository for high scale and performance. _(DataStax/Cassandra, Bigtable)_
+- Document database for low cost. _(Datastore)_
 
 The equivalent schema elements and recommended value for the above repository types are shown below.
 
