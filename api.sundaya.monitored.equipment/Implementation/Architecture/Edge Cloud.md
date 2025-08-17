@@ -26,7 +26,7 @@ It provides the following features:
 - In-memory graph database and in-memory stream processing, for ML prediction events (using _Bitsy_/_Hazelcast_) 
 
 
-![Edge cloud](../images/edge-cloud.png)
+![Edge cloud](../../images/edge-cloud.png)
 
 
 ## Write Coalescing
