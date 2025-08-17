@@ -117,7 +117,7 @@ A Case contains 14 **Cell Blocks**, 1 **Fet Board**, and 1 **Acqu. Board**.
 
 PMS data consists of two distinct datasets, _monitoring_ data and _Transaction/Master_ data, which are joined through a relationship as shown in the model below:
 
-![PMS System](/images/PMSComposite.png)
+![PMS System](../../../images/PMSComposite.png)
 
 ### monitoring data
 
