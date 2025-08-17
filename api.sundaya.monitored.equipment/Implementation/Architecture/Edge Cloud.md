@@ -11,7 +11,7 @@ It provides the following features:
 
 - Cloud services can be redeployed at the edge based on HTTPS/gRPC endpoints and lightweight message broker (see below, compared to [Cloud messaging] 
 
-- Service-mesh orchestratioon and traffic management, certificate management, and monitoring (using _Traefik_/_Containous_).
+- Service-mesh orchestration and traffic management, certificate management, and monitoring (using _Traefik_/_Containous_).
 
 - Optional high-volume data collection by field staff through mobile App over BLE.
 
