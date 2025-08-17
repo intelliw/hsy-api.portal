@@ -47,7 +47,7 @@ The Logger is aware of which environment it is running in.
 
 - logging configurations can be changed through [api\logging](/docs/api.sundaya.monitored.equipment/0/routes/api/logging/get)) 
 
-- configuration changes are propogated to downstream services through a [Features](/Messaging.md) message. 
+- configuration changes are propogated to downstream services through a [Features](Messaging.md) message. 
 
 Logger configurations are held in these artefacts:
 
