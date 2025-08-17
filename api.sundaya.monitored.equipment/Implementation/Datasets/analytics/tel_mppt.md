@@ -95,7 +95,7 @@ __mppt__ dataset tables are partitioned based on `time_event` and clustered by `
 
 # Source system
 
-![MPPT Data](../../images/MPPTData.png)
+![MPPT Data](../../../images/MPPTData.png)
 
 --- 
 
