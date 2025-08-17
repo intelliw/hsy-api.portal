@@ -168,7 +168,7 @@ The Dataset naming convention is therefore:
 e.g.    `tel_pms` is the name of the _PMS Telemetry_ dataset.
         - `tel` is the \<content-mnemonic> for the **telemetry** _Content_ type.
 
-The list of _Content_ mnemonics is provided in the [Storage/Content](/Implementation/Architecture/Storage) section.
+The list of _Content_ mnemonics is provided in the [Storage/Content](../../Implementation/Architecture/Storage) section.
 
 
 
