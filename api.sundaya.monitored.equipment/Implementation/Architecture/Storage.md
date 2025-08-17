@@ -64,7 +64,7 @@ _Repository_ archetypes are described in more detail below:
 
 _Content_ types and their abbreviated mnemonics are listed below. 
 
-The mnemonics are used in [Dataset names](../../Getting%20Started/Start%20Here/Standards%20&%20Conventions) listed below based on naming conventions.
+The mnemonics are used in [Dataset names](../../Getting%20Started/Start%20Here/Standards%20&%20Conventions.md) listed below based on naming conventions.
 
 Content         | Mnemonic          | Dataset names                 | Dataset 
 ---             | ---               | ---                           | ---
@@ -73,19 +73,19 @@ status          | `sts`             |                               |
 event           | `evt`             |                               | 
 energy          | `eng`             | [eng_period](../../Implementation/Datasets/reporting/eng_period.md) | _Energy Periods_    
 device          | `dev`             |                               | 
-system          | `sys`             | [sys_data_src](../../Implementation/Datasets/extended/sys_data_src)<br>[sys_env_config](../../Implementation/Datasets/extended/sys_env_config)    | _Data Sources_<br>_Environment Configurations_ 
-operations      | `ops`             | [ops_install](../../Implementation/Datasets/extended/ops_install)<br>[ops_pack_assembly](../../Implementation/Datasets/extended/ops_pack_assembly)<br>[ops_agent](../../Implementation/Datasets/graph/ops_agent)   | _Installations_<br>_Pack Assemblies_<br>_Agent Operations_
-customer        | `cust`            | [cust_site](../../Implementation/Datasets/extended/cust_site)                   | _Customer Sites_<br> 
+system          | `sys`             | [sys_data_src](../../Implementation/Datasets/extended/sys_data_src.md)<br>[sys_env_config](../../Implementation/Datasets/extended/sys_env_config)    | _Data Sources_<br>_Environment Configurations_ 
+operations      | `ops`             | [ops_install](../../Implementation/Datasets/extended/ops_install.md)<br>[ops_pack_assembly](../../Implementation/Datasets/extended/ops_pack_assembly.md)<br>[ops_agent](../../Implementation/Datasets/graph/ops_agent)   | _Installations_<br>_Pack Assemblies_<br>_Agent Operations_
+customer        | `cust`            | [cust_site](../../Implementation/Datasets/extended/cust_site.md)                   | _Customer Sites_<br> 
 
 _Content_ types are described in more detail below:
 
-- **telemetry** - consists of sensor data about the monitored devices and environment. The data is read-only/ append-only. The data is sent in one of the following methods<br><br>1. As a complete dataset sent at a frequent interval, including unchanged data.<br>2. As a partial dataset for _change-data-capture_, and data transmission only when a change is detected.<br><br>_telemetry_ data is processed using [write coalescing](../../Implementation/Architecture/Edge%20Cloud) to compresses and reduce write traffic from edge to cloud.<br>
+- **telemetry** - consists of sensor data about the monitored devices and environment. The data is read-only/ append-only. The data is sent in one of the following methods<br><br>1. As a complete dataset sent at a frequent interval, including unchanged data.<br>2. As a partial dataset for _change-data-capture_, and data transmission only when a change is detected.<br><br>_telemetry_ data is processed using [write coalescing](../../Implementation/Architecture/Edge%20Cloud.md) to compresses and reduce write traffic from edge to cloud.<br>
 
 - **status** - describes the state of the monitoring equipment, not the business-functional data and environment.<br><br>The data is read-only /append-only.<br>
 
 - **event** - _event_ data is produced from _telemetry_ and _status_ data at the edge or in the cloud, based on rules and ML predictions.<br><br>Updateable configurations are sent to edge devices to select variables (features) and provide trained models, which are then impacted during data collection to generate events.<br>
 
-- **energy** - consists of energy aggregates for _telemetry_ data.<br><br>The data is aligned with an epoch (starting millisecond) of a categorical period such as 'month', 'week', 'day' and 'timeofday'.<br><br>Canonical periods are described in the [energy API](../../Getting%20Started/API%20Overview/Energy%20API) overview page.<br>
+- **energy** - consists of energy aggregates for _telemetry_ data.<br><br>The data is aligned with an epoch (starting millisecond) of a categorical period such as 'month', 'week', 'day' and 'timeofday'.<br><br>Canonical periods are described in the [energy API](../../Getting%20Started/API%20Overview/Energy%20API.md) overview page.<br>
 
 - **system** - contains configuration data for the platform, including parameters needed for security, traceability, and data provenance. It includes script parameters and configuration data for provisioning and commissioning devices.
 
@@ -97,10 +97,10 @@ The following table enumerates all datasets present in the solution according to
 
 Dataset | Repository | Content | Application
 --- | --- | --- | ---
-[pms_telemetry](../../Implementation/Datasets/analytics/pms_telemetry)<br>[mppt_telemetry](../../Implementation/Datasets/analytics/mppt_telemetry)<br>[inverter_telemetry](../../Implementation/Datasets/analytics/inverter_telemetry) | `monitoring`, <br>`analytics` | `telemetry`, `status` | `OI dashboard`<br>`BI dashboard`
-[period](../../Implementation/Datasets/reporting/period) | `reporting` | `energy`, `telemetry` | `Energy API`
-[agent_operations](../../Implementation/Datasets/graph/agent_operations) | `graph` | `customer`, `operations` | `Agent portal`
-[site_customer](../../Implementation/Datasets/extended/site_customer)<br>[installation_operations](../../Implementation/Datasets/extended/installation_operations)<br>[pms_pack_](../../Implementation/Datasets/extended/pms_pack)<br>[source](../../Implementation/Datasets/extended/source) | `reference` | `customer`, `system` |
+[pms_telemetry](../../Implementation/Datasets/analytics/tel_pms.md)<br>[mppt_telemetry](../../Implementation/Datasets/analytics/tel_mppt.md)<br>[inverter_telemetry](../../Implementation/Datasets/analytics/tel_inv.md) | `monitoring`, <br>`analytics` | `telemetry`, `status` | `OI dashboard`<br>`BI dashboard`
+[period](../../Implementation/Datasets/reporting/eng_period.md) | `reporting` | `energy`, `telemetry` | `Energy API`
+[agent_operations](../../Implementation/Datasets/graph/ops_agent.md) | `graph` | `customer`, `operations` | `Agent portal`
+[site_customer](../../Implementation/Datasets/extended/cust_site.md)<br>[installation_operations](../../Implementation/Datasets/extended/ops_install.md)<br>[pms_pack_](../../Implementation/Datasets/extended/ops_pack_assembly.md)<br>[source](../../Implementation/Datasets/extended/sys_data_src.md) | `reference` | `customer`, `system` |
 
 ---
 
