@@ -168,7 +168,7 @@ The Dataset naming convention is therefore:
 e.g.    `tel_pms` is the name of the _PMS Telemetry_ dataset.
         - `tel` is the \<content-mnemonic> for the **telemetry** _Content_ type.
 
-The list of _Content_ mnemonics is provided in the [Storage/Content](../../Implementation/Architecture/Storage) section.
+The list of _Content_ mnemonics is provided in the [Storage/Content](../../Implementation/Architecture/Storage.md#content) section.
 
 
 
@@ -209,7 +209,7 @@ e.g.    `qry.eng_period.rpt_bt` is the name of the _Service_ for querying _Energ
 
 <br>
 
-_Repository_ qualifiers are listed in the [Storage/Repositories](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Architecture/Storage) section. A list of _Dataset_ names is also provided in that section.
+_Repository_ qualifiers are listed in the [Storage/Repositories](../../Implementation/Architecture/Storage.md#repositories) section. A list of _Dataset_ names is also provided in that section.
 
 
 
