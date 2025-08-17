@@ -28,7 +28,7 @@ Data is stored in six technically differentiated types of repository (depicted i
 
 _Repository_ archetypes and their abbreviated mnemonics and qualifiers are listed below. 
 
-The _Qualifiers_ are used in [Storage Service names](../../Getting%20Started/Start%20Here/Standards%20&%20Conventions.md).
+The _Qualifiers_ are used in [Storage Service names](../../Getting%20Started/Start%20Here/Standards%20&%20Conventions.md#service-names).
 
 
 Repository      | Mnemonic                  | Qualifiers                        | Qualified Name
