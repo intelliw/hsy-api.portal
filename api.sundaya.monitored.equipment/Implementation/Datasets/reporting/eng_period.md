@@ -74,9 +74,9 @@ Monitoring _column qualifiers_ are different for each device type (based on `<de
 
 The `_dataitem` column contains a complete monitoring message including the cell _timestamp_, as described in the following `analytics` dataset pages.
 
-- _[pms_telemetry](../../../Implementation/Datasets/analytics/tel_pms)_
-- _[mppt_telemetry](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/tel_mppt)_
-- _[inverters_monitoring](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/tel_inv)_
+- _[pms_telemetry](../../../Implementation/Datasets/analytics/tel_pms.md)_
+- _[mppt_telemetry](../../../Implementation/Datasets/analytics/tel_mppt.md)_
+- _[inverters_monitoring](../../../Implementation/Datasets/analytics/tel_inv.md)_
 
 
 ---
@@ -85,7 +85,7 @@ The `_dataitem` column contains a complete monitoring message including the cell
 
 Energy _columns  qualifiers_ are for megajoules produced or consumed during the period indicated by the column family. 
 
-The data is closely aligned to the [Energy API](/docs/api.sundaya.monitored.equipment/0/c/Examples/GET/energy%20GET%20example) response, which presents these _column qualifiers_ as `harvest`, `yield`, `store`, and `buy`/`sell`.
+The data is closely aligned to the [Energy API](../../../Examples/GET/energy%20GET%20example.md) response, which presents these _column qualifiers_ as `harvest`, `yield`, `store`, and `buy`/`sell`.
 
 The _columns_ are different for each device type as shown in the table above (The `<device_type>` is in the row identifier).
 
