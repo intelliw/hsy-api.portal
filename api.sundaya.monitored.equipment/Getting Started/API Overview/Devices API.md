@@ -22,9 +22,9 @@ The following canonical dataset types may be used in the `{dataset}` parameter.
 
 /{dataset} | Description
 --- | --- 
-[pms](../Implementation/Datasets/analytics/tel_pms.md) | Data from pack management systems (PMS) for cabinets, including monitored epacks, cells, and mosfets.
-[mppt](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/mppt_telemetry) | Data from Maximum Power Point Tracking (MPPTcontrollers, including connected PV strings, batteries, and DC loads.
-[inverter](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/inverter_telemetry) | Data from Inverter charge controllers, including connected pv strings, batteries, and AC loads.
+[pms](../../Implementation/Datasets/analytics/tel_pms.md) | Data from pack management systems (PMS) for cabinets, including monitored epacks, cells, and mosfets.
+[mppt](../../Implementation/Datasets/analytics/tel_mppt.md) | Data from Maximum Power Point Tracking (MPPTcontrollers, including connected PV strings, batteries, and DC loads.
+[inverter](../../Implementation/Datasets/analytics/tel_inv.md) | Data from Inverter charge controllers, including connected pv strings, batteries, and AC loads.
 
 
 # /device/dataset GET
