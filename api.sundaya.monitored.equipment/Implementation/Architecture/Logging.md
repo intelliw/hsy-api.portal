@@ -17,7 +17,7 @@ The `Logger` class aggregates 5 `Statement` classes for each statement type, and
 - Error
 - Trace
 
-![Logger class hierarchy](/images/logging.png)
+![Logger class hierarchy](../../images/logging.png)
 
 ## Statements
 
