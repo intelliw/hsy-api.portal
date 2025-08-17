@@ -228,7 +228,7 @@ This is best depicted in a stacked bar graph as shown in the `period` graph abov
 
 The standard colours for each data element type is shown below.
 
-![Colour codes & energy sources](../../../images/energy.colour-codes.png)
+![Colour codes & energy sources](../../images/energy.colour-codes.png)
 
 **Top tier**
 
