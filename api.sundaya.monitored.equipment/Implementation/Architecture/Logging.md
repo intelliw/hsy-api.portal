@@ -54,6 +54,6 @@ Logger configurations are held in these artefacts:
 - _enums.js_   -   enumerations for   `logging`, `features`
 - _env.js_     -   configurations per environment for  `logging`, `features`, `stackdriver` 
 
-The Logging configurations are listed and described in the [Environment Configurations (sys_env_config)](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/extended/sys_env_config) dataset page.
+The Logging configurations are listed and described in the [Environment Configurations (sys_env_config)](../Datasets/extended/sys_env_config.md) dataset page.
 
 
