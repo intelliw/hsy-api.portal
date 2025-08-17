@@ -15,7 +15,7 @@ The high level tiers are summarised below:
 
 2. **Device Controllers** - such as _BBC_ and _EHub Gateways_, which collect and upload data through an API.
 
-![Platform Devices](/images/platform-devices.jpg)
+![Platform Devices](../../images/platform-devices.jpg)
 
 ### Data Management
 
@@ -31,6 +31,6 @@ The high level tiers are summarised below:
 
 - `OI` (_Operational Intelligence_) artefacts include real-time dashboards and alerts for exceptions to provide a holistic picture of what is currently happening across the system landscape.
 
-![Real-Time Analytics Backend](/images/platform-backend.jpg)
+![Real-Time Analytics Backend](../../images/platform-backend.jpg)
 
 ---
