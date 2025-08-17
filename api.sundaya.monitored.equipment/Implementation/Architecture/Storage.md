@@ -64,7 +64,7 @@ _Repository_ archetypes are described in more detail below:
 
 _Content_ types and their abbreviated mnemonics are listed below. 
 
-The mnemonics are used in [Dataset names](../../Getting%20Started/Start%20Here/Standards%20&%20Conventions.md) listed below based on naming conventions.
+The mnemonics are used in [Dataset names](../../Getting%20Started/Start%20Here/Standards%20&%20Conventions.md#dataset-names) listed below based on naming conventions.
 
 Content         | Mnemonic          | Dataset names                 | Dataset 
 ---             | ---               | ---                           | ---
