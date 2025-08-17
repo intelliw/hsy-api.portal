@@ -11,7 +11,7 @@ The storage solution for each dataset will be chosen based on trade-offs such as
 
 The data metamodel below defines high-level relationships between _Repository_ archetypes and the _Content_ model.
 
-![Data metamodel](/images/dataset-metamodel.png)
+![Data metamodel](../../images/dataset-metamodel.png)
 
 
 ---
@@ -28,7 +28,7 @@ Data is stored in six technically differentiated types of repository (depicted i
 
 _Repository_ archetypes and their abbreviated mnemonics and qualifiers are listed below. 
 
-The _Qualifiers_ are used in [Storage Service names](/docs/api.sundaya.monitored.equipment/0/c/Getting%20Started/Start%20Here/Standards%20&%20Conventions).
+The _Qualifiers_ are used in [Storage Service names](../../Getting%20Started/Start%20Here/Standards%20&%20Conventions).
 
 
 Repository      | Mnemonic                  | Qualifiers                        | Qualified Name
@@ -68,10 +68,10 @@ The mnemonics are used in [Dataset names](/docs/api.sundaya.monitored.equipment/
 
 Content         | Mnemonic          | Dataset names                 | Dataset 
 ---             | ---               | ---                           | ---
-telemetry       | `tel`             | [tel_pms](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/tel_pms)<br>[tel_mppt](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/tel_mppt)<br>[tel_inv](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/analytics/tel_inverter)  | _PMS Telemetry_<br>_MPPT Telemetry_<br>_Inverter Telemetry_ 
+telemetry       | `tel`             | [tel_pms](../../Implementation/Datasets/analytics/tel_pms.md)<br>[tel_mppt](../../Implementation/Datasets/analytics/tel_mppt.md)<br>[tel_inv](../../Implementation/Datasets/analytics/tel_inverter.md)  | _PMS Telemetry_<br>_MPPT Telemetry_<br>_Inverter Telemetry_ 
 status          | `sts`             |                               | 
 event           | `evt`             |                               | 
-energy          | `eng`             | [eng_period](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/reporting/eng_period) | _Energy Periods_    
+energy          | `eng`             | [eng_period](../../Implementation/Datasets/reporting/eng_period.md) | _Energy Periods_    
 device          | `dev`             |                               | 
 system          | `sys`             | [sys_data_src](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/extended/sys_data_src)<br>[sys_env_config](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/extended/sys_env_config)    | _Data Sources_<br>_Environment Configurations_ 
 operations      | `ops`             | [ops_install](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/extended/ops_install)<br>[ops_pack_assembly](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/extended/ops_pack_assembly)<br>[ops_agent](/docs/api.sundaya.monitored.equipment/0/c/Implementation/Datasets/graph/ops_agent)   | _Installations_<br>_Pack Assemblies_<br>_Agent Operations_
