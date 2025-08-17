@@ -15,7 +15,7 @@ The framework encapsulates multiple broker technologies both in the cloud and th
 
 #### Message flow
 
-![Message brokers](/images/message-broker.png)
+![Message brokers](../../images/message-broker.png)
 
 Messages are processed by the following sequence of interactions.
 
