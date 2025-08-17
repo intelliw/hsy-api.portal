@@ -90,6 +90,6 @@ __inverter__ dataset tables are partitioned based on `time_event` and clustered 
 
 # Source system
 
-![Inverter Data](/images/InverterData.png)
+![Inverter Data](../../../images/InverterData.png)
 
 --- 
