@@ -158,7 +158,7 @@ Links have the following attributes:
 
 The following table shows a set of links provided with energy data for a *week* period. 
 
-![Links in energy data](/images/collection-links-table.png)
+![Links in energy data](../../images/collection-links-table.png)
 
 
 ### Link-relation types
@@ -208,7 +208,7 @@ If the client specifies *text/html* in the request `Accept` header a formatted g
 
 The page displays labels and hyperlink elements from the hypermedia dataset as shown.
 
-![Data element mappings for graph rendering](/images/graph.data-mappings.png)
+![Data element mappings for graph rendering](../../images/graph.data-mappings.png)
 
 ---
 
@@ -248,7 +248,7 @@ A graph with lot of _Black_ in the top tier indicates an opportunity to reduce l
 
 In general it indicates a need for more battery capacity and/or `harvest` generation capacity. 
 
-![Stacked bar graph format](/images/graph.stacked-bar-example.png)
+![Stacked bar graph format](../../images/graph.stacked-bar-example.png)
 
 The example shows the following behaviour:
 - In the 1st hour all `yield` energy came from the battery (`store.out`). 
