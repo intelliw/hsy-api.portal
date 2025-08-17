@@ -40,8 +40,8 @@ _Topics_ and _Subscriptions_ are listed in the table below.
 
 Producer service           | Topic                          | Subscription                
 ---                        | ---                            | ---                         
-[api.tel_pms](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[api.tel_mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[api.tel_inv](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | `pub.tel_pms`<br>`pub.tel_mppt`<br>`pub.tel_inv` |  [sub.tel_pms.any_bq](../../Implementation/Datasets/analytics/tel_pms)<br>[sub.tel_mppt.any_bq](../../Implementation/Datasets/analytics/tel_mppt)<br>[sub.tel_inv.any_bq](../../Implementation/Datasets/analytics/tel_inv) 
-[api.sys_env_config](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) | `pub.sys_env_config` | [sub.sys_env_config](../../Implementation/Datasets/extended/sys_env_config) 
+[api.tel_pms](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/pms/post)<br>[api.tel_mppt](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/mppt/post)<br>[api.tel_inv](/docs/api.sundaya.monitored.equipment/0/routes/devices/dataset/inverter/post) | `pub.tel_pms`<br>`pub.tel_mppt`<br>`pub.tel_inv` |  [sub.tel_pms.any_bq](../../Implementation/Datasets/analytics/tel_pms.md)<br>[sub.tel_mppt.any_bq](../../Implementation/Datasets/analytics/tel_mppt)<br>[sub.tel_inv.any_bq](../../Implementation/Datasets/analytics/tel_inv.md) 
+[api.sys_env_config](/docs/api.sundaya.monitored.equipment/0/routes/api/features/get) | `pub.sys_env_config` | [sub.sys_env_config](../../Implementation/Datasets/extended/sys_env_config.md) 
 
 - The `api.sys_env_config` producer propogates 'feature toggles' and logging configuration changes to each configurable service.
 
